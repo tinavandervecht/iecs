@@ -27,7 +27,7 @@ function signUpOrIn(event){
 var it = event.currentTarget;
 if(it.innerHTML === "Sign up"){
   it.innerHTML = "Sign in";
-  it.parentNode.innerHTML.replace("Don't","");
+  it.parentNode.querySelector('#dont').innerHTML.replace("Don't","");
 }else if(it.innerHTML=== "Sign in"){
   it.innerHTML = "Sign up";
 }
