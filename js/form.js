@@ -44,22 +44,34 @@
     }
   }
 
-  function percentToDecimal(){
+  function percentToDecimal(input){
+    return parseFloat((parseInt(input.replace("%",""))*0.01).toFixed(2));
+  }
+  function decimalToPercent(input){
+    return (input*100).toFixed(2) + "%";
   }
 
 function autoUpdate(event){
 var it = event.currentTarget;
 var metric = it.parentNode.querySelector('.M');
 var imperial = it.parentNode.querySelector('.I');
-console.log(metric);
-console.log(imperial);
-if(it===metric){
-  //console.log("metric!");
-  imperial.value = metricToImperial(metric.value,"ft",4);
-}else if(it===imperial){
-  //console.log("imperial!");
-  metric.value = imperialToMetric(imperial.value,"m",4);
-}
+var percent = it.parentNode.querySelector('.P');
+var decimal = it.parentNode.querySelector('.D');
+    if(metric != null){
+      if(it===metric){
+        //console.log("metric!");
+        imperial.value = metricToImperial(metric.value,"ft",4);
+      }else if(it===imperial){
+        //console.log("imperial!");
+        metric.value = imperialToMetric(imperial.value,"m",4);
+      }
+    }else if(percent != null){
+      if(it===decimal){
+        percent.value = decimalToPercent(decimal.value);
+      }else if(it===percent){
+        decimal.value = percentToDecimal(percent.value + "%");
+      }
+    }
 }
 
 function clearField(){
@@ -69,9 +81,21 @@ function clearField(){
 
 
 (function(){
-num = 12;
-console.log(metricToImperial(num,"ft"));
+  /* TESTING */
 
+
+  var num = 12;
+  console.log(metricToImperial(num,"ft"));
+  var percentimal = "57%"
+  console.log(percentimal);
+  console.log(percentToDecimal(percentimal));
+  var decimalent = 0.687;
+  console.log(decimalent);
+  console.log(decimalToPercent(decimalent));
+
+
+
+/* END TESTING */
 var convertFields = document.querySelectorAll("#calculator input.convert");
 var i=0;
 while(i<convertFields.length){
@@ -86,5 +110,4 @@ while(j<fields.length){
 fields[j].addEventListener('click', clearField, false);
 j++;
 }
-
 })();
