@@ -8,6 +8,7 @@
   function metricToImperial(input,units){
     var output = null;
     var factor = 3.28084;
+    input = parseFloat(input);
     if(units === "ft"){
       output = input*factor;
     }else if(units === "in"){
@@ -15,17 +16,63 @@
     }else if(units=== "yd"){
       output = input*factor/3;
     }else{
-      console.log("parameter passed is invalid. please leave blank or 'in'. ");
+      console.log("parameter passed is invalid. ERROR");
     }
-    return output;
+    if(output.toString()!="NaN"){
+      return output;
+      console.log("returned.");
+    }else{
+      return "That's not a number...";
+    }
   }
-  function percentToDecimal(){
 
+
+  function imperialToMetric(input,units){
+    var output = null;
+    var factor = 3.28084;
+    input = parseFloat(input);
+    if(units === "m"){
+      output = input/factor;
+    }else{
+      console.log("parameter passed is invalid. ERROR");
+    }
+    if(output.toString()!="NaN"){
+      return output;
+      console.log("returned.");
+    }else{
+      return "That's not a number...";
+    }
   }
+
+  function percentToDecimal(){
+  }
+
+function autoUpdate(event){
+var it = event.currentTarget;
+var metric = it.parentNode.querySelector('.convertM');
+var imperial = it.parentNode.querySelector('.convertI');
+console.log(metric);
+console.log(imperial);
+if(it===metric){
+  //console.log("metric!");
+  imperial.value = metricToImperial(metric.value,"ft");
+}else if(it===imperial){
+  //console.log("imperial!");
+  metric.value = imperialToMetric(imperial.value,"m");
+}
+}
+
 
 (function(){
 num = 12;
-console.log(metricToImperial(num,"in"));
 console.log(metricToImperial(num,"ft"));
-console.log(metricToImperial(num,"yd"));
+
+var fields = document.querySelectorAll("#calculator input");
+var i=0;
+while(i<fields.length){
+  //console.log(fields[i]);
+  fields[i].addEventListener('input', autoUpdate, false);
+i++;
+}
+
 })();

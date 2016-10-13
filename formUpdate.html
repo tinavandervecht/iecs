@@ -12,7 +12,8 @@
   <body>
     <main>
       <h2 class="hidden">Main Content</h2>
-      <form id="calculator" action="#">
+      <form id="calculator" class="testing" action="#">
+        <!--
           <label for="date">
             <h4 class="title">Date:</h4>
           </label>
@@ -32,13 +33,19 @@
             <h4 class="title">Engineer:</h4>
           </label>
           <input id="engineerName" />
-
-
-        <label for="flow">
+        -->
+          <div id="flow">
           <h4 class="title">Maximum Expected Flow</h4>
-          <h5 class="unit">(cm/s)</h5></label>
-        <input id="flow" />
-
+          <label for="flowMeters">
+            <h5 class="unit">Cubic m/s</h5>
+          </label>
+            <input id="flowMeters" class="convertM"/>
+          <label for="flowFeet">
+            <h5 class="unit">Cubic ft/s</h5>
+          </label>
+            <input id="flowFeet"  class="convertI"/>
+          </div>
+          <!--
         <label for="velocity">
           <h4 class="title">Maximum Expected Velocity</h4>
           <h5 class="unit">(mp/s)</h5></label>
@@ -99,6 +106,7 @@
           <h5 class="unit">(cm/s)</h5></label>
         <input id="soilType" />
 
+      -->
       </form>
   </main>
     <script src="js/vendor/jquery.js"></script>
