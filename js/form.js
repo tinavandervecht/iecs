@@ -5,7 +5,7 @@
   *
 */
 
-  function metricToImperial(input,units){
+  function metricToImperial(input,units,precision){
     var output = null;
     var factor = 3.28084;
     input = parseFloat(input);
@@ -19,15 +19,15 @@
       console.log("parameter passed is invalid. ERROR");
     }
     if(output.toString()!="NaN"){
-      return output;
+      return parseFloat(output.toFixed(precision));
       console.log("returned.");
     }else{
-      return "That's not a number...";
+      return "Unexpected Input.";
     }
   }
 
 
-  function imperialToMetric(input,units){
+  function imperialToMetric(input,units,precision){
     var output = null;
     var factor = 3.28084;
     input = parseFloat(input);
@@ -37,10 +37,10 @@
       console.log("parameter passed is invalid. ERROR");
     }
     if(output.toString()!="NaN"){
-      return output;
-      console.log("returned.");
-    }else{
-      return "That's not a number...";
+      return parseFloat(output.toFixed(precision));
+      //console.log("returned.");
+    }else if(output.toString()!=""){
+      return "Unexpected Input.";
     }
   }
 
@@ -49,17 +49,22 @@
 
 function autoUpdate(event){
 var it = event.currentTarget;
-var metric = it.parentNode.querySelector('.convertM');
-var imperial = it.parentNode.querySelector('.convertI');
+var metric = it.parentNode.querySelector('.M');
+var imperial = it.parentNode.querySelector('.I');
 console.log(metric);
 console.log(imperial);
 if(it===metric){
   //console.log("metric!");
-  imperial.value = metricToImperial(metric.value,"ft");
+  imperial.value = metricToImperial(metric.value,"ft",4);
 }else if(it===imperial){
   //console.log("imperial!");
-  metric.value = imperialToMetric(imperial.value,"m");
+  metric.value = imperialToMetric(imperial.value,"m",4);
 }
+}
+
+function clearField(){
+  var it = event.currentTarget;
+  it.value="";
 }
 
 
@@ -67,12 +72,19 @@ if(it===metric){
 num = 12;
 console.log(metricToImperial(num,"ft"));
 
-var fields = document.querySelectorAll("#calculator input");
+var convertFields = document.querySelectorAll("#calculator input.convert");
 var i=0;
-while(i<fields.length){
+while(i<convertFields.length){
   //console.log(fields[i]);
-  fields[i].addEventListener('input', autoUpdate, false);
-i++;
+  convertFields[i].addEventListener('input', autoUpdate, false);
+  i++;
+}
+
+var fields = document.querySelectorAll("#calculator input");
+var j=1;
+while(j<fields.length){
+fields[j].addEventListener('click', clearField, false);
+j++;
 }
 
 })();

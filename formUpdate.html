@@ -13,44 +13,55 @@
     <main>
       <h2 class="hidden">Main Content</h2>
       <form id="calculator" class="testing" action="#">
-        <!--
-          <label for="date">
-            <h4 class="title">Date:</h4>
-          </label>
-          <input id="date" />
 
-          <label for="projectName">
-            <h4 class="title">Project Name:</h4>
+          <div id="date">
+          <h4 class="title">Projected Start Date for Project:</h4>
+          <label for="d">
+            <h5 class="unit">YYYY/MM/DD</h5>
           </label>
-          <input id="projectName" />
+            <input type="date" id="d" required/>
+          </div>
 
+          <div id="project">
+          <h4 class="title">Location:</h4>
           <label for="projectLocation">
-            <h4 class="title">Project Location:</h4>
+            <h5 class="unit">City, Country</h5>
           </label>
-          <input id="projectLocation" />
+            <input type="text" id="projectLocation" required/>
+          </div>
 
+          <div id="engineer">
+          <h4 class="title">Engineer Name:</h4>
           <label for="engineerName">
-            <h4 class="title">Engineer:</h4>
+            <h5 class="unit">First &amp; Last</h5>
           </label>
-          <input id="engineerName" />
-        -->
+            <input type="text" id="engineerName" required/>
+          </div>
+
           <div id="flow">
           <h4 class="title">Maximum Expected Flow</h4>
           <label for="flowMeters">
             <h5 class="unit">Cubic m/s</h5>
           </label>
-            <input id="flowMeters" class="convertM"/>
+            <input id="flowMeters" class="convert M"  required/>
           <label for="flowFeet">
             <h5 class="unit">Cubic ft/s</h5>
           </label>
-            <input id="flowFeet"  class="convertI"/>
+            <input id="flowFeet"  class="convert I" required/>
+          </div>
+
+          <div id="velocity">
+          <h4 class="title">Maximum Expected Velocity</h4>
+          <label for="velocityMeters">
+            <h5 class="unit">Meters per Second</h5>
+          </label>
+            <input id="velocityMeters" class="convert M"  required/>
+          <label for="velocityFeet">
+            <h5 class="unit">Feet per Second</h5>
+          </label>
+            <input id="flowFeet"  class="convert I" required/>
           </div>
           <!--
-        <label for="velocity">
-          <h4 class="title">Maximum Expected Velocity</h4>
-          <h5 class="unit">(mp/s)</h5></label>
-        <input id="velocity" />
-
         <label for="bedSlope">
           <h4 class="title">Channel Bed Slope</h4>
           <h5 class="unit">(%)</h5></label>
@@ -60,53 +71,99 @@
           <h4 class="title">Channel Side Slope</h4>
           <h5 class="unit">(ratio)</h5></label>
         <input id="sideSlope" />
-
-        <label for="typeFlow">
-          <h4 class="title">Type of Flow</h4>
-          <h5 class="unit">(normal, overtopping, etc.)</h5></label>
-        <input id="typeFlow" />
-
-        <label for="bedWidth">
-          <h4 class="title">Bed Width</h4>
-          <h5 class="unit">(m)</h5></label>
-        <input id="bedWidth" />
-
-        <label for="alignment">
-          <h4 class="title">Alignment</h4>
-          <h5 class="unit">(straight, moderate, severe, extreme)</h5></label>
-        <input id="alignment" />
-
-        <label for="crestRadius">
-          <h4 class="title">Radius at the Crest</h4>
-          <h5 class="unit">(m)</h5></label>
-        <input id="crestRadius" />
-
-        <label for="channelLength">
-          <h4 class="title">Chute/Channel Length</h4>
-          <h5 class="unit">(m)</h5></label>
-        <input id="channelLength" />
-
-        <label for="depth">
-          <h4 class="title">Channel Depth</h4>
-          <h5 class="unit">(m)</h5></label>
-        <input id="depth" />
-
-        <label for="topWidth">
-          <h4 class="title">Top Width of Channel</h4>
-          <h5 class="unit">(cm/s)</h5></label>
-        <input id="topWidth" />
-
-        <label for="source">
-          <h4 class="title">Outlet Source</h4>
-          <h5 class="unit">(river, manhole, etc.)</h5></label>
-        <input id="source" />
-
-        <label for="soilType">
-          <h4 class="title">Soil Type and Related Conditions</h4>
-          <h5 class="unit">(cm/s)</h5></label>
-        <input id="soilType" />
-
       -->
+
+        <div id="type">
+        <h4 class="title">Type of Flow</h4>
+        <label for="flowType">
+          <h5 class="unit">(normal, overtopping, etc.)</h5>
+        </label>
+          <input id="flowType" required/>
+        </div>
+
+        <div id="bedWidth">
+        <h4 class="title">Bed Width</h4>
+        <label for="bedMeters">
+          <h5 class="unit">Meters</h5>
+        </label>
+          <input id="bedMeters" class="convert M"  required/>
+        <label for="bedFeet">
+          <h5 class="unit">Feet</h5>
+        </label>
+          <input id="bedFeet"  class="convert I" required/>
+        </div>
+
+        <div id="alignment">
+        <h4 class="title">Alignment</h4>
+        <label for="alignType">
+          <h5 class="unit">(straight, moderate, severe, extreme)</h5>
+        </label>
+          <input id="alignType" required/>
+        </div>
+
+        <div id="crestRadius">
+        <h4 class="title">Radius at the Crest</h4>
+        <label for="crestMeters">
+          <h5 class="unit">Meters</h5>
+        </label>
+          <input id="crestMeters" class="convert M"  required/>
+        <label for="crestFeet">
+          <h5 class="unit">Feet</h5>
+        </label>
+          <input id="crestFeet"  class="convert I" required/>
+        </div>
+
+        <div id="channelLength">
+        <h4 class="title">Chute/Channel Length</h4>
+        <label for="channelMeters">
+          <h5 class="unit">Meters</h5>
+        </label>
+          <input id="channelMeters" class="convert M"  required/>
+        <label for="channelFeet">
+          <h5 class="unit">Feet</h5>
+        </label>
+          <input id="channelFeet"  class="convert I" required/>
+        </div>
+
+        <div id="channelDepth">
+        <h4 class="title">Channel Depth</h4>
+        <label for="depthMeters">
+          <h5 class="unit">Meters</h5>
+        </label>
+          <input id="depthMeters" class="convert M"  required/>
+        <label for="depthFeet">
+          <h5 class="unit">Feet</h5>
+        </label>
+          <input id="depthFeet"  class="convert I" required/>
+        </div>
+
+        <div id="topWidth">
+        <h4 class="title">Top Width of Channel</h4>
+        <label for="topMeters">
+          <h5 class="unit">Meters</h5>
+        </label>
+          <input id="topMeters" class="convert M"  required/>
+        <label for="topFeet">
+          <h5 class="unit">Feet</h5>
+        </label>
+          <input id="topFeet"  class="convert I" required/>
+        </div>
+
+        <div id="source">
+        <h4 class="title">Outlet Source</h4>
+        <label for="sourceType">
+          <h5 class="unit">(river, manhole, etc.)</h5>
+        </label>
+          <input id="sourceType" required/>
+        </div>
+
+        <div id="soil">
+        <h4 class="title">Soil Type and Related Conditions</h4>
+        <label for="soilType">
+        </label>
+          <input id="soilType" required/>
+        </div>
+
       </form>
   </main>
     <script src="js/vendor/jquery.js"></script>
