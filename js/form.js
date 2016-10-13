@@ -5,20 +5,27 @@
   *
 */
 
-  function toImperial(input, inchesOrFeet){
+  function metricToImperial(input,units){
     var output = null;
-    if(inchesOrFeet != "in"){
-      output = input*3.28;
-    }else if(inchesOrFeet === "in"){
-      output = input*3.28/12;
+    var factor = 3.28084;
+    if(units === "ft"){
+      output = input*factor;
+    }else if(units === "in"){
+      output = input*factor*12;
+    }else if(units=== "yd"){
+      output = input*factor/3;
     }else{
       console.log("parameter passed is invalid. please leave blank or 'in'. ");
     }
     return output;
   }
+  function percentToDecimal(){
+
+  }
 
 (function(){
 num = 12;
-console.log(toImperial(num));
-console.log(toImperial(num,"in"));
+console.log(metricToImperial(num,"in"));
+console.log(metricToImperial(num,"ft"));
+console.log(metricToImperial(num,"yd"));
 })();
