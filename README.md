@@ -15,3 +15,4 @@
 
 ###Week 4
 * Worked on the form js and html.
+* changed some of the functions on the login, added form validation with a regex.
