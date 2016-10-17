@@ -17,3 +17,4 @@
 * Worked on the form js and html.
 * changed some of the functions on the login, added form validation with a regex.
 * fixed the regex (wasn't working, had a problem with JS). Finished form validation for signin(only added required attribute) and for signup (fixed js for regexes).
+* added function to hide metric fields and labels.
