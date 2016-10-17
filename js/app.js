@@ -10,18 +10,6 @@ var signPass = document.querySelector('#signUpPassword');
 var signPassConfirm = document.querySelector('#signUpPassConfirm');
 var noAccountForm = document.querySelector("#onNoAccountShouldYou");
 
-function clearField(event){
-  var it = event.currentTarget;
-  it.value ="";
-  it.removeEventListener('focus',clearField,false);
-}
-
-function setPass(event){
-  var it=event.currentTarget;
-it.type="password";
-it.removeEventListener('focus',setPass,false);
-}
-
 
 function signUpOrIn(event){
 var it = event.currentTarget;
@@ -53,18 +41,17 @@ if(it.value === it.parentNode.querySelector("#signUpPassword").value){
 }
 }
 
-pass.type="text";
-signPass.type="text";
-signPassConfirm.type="text";
+function check(event){
+  if(signPass.value!=signPassConfirm.value){
+    alert("Whoa! Your passwords don't match!");
+    return false;
+  }else{
+    return true;
+  }
+}
 
 noAccountForm.querySelector('#signUp').addEventListener('click',signUpOrIn,false);
-user.addEventListener('focus', clearField, false);
-pass.addEventListener('focus', clearField, false);
-pass.addEventListener('focus',setPass,false);
-signUser.addEventListener('focus', clearField, false);
-signPass.addEventListener('focus', clearField, false);
-signPass.addEventListener('focus',setPass,false);
-signPassConfirm.addEventListener('focus', clearField, false);
-signPassConfirm.addEventListener('focus',setPass,false);
+noAccountForm.addEventListener('submit', check, false);
 signPassConfirm.addEventListener('input', checkPass, false);
+signUser.addEventListener('keyup', setAlertUser,false);
 })();
