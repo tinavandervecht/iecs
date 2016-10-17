@@ -41,16 +41,29 @@ if(it.value === it.parentNode.querySelector("#signUpPassword").value){
 }
 }
 
+function noSpaces(){
+  if(signUser.validity.patternMismatch===true){
+    signUser.setCustomValidity("Username cannot contain spaces and must be between 6-30 characters.");
+    }else{
+      signUser.setCustomValidity("");
+    }
+}
+
 function valPass(){
   if(signPass.value != signPassConfirm.value) {
     signPassConfirm.setCustomValidity("Your passwords don't match.");
-  } else {
-    signPassConfirm.setCustomValidity('');
-  }
+  }else if(signPass.validity.patternMismatch){
+    signPass.setCustomValidity("Password cannot contain spaces and must be between 6-30 characters.");
+  }else{
+      signPassConfirm.setCustomValidity('');
+      signPass.setCustomValidity("");
+    }
 }
 
 noAccountForm.querySelector('#signUp').addEventListener('click',signUpOrIn,false);
+signPass.addEventListener('keyup', valPass, false);
+signPass.addEventListener('focus', valPass, false);
+signUser.addEventListener('keyup', noSpaces, false);
 signPassConfirm.addEventListener('input', checkPass, false);
-signPass.addEventListener('change', valPass, false);
 signPassConfirm.addEventListener('keyup', valPass, false);
 })();

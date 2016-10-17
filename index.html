@@ -24,10 +24,10 @@
         <form id="loginForm" class="clearfix" action="#" method="post">
           <label for="username">Username:</label>
           <img src="img/user_icon_edit.svg" class="icon">
-            <input id="username" type="text" placeholder="Enter your Username">
+            <input id="username" type="text" placeholder="Enter your Username" required="true">
             <label for="password">Password:</label>
             <img src="img/lock_edit.svg" class="icon">
-            <input id="password" type="password" placeholder="Enter your Password">
+            <input id="password" type="password" placeholder="Enter your Password" required="true">
             <a id="forgot" href="#">Forgot Password</a>
             <input type="submit" value="Sign In">
         </form>
@@ -36,12 +36,12 @@
         <form id="signUpForm" class="clearfix hide" action="#" method="post">
           <label for="ignUpUsername">Username:</label>
           <img src="img/user_icon_edit.svg" class="icon">
-            <input id="signUpUsername" type="text" placeholder="Enter your Desired Username" name="username" pattern="[A-Za-z0-9\S]{1,25}"  title="No Spaces Please!">
+            <input id="signUpUsername" type="text" placeholder="Enter your Desired Username" title="Username with no spaces and between 6 &amp; 30 characters." pattern="[A-Za-z0-9\S]{6,30}" required="true">
             <label for="signUpPassword">Password:</label>
             <img src="img/lock_edit.svg" class="icon">
-            <input id="signUpPassword" type="password" placeholder="Enter your Password">
+            <input id="signUpPassword" type="password" placeholder="Enter your Password"  title="Password with no spaces and between 6 &amp; 30 characters." pattern="[A-Za-z0-9\S]{6,30}" required="true">
             <img src="img/lock_edit.svg" class="icon">
-            <input id="signUpPassConfirm" type="password" placeholder="Re-Enter your Password">
+            <input id="signUpPassConfirm" type="password" placeholder="Re-Enter your Password"  title="Re-enter password with no spaces and between 6 &amp; 30 characters." required="true">
 
             <input type="submit" value="Sign Up" id="register">
         </form>
