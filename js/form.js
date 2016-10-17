@@ -5,6 +5,7 @@
   *
 */
 
+(function(){
   function metricToImperial(input,units,precision){
     var output = null;
     var factor = 3.28084;
@@ -78,36 +79,28 @@ function clearField(){
   var it = event.currentTarget;
   it.value="";
 }
-
-
-(function(){
-  /* TESTING */
-
-
-  var num = 12;
-  console.log(metricToImperial(num,"ft"));
-  var percentimal = "57%"
-  console.log(percentimal);
-  console.log(percentToDecimal(percentimal));
-  var decimalent = 0.687;
-  console.log(decimalent);
-  console.log(decimalToPercent(decimalent));
-
-
-
-/* END TESTING */
 var convertFields = document.querySelectorAll("#calculator input.convert");
-var i=0;
-while(i<convertFields.length){
-  //console.log(fields[i]);
-  convertFields[i].addEventListener('input', autoUpdate, false);
-  i++;
+var fields = document.querySelectorAll("#calculator input");
+var hideMetricBox = document.querySelector("#hideMetric");
+
+function toggleMetric(){
+  for(var i=0;i<fields.length;i++){
+    if(fields[i].classList.contains('M')){
+      fields[i].classList.toggle('hidden');
+//      console.log(fields[i]);
+  //    console.log(fields[i].previousElementSibling);
+      fields[i].previousElementSibling.classList.toggle('hidden');
+      }
+    }
 }
 
-var fields = document.querySelectorAll("#calculator input");
-var j=1;
-while(j<fields.length){
-fields[j].addEventListener('click', clearField, false);
-j++;
+
+for(var i=0;i<convertFields.length;i++){
+  convertFields[i].addEventListener('input', autoUpdate, false);
 }
+
+for(var i=0;i<fields.length;i++){
+  fields[i].addEventListener('click', clearField, false);
+}
+hideMetricBox.addEventListener('click', toggleMetric, false);
 })();
