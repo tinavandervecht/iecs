@@ -41,17 +41,16 @@ if(it.value === it.parentNode.querySelector("#signUpPassword").value){
 }
 }
 
-function check(event){
-  if(signPass.value!=signPassConfirm.value){
-    alert("Whoa! Your passwords don't match!");
-    return false;
-  }else{
-    return true;
+function valPass(){
+  if(signPass.value != signPassConfirm.value) {
+    signPassConfirm.setCustomValidity("Your passwords don't match.");
+  } else {
+    signPassConfirm.setCustomValidity('');
   }
 }
 
 noAccountForm.querySelector('#signUp').addEventListener('click',signUpOrIn,false);
-noAccountForm.addEventListener('submit', check, false);
 signPassConfirm.addEventListener('input', checkPass, false);
-signUser.addEventListener('keyup', setAlertUser,false);
+signPass.addEventListener('change', valPass, false);
+signPassConfirm.addEventListener('keyup', valPass, false);
 })();
