@@ -6,6 +6,9 @@
 */
 
 (function(){
+  var calcSubmit = document.querySelector('#calculator');
+  console.log(calcSubmit);
+
   function metricToImperial(input,units,precision){
     var output = null;
     var factor = 3.28084;
@@ -94,6 +97,16 @@ function toggleMetric(){
     }
 }
 
+function calculate(event){
+  event.preventDefault();
+  var it = event.currentTarget;
+  var a = parseFloat(it.parentNode.querySelector('#flowMeters').value);
+  var b = parseFloat(it.parentNode.querySelector('#velocityMeters').value);
+  var c = parseFloat(it.parentNode.querySelector('#bedSlopeDecimal').value);
+  var d = parseFloat(it.parentNode.querySelector('#sideSlopeDecimal').value);
+
+  console.log(((a+b)/c)*(1/d) );
+}
 
 for(var i=0;i<convertFields.length;i++){
   convertFields[i].addEventListener('input', autoUpdate, false);
@@ -102,5 +115,8 @@ for(var i=0;i<convertFields.length;i++){
 for(var i=0;i<fields.length;i++){
   fields[i].addEventListener('click', clearField, false);
 }
+
+
+calcSubmit.addEventListener('submit',calculate,false);
 hideMetricBox.addEventListener('click', toggleMetric, false);
 })();

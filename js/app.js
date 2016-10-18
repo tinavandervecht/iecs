@@ -10,7 +10,6 @@ var signPass = document.querySelector('#signUpPassword');
 var signPassConfirm = document.querySelector('#signUpPassConfirm');
 var noAccountForm = document.querySelector("#onNoAccountShouldYou");
 
-
 function signUpOrIn(event){
 var it = event.currentTarget;
 if(it.innerHTML === "Sign up"){
