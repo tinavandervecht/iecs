@@ -202,9 +202,15 @@ form.testing input{
 #mainDashTitle h3{
   font-size: 2rem;
   font-family: "opensans-bold";
+  margin-bottom: 0.2em;
 }
-#mainDashTitle h4{
-  font-size: 1.6rem;
+#mainDashTitle h4, #mainDashTitle h5{
+  font-size: 1.4rem;
+  font-family: "opensans-light";
+  display: inline;
+}
+#mainDashTitle h4:after{
+  content:'-'
 }
 #mainDashTitle >*{
   font-weight: normal;
