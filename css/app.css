@@ -148,3 +148,8 @@ form.testing{
 form.testing input{
   color:#222;
 }
+#quotes{
+  color:#fff;
+  font-family: "opensans-bold";
+  text-transform: uppercase;
+}
