@@ -148,8 +148,46 @@ form.testing{
 form.testing input{
   color:#222;
 }
-#quotes{
+
+.card{
   color:#fff;
+  font-size: 2em;
   font-family: "opensans-bold";
   text-transform: uppercase;
+  background:rgba(255,255,255,0.254);
+  padding:0.5em;
+  margin-bottom:0.5em;
+  display: block;
+  text-decoration: none;
+  transition: all ease 1s;
+}
+.card:hover{
+    background:rgba(255,255,255,0.4);
+}
+
+#quotes{
+  line-height: 3em;
+  padding-left: 1em;
+}
+#quotes img{
+  float: right;
+  max-width: 3em;
+}
+.card:first-child{
+  margin-left:0.5em;
+}
+.columns:last-child .card{
+  margin-right:0.5em;
+}
+.card img{
+  max-width: 3em;
+  display: block;
+  float: none;
+  margin: 0 auto;
+  padding:0.5em;
+}
+@media only screen and (min-width:64rem){
+  #profile,#history{
+    display: none;
+  }
 }

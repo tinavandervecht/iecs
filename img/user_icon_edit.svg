@@ -1,40 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 48 40.7" style="enable-background:new 0 0 48 40.7;" xml:space="preserve">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 110 110" style="enable-background:new 0 0 110 110;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#666666;stroke-width:3.0996;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#666666;stroke-width:2.52;stroke-miterlimit:10;}
+</style>
 <g>
-	<circle id="XMLID_1_" style="fill:none;stroke:#666666;stroke-width:1.23;stroke-miterlimit:10;" cx="24.4" cy="9.8" r="8.6"/>
-	<path id="XMLID_3_" style="fill:none;stroke:#666666;stroke-miterlimit:10;" d="M44.5,39.5h-42v-6.7c0,0,6.2-8.9,21.3-8.9
-		s20.7,8.5,20.7,8.5V39.5z"/>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
+	<circle id="XMLID_1_" class="st0" cx="57.3" cy="28.4" r="21.7"/>
+	<path id="XMLID_3_" class="st1" d="M107.9,103.3H2.1V86.4c0,0,15.6-22.4,53.7-22.4s52.2,21.4,52.2,21.4V103.3z"/>
 </g>
 </svg>
