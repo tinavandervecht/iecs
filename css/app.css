@@ -13,11 +13,12 @@ body{
   display: none;
 }
 
-.clearfix::after{
+.clearfix:after{
   content:'';
   display: block;
   width:0;
   height: 0;
+  opacity: 0.0;
   visibility: 0;
   clear: both;
 }
@@ -149,29 +150,24 @@ form.testing input{
   color:#222;
 }
 
+
+
+/*******************************
+
+
 .card{
   color:#fff;
-  font-size: 2em;
   font-family: "opensans-bold";
-  text-transform: uppercase;
   background:rgba(255,255,255,0.254);
-  padding:0.5em;
+  padding:0.5em 1em;
   margin-bottom:0.5em;
   display: block;
   text-decoration: none;
   transition: all ease 1s;
+  position: relative;
 }
 .card:hover{
     background:rgba(255,255,255,0.4);
-}
-
-#quotes{
-  line-height: 3em;
-  padding-left: 1em;
-}
-#quotes img{
-  float: right;
-  max-width: 3em;
 }
 .card:first-child{
   margin-left:0.5em;
@@ -179,13 +175,63 @@ form.testing input{
 .columns:last-child .card{
   margin-right:0.5em;
 }
-.card img{
-  max-width: 3em;
-  display: block;
-  float: none;
-  margin: 0 auto;
-  padding:0 0.5em;
+.card p{
+  display: none;
+  font-size: 0.1em;
+  font-family: "opensans";
+  margin:0;
+  padding:0;
 }
+.card h3{
+  text-transform: uppercase;
+}
+.card h3.vcenter{
+  padding:0;
+  font-size: 2.4em;
+  margin:0;
+  margin-top:1.2em;
+  margin-left:0.8em;
+}
+.card h3:not([class=vcenter]){
+display: block;
+float: none;
+width:100%;
+text-align: center;
+font-size: 2em;
+margin-bottom: 1.2em;
+}
+.card img{
+  float: right;
+  max-height: 6em;
+  height:100%;
+  display: block;
+  padding:0 0.5em;
+  margin:1em;
+}
+.card img.nofloat{
+  float:none;
+  margin:0 auto;
+  margin-top:2em;
+  padding:0;
+}
+#currentQuotes, #newQuote, #quoteHistory{
+  display: none;
+}
+#quoteHistory{
+  min-height: 30em;
+}
+.floatRight{
+  float:right;
+}
+.clearLeft{
+  clear:left;
+}
+.noRowClear:after{
+  clear: none !important;
+}
+
+/*******************************/
+
 
 
 #mainDashTitle{
@@ -219,7 +265,10 @@ form.testing input{
 
 
 @media only screen and (min-width:64rem){
-  #profile,#history{
+  #profile,#history,#quotes{
     display: none;
+  }
+  #currentQuotes, #newQuote, #quoteHistory{
+    display: block;
   }
 }
