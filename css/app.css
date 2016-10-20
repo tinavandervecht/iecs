@@ -158,13 +158,13 @@ form.testing input{
 .card{
   color:#fff;
   font-family: "opensans-bold";
-  background:rgba(255,255,255,0.254);
   padding:0.5em 1em;
   margin-bottom:0.5em;
   display: block;
   text-decoration: none;
   transition: all ease 1s;
   position: relative;
+  background:rgba(255,255,255,0.254);
 }
 .card:hover{
     background:rgba(255,255,255,0.4);
@@ -232,9 +232,39 @@ margin-bottom: 1.2em;
 
 /*******************************/
 
+#cardCont{
+  width:100%;
+  max-width: 64em;
+  margin:0 auto;
+}
 .card{
   display: block;
+  color:#fff;
+  text-decoration: inherit;
+  width:50%;
+  max-width: 31em;
+  background:rgba(255,255,255,0.254);
+  transition: all ease 0.5s;
+  padding:1em 2em;
+  box-sizing: border-box;
+  margin:0.5em;
+  float: left;
 }
+  .card >*{
+    padding:0;
+    margin:0;
+  }
+  .card:hover{
+    background:rgba(255,255,255,0.4);
+  }
+
+  .card.floatRight{
+    float: right;
+  }
+  .card h3{
+    font-size: 3em;
+  }
+
 
 #mainDashTitle{
   color:#fff;
