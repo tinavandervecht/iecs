@@ -231,7 +231,9 @@ margin-bottom: 1.2em;
 }
 
 /*******************************/
-
+main{
+  margin-left:24em;
+}
 #cardCont{
   width:100%;
   max-width: 64em;
@@ -241,13 +243,13 @@ margin-bottom: 1.2em;
   display: block;
   color:#fff;
   text-decoration: inherit;
-  width:50%;
+  width:48%;
   max-width: 31em;
   background:rgba(255,255,255,0.254);
   transition: all ease 0.5s;
   padding:1em 2em;
   box-sizing: border-box;
-  margin:0.5em;
+  margin:1%;
   float: left;
 }
   .card >*{
@@ -261,10 +263,86 @@ margin-bottom: 1.2em;
   .card.floatRight{
     float: right;
   }
+  .card.small{
+    max-width: 23%;
+  }
   .card h3{
-    font-size: 3em;
+    font-size: 2.4em;
   }
 
+#profileCont{
+width:20%;
+display: block;
+max-width: 32em;
+min-width: 18em;
+position: fixed;
+top:0;
+left:0;
+background: rgba(147, 153, 170, 0.47);
+height:100%;
+color:#fff;
+}
+#profileCont .profilepic{
+  width: 50%;
+  display: block;
+  max-width: 16rem;
+  background: #fff;
+  margin:2em auto;
+  margin-top:4em;
+  float: none;
+
+  border-radius: 50%;
+  shape-outside: circle(50%);
+}
+#profileCont h3, #profileCont h4{
+  display: block;
+  padding:0;
+  margin:0;
+  margin-left: 4rem;
+}
+#profileCont .welcome{
+  display: block;
+  width:100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "opensans-bold";
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom:2rem;
+  font-size: 3em;
+}
+#profileCont .name{
+  font-size: 1.8em;
+  font-family: "opensans-light";
+}
+#profileCont .title, #profileCont .phone{
+  margin-bottom: 2em;
+}
+#profileCont #profileButton{
+  background: rgba(147, 153, 170, 0.56);
+  width:100%;
+  display: block;
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  padding:1rem;
+  color:#fff;
+  text-decoration: none;
+  font-family: "opensans-bold";
+  font-size: 1.4rem;
+  text-transform: uppercase;
+
+  transition: all ease 0.6s;
+}
+#profileCont #profileButton:hover{
+  background: rgba(147, 153, 170, 0.86);
+}
+#profileCont #profileButton h3{
+  margin:0 auto;
+}
+#profileCont #profileButton img{
+  max-width: 6rem;
+}
 
 #mainDashTitle{
   color:#fff;
