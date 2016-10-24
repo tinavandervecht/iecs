@@ -200,8 +200,12 @@ a.cardLink{
     position: relative;
     margin-bottom: 2em;
     padding-top: 0.1px;
+    position: relative;
+    padding-bottom: 0.1px;
   }
   .quote .content>*{
+    position: relative;
+    z-index: 2;
     padding:0;
     margin: 0;
   }
@@ -222,9 +226,20 @@ font-size: 1.4em;
 
   }
   .quote .status{
-
+    min-width: 8em;
+    display: inline;
+    float: right;
+    margin-right: 2em;
+    margin-top: 0.7em;
+    text-align: center;
+    z-index: 1;
+  }
+  .quote .status img{
+    max-width: 5em;
+    height:100%;
   }
   .quote .buttons{
+    clear: both;
     margin:0;
     width: 100%;
     box-sizing: inherit;
