@@ -232,7 +232,7 @@ margin-bottom: 1.2em;
 
 /*******************************/
 main{
-  margin-left:24em;
+  margin-left:20em;
 }
 #cardCont{
   width:100%;
@@ -260,14 +260,68 @@ main{
     background:rgba(255,255,255,0.4);
   }
 
-  .card.floatRight{
+  .floatRight{
     float: right;
+  }
+  .card.floatRight{
+    min-height: 26rem;
+  }
+  .quote{
+    display: block;
+    background: #fff;
+    position: relative;
+  }
+  .quote .name{
+    float: left;
+  }
+  .quote .modified{
+
+  }
+  .quote .created{
+
+  }
+  .date{
+
+  }
+  .quote .status{
+
+  }
+  .quote .buttons{
+}
+  .quote .buttons a{
+    margin:0;
+    padding:0;
+    display: inline;
+  }
+  .quote .buttons:first-child{
+    color:#222;
+    background: #b4b2b0;
+  }
+  .quote .buttons:last-child{
+    background: #6b9773;
+    color:#fff;
   }
   .card.small{
     max-width: 23%;
+    text-align: center;
   }
   .card h3{
-    font-size: 2.4em;
+    font-size: 2em;
+    font-family: "opensans-bold";
+    text-transform: uppercase;
+    font-weight: 200;
+  }
+  .card .desc{
+  }
+  .card .cardIcon{
+    max-width: 5em;
+    margin-top: 1.5em;
+    margin-left: 2em;
+    float: right;
+  }
+  .card.small .cardIcon{
+    float: none;
+    margin: 0.5em 0;
   }
 
 #profileCont{
@@ -304,10 +358,8 @@ color:#fff;
   display: block;
   width:100%;
   box-sizing: border-box;
-  text-align: center;
   font-family: "opensans-bold";
   text-transform: uppercase;
-  margin: 0 auto;
   margin-bottom:2rem;
   font-size: 3em;
 }

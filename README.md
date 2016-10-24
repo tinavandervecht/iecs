@@ -1,4 +1,4 @@
-#EROSION CONTROL - CURRENT WEEK : 4
+#EROSION CONTROL - CURRENT WEEK : 5
 
 ##Nick
 
@@ -21,3 +21,4 @@
 
 ###Week 5
 * started dashboard.
+* re-did dashboard because foundation annoys me.
