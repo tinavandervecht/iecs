@@ -150,87 +150,6 @@ form.testing input{
   color:#222;
 }
 
-
-
-/*******************************
-
-
-.card{
-  color:#fff;
-  font-family: "opensans-bold";
-  padding:0.5em 1em;
-  margin-bottom:0.5em;
-  display: block;
-  text-decoration: none;
-  transition: all ease 1s;
-  position: relative;
-  background:rgba(255,255,255,0.254);
-}
-.card:hover{
-    background:rgba(255,255,255,0.4);
-}
-.card:first-child{
-  margin-left:0.5em;
-}
-.columns:last-child .card{
-  margin-right:0.5em;
-}
-.card p{
-  display: none;
-  font-size: 0.1em;
-  font-family: "opensans";
-  margin:0;
-  padding:0;
-}
-.card h3{
-  text-transform: uppercase;
-}
-.card h3.vcenter{
-  padding:0;
-  font-size: 2.4em;
-  margin:0;
-  margin-top:1.2em;
-  margin-left:0.8em;
-}
-.card h3:not([class=vcenter]){
-display: block;
-float: none;
-width:100%;
-text-align: center;
-font-size: 2em;
-margin-bottom: 1.2em;
-}
-.card img{
-  float: right;
-  max-height: 6em;
-  height:100%;
-  display: block;
-  padding:0 0.5em;
-  margin:1em;
-}
-.card img.nofloat{
-  float:none;
-  margin:0 auto;
-  margin-top:2em;
-  padding:0;
-}
-#currentQuotes, #newQuote, #quoteHistory{
-  display: none;
-}
-#quoteHistory{
-  min-height: 30em;
-}
-.floatRight{
-  float:right;
-}
-.clearLeft{
-  clear:left;
-}
-.noRowClear:after{
-  clear: none !important;
-}
-
-/*******************************/
 main{
   margin-left:20em;
 }
@@ -268,11 +187,9 @@ main{
   }
   .quote{
     display: block;
-    background: #fff;
-    position: relative;
+    width:100%;
   }
   .quote .name{
-    float: left;
   }
   .quote .modified{
 
