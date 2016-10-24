@@ -155,7 +155,7 @@ main{
 }
 #cardCont{
   width:100%;
-  max-width: 64em;
+  max-width: 84em;
   margin:0 auto;
 }
 .card{
@@ -163,34 +163,55 @@ main{
   color:#fff;
   text-decoration: inherit;
   width:48%;
-  max-width: 31em;
+  max-width: 62em;
   background:rgba(255,255,255,0.254);
   transition: all ease 0.5s;
   padding:1em 2em;
   box-sizing: border-box;
   margin:1%;
   float: left;
+  min-height: 9em;
+}
+a.cardLink{
+  text-decoration: none;
+  color:#fff;
 }
   .card >*{
     padding:0;
     margin:0;
   }
-  .card:hover{
-    background:rgba(255,255,255,0.4);
-  }
-
   .floatRight{
     float: right;
   }
   .card.floatRight{
     min-height: 26rem;
   }
+  #quotes{
+    max-height: 23rem;
+    overflow-y: scroll;
+    padding-right:1em;
+  }
   .quote{
     display: block;
     width:100%;
+    box-sizing: border-box;
+    background: #fff;
+    color:#222;
+    position: relative;
+    margin-bottom: 2em;
+    padding-top: 0.1px;
   }
-  .quote .name{
+  .quote .content>*{
+    padding:0;
+    margin: 0;
   }
+  .quote .content{
+    margin: 1em;
+  }
+.quote .name{
+margin-top: 1em;
+font-size: 1.4em;
+}
   .quote .modified{
 
   }
@@ -204,29 +225,49 @@ main{
 
   }
   .quote .buttons{
+    margin:0;
+    width: 100%;
+    box-sizing: inherit;
+    margin-top:1em;
 }
   .quote .buttons a{
+    box-sizing: inherit;
     margin:0;
     padding:0;
-    display: inline;
+    display: block;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    padding:0.3em;
   }
-  .quote .buttons:first-child{
+  .quote .buttons a:first-child{
     color:#222;
     background: #b4b2b0;
+    width: 50%;
   }
-  .quote .buttons:last-child{
+  .quote .buttons a:first-child:hover{
+    background: #c5c3c1;
+  }
+  .quote .buttons a:last-child{
     background: #6b9773;
     color:#fff;
+    width: 50%;
+  }
+  .quote .buttons a:last-child:hover{
+    background: #5a8662;
   }
   .card.small{
     max-width: 23%;
     text-align: center;
   }
-  .card h3{
+  .card>h3{
     font-size: 2em;
     font-family: "opensans-bold";
     text-transform: uppercase;
     font-weight: 200;
+  }
+  .card.floatRight >h3{
+    margin-bottom:0.5em;
   }
   .card .desc{
   }
@@ -313,6 +354,9 @@ color:#fff;
   max-width: 6rem;
 }
 
+#mainLogo{
+  max-width: 24rem;
+}
 #mainDashTitle{
   color:#fff;
   margin-bottom:2em;
@@ -344,7 +388,7 @@ color:#fff;
 
 
 @media only screen and (min-width:64rem){
-  #profile,#history,#quotes{
+  #profile,#history{
     display: none;
   }
   #currentQuotes, #newQuote, #quoteHistory{
