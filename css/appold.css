@@ -151,35 +151,34 @@ form.testing{
 form.testing input{
   color:#222;
 }
-#dashboard{
-  max-width: inherit;
-  margin-left:0;
+
+main{
+  margin-left:20em;
+}
+#cardCont{
+  width:100%;
+  max-width: 84em;
+  margin:0 auto;
 }
 .card{
-  padding:0.75em 1.5em;
-}
-.small{
-  padding-right: 0.75em;
-}
-.small:nth-child(2n+1){
-  padding-right: 1.5em;
-  padding-left: 0.75em;
-}
-
-.card .insideCard{
-  padding:1em;
   display: block;
   color:#fff;
   text-decoration: inherit;
+  width:48%;
+  max-width: 62em;
   background:rgba(255,255,255,0.254);
   transition: all ease 0.5s;
+  padding:1em 2em;
   box-sizing: border-box;
+  margin:1%;
+  float: left;
+  min-height: 9em;
 }
 a.cardLink{
   text-decoration: none;
   color:#fff;
 }
-  .card .insideCard >*{
+  .card >*{
     padding:0;
     margin:0;
   }
@@ -190,7 +189,7 @@ a.cardLink{
     min-height: 26rem;
   }
   #quotes{
-    max-height: 24.5rem;
+    max-height: 23rem;
     overflow-y: scroll;
     padding-right:1em;
   }
@@ -275,29 +274,23 @@ font-size: 1.4em;
     background: #5a8662;
   }
   .card.small{
+    max-width: 23%;
     text-align: center;
   }
-  .card .cardTitle{
+  .card>h3{
     font-size: 2em;
     font-family: "opensans-bold";
     text-transform: uppercase;
     font-weight: 200;
   }
-  .card .cardTitle.noDesc{
-    font-size: 3em;
-    margin-left:0.5em;
-    margin-top:1.5rem;
+  .card.floatRight >h3{
+    margin-bottom:0.5em;
   }
-  .cardLink:hover .insideCard{
-    background:rgba(255,255,255,0.354);
-  }
-
   .card .desc{
   }
   .card .cardIcon{
     max-width: 5em;
     margin-top: 1.5em;
-    margin-bottom: 1em;
     margin-left: 2em;
     float: right;
   }
@@ -307,8 +300,77 @@ font-size: 1.4em;
   }
 
 #profileCont{
-display: none;
+width:20%;
+display: block;
+max-width: 32em;
+min-width: 18em;
+position: fixed;
+top:0;
+left:0;
+background: rgba(147, 153, 170, 0.47);
+height:100%;
+color:#fff;
 }
+#profileCont .profilepic{
+  width: 50%;
+  display: block;
+  max-width: 16rem;
+  background: #fff;
+  margin:2em auto;
+  margin-top:4em;
+  float: none;
+
+  border-radius: 50%;
+  shape-outside: circle(50%);
+}
+#profileCont h3, #profileCont h4{
+  display: block;
+  padding:0;
+  margin:0;
+  margin-left: 4rem;
+}
+#profileCont .welcome{
+  display: block;
+  width:100%;
+  box-sizing: border-box;
+  font-family: "opensans-bold";
+  text-transform: uppercase;
+  margin-bottom:2rem;
+  font-size: 3em;
+}
+#profileCont .name{
+  font-size: 1.8em;
+  font-family: "opensans-light";
+}
+#profileCont .title, #profileCont .phone{
+  margin-bottom: 2em;
+}
+#profileCont #profileButton{
+  background: rgba(147, 153, 170, 0.56);
+  width:100%;
+  display: block;
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  padding:1rem;
+  color:#fff;
+  text-decoration: none;
+  font-family: "opensans-bold";
+  font-size: 1.4rem;
+  text-transform: uppercase;
+
+  transition: all ease 0.6s;
+}
+#profileCont #profileButton:hover{
+  background: rgba(147, 153, 170, 0.86);
+}
+#profileCont #profileButton h3{
+  margin:0 auto;
+}
+#profileCont #profileButton img{
+  max-width: 6rem;
+}
+
 #mainLogo{
   max-width: 24rem;
 }
@@ -340,105 +402,13 @@ display: none;
   font-weight: normal;
   margin:0;
 }
-.desk{
-  display: none;
-}
-.tab{
-  display: none;
-}
-
-@media only screen and (min-width:40rem){
-  .tab{
-    display: block;
-  }
-  .no-tab{
-    display: none;
-  }
-
-}
 
 
 @media only screen and (min-width:64rem){
-  #profileCont{
+  #profile,#history{
+    display: none;
+  }
+  #currentQuotes, #newQuote, #quoteHistory{
     display: block;
-  }
-
-  #profileCont{
-  width:20%;
-  max-width: 32em;
-  min-width: 18em;
-  position: fixed;
-  top:0;
-  left:0;
-  background: rgba(147, 153, 170, 0.47);
-  height:100%;
-  color:#fff;
-  }
-  #profileCont .profilepic{
-    width: 50%;
-    display: block;
-    max-width: 16rem;
-    background: #fff;
-    margin:2em auto;
-    margin-top:4em;
-    float: none;
-
-    border-radius: 50%;
-    shape-outside: circle(50%);
-  }
-  #profileCont h3, #profileCont h4{
-    display: block;
-    padding:0;
-    margin:0;
-    margin-left: 4rem;
-  }
-  #profileCont .welcome{
-    display: block;
-    width:100%;
-    box-sizing: border-box;
-    font-family: "opensans-bold";
-    text-transform: uppercase;
-    margin-bottom:2rem;
-    font-size: 2.5em;
-  }
-  #profileCont .name{
-    font-size: 1.8em;
-    font-family: "opensans-light";
-  }
-  #profileCont .title, #profileCont .phone{
-    margin-bottom: 2em;
-  }
-  #profileCont #profileButton{
-    background: rgba(147, 153, 170, 0.56);
-    width:100%;
-    display: block;
-    position: absolute;
-    bottom:0;
-    text-align: center;
-    padding:1rem;
-    color:#fff;
-    text-decoration: none;
-    font-family: "opensans-bold";
-    font-size: 1.4rem;
-    text-transform: uppercase;
-
-    transition: all ease 0.6s;
-  }
-  #profileCont #profileButton:hover{
-    background: rgba(147, 153, 170, 0.86);
-  }
-  #profileCont #profileButton h3{
-    margin:0 auto;
-  }
-  #profileCont #profileButton img{
-    max-width: 6rem;
-  }
-
-  #dashboard{
-    max-width: 74rem;
-    margin-left:25%;
-  }
-  .desk{
-    display:block;
   }
 }
