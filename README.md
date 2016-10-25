@@ -22,3 +22,7 @@
 ###Week 5
 * started dashboard.
 * re-did dashboard because foundation annoys me.
+* re-did dashboard in foundation because it's necessary.
+* started building actual form page.
+* built form page, wrote test function for inputs.
+* started working on js to toggle units in the form.
