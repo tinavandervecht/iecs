@@ -161,9 +161,16 @@ form.testing input{
 .small{
   padding-right: 0.75em;
 }
+.borderTop .insideCard{
+  border-top: thin solid rgba(255,255,255,0.2);
+}
 .small:nth-child(2n+1){
   padding-right: 1.5em;
   padding-left: 0.75em;
+  border-left:thin solid rgba(255,255,255,0.2);
+}
+.small:nth-child(n+2) .insideCard{
+  border-bottom:none;
 }
 
 .card .insideCard{
@@ -171,9 +178,10 @@ form.testing input{
   display: block;
   color:#fff;
   text-decoration: inherit;
-  background:rgba(255,255,255,0.254);
+/*  background:rgba(255,255,255,0.254);*/
   transition: all ease 0.5s;
   box-sizing: border-box;
+  border-bottom:thin solid rgba(255,255,255,0.2);
 }
 a.cardLink{
   text-decoration: none;
@@ -289,7 +297,6 @@ font-size: 1.4em;
     margin-top:1.5rem;
   }
   .cardLink:hover .insideCard{
-    background:rgba(255,255,255,0.354);
   }
 
   .card .desc{
@@ -346,6 +353,24 @@ display: none;
 .tab{
   display: none;
 }
+#calculator{
+  color:#fff;
+}
+#calculator label, #calculator title{
+  font-family: "opensans-bold";
+  font-weight: 100;
+}
+#calculator input, #calculator textarea{
+  font-family: "opensans-light";
+  color:inherit;
+  background-color: transparent;
+  border:0;
+  border-bottom:thin solid rgba(255,255,255,0.2);
+}
+#calculator input:focus{
+  border-bottom:thin solid rgba(255,255,255,0.8);
+  outline:0;
+}
 
 @media only screen and (min-width:40rem){
   .tab{
@@ -354,7 +379,9 @@ display: none;
   .no-tab{
     display: none;
   }
-
+  .borderTop .insideCard{
+    border-top: none;
+  }
 }
 
 
@@ -434,7 +461,7 @@ display: none;
     max-width: 6rem;
   }
 
-  #dashboard{
+  #dashboard, #calculator{
     max-width: 74rem;
     margin-left:25%;
   }
