@@ -356,6 +356,10 @@ display: none;
 #calculator{
   color:#fff;
 }
+#calculator *{
+  margin:0;
+  padding:0;
+}
 #calculator label, #calculator title{
   font-family: "opensans-bold";
   font-weight: 100;
@@ -370,6 +374,34 @@ display: none;
 #calculator input:focus{
   border-bottom:thin solid rgba(255,255,255,0.8);
   outline:0;
+}
+.pagnation-page{
+}
+.pagnation-page.current{
+  display: block;
+  background: rgba(255,255,255,0.235);
+}
+.pagnation-page > div{
+  padding:1em 3em !important;
+}
+#calculator input:not([type="submit"]){
+  float: left;
+}
+#calculator label{
+  display: block;
+  float: left;
+  margin-right:1em;
+}
+#calculator .title{
+}
+.convert.imperial{
+  display: none;
+}
+.convert.metric{
+  display: none;
+}
+.shown{
+  display: block !important;
 }
 
 @media only screen and (min-width:40rem){

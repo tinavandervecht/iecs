@@ -57,8 +57,8 @@
 
 function autoUpdate(event){
 var it = event.currentTarget;
-var metric = it.parentNode.querySelector('.M');
-var imperial = it.parentNode.querySelector('.I');
+var metric = it.parentNode.querySelector('.metric');
+var imperial = it.parentNode.querySelector('.imperial');
 var percent = it.parentNode.querySelector('.P');
 var decimal = it.parentNode.querySelector('.D');
     if(metric != null){
@@ -84,18 +84,37 @@ function clearField(){
 }
 var convertFields = document.querySelectorAll("#calculator input.convert");
 var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit'])");
-var hideMetricBox = document.querySelector("#hideMetric");
+var showMetricBox = document.querySelector("#hideMetric");
+var showImperialBox = document.querySelector("#hideImperial");
 
-function toggleMetric(){
+function toggleUnits(){
+var showM;
+var showI;
+  if(showMetricBox.checked){
+    console.log("metric's checked!");
+    showM = true;
+  }
+  if(showImperialBox.checked){
+    console.log("imperial's checked!");
+    showI = true;
+  }
+  if(!showMetricBox.checked&&!showImperialBox.checked){
+    console.log("nothing's checked!");
+    showM=false;
+    showI=false;
+  }
+  if(showM){
   for(var i=0;i<fields.length;i++){
-    if(fields[i].classList.contains('M')){
-      fields[i].classList.toggle('hidden');
-//      console.log(fields[i]);
-  //    console.log(fields[i].previousElementSibling);
-      fields[i].previousElementSibling.classList.toggle('hidden');
+    if(fields[i].classList.contains('metric')||fields[i].classList.contains('metric')){
+      fields[i].classList.toggle('shown');
+      fields[i].previousElementSibling.classList.toggle('shown');
       }
     }
+  }
+
 }
+
+
 
 function calculate(event){
   event.preventDefault();
@@ -148,7 +167,8 @@ for(var i=0;i<fields.length;i++){
   fields[i].addEventListener('click', clearField, false);
 }
 
-
+toggleUnits();
 calcSubmit.addEventListener('submit',calculate,false);
-hideMetricBox.addEventListener('click', toggleMetric, false);
+showMetricBox.addEventListener('click', toggleUnits, false);
+showImperialBox.addEventListener('click', toggleUnits, false);
 })();
