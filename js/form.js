@@ -83,7 +83,7 @@ function clearField(){
   it.value="";
 }
 var convertFields = document.querySelectorAll("#calculator input.convert");
-var fields = document.querySelectorAll("#calculator input");
+var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit'])");
 var hideMetricBox = document.querySelector("#hideMetric");
 
 function toggleMetric(){
@@ -100,12 +100,44 @@ function toggleMetric(){
 function calculate(event){
   event.preventDefault();
   var it = event.currentTarget;
-  var a = parseFloat(it.parentNode.querySelector('#flowMeters').value);
-  var b = parseFloat(it.parentNode.querySelector('#velocityMeters').value);
-  var c = parseFloat(it.parentNode.querySelector('#bedSlopeDecimal').value);
-  var d = parseFloat(it.parentNode.querySelector('#sideSlopeDecimal').value);
+  //Runs calculation in  METRIC, converts to imperial afterward if wanted
+  var date = it.parentNode.querySelector('#d').value;
+  var location = it.parentNode.querySelector('#projectLocation').value;
+  var engineer = it.parentNode.querySelector('#engineerName').value;
 
-  console.log(((a+b)/c)*(1/d) );
+  var flow = it.parentNode.querySelector('#flowMeters').value;
+  var velocity = it.parentNode.querySelector('#velocityMeters').value;
+  var bedSlope = it.parentNode.querySelector('#bedSlopeDecimal').value;
+  var sideSlope = it.parentNode.querySelector('#sideSlopeDecimal').value;
+  var flowType = it.parentNode.querySelector('#flowType').value;
+  var bedWidth = it.parentNode.querySelector('#bedMeters').value;
+  var alignment = it.parentNode.querySelector('#alignType').value;
+  var crest = it.parentNode.querySelector('#crestMeters').value;
+  var length = it.parentNode.querySelector('#channelMeters').value;
+  var depth = it.parentNode.querySelector('#depthMeters').value;
+  var topWidth = it.parentNode.querySelector('#topMeters').value;
+  var source = it.parentNode.querySelector('#sourceType').value;
+  var soil = it.parentNode.querySelector('#soilType').value;
+
+  var comments = it.parentNode.querySelector('#commentsBox').value;
+
+  console.log(date);
+  console.log(location);
+  console.log(engineer +"\n");
+  console.log(flow);
+  console.log(velocity);
+  console.log(bedSlope);
+  console.log(sideSlope);
+  console.log(flowType);
+  console.log(bedWidth);
+  console.log(alignment);
+  console.log(crest);
+  console.log(length);
+  console.log(depth);
+  console.log(topWidth);
+  console.log(source);
+  console.log(soil);
+  console.log(comments);
 }
 
 for(var i=0;i<convertFields.length;i++){

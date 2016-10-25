@@ -30,7 +30,13 @@
                     <h3>Profile</h3>
                 </a>
             </section>
-            <section class="row expanded small-collapse" id="calculator">
+            <form action="#" method="POST" class="row expanded small-collapse" id="calculator">
+              <section class="columns small-12">
+                <div id="hideTheMetric">
+                  <label for="hideMetric">Hide Metric?</label>
+                  <input id="hideMetric" type="checkbox">
+                </div>
+              </section>
                 <section class="columns small-12">
                     <h3 class="hidden">Project Information</h3>
                     <div id="date">
@@ -216,6 +222,9 @@
                       </label>
                       <textarea id="commentsBox"></textarea>
                     </div>
+                    <div id="calc">
+                      <input type="submit" value="Calculate">
+                    </div>
                 </section>
                 <!--==================================================================-->
                 <section class="columns small-12">
@@ -226,7 +235,7 @@
                     <h3 class="hidden">Summary</h3>
                 </section>
                 <!--==================================================================-->
-            </section>
+            </form>
         </main>
         <script src="js/vendor/jquery.js"></script>
         <script src="js/vendor/what-input.js"></script>
@@ -234,6 +243,6 @@
         <script src="js\vendor\greensock\TweenLite.min.js"></script>
         <script src="js\vendor\greensock\CSSPlugin.min.js"></script>
         <script src="js/app.js"></script>
-        <script src="js/dash.js"></script>
+        <script src="js/form.js"></script>
     </body>
 </html>
