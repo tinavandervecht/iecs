@@ -7,7 +7,11 @@
 
 (function(){
   var calcSubmit = document.querySelector('#calculator');
-  console.log(calcSubmit);
+
+  var tips = document.querySelectorAll('tip');
+  for(i=0;i<tips.length;i++){
+    tips[i].addEventListener('mouseover',tipShow,false);
+  }
 
   function metricToImperial(input,units,precision){
     var output = null;
