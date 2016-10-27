@@ -49,10 +49,21 @@
   }
 
   function percentToDecimal(input){
-    return parseFloat((parseInt(input.replace("%",""))*0.01).toFixed(2));
+    var output = parseFloat((parseFloat(input.replace("%",""))*0.01).toFixed(6));
+    if(output.toString()!="NaN"){
+      return output;
+    }else if(output.toString()!=""){
+      return "Unexpected Input.";
+    }
   }
+
   function decimalToPercent(input){
-    return (input*100).toFixed(2) + "%";
+    var output = (input*100).toFixed(2) + "%";
+    if(output.toString()!="NaN%"){
+      return output;
+    }else if(output.toString()!=""){
+      return "Unexpected Input.";
+    }
   }
 
 function autoUpdate(event){

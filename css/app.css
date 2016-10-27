@@ -387,9 +387,7 @@ display: none;
 .pagnation-page > div{
   display: block;
   padding:1em 3em !important;
-  width:50%;
-
-}
+  }
 #calculator input:not([type="submit"]){
   float: left;
 }
