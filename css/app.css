@@ -376,11 +376,12 @@ display: none;
   border-bottom:thin solid rgba(255,255,255,0.8);
   outline:0;
 }
+.pagnation-page.current{
+
+}
 .pagnation-page{
   margin-top: 2em;
   padding:1em;
-}
-.pagnation-page.current{
   display: block;
   background: rgba(255,255,255,0.235);
 }
@@ -391,17 +392,65 @@ display: none;
 #calculator input:not([type="submit"]){
   float: left;
 }
-#calculator label{
+#calculator label, #calculator .label{
   display: block;
   float: left;
   margin-right:1em;
 }
-#calculator label  + input{
+ #calculator .label{
+   clear:both;
+   margin-bottom: 1em;
+ }
+
+#calculator label  + input:not([type="checkbox"]){
   width: 100%;
   margin-bottom: 0.6em;
   clear: left;
 }
+#calculator .checkbox{
+  float: right;
+}
 #calculator .title{
+  margin-bottom:0.5em;
+}
+#calculator div input:last-child{
+  margin-bottom:2em;
+}
+
+.checkbox{
+  width:1.4em;
+  height:1.4em;
+  position: relative;
+}
+.checkbox input[type="checkbox"]{
+  opacity: 0.0;
+}
+.checkbox label{
+  cursor:pointer;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  top:0;
+  left:0;
+  background-color:transparent;
+  border: thin solid #eee;
+}
+.checkbox label:after{
+  opacity: 0.0;
+  content: '';
+  position: absolute;
+  width:0.8em;
+  height:0.5em;
+  background-color:transparent;
+  top:0.2em;
+  left:0.24em;
+  border: 0.18em solid #eee;
+  border-top:none;
+  border-right: none;
+  transform: rotate(-45deg);
+}
+.checkbox input[type=checkbox]:checked + label:after {
+	opacity: 1;
 }
 .convert.imperial{
   display: none;

@@ -33,42 +33,48 @@
             <form action="#" method="POST" class="row expanded small-collapse" id="calculator">
                 <section class="columns small-12 pagnation-page current">
                     <h3 class="hidden">Project Information</h3>
-                    <div id="projectName" class="columns small-6">
+                    <div id="projectName" class="columns small-12 medium-6">
                         <h4 class="title">Project Name:</h4>
                         <label for="name">
                             <h5 class="unit">Name</h5>
                         </label>
                         <input type="text" id="name" />
                     </div>
-                    <div id="date" class="columns small-6">
+                    <div id="date" class="columns small-12 medium-6">
                         <h4 class="title">Projected Start Date for Project:</h4>
                         <label for="d">
                             <h5 class="unit">YYYY/MM/DD</h5>
                         </label>
                         <input type="date" id="d" />
                     </div>
-                    <div id="project" class="columns small-6">
+                    <div id="project" class="columns small-12 medium-6">
                         <h4 class="title">Location:</h4>
                         <label for="projectLocation">
                             <h5 class="unit">City, Province, Country</h5>
                         </label>
                         <input type="text" id="projectLocation" />
                     </div>
-                    <div id="engineer" class="columns small-6">
+                    <div id="engineer" class="columns small-12 medium-6">
                         <h4 class="title">Engineer Name:</h4>
                         <label for="engineerName">
                             <h5 class="unit">First &amp; Last</h5>
                         </label>
                         <input type="text" id="engineerName" />
                     </div>
-                    <div class="columns small-12">
+                    <div class="columns small-12 medium-4 end">
                     <div id="hideTheMetric">
-                      <label for="hideMetric">Show Metric?</label>
-                      <input id="hideMetric" type="checkbox" checked>
+                      <h4 class="label">Show Metric?</h4>
+                      <div class="checkbox">
+                        <input id="hideMetric" type="checkbox" checked>
+                        <label for="hideMetric"></label>
+                      </div>
                     </div>
                     <div id="hideTheImperial">
-                      <label for="hideImperial">Show Imperial?</label>
+                      <h4 class="label">Show Imperial?</h4>
+                      <div class="checkbox">
                       <input id="hideImperial" type="checkbox" checked>
+                      <label for="hideImperial"></label>
+                    </div>
                     </div>
                   </div>
                 </section>
