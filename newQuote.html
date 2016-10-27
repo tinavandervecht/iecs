@@ -61,20 +61,22 @@
                         </label>
                         <input type="text" id="engineerName" />
                     </div>
-                    <div id="hideTheMetric" class="columns small-12">
+                    <div class="columns small-12">
+                    <div id="hideTheMetric">
                       <label for="hideMetric">Show Metric?</label>
                       <input id="hideMetric" type="checkbox" checked>
                     </div>
-                    <div id="hideTheImperial" class="columns small-12">
+                    <div id="hideTheImperial">
                       <label for="hideImperial">Show imperial?</label>
                       <input id="hideImperial" type="checkbox" checked>
                     </div>
+                  </div>
                 </section>
                 <!--End Project Info-->
                 <!--==================================================================-->
-                <section class="columns small-12 pagnation-page">
+                <section class="columns small-12 pagnation-page current">
                     <h3 class="hidden">Flow and Velocity</h3>
-                    <div id="flow">
+                    <div id="flow"  class="clearfix columns small-6">
                         <h4 class="title">Maximum Expected Flow</h4>
                         <label for="flowMeters">
                             <h5 class="unit">Cubic m/s</h5>
@@ -85,7 +87,7 @@
                         </label>
                         <input id="flowFeet"  class="convert imperial" />
                     </div>
-                    <div id="velocity">
+                    <div id="velocity"  class="clearfix columns small-6">
                         <h4 class="title">Maximum Expected Velocity</h4>
                         <label for="velocityMeters">
                             <h5 class="unit">Meters per Second</h5>
@@ -101,7 +103,7 @@
                 <!--==================================================================-->
                 <section class="columns small-12 pagnation-page">
                     <h3 class="hidden">Slopes</h3>
-                    <div id="bedSlope">
+                    <div id="bedSlope"  class="clearfix columns small-6">
                         <h4 class="title">Channel Bed Slope</h4>
                         <label for="bedSlopePercent">
                             <h5 class="unit">Percent (%)</h5>
@@ -112,7 +114,7 @@
                         </label>
                         <input id="bedSlopeDecimal"  class="convert D" />
                     </div>
-                    <div id="sideSlope">
+                    <div id="sideSlope"  class="clearfix columns small-6">
                         <h4 class="title">Channel Side Slope</h4>
                         <label for="sideSlopePercent">
                             <h5 class="unit">Percent (%)</h5>
@@ -127,7 +129,7 @@
                 <!--==================================================================-->
                 <section class="columns small-12 pagnation-page">
                     <h3 class="hidden">Types of Flow</h3>
-                    <div id="type">
+                    <div id="type"  class="clearfix columns small-6">
                         <h4 class="title">Type of Flow</h4>
                         <label for="flowType">
                             <h5 class="unit">(normal, overtopping, etc.)</h5>
@@ -138,7 +140,7 @@
                 <!--==================================================================-->
                 <section class="columns small-12 pagnation-page">
                     <h3 class="hidden">Bed Width and Alignment</h3>
-                    <div id="bedWidth">
+                    <div id="bedWidth"  class="clearfix columns small-6">
                         <h4 class="title">Bed Width</h4>
                         <label for="bedMeters">
                             <h5 class="unit">Meters</h5>
@@ -149,14 +151,14 @@
                         </label>
                         <input id="bedFeet"  class="convert imperial" />
                     </div>
-                    <div id="alignment">
+                    <div id="alignment"  class="clearfix columns small-6">
                         <h4 class="title">Alignment</h4>
                         <label for="alignType">
                             <h5 class="unit">(straight, moderate, severe, extreme)</h5>
                         </label>
                         <input id="alignType" />
                     </div>
-                    <div id="crestRadius">
+                    <div id="crestRadius"  class="clearfix columns small-6">
                         <h4 class="title">Radius at the Crest</h4>
                         <label for="crestMeters">
                             <h5 class="unit">Meters</h5>
@@ -171,7 +173,7 @@
                 <!--==================================================================-->
                 <section class="columns small-12 pagnation-page">
                     <h3 class="hidden">Channel Specifications</h3>
-                    <div id="channelLength">
+                    <div id="channelLength"  class="clearfix columns small-6">
                     <h4 class="title">Chute/Channel Length</h4>
                     <label for="channelMeters">
                       <h5 class="unit">Meters</h5>
@@ -183,7 +185,7 @@
                       <input id="channelFeet"  class="convert imperial" />
                     </div>
 
-                    <div id="channelDepth">
+                    <div id="channelDepth"  class="clearfix columns small-6">
                     <h4 class="title">Channel Depth</h4>
                     <label for="depthMeters">
                       <h5 class="unit">Meters</h5>
@@ -195,7 +197,7 @@
                       <input id="depthFeet"  class="convert imperial" />
                     </div>
 
-                    <div id="topWidth">
+                    <div id="topWidth"  class="clearfix columns small-6">
                     <h4 class="title">Top Width of Channel</h4>
                     <label for="topMeters">
                       <h5 class="unit">Meters</h5>
@@ -210,7 +212,7 @@
                 <!--==================================================================-->
                 <section class="columns small-12 pagnation-page">
                     <h3 class="hidden">Environment</h3>
-                    <div id="source">
+                    <div id="source"  class="clearfix columns small-6">
                     <h4 class="title">Outlet Source</h4>
                     <label for="sourceType">
                       <h5 class="unit">(river, manhole, etc.)</h5>
@@ -218,14 +220,14 @@
                       <input id="sourceType" />
                     </div>
 
-                    <div id="soil">
+                    <div id="soil"  class="clearfix columns small-6">
                     <h4 class="title">Soil Type and Related Conditions</h4>
                     <label for="soilType">
                     </label>
                       <input id="soilType" />
                     </div>
 
-                    <div id="comments">
+                    <div id="comments"  class="clearfix columns small-6 columns small-6">
                       <h4 class="title">Comments</h4>
                       <label for="commentsBox">
                       </label>

@@ -86,6 +86,7 @@ var convertFields = document.querySelectorAll("#calculator input.convert");
 var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit'])");
 var showMetricBox = document.querySelector("#hideMetric");
 var showImperialBox = document.querySelector("#hideImperial");
+var lastChecked;
 
 function toggleUnits(){
 var showM;
@@ -93,25 +94,41 @@ var showI;
   if(showMetricBox.checked){
     console.log("metric's checked!");
     showM = true;
+    lastChecked = showMetricBox;
   }
   if(showImperialBox.checked){
     console.log("imperial's checked!");
     showI = true;
+    lastChecked = showImperialBox;
   }
   if(!showMetricBox.checked&&!showImperialBox.checked){
     console.log("nothing's checked!");
     showM=false;
     showI=false;
+    setTimeout(function(){
+      lastChecked.checked=true;
+      alert("Can't show no inputs!")
+      toggleUnits();
+    },100);
   }
-  if(showM){
   for(var i=0;i<fields.length;i++){
-    if(fields[i].classList.contains('metric')||fields[i].classList.contains('metric')){
-      fields[i].classList.toggle('shown');
-      fields[i].previousElementSibling.classList.toggle('shown');
+    if(showI && fields[i].classList.contains('imperial')){
+        fields[i].classList.add('shown');
+        fields[i].previousElementSibling.classList.remove('hidden');
       }
-    }
-  }
-
+      if(!showI && fields[i].classList.contains('imperial')){
+          fields[i].classList.remove('shown');
+          fields[i].previousElementSibling.classList.add('hidden');
+        }
+      if(showM && fields[i].classList.contains('metric')){
+          fields[i].classList.add('shown');
+          fields[i].previousElementSibling.classList.remove('hidden');
+        }
+        if(!showM && fields[i].classList.contains('metric')){
+            fields[i].classList.remove('shown');
+            fields[i].previousElementSibling.classList.add('hidden');
+          }
+        }
 }
 
 

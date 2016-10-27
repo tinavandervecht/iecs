@@ -12,7 +12,7 @@ body{
   border:thin solid #eee;
 }
 .hidden{
-  display: none;
+  display: none !important;
 }
 
 .clearfix:after{
@@ -153,7 +153,7 @@ form.testing input{
 }
 #dashboard{
   max-width: inherit;
-  margin-left:0;
+  margin:0 auto;
 }
 .card{
   padding:0.75em 1.5em;
@@ -317,7 +317,7 @@ font-size: 1.4em;
 display: none;
 }
 #mainLogo{
-  max-width: 24rem;
+  max-width: 18rem;
 }
 #mainDashTitle{
   color:#fff;
@@ -356,7 +356,7 @@ display: none;
 #calculator{
   color:#fff;
 }
-#calculator *{
+#calculator h2,#calculator h3,#calculator h4,#calculator h5,#calculator h6{
   margin:0;
   padding:0;
 }
@@ -364,6 +364,7 @@ display: none;
   font-family: "opensans-bold";
   font-weight: 100;
 }
+
 #calculator input, #calculator textarea{
   font-family: "opensans-light";
   color:inherit;
@@ -376,13 +377,18 @@ display: none;
   outline:0;
 }
 .pagnation-page{
+  margin-top: 2em;
+  padding:1em;
 }
 .pagnation-page.current{
   display: block;
   background: rgba(255,255,255,0.235);
 }
 .pagnation-page > div{
+  display: block;
   padding:1em 3em !important;
+  width:50%;
+
 }
 #calculator input:not([type="submit"]){
   float: left;
@@ -391,6 +397,11 @@ display: none;
   display: block;
   float: left;
   margin-right:1em;
+}
+#calculator label  + input{
+  width: 100%;
+  margin-bottom: 0.6em;
+  clear: left;
 }
 #calculator .title{
 }
@@ -494,8 +505,8 @@ display: none;
   }
 
   #dashboard, #calculator{
-    max-width: 74rem;
-    margin-left:25%;
+    max-width: 66rem;
+    margin-left:26%;
   }
   .desk{
     display:block;
