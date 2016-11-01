@@ -7,6 +7,7 @@ var signPass = document.querySelector('#signUpPassword');
 var signPassConfirm = document.querySelector('#signUpPassConfirm');
 var noAccountForm = document.querySelector("#onNoAccountShouldYou");
 var background = document.querySelector('#background .other');
+var backface = document.querySelector('.backface #two');
 var shown = false;
 var time = 10;
 var fadeTime = 0.8;
@@ -14,9 +15,11 @@ var fadeTime = 0.8;
 function fadeBackgrounds(){
   if(shown){
     TweenLite.to(background,fadeTime,{opacity:0.0});
+    TweenLite.to(backface,fadeTime,{opacity:0.0});
   }
   if(!shown){
     TweenLite.to(background,fadeTime,{opacity:1.0});
+    TweenLite.to(backface,fadeTime,{opacity:1.0});
   }
   shown = !shown;
   setTimeout(fadeBackgrounds,time*1000);
