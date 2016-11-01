@@ -1,5 +1,5 @@
 body{
-  background:#707070;
+  background:#ffffff;
   font-family: "opensans-light";
   font-size: 80%;
 }
@@ -11,6 +11,41 @@ body{
   width:100%;
   height:100%;
 }
+#mainNav{
+
+}
+#mainNav ul{
+list-style: none;
+margin:0;
+padding-left: 0;
+}
+#mainNav ul li{
+  padding:0;
+  margin:0;
+}
+#mainNav ul li a{
+  text-decoration: none;
+  color:#fff;
+  display: block;
+  width:100%;
+  padding:1em;
+  padding-left:2em;
+}
+#mainNav ul li a.current{
+  background: #589021;
+  position: relative;
+}
+#mainNav ul li a.current:before{
+  content: '';
+  display: block;
+  width:1em;
+  height: 100%;
+  background:#213d02;
+  position: absolute;
+  left:0;
+  top:0;
+}
+
 .darkOverlay{
    display: block;
    position: absolute;
@@ -363,9 +398,7 @@ font-size: 1.4em;
     margin: 0.5em 0;
   }
 
-#profileCont{
-display: none;
-}
+
 #mainLogo{
   max-width: 18rem;
 }
@@ -558,6 +591,10 @@ label .tip:hover + .tipCont{
   display: block !important;
 }
 
+#sideBar{
+  display: none;
+}
+
 @media only screen and (min-width:40rem){
   #background{
     display: block;
@@ -607,85 +644,75 @@ label .tip:hover + .tipCont{
   .borderTop .insideCard{
     border-top: none;
   }
+  #sideBar{
+    display: block;
+    width:23%;
+    height: 100%;
+    position: fixed;
+    left:0;
+    top:0;
+    background: #313131;
+    color:#ffffff;
+  }
+  #sideBar .logo{
+    width:100%;
+    max-width: 14em;
+    margin:1em auto;
+    display: block;
+}
+  #sideBar #profile{
+    width:100%;
+    background:#5a5959;
+    padding:1em;
+    }
+  #sideBar #profile .profilepic{
+    float: none;
+    display: block;
+    margin: 0 auto;
+    max-width: 6rem;
+    border-radius: 50%;
+    }
+  #sideBar #profile .name{
+    display: block;
+    margin:0.1em;
+    padding:0;
+    clear: left;
+    font-size:1.4em;
+    width: 100%;
+    text-align: center;
+  }
+  #sideBar #profile .title{
+    font-weight: normal;
+    display:block;
+    margin:0.1em;
+    padding:0;
+    font-family: "opensans-light";
+    clear: left;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 
 @media only screen and (min-width:64rem){
-  #profileCont{
-    display: block;
-  }
-
-  #profileCont{
-  width:20%;
-  max-width: 32em;
-  min-width: 18em;
-  position: fixed;
-  top:0;
-  left:0;
-  background: rgba(147, 153, 170, 0.47);
-  height:100%;
-  color:#fff;
-  }
-  #profileCont .profilepic{
-    width: 50%;
-    display: block;
-    max-width: 16rem;
-    background: #fff;
-    margin:2em auto;
-    margin-top:4em;
-    float: none;
-
-    border-radius: 50%;
-    shape-outside: circle(50%);
-  }
-  #profileCont h3, #profileCont h4{
-    display: block;
-    padding:0;
-    margin:0;
-    margin-left: 4rem;
-  }
-  #profileCont .welcome{
-    display: block;
-    width:100%;
-    box-sizing: border-box;
-    font-family: "opensans-bold";
-    text-transform: uppercase;
-    margin-bottom:2rem;
-    font-size: 2.5em;
-  }
-  #profileCont .name{
-    font-size: 1.8em;
-    font-family: "opensans-light";
-  }
-  #profileCont .title, #profileCont .phone{
-    margin-bottom: 2em;
-  }
-  #profileCont #profileButton{
-    background: rgba(147, 153, 170, 0.56);
-    width:100%;
-    display: block;
-    position: absolute;
-    bottom:0;
-    text-align: center;
-    padding:1rem;
-    color:#fff;
-    text-decoration: none;
-    font-family: "opensans-bold";
-    font-size: 1.4rem;
-    text-transform: uppercase;
-
-    transition: all ease 0.6s;
-  }
-  #profileCont #profileButton:hover{
-    background: rgba(147, 153, 170, 0.86);
-  }
-  #profileCont #profileButton h3{
-    margin:0 auto;
-  }
-  #profileCont #profileButton img{
-    max-width: 6rem;
-  }
-
+  #sideBar #profile .profilepic{
+    float: left;
+    max-width: 4rem;
+    margin-right: 1em;
+    }
+    #sideBar #profile .name{
+      margin-top: 0.6em;
+      display: block;
+      clear: none;
+      width: auto;
+      text-align: left;
+    }
+    #sideBar #profile .title{
+      display:block;
+      clear: none;
+      width: auto;
+      text-align: left;
+    }
   #dashboard, #calculator{
     max-width: 66rem;
     margin-left:26%;

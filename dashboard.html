@@ -10,27 +10,28 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-    <main>
-      <h2 class="hidden">Main Content</h2>
-      <section id="profileCont">
-      <img src="img/huffinAndA.jpg" class="profilepic"/><br>
-      <h3 class="welcome">Welcome!</h3>
-      <h3 class="name">A. Puffin</h3>
-      <h4 class="title">Engineer, TC Consulting</h4>
-      <h4 class="email">huffinpuffin@tcc.ca</h4>
-      <h4 class="phone">519-569-5879</h4>
-      <section id="companyInfo">
-      <h4 class="company">TC Consulting</h4>
-      <h4 class="address">975 Platform St.</h4>
-      <h4 class="cityProv">London, Ontario</h4>
-      <h4 class="companyPhone">519-453-4872</h4>
-      </section>
-      <a href="#" id="profileButton">
-        <img src="img/profile_icon.svg">
-        <h3>Profile</h3>
-      </a>
-      </section>
+      <header id="sideBar">
+        <img class="logo" src="img/iecslogo.png">
+        <section id="profile" class="clearfix">
+          <img src="img/huffinAndA.jpg" class="profilepic"/>
+          <h3 class="name">A. Puffin</h3>
+          <h4 class="title">Engineer, TC Consulting</h4>
+        </section>
+        <nav id="mainNav">
+            <h3>Navigation</h3>
+            <ul>
+              <li><a href="#" class="current"><img src="" class="navIcon"/><span class="navText">Home</span></a></li>
+              <li><a href="#"><img src="" class="navIcon"/><span class="navText">Quotes</span></a></li>
+              <li><a href="#"><img src="" class="navIcon"/><span class="navText">History</span></a></li>
+              <li><a href="#"><img src="" class="navIcon"/><span class="navText">Profile</span></a></li>
+              <li><a href="#"><img src="" class="navIcon"/><span class="navText">Tips</span></a></li>
+              <li><a href="#"><img src="" class="navIcon"/><span class="navText">FAQs</span></a></li>
+            </ul>
+        </nav>
+      </header>
 
+      <main>
+        <h2 class="hidden">Main Content</h2>
       <div class="row small-collapse" id="dashboard"><!--begin card dashboard-->
         <div class="text-center">
           <img id="mainLogo" src="img/iecslogo.png">
