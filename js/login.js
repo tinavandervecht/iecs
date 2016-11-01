@@ -6,7 +6,21 @@ var signUser = document.querySelector('#signUpUsername');
 var signPass = document.querySelector('#signUpPassword');
 var signPassConfirm = document.querySelector('#signUpPassConfirm');
 var noAccountForm = document.querySelector("#onNoAccountShouldYou");
+var background = document.querySelector('#background .other');
+var shown = false;
+var time = 10;
+var fadeTime = 0.8;
 
+function fadeBackgrounds(){
+  if(shown){
+    TweenLite.to(background,fadeTime,{opacity:0.0});
+  }
+  if(!shown){
+    TweenLite.to(background,fadeTime,{opacity:1.0});
+  }
+  shown = !shown;
+  setTimeout(fadeBackgrounds,time*1000);
+}
 function signUpOrIn(event){
 var it = event.currentTarget;
 if(it.innerHTML === "Sign up"){
@@ -56,6 +70,7 @@ function valPass(){
     }
 }
 
+setTimeout(fadeBackgrounds,time*1000);
 noAccountForm.querySelector('#signUp').addEventListener('click',signUpOrIn,false);
 signPass.addEventListener('keyup', valPass, false);
 signPass.addEventListener('focus', valPass, false);
