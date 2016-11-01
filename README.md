@@ -26,3 +26,7 @@
 * started building actual form page.
 * built form page, wrote test function for inputs.
 * started working on js to toggle units in the form.
+* finished functionality to toggle form fields based on unit preference; made alert function to tell user that one unit must always be selected.
+* worked on tips popup functionality. Still not working yet.
+###Week 6
+* started working on changes to design provided by Shannon.

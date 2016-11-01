@@ -12,13 +12,17 @@
   <body>
     <main>
       <h2 class="hidden">Main Content</h2>
-    <section class="row" id="login">
+    <section class="row expanded collapse" id="login">
       <h3 class="hidden">Login</h3>
-      <div class="column small-12 small-centered text-center">
-      <img src="img/iecslogo.png">
-      <section class="column small-12">
-        <h4>Cable Concrete Calculator</h4>
+      <div class="small-12 small-centered text-center">
 
+        <div class="backface">
+          <div class="content">
+            <img class="logo" src="img/iecslogo.png">
+            <h4>Cable Concrete Calculator</h4>
+          </div>
+          <img class="back" src="img/loginTop.jpg">
+        </div>
 
         <div id="formCont">
         <form id="loginForm" class="clearfix" action="dashboard.html" method="post">
@@ -53,8 +57,7 @@
 
 
         </div>
-      </section>
-    </div>
+      </div>
     </section>
   </main>
     <script src="js/vendor/jquery.js"></script>
