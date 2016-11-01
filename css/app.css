@@ -20,7 +20,7 @@ body{
    height:100%;
    background: #000;
    z-index: 1;
-   opacity: 0.2;
+   opacity: 0.4;
  }
 .callout *,.callout{
   border:thin solid #eee;
@@ -89,9 +89,9 @@ body{
   max-width: 32em;
 }
 #login h4{
-  margin:0 auto 1em auto;
+  margin:-1em auto 2em auto;
   font-weight: 100;
-  font-size: 2em;
+  font-size: 1.6em;
 }
 #login form{
   text-align: left;
