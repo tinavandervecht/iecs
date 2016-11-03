@@ -30,6 +30,10 @@ padding-left: 0;
   width:100%;
   padding:1em 0.5em 0.5em 2em;
 }
+
+#mainNav ul li a:hover{
+  background:#213d02;
+}
 #mainNav ul li a.current{
   background: #589021;
   position: relative;
@@ -48,8 +52,9 @@ padding-left: 0;
   text-transform: uppercase;
   font-family: "opensans-light";
   margin-top: 2.5em;
-  margin-left:2em;
-  font-size: 4rem;
+  margin-left:2rem;
+  font-size: 1.2rem;
+  line-height: 1em;
   font-weight: normal;
   letter-spacing: 0.1em;
   opacity: 0.6;
@@ -60,8 +65,8 @@ padding-left: 0;
 }
 #mainNav .navText{
   display: inline-block;
-  margin-left: 0.5em;
-  font-size: 4rem;
+  margin-left: 0.8em;
+  font-size: 1.2em;
   }
 
 .darkOverlay{
@@ -257,9 +262,6 @@ form.testing input{
   color:#222;
 }
 
-#mainDashboard{
-  padding-left:23%;
-}
 
 #mainLogo{
   max-width: 18rem;
@@ -452,14 +454,79 @@ label .tip:hover + .tipCont{
   display: block !important;
 }
 
-#sideBar{
-  display: none;
-}
 #mainHeader{
-  display: none;
+  display: block;
+  background:#4b8709;
+  width:100%;
+  box-sizing: border-box;
+  padding: 0.5em 0;
 }
 
+#mainHeader .logo{
+  display: block;
+  max-width: 24em;
+  width:100%;
+  margin:0 auto;
+}
+#sideBar{
+  display: none;
+  width:23%;
+  height: 100%;
+  position: fixed;
+  left:0;
+  top:0;
+  background: #313131;
+  color:#ffffff;
+}
+#sideBar .logo{
+  width:100%;
+  max-width: 14em;
+  margin:1em auto;
+  display: block;
+}
+#sideBar #profile{
+  width:100%;
+  background:#5a5959;
+  padding:1em;
+  }
+#profile .profilepic{
+  float: none;
+  display: block;
+  margin: 0 auto;
+  max-width: 6rem;
+  border-radius: 50%;
+  }
+  #profile .name{
+  display: block;
+  margin:0.1em;
+  padding:0;
+  clear: left;
+  font-size:1.4em;
+  width: 100%;
+  text-align: center;
+}
+#profile .title{
+  font-weight: normal;
+  display:block;
+  margin:0.1em;
+  padding:0;
+  font-family: "opensans-light";
+  clear: left;
+  width: 100%;
+  text-align: center;
+}
+
+
 @media only screen and (min-width:40rem){
+  #mainHeader{
+    padding-left: 23%;
+  }
+  #sideBar{
+    display: block;
+  }
+  #mainDashboard{
+    padding-left:23%;
+  }
   #background{
     display: block;
     background-image: url("../img/allBackOne.jpg");
@@ -508,72 +575,10 @@ label .tip:hover + .tipCont{
   .borderTop .insideCard{
     border-top: none;
   }
-  #mainHeader{
-    display: block;
-    background:#4b8709;
-    width:100%;
-    box-sizing: border-box;
-    padding: 0.5em 0;
-    padding-left: 23%;
-  }
-  #mainHeader .logo{
-    display: block;
-    max-width: 24em;
-    width:100%;
-    margin:0 auto;
-  }
-  #sideBar{
-    display: block;
-    width:23%;
-    height: 100%;
-    position: fixed;
-    left:0;
-    top:0;
-    background: #313131;
-    color:#ffffff;
-  }
-  #sideBar .logo{
-    width:100%;
-    max-width: 14em;
-    margin:1em auto;
-    display: block;
-}
-  #sideBar #profile{
-    width:100%;
-    background:#5a5959;
-    padding:1em;
-    }
-  #profile .profilepic{
-    float: none;
-    display: block;
-    margin: 0 auto;
-    max-width: 6rem;
-    border-radius: 50%;
-    }
-    #profile .name{
-    display: block;
-    margin:0.1em;
-    padding:0;
-    clear: left;
-    font-size:1.4em;
-    width: 100%;
-    text-align: center;
-  }
-  #profile .title{
-    font-weight: normal;
-    display:block;
-    margin:0.1em;
-    padding:0;
-    font-family: "opensans-light";
-    clear: left;
-    width: 100%;
-    text-align: center;
-  }
 }
 
 /***************************************************************************************************************************************************************/
-@media only screen and (min-width:64rem){
-  #sideBar #profile{}
+@media only screen and (min-width:64em){
     #profile .profilepic{
     float: left;
     max-width: 4rem;
