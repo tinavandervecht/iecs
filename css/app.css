@@ -1,4 +1,4 @@
-body{
+  body{
   background:#ffffff;
   font-family: "opensans-light";
   font-size: 80%;
@@ -44,7 +44,16 @@ padding-left: 0;
   left:0;
   top:0;
 }
-
+#mainNav #navTitle{
+  text-transform: uppercase;
+  font-family: "opensans-light";
+  margin-top: 2.5em;
+  margin-left:2em;
+  font-size: 4rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
 #mainNav .navIcon{
   max-width: 2.6em;
   margin-bottom: 0.5em;
@@ -86,7 +95,9 @@ padding-left: 0;
 .text-center{
   text-align: center;
 }
-
+.border-top{
+  border-top: thin solid #222;
+}
 
 .backface{
   margin: auto;
@@ -245,9 +256,9 @@ form.testing{
 form.testing input{
   color:#222;
 }
-#dashboard{
-  max-width: inherit;
-  margin:0 auto;
+
+#mainDashboard{
+  padding-left:23%;
 }
 
 #mainLogo{
@@ -356,7 +367,6 @@ label .tipCont{
   background: #222;
   max-width:40em;
   width: auto;
-  line-height: auto;
   border-radius: 1em;
   transition: all ease 0.4s;
 }
@@ -478,7 +488,7 @@ label .tip:hover + .tipCont{
   }
   #login{
     max-width: 32em;
-    margin-top: 0em;
+    margin-top: 0;
   }
   .backface img.back{
         display: none;
@@ -503,7 +513,7 @@ label .tip:hover + .tipCont{
     background:#4b8709;
     width:100%;
     box-sizing: border-box;
-    padding: 0.5em 0em;
+    padding: 0.5em 0;
     padding-left: 23%;
   }
   #mainHeader .logo{
@@ -533,14 +543,14 @@ label .tip:hover + .tipCont{
     background:#5a5959;
     padding:1em;
     }
-  #sideBar #profile .profilepic{
+  #profile .profilepic{
     float: none;
     display: block;
     margin: 0 auto;
     max-width: 6rem;
     border-radius: 50%;
     }
-  #sideBar #profile .name{
+    #profile .name{
     display: block;
     margin:0.1em;
     padding:0;
@@ -549,7 +559,7 @@ label .tip:hover + .tipCont{
     width: 100%;
     text-align: center;
   }
-  #sideBar #profile .title{
+  #profile .title{
     font-weight: normal;
     display:block;
     margin:0.1em;
@@ -561,21 +571,22 @@ label .tip:hover + .tipCont{
   }
 }
 
-
+/***************************************************************************************************************************************************************/
 @media only screen and (min-width:64rem){
-  #sideBar #profile .profilepic{
+  #sideBar #profile{}
+    #profile .profilepic{
     float: left;
     max-width: 4rem;
     margin-right: 1em;
     }
-    #sideBar #profile .name{
+    #profile .name{
       margin-top: 0.6em;
       display: block;
       clear: none;
       width: auto;
       text-align: left;
     }
-    #sideBar #profile .title{
+    #profile .title{
       display:block;
       clear: none;
       width: auto;
