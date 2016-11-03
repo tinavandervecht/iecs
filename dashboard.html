@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-      <header id="sideBar">
+        <header id="mainHeader">
+            <img class="logo" src="img/CC-whiteLogo.svg">
+        </header>
+      <section id="sideBar">
+        <h2 class="hidden">Sidebar</h2>
         <img class="logo" src="img/iecslogo.png">
         <section id="profile" class="clearfix">
           <img src="img/huffinAndA.jpg" class="profilepic"/>
@@ -20,154 +24,36 @@
         <nav id="mainNav">
             <h3>Navigation</h3>
             <ul>
-              <li><a href="#" class="current"><img src="" class="navIcon"/><span class="navText">Home</span></a></li>
-              <li><a href="#"><img src="" class="navIcon"/><span class="navText">Quotes</span></a></li>
-              <li><a href="#"><img src="" class="navIcon"/><span class="navText">History</span></a></li>
-              <li><a href="#"><img src="" class="navIcon"/><span class="navText">Profile</span></a></li>
-              <li><a href="#"><img src="" class="navIcon"/><span class="navText">Tips</span></a></li>
-              <li><a href="#"><img src="" class="navIcon"/><span class="navText">FAQs</span></a></li>
+              <li><a href="#" class="current"><img src="img/paper_icon.svg" class="navIcon"/><span class="navText">Home</span></a></li>
+              <li><a href="#"><img src="img/paper_icon.svg" class="navIcon"/><span class="navText">Quotes</span></a></li>
+              <li><a href="#"><img src="img/tip_icons.svg" class="navIcon"/><span class="navText">History</span></a></li>
+              <li><a href="#"><img src="img/profile_icon.svg" class="navIcon"/><span class="navText">Profile</span></a></li>
+              <li><a href="#"><img src="img/tip_icons.svg" class="navIcon"/><span class="navText">Tips</span></a></li>
+              <li><a href="#"><img src="img/help_icon.svg" class="navIcon"/><span class="navText">FAQs</span></a></li>
             </ul>
         </nav>
-      </header>
+      </section>
 
-      <main>
-        <h2 class="hidden">Main Content</h2>
-      <div class="row small-collapse" id="dashboard"><!--begin card dashboard-->
-        <div class="text-center">
-          <img id="mainLogo" src="img/iecslogo.png">
-          <div id="mainDashTitle">
-            <h2>Cable Concrete Calculator</h2>
+    <main>
+      <h2 class="hidden">Main Content</h2>
+        <div class="row">
+          <div class="columns small-12 medium-6">
+            <h3>Welcome <span class="name">Mr. Weasley</span></h3>
+          </div>
+          <div class="columns small-12 medium-6">
+            <h3>About Cable Concrete</h3>
           </div>
         </div>
-        <div class="columns small-12 medium-6">
-          <div class="card columns small-12 no-tab">
-            <a href="#" class="cardLink">
-            <div class="insideCard clearfix">
-            <img class="cardIcon" src="img/paper_icon.svg" alt="icon of a piece of paper"/>
-            <h3 class="cardTitle noDesc">Quotes</h3>
+        <div class="row borderTop">
+          <div class="columns small-12 medium-6">
+            <h3>Most Recent Quote</h3>
           </div>
-          </a>
+          <div class="columns small-12 medium-6">
+            <h3>History</h3>
           </div>
-
-            <!--tablet/desktop only-->
-            <div class="card columns small-12 tab">
-              <a href="#" class="cardLink">
-              <div class="insideCard clearfix">
-              <img class="cardIcon" src="img/paper_icon.svg" alt="icon of a piece of paper"/>
-              <h3 class="cardTitle">Current Quotes</h3>
-              <p class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
-          </a>
-          </div>
-
-            <div class="card columns small-12 tab">
-              <a href="newQuote.html" class="cardLink">
-              <div class="insideCard clearfix">
-              <img class="cardIcon" src="img/new_quote_icon.svg" alt="icon of a plus in a circle, start a new quote"/>
-              <h3 class="cardTitle">Start New Quote</h3>
-              <p class="desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
-          </a>
-          </div>
-          <!-- mobile only-->
-          <div class="card columns small-6 small no-tab">
-            <a href="#" class="cardLink">
-            <div class="insideCard clearfix">
-            <h3 class="cardTitle">Profile</h3>
-            <img class="cardIcon" src="img/profile_icon.svg" alt="icon of a plus in a circle, start a new quote"/>
-          </div>
-        </a>
         </div>
+    </main>
 
-        <div class="card columns small-6 small no-tab">
-          <a href="#" class="cardLink">
-          <div class="insideCard clearfix">
-          <h3 class="cardTitle">History</h3>
-          <img class="cardIcon" src="img/help_icon.svg" alt="icon of a plus in a circle, start a new quote"/>
-        </div>
-      </a>
-      </div>
-          <!--both-->
-          <div class="card columns small-6 small borderTop">
-            <a href="#" class="cardLink">
-            <div class="insideCard clearfix">
-            <h3 class="cardTitle">FAQs</h3>
-            <img class="cardIcon" src="img/help_icon.svg" alt="icon of a plus in a circle, start a new quote"/>
-          </div>
-        </a>
-        </div>
-
-        <div class="card columns small-6 small borderTop">
-          <a href="#" class="cardLink">
-          <div class="insideCard clearfix">
-              <h3 class="cardTitle">TIPS</h3>
-              <img class="cardIcon" src="img/tip_icons.svg" alt="icon of a plus in a circle, start a new quote"/>
-            </div>
-            </a>
-      </div>
-    </div>
-    <!-- desktop only right side-->
-    <div class="card columns small-12 medium-6 tab">
-      <div class="insideCard clearfix">
-      <h3 class="cardTitle">Activity/Quote History</h3>
-      <section id="quotes">
-
-      <div class="quote clearfix">
-        <div class="content">
-          <div class="status">
-            <img src="img/not_complete.svg" alt="incomplete"/>
-            <br>
-            NOT COMPLETE
-          </div>
-          <h3 class="name">Roadway Water Flow</h3>
-          <h4 class="modified">Date Modified:</h4><p class="date">September 16, 2016</p>
-          <h4 class="created">Date Created:</h4><p class="date">September 2, 2016</p>
-        </div>
-          <div class="buttons">
-              <a href="#">Discard</a>
-              <a href="#">Continue</a>
-          </div>
-      </div>
-
-      <div class="quote clearfix">
-        <div class="content">
-          <div class="status">
-            <img src="img/not_complete.svg" alt="incomplete"/>
-            <br>
-            NOT COMPLETE
-          </div>
-          <h3 class="name">Roadway Water Flow</h3>
-          <h4 class="modified">Date Modified:</h4><p class="date">September 16, 2016</p>
-          <h4 class="created">Date Created:</h4><p class="date">September 2, 2016</p>
-        </div>
-          <div class="buttons">
-              <a href="#">Discard</a>
-              <a href="#">Continue</a>
-          </div>
-      </div>
-
-      <div class="quote clearfix">
-        <div class="content">
-          <div class="status">
-            <img src="img/complete_icon.svg" alt="incomplete"/>
-            <br>
-            COMPLETE
-          </div>
-          <h3 class="name">Roadway Water Flow</h3>
-          <h4 class="modified">Date Modified:</h4><p class="date">September 16, 2016</p>
-          <h4 class="created">Date Created:</h4><p class="date">September 2, 2016</p>
-      </div>
-      </div>
-    </section>
-    </div>
-
-    </div>
-  </div>
-  </main>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

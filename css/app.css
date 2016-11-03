@@ -28,8 +28,7 @@ padding-left: 0;
   color:#fff;
   display: block;
   width:100%;
-  padding:1em;
-  padding-left:2em;
+  padding:1em 0.5em 0.5em 2em;
 }
 #mainNav ul li a.current{
   background: #589021;
@@ -45,6 +44,16 @@ padding-left: 0;
   left:0;
   top:0;
 }
+
+#mainNav .navIcon{
+  max-width: 2.6em;
+  margin-bottom: 0.5em;
+}
+#mainNav .navText{
+  display: inline-block;
+  margin-left: 0.5em;
+  font-size: 4rem;
+  }
 
 .darkOverlay{
    display: block;
@@ -240,164 +249,6 @@ form.testing input{
   max-width: inherit;
   margin:0 auto;
 }
-.card{
-  padding:0.75em 1.5em;
-}
-.small{
-  padding-right: 0.75em;
-}
-.borderTop .insideCard{
-  border-top: thin solid rgba(255,255,255,0.2);
-}
-.small:nth-child(2n+1){
-  padding-right: 1.5em;
-  padding-left: 0.75em;
-  border-left:thin solid rgba(255,255,255,0.2);
-}
-.small:nth-child(n+2) .insideCard{
-  border-bottom:none;
-}
-
-.card .insideCard{
-  padding:1em;
-  display: block;
-  color:#fff;
-  text-decoration: inherit;
-/*  background:rgba(255,255,255,0.254);*/
-  transition: all ease 0.5s;
-  box-sizing: border-box;
-  border-bottom:thin solid rgba(255,255,255,0.2);
-}
-a.cardLink{
-  text-decoration: none;
-  color:#fff;
-}
-  .card .insideCard >*{
-    padding:0;
-    margin:0;
-  }
-  .floatRight{
-    float: right;
-  }
-  .card.floatRight{
-    min-height: 26rem;
-  }
-  #quotes{
-    max-height: 24.5rem;
-    overflow-y: scroll;
-    padding-right:1em;
-  }
-  .quote{
-    display: block;
-    width:100%;
-    box-sizing: border-box;
-    background: #fff;
-    color:#222;
-    position: relative;
-    margin-bottom: 2em;
-    padding-top: 0.1px;
-    position: relative;
-    padding-bottom: 0.1px;
-  }
-  .quote .content>*{
-    position: relative;
-    z-index: 2;
-    padding:0;
-    margin: 0;
-  }
-  .quote .content{
-    margin: 1em;
-  }
-.quote .name{
-margin-top: 1em;
-font-size: 1.4em;
-}
-  .quote .modified{
-
-  }
-  .quote .created{
-
-  }
-  .date{
-
-  }
-  .quote .status{
-    min-width: 8em;
-    display: inline;
-    float: right;
-    margin-right: 2em;
-    margin-top: 0.7em;
-    text-align: center;
-    z-index: 1;
-  }
-  .quote .status img{
-    max-width: 5em;
-    height:100%;
-  }
-  .quote .buttons{
-    clear: both;
-    margin:0;
-    width: 100%;
-    box-sizing: inherit;
-    margin-top:1em;
-}
-  .quote .buttons a{
-    box-sizing: inherit;
-    margin:0;
-    padding:0;
-    display: block;
-    float: left;
-    text-align: center;
-    text-decoration: none;
-    padding:0.3em;
-  }
-  .quote .buttons a:first-child{
-    color:#222;
-    background: #b4b2b0;
-    width: 50%;
-  }
-  .quote .buttons a:first-child:hover{
-    background: #c5c3c1;
-  }
-  .quote .buttons a:last-child{
-    background: #6b9773;
-    color:#fff;
-    width: 50%;
-  }
-  .quote .buttons a:last-child:hover{
-    background: #5a8662;
-  }
-  .card.small{
-    text-align: center;
-  }
-  .card .cardTitle{
-    font-size: 2em;
-    font-family: "opensans-bold";
-    text-transform: uppercase;
-    font-weight: 200;
-  }
-  .card .cardTitle.noDesc{
-    font-size: 3em;
-    margin-left:0.5em;
-    margin-top:1.5rem;
-  }
-  .cardLink:hover .insideCard{
-  }
-
-  .card .desc{
-  }
-  .card .cardIcon{
-    max-width: 5em;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-    margin-left: 2em;
-    float: right;
-  }
-  .card.small .cardIcon{
-    float: none;
-    margin: 0.5em 0;
-  }
-
 
 #mainLogo{
   max-width: 18rem;
@@ -594,6 +445,9 @@ label .tip:hover + .tipCont{
 #sideBar{
   display: none;
 }
+#mainHeader{
+  display: none;
+}
 
 @media only screen and (min-width:40rem){
   #background{
@@ -643,6 +497,20 @@ label .tip:hover + .tipCont{
   }
   .borderTop .insideCard{
     border-top: none;
+  }
+  #mainHeader{
+    display: block;
+    background:#4b8709;
+    width:100%;
+    box-sizing: border-box;
+    padding: 0.5em 0em;
+    padding-left: 23%;
+  }
+  #mainHeader .logo{
+    display: block;
+    max-width: 24em;
+    width:100%;
+    margin:0 auto;
   }
   #sideBar{
     display: block;
