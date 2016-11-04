@@ -566,17 +566,63 @@ label .tip:hover + .tipCont{
     border-radius: 50%;
 }
 
+.buttons{
+  border-top: thin solid #ccc;
+  border-bottom: thin solid #ccc;
+  padding:1em;
+  margin-top:1em;
+  box-sizing: border-box;
+}
+
+.buttons a{
+  text-decoration: none;
+}
+.quote h3,.quote h4,.quote h5{
+  padding:0;
+  margin:0;
+}
+
+.quote{
+  padding-bottom: 2em;
+}
+.quote.closed .buttons{
+  display: none;
+
+}
+
+.buttons .left{
+  float: left;
+  width:50%;
+  text-align: center;
+}
+.buttons .right{
+  float: right;
+  width:50%;
+  text-align: center;
+}
+
+.left img.centered, .right img.centered{
+    display: block;
+    margin: 0 auto;
+    width:100%;
+    max-width:3em;
+}
+
+
 
 @media only screen and (min-width:40rem){
   .card.left{
     padding-left: 8em;
 }
+
 .card.left:after{
   display: block;
 }
+
 .card.right{
   padding-right: 8em;
 }
+
 
   #mainHeader{
     padding-left: 23%;
