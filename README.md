@@ -33,3 +33,4 @@
 * started working on changes to design provided by Shannon.
 * finished restyling login page.
 * started restyling dashboard.
+* finished dashboard styling and functionality, in respect to history card and expanding/collapsing tabs.
