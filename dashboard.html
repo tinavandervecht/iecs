@@ -19,14 +19,14 @@
         <h2 class="hidden">Sidebar</h2>
         <img class="logo" src="img/iecslogo.png">
         <section id="profile" class="clearfix">
-          <img src="img/huffinAndA.jpg" class="profilepic"/>
-          <h3 class="name">A. Puffin</h3>
+          <img src="img/default_dude_img.png" class="profilepic"/>
+          <h3 class="name">Ronald Weasley</h3>
           <h4 class="title">Engineer, TC Consulting</h4>
         </section>
         <nav id="mainNav">
             <h3 id="navTitle">Navigation</h3>
             <ul>
-              <li><a href="#" class="current"><img src="img/paper_icon.svg" class="navIcon"/><span class="navText">Home</span></a></li>
+              <li><a href="#" class="current"><img src="img/home_icon.svg" class="navIcon"/><span class="navText">Home</span></a></li>
               <li><a href="#"><img src="img/paper_icon.svg" class="navIcon"/><span class="navText">Quotes</span></a></li>
               <li><a href="#"><img src="img/tip_icons.svg" class="navIcon"/><span class="navText">History</span></a></li>
               <li><a href="#"><img src="img/profile_icon.svg" class="navIcon"/><span class="navText">Profile</span></a></li>
@@ -63,13 +63,13 @@
                 <div class="buttons clearfix">
                   <div class="left">
                     <a href="#" class="clearfix">
-                    <img class="centered" src="img/user_icon.svg">
+                    <img class="centered" src="img/pencil_icon.svg">
                       <span class="text">EDIT</span>
                     </a>
                   </div>
                   <div class="right">
                     <a href="#" class="clearfix">
-                    <img class="centered" src="img/user_icon.svg">
+                    <img class="centered" src="img/trash_icon.svg">
                     <span class="text">DISCARD</span>
                   </a>
                   </div>
@@ -78,47 +78,193 @@
           </div>
           <div class="columns small-12 medium-6 card right" id="quotes">
             <h3>History</h3><img class="icon" src="img/history_icon_black.svg">
-            <!-- ========================================================================= -->
-            <div class="quote">
-              <h4 class="title">Roadway Water Flow</h4>
-              <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
-                <div class="buttons clearfix">
-                  <div class="left">
-                    <a href="#" class="clearfix">
-                    <img class="centered" src="img/user_icon.svg">
-                      <span class="text">EDIT</span>
-                    </a>
-                  </div>
-                  <div class="right">
-                    <a href="#" class="clearfix">
-                    <img class="centered" src="img/user_icon.svg">
-                    <span class="text">DISCARD</span>
-                  </a>
+            <div id="scrollWrapper">
+              <!-- ========================================================================= -->
+              <div class="quote">
+                <div class="statusbox">
+                  <img class="icon" src="img/not_complete.svg"/>
+                  <div class="status">
+                    <p>STATUS:</p>
+                    <span>INCOMPLETE</span>
                   </div>
                 </div>
-            </div>
-            <!-- ======================================= -->
-            <div class="quote closed">
-              <h4 class="title">Roadway Water Flow</h4>
-              <h5 class="dateModified">Date Created: <span class="date"> November 3rd 2016</span></h5>
-                <div class="buttons clearfix">
-                  <div class="left">
-                    <a href="#" class="clearfix">
-                    <img class="centered" src="img/user_icon.svg">
-                      <span class="text">EDIT</span>
+                <h4 class="title">Roadway Water Flow</h4>
+                <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                  <div class="buttons clearfix">
+                    <div class="left">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/pencil_icon.svg">
+                        <span class="text">EDIT</span>
+                      </a>
+                    </div>
+                    <div class="right">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/trash_icon.svg">
+                      <span class="text">DISCARD</span>
                     </a>
+                    </div>
                   </div>
-                  <div class="right">
-                    <a href="#" class="clearfix">
-                    <img class="centered" src="img/user_icon.svg">
-                    <span class="text">DISCARD</span>
-                  </a>
+              </div>
+              <!-- ========================================================================= -->
+              <div class="quote closed">
+                <div class="statusbox">
+                  <img class="icon" src="img/complete_icon.svg"/>
+                  <div class="status">
+                    <p>STATUS:</p>
+                    <span>COMPLETE</span>
                   </div>
                 </div>
-            </div>
-            <!-- ======================================= -->
+                <h4 class="title">Roadway Water Flow</h4>
+                <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                  <div class="buttons clearfix">
+                    <div class="left">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/pencil_icon.svg">
+                        <span class="text">EDIT</span>
+                      </a>
+                    </div>
+                    <div class="right">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/trash_icon.svg">
+                      <span class="text">DISCARD</span>
+                    </a>
+                    </div>
+                  </div>
+              </div>
+              <!-- ========================================================================= -->
+              <div class="quote closed">
+                <div class="statusbox">
+                  <img class="icon" src="img/complete_icon.svg"/>
+                  <div class="status">
+                    <p>STATUS:</p>
+                    <span>COMPLETE</span>
+                  </div>
+                </div>
+                <h4 class="title">Roadway Water Flow</h4>
+                <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                  <div class="buttons clearfix">
+                    <div class="left">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/pencil_icon.svg">
+                        <span class="text">EDIT</span>
+                      </a>
+                    </div>
+                    <div class="right">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/trash_icon.svg">
+                      <span class="text">DISCARD</span>
+                    </a>
+                    </div>
+                  </div>
+              </div>
+              <!-- ========================================================================= -->
+              <div class="quote closed">
+                <div class="statusbox">
+                  <img class="icon" src="img/complete_icon.svg"/>
+                  <div class="status">
+                    <p>STATUS:</p>
+                    <span>COMPLETE</span>
+                  </div>
+                </div>
+                <h4 class="title">Roadway Water Flow</h4>
+                <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                  <div class="buttons clearfix">
+                    <div class="left">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/pencil_icon.svg">
+                        <span class="text">EDIT</span>
+                      </a>
+                    </div>
+                    <div class="right">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/trash_icon.svg">
+                      <span class="text">DISCARD</span>
+                    </a>
+                    </div>
+                  </div>
+              </div>
+              <!-- ========================================================================= -->
+              <div class="quote closed">
+                <div class="statusbox">
+                  <img class="icon" src="img/complete_icon.svg"/>
+                  <div class="status">
+                    <p>STATUS:</p>
+                    <span>COMPLETE</span>
+                  </div>
+                </div>
+                <h4 class="title">Roadway Water Flow</h4>
+                <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                  <div class="buttons clearfix">
+                    <div class="left">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/pencil_icon.svg">
+                        <span class="text">EDIT</span>
+                      </a>
+                    </div>
+                    <div class="right">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/trash_icon.svg">
+                      <span class="text">DISCARD</span>
+                    </a>
+                    </div>
+                  </div>
+              </div>
+              <!-- ========================================================================= -->
+              <div class="quote closed">
+                <div class="statusbox">
+                  <img class="icon" src="img/complete_icon.svg"/>
+                  <div class="status">
+                    <p>STATUS:</p>
+                    <span>COMPLETE</span>
+                  </div>
+                </div>
+                <h4 class="title">Roadway Water Flow</h4>
+                <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                  <div class="buttons clearfix">
+                    <div class="left">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/pencil_icon.svg">
+                        <span class="text">EDIT</span>
+                      </a>
+                    </div>
+                    <div class="right">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/trash_icon.svg">
+                      <span class="text">DISCARD</span>
+                    </a>
+                    </div>
+                  </div>
+              </div>
+              <!-- ========================================================================= -->
+              <div class="quote closed">
+                <div class="statusbox">
+                  <img class="icon" src="img/complete_icon.svg"/>
+                  <div class="status">
+                    <p>STATUS:</p>
+                    <span>COMPLETE</span>
+                  </div>
+                </div>
+                <h4 class="title">Roadway Water Flow</h4>
+                <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                  <div class="buttons clearfix">
+                    <div class="left">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/pencil_icon.svg">
+                        <span class="text">EDIT</span>
+                      </a>
+                    </div>
+                    <div class="right">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="img/trash_icon.svg">
+                      <span class="text">DISCARD</span>
+                    </a>
+                    </div>
+                  </div>
+              </div>
 
-          </div>
+
+          </div>          <!-- end scrollWrapper -->
+        </div>
         </div>
       </section>
     </main>

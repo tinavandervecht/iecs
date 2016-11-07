@@ -35,6 +35,7 @@ padding-left: 0;
   background:#213d02;
 }
 #mainNav ul li a.current{
+  transition: background ease 0.5s;
   background: #589021;
   position: relative;
 }
@@ -593,6 +594,37 @@ label .tip:hover + .tipCont{
   padding-top: 1em;
   border-color: #ccc;
 }
+#quotes #scrollWrapper{
+  overflow-y: scroll;
+  height:18em;
+  padding-right:1em;
+}
+
+/*CSS3 SCROLLBARS*/
+
+#quotes #scrollWrapper::-webkit-scrollbar{
+background:#ddd;
+border-radius: 2em;
+width:0.5em;
+}
+#quotes #scrollWrapper::-webkit-scrollbar-button{
+  display: none;
+}
+#quotes #scrollWrapper::-webkit-scrollbar-track{
+  display: none;
+}
+#quotes #scrollWrapper::-webkit-scrollbar-track-piece{
+  display: none;
+}
+#quotes #scrollWrapper::-webkit-scrollbar-thumb{
+  background: #bbb;
+  border-radius: 2em;
+}
+#quotes #scrollWrapper::-webkit-scrollbar-corner{ /* 6 */ }
+#quotes #scrollWrapper::-webkit-resizer{ /* 7 */ }
+
+/*END CSS3 SCROLLBAR FOR #quotes*/
+
 #quotes .quote{
   cursor: pointer;
   -moz-user-select:none;
@@ -615,6 +647,33 @@ label .tip:hover + .tipCont{
 .quote.closed .buttons{
   display: none;
 }
+.statusbox{
+  width:10em;
+  display: block;
+  float: right;
+}
+.statusbox .icon{
+  float:left;
+  margin-top:0.5em;
+  max-width: 2em;
+  display: block;
+}
+.statusbox .status{
+  display: inline;
+}
+.statusbox .status p{
+  display: inline;
+  margin: 0;
+  padding:0;
+  margin-left: 1em;
+}
+.statusbox .status span{
+  margin:0;
+  padding:0;
+  display: inline;
+  margin-left: 1em;
+
+}
 
 .buttons .left{
   float: left;
@@ -633,12 +692,13 @@ label .tip:hover + .tipCont{
     display: block;
     margin: 0 auto;
     width:100%;
-    max-width:3em;
+    max-height:1.7em;
+    opacity: 0.5;
 }
-.left a:focus{
+.left a:focus .text{
   color:#7be008 !important;
 }
-.right a:focus{
+.right a:focus .text{
   color:#ea2b0e !important;
 }
 
