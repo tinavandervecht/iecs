@@ -73,7 +73,8 @@ function valPass(){
     }
 }
 
-setTimeout(fadeBackgrounds,time*1000);
+window.addEventListener('load', function(){document.querySelector('#background').style.display="block";},false);
+//setTimeout(fadeBackgrounds,time*1000);
 noAccountForm.querySelector('#signUp').addEventListener('click',signUpOrIn,false);
 signPass.addEventListener('keyup', valPass, false);
 signPass.addEventListener('focus', valPass, false);

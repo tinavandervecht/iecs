@@ -548,19 +548,25 @@ label .tip:hover + .tipCont{
 
   /*background: #222;*/
 }
-.welcomeText{
-  display: inline-block;
-  width:70%;
+.card > p.welcomeText{
+  margin:0 auto;
+  display: block;
+  width:100%;
+  max-width: 34em;
   clear: none;
-  float: left;
-  margin:0;
   padding:0;
 }
+.card > p{
+  max-width: 34em;
+  margin:0 auto;
+  display: block;
+  width:100%;
+}
 .right-person{
-    position: absolute;
-    top:4em;
-    right:6em;
-    width:30%;
+    display: block;
+    margin: 2em auto;
+
+    width:80%;
     max-width: 8em;
     border:thin solid #777;
     border-radius: 50%;
@@ -585,6 +591,21 @@ label .tip:hover + .tipCont{
 .quote{
   padding-bottom: 2em;
 }
+#quotes .quote{
+  cursor: pointer;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  user-select:none;
+  border-bottom: thin solid #eee;
+  padding-bottom: 0;
+}
+#quotes .quote.closed{
+  padding-bottom: 1em;
+}
+#quotes .buttons{
+border:none;
+  margin:0em;
+}
 .quote.closed .buttons{
   display: none;
 
@@ -607,10 +628,23 @@ label .tip:hover + .tipCont{
     width:100%;
     max-width:3em;
 }
+.left a:focus{
+  color:#7be008 !important;
+}
+.right a:focus{
+  color:#ea2b0e !important;
+}
 
 
 
 @media only screen and (min-width:40rem){
+  .card > p.welcomeText{
+    float: left;
+  }
+  .right-person{
+    display: none;
+  }
+
   .card.left{
     padding-left: 8em;
 }
@@ -634,7 +668,7 @@ label .tip:hover + .tipCont{
     padding-left:23%;
   }
   #background{
-    display: block;
+    display: none;
     background-image: url("../img/allBackOne.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -683,6 +717,15 @@ label .tip:hover + .tipCont{
 
 /***************************************************************************************************************************************************************/
 @media only screen and (min-width:64em){
+  .card > p.welcomeText{
+    float: left;
+    width:70%;
+  }
+  .right-person{
+    display: block;
+    float: right;
+    width:30%;
+  }
     #profile .profilepic{
     float: left;
     max-width: 4rem;
