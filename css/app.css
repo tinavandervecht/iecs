@@ -590,25 +590,30 @@ label .tip:hover + .tipCont{
 
 .quote{
   padding-bottom: 2em;
+  padding-top: 1em;
+  border-color: #ccc;
 }
 #quotes .quote{
   cursor: pointer;
   -moz-user-select:none;
   -webkit-user-select:none;
   user-select:none;
-  border-bottom: thin solid #eee;
+  border-bottom: thin solid #ccc;
   padding-bottom: 0;
+}
+#quotes .quote .title{
+  text-transform: uppercase;
 }
 #quotes .quote.closed{
   padding-bottom: 1em;
 }
 #quotes .buttons{
-border:none;
-  margin:0em;
+  border-bottom:none;
+  margin-top:1em;
+  border-color: inherit;
 }
 .quote.closed .buttons{
   display: none;
-
 }
 
 .buttons .left{
@@ -620,6 +625,8 @@ border:none;
   float: right;
   width:50%;
   text-align: center;
+  border-left: thin solid #200;
+  border-color:inherit;
 }
 
 .left img.centered, .right img.centered{
