@@ -5,7 +5,7 @@ var mainNavLinks = document.querySelectorAll('#mainNav ul li a');
 
 
 function mainNavFunc(event){
-  event.preventDefault();
+//  event.preventDefault();
   var it = event.currentTarget;
   current.classList.remove('current');
   it.classList.add('current');

@@ -26,8 +26,8 @@
         <nav id="mainNav">
             <h3 id="navTitle">Navigation</h3>
             <ul>
-              <li><a href="dashboard.html" class="current"><img src="img/home_icon.svg" class="navIcon"/><span class="navText">Home</span></a></li>
-              <li><a href="quotes.html"><img src="img/paper_icon.svg" class="navIcon"/><span class="navText">Quotes</span></a></li>
+              <li><a href="dashboard.html"><img src="img/home_icon.svg" class="navIcon"/><span class="navText">Home</span></a></li>
+              <li><a href="quotes.html"  class="current"><img src="img/paper_icon.svg" class="navIcon"/><span class="navText">Quotes</span></a></li>
               <li><a href="#"><img src="img/history_icon.svg" class="navIcon"/><span class="navText">History</span></a></li>
               <li><a href="#"><img src="img/profile_icon.svg" class="navIcon"/><span class="navText">Profile</span></a></li>
               <li><a href="#"><img src="img/tip_icons.svg" class="navIcon"/><span class="navText">Tips</span></a></li>
@@ -40,63 +40,25 @@
       <h2 class="hidden">Main Content</h2>
       <section class="row expanded" id="mainDashboard">
         <div class="row">
-          <div class="columns small-12 medium-6 card left">
-            <h3>Welcome <span class="name">Mr. Weasley</span></h3>
-            <img class="right-person" src="img/default_dude_img.png"/>
-            <p class="welcomeText">Half-Blood Prince Invisibility Cloak cauldron cakes, hiya Harry! Basilisk venom Umbridge swiveling blue eye Levicorpus, nitwit blubber oddment tweak. Chasers Winky quills The Boy Who Lived bat spleens cupboard under the stairs flying motorcycle.</p>
-          </div>
-          <div class="columns small-12 medium-6 card right">
-            <h3>About Cable Concrete</h3>
-            <p>Bee in your bonnet Hand of Glory elder wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma and Parvati Sorting Hat Minister of Magic blue turban remember my last. </p>
-          </div>
-        </div>
-        <div class="row border-top">
-          <div class="columns small-12 medium-6 card left">
-            <h3>Most Recent Quote</h3><img class="icon" src="img/paper_icon_black.svg">
-            <div class="quote">
-              <h4 class="title">Roadway Water Flow</h4>
-              <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
-              <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. .</p>
-                <div class="buttons clearfix">
-                  <div class="leftButton">
-                    <a href="#" class="clearfix">
-                    <img class="centered" src="img/pencil_icon.svg">
-                      <span class="text">EDIT</span>
-                    </a>
-                  </div>
-                  <div class="rightButton">
-                    <a href="#" class="clearfix">
-                    <img class="centered" src="img/trash_icon.svg">
-                    <span class="text">DISCARD</span>
-                  </a>
-                  </div>
-                </div>
-            </div>
-          </div>
-          <div class="columns small-12 medium-6 card right" id="quotes">
-            <h3>History</h3><img class="icon" src="img/history_icon_black.svg">
-            <div id="scrollWrapper">
+          <div class="columns small-12 card" id="quotes">
+            <h3>Current Quotes</h3><img class="icon" src="img/history_icon_black.svg">
+            <div id="scrollWrapper" class="quotesPage">
               <!-- ========================================================================= -->
               <div class="quote">
-                <div class="statusbox">
-                  <img class="icon" src="img/not_complete.svg"/>
-                  <div class="status">
-                    <p>STATUS:</p>
-                    <span>INCOMPLETE</span>
-                  </div>
-                </div>
+
                 <h4 class="title">Roadway Water Flow</h4>
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. </p>
                   <div class="buttons clearfix">
                     <div class="leftButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/pencil_icon.svg">
-                        <span class="text">EDIT</span>
+
+                        <span class="text">CONTINUE</span>
                       </a>
                     </div>
                     <div class="rightButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/trash_icon.svg">
+
                       <span class="text">DISCARD</span>
                     </a>
                     </div>
@@ -104,25 +66,20 @@
               </div>
               <!-- ========================================================================= -->
               <div class="quote closed">
-                <div class="statusbox">
-                  <img class="icon" src="img/complete_icon.svg"/>
-                  <div class="status">
-                    <p>STATUS:</p>
-                    <span>COMPLETE</span>
-                  </div>
-                </div>
+
                 <h4 class="title">Overspill Protection</h4>
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. </p>
                   <div class="buttons clearfix">
                     <div class="leftButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/pencil_icon.svg">
-                        <span class="text">EDIT</span>
+
+                        <span class="text">CONTINUE</span>
                       </a>
                     </div>
                     <div class="rightButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/trash_icon.svg">
+                      
                       <span class="text">DISCARD</span>
                     </a>
                     </div>
@@ -130,25 +87,20 @@
               </div>
               <!-- ========================================================================= -->
               <div class="quote closed">
-                <div class="statusbox">
-                  <img class="icon" src="img/complete_icon.svg"/>
-                  <div class="status">
-                    <p>STATUS:</p>
-                    <span>COMPLETE</span>
-                  </div>
-                </div>
+
                 <h4 class="title">Crabson Waterway</h4>
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. </p>
                   <div class="buttons clearfix">
                     <div class="leftButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/pencil_icon.svg">
-                        <span class="text">EDIT</span>
+
+                        <span class="text">CONTINUE</span>
                       </a>
                     </div>
                     <div class="rightButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/trash_icon.svg">
+
                       <span class="text">DISCARD</span>
                     </a>
                     </div>
@@ -156,25 +108,20 @@
               </div>
               <!-- ========================================================================= -->
               <div class="quote closed">
-                <div class="statusbox">
-                  <img class="icon" src="img/complete_icon.svg"/>
-                  <div class="status">
-                    <p>STATUS:</p>
-                    <span>COMPLETE</span>
-                  </div>
-                </div>
+
                 <h4 class="title">Mt. Moon Access Road</h4>
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. </p>
                   <div class="buttons clearfix">
                     <div class="leftButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/pencil_icon.svg">
-                        <span class="text">EDIT</span>
+
+                        <span class="text">CONTINUE</span>
                       </a>
                     </div>
                     <div class="rightButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/trash_icon.svg">
+
                       <span class="text">DISCARD</span>
                     </a>
                     </div>
@@ -182,25 +129,19 @@
               </div>
               <!-- ========================================================================= -->
               <div class="quote closed">
-                <div class="statusbox">
-                  <img class="icon" src="img/complete_icon.svg"/>
-                  <div class="status">
-                    <p>STATUS:</p>
-                    <span>COMPLETE</span>
-                  </div>
-                </div>
                 <h4 class="title">Central Station Drainage System</h4>
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. </p>
                   <div class="buttons clearfix">
                     <div class="leftButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/pencil_icon.svg">
-                        <span class="text">EDIT</span>
+
+                        <span class="text">CONTINUE</span>
                       </a>
                     </div>
                     <div class="rightButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/trash_icon.svg">
+
                       <span class="text">DISCARD</span>
                     </a>
                     </div>
@@ -208,25 +149,20 @@
               </div>
               <!-- ========================================================================= -->
               <div class="quote closed">
-                <div class="statusbox">
-                  <img class="icon" src="img/not_complete.svg"/>
-                  <div class="status">
-                    <p>STATUS:</p>
-                    <span>INCOMPLETE</span>
-                  </div>
-                </div>
+
                 <h4 class="title">Overtop Protection, Whersher Dam</h4>
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. </p>
                   <div class="buttons clearfix">
                     <div class="leftButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/pencil_icon.svg">
-                        <span class="text">EDIT</span>
+
+                        <span class="text">CONTINUE</span>
                       </a>
                     </div>
                     <div class="rightButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/trash_icon.svg">
+
                       <span class="text">DISCARD</span>
                     </a>
                     </div>
@@ -234,25 +170,20 @@
               </div>
               <!-- ========================================================================= -->
               <div class="quote closed">
-                <div class="statusbox">
-                  <img class="icon" src="img/complete_icon.svg"/>
-                  <div class="status">
-                    <p>STATUS:</p>
-                    <span>COMPLETE</span>
-                  </div>
-                </div>
+
                 <h4 class="title">Typii Call Project</h4>
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"> November 3rd 2016</span></h5>
+                <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. </p>
                   <div class="buttons clearfix">
                     <div class="leftButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/pencil_icon.svg">
-                        <span class="text">EDIT</span>
+
+                        <span class="text">CONTINUE</span>
                       </a>
                     </div>
                     <div class="rightButton">
                       <a href="#" class="clearfix">
-                      <img class="centered" src="img/trash_icon.svg">
+
                       <span class="text">DISCARD</span>
                     </a>
                     </div>
@@ -261,6 +192,13 @@
 
 
           </div>          <!-- end scrollWrapper -->
+        </div>
+        <div class="row border-top">
+          <div class="columns small-12 card">
+            <h3>New Quote</h3>
+            <p></p>
+            <a id="newQuoteButton" href="newQuote.html">Start New quote</a>
+          </div>
         </div>
         </div>
       </section>
@@ -273,6 +211,6 @@
     <script src="js\vendor\greensock\TweenLite.min.js"></script>
     <script src="js\vendor\greensock\CSSPlugin.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/dash.js"></script>
+    <script src="js/quotes.js"></script>
   </body>
 </html>
