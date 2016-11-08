@@ -34,3 +34,4 @@
 * finished restyling login page.
 * started restyling dashboard.
 * finished dashboard styling and functionality, in respect to history card and expanding/collapsing tabs.
+* added icons that were missing and changed filler text to Harry Potter Ipsum : http://www.christinachern.com/hpipsum/
