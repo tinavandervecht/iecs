@@ -124,7 +124,7 @@ function clearField(){
   it.value="";
 }
 var convertFields = document.querySelectorAll("#calculator input.convert");
-var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit'])");
+var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit']):not([type='date'])");
 var showMetricBox = document.querySelector("#hideMetric");
 var showImperialBox = document.querySelector("#hideImperial");
 var lastChecked;
