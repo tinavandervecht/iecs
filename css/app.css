@@ -602,10 +602,22 @@ label .tip:hover + .tipCont{
 
 /*CSS3 SCROLLBARS*/
 
+
 #quotes #scrollWrapper::-webkit-scrollbar{
-background:#ddd;
+background:#f5f5f5;
 border-radius: 2em;
 width:0.5em;
+}
+#quotes #scrollWrapper::-webkit-scrollbar-thumb{
+  background: #eee;
+  border-radius: 2em;
+}
+#quotes #scrollWrapper:hover::-webkit-scrollbar-thumb{
+  background: #bbb;
+  border-radius: 2em;
+}
+#quotes #scrollWrapper:hover::-webkit-scrollbar{
+  background:#eee;
 }
 #quotes #scrollWrapper::-webkit-scrollbar-button{
   display: none;
@@ -616,10 +628,7 @@ width:0.5em;
 #quotes #scrollWrapper::-webkit-scrollbar-track-piece{
   display: none;
 }
-#quotes #scrollWrapper::-webkit-scrollbar-thumb{
-  background: #bbb;
-  border-radius: 2em;
-}
+
 #quotes #scrollWrapper::-webkit-scrollbar-corner{ /* 6 */ }
 #quotes #scrollWrapper::-webkit-resizer{ /* 7 */ }
 
@@ -717,13 +726,13 @@ width:0.5em;
 }
 #scrollWrapper.quotesPage .title{
   font-size: 1.4em;
-  float:left;
 }
 #scrollWrapper.quotesPage .buttons .rightButton{
   border-left: none;
 }
 
 #scrollWrapper.quotesPage .dateModified,#scrollWrapper.quotesPage .dateCreated{
+  clear: right;
   float:right;
 }
 #newQuoteButton{
@@ -734,9 +743,18 @@ width:0.5em;
   text-decoration: none;
   background:#589021;
   float:right;
+  margin-right:4em;
 }
 #newQuoteButton:hover{
   background: #59a20a;
+}
+#mainQuotes .card h3.block{
+  display: block;
+}
+#mainQuotes .card p.halfsies{
+  margin:0;
+  max-width: 40em;
+  display: inline-block;
 }
 
 
@@ -770,6 +788,9 @@ width:0.5em;
     display: block;
   }
   #mainDashboard{
+    padding-left:23%;
+  }
+  #mainQuotes{
     padding-left:23%;
   }
   #background{
