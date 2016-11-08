@@ -6,12 +6,38 @@
 */
 
 (function(){
-  var calcSubmit = document.querySelector('#calculator');
+var pagnationPageTrackerPages = document.querySelectorAll(".pagnation-page-tracker .pageNo");
+var pageNo = document.querySelector('.pagnation-page-tracker .current');
+var pages =   document.querySelectorAll('.pagnation-page');
+var currentPage = document.querySelector('.pagnation-page.current');
+for(var i=0; i< pagnationPageTrackerPages.length;i++){
+  pagnationPageTrackerPages[i].addEventListener('click', pagnation, false);
+}
 
+  var calcSubmit = document.querySelector('#calculator');
   var tips = document.querySelectorAll('tip');
-  for(i=0;i<tips.length;i++){
+  for(var i=0;i<tips.length;i++){
     tips[i].addEventListener('mouseover',tipShow,false);
   }
+
+function pagnation(event){
+  event.preventDefault();
+  var it = event.currentTarget;
+  pageNo.classList.remove('current');
+  it.classList.add('current');
+  pageNo = it;
+  var pageNumber = pageNo.innerHTML;
+  for(var i=0;i<pages.length;i++){
+    if(parseInt(pages[i].id) == pageNumber){
+      var newPage = pages[i];
+    }
+  }
+  currentPage.classList.remove('current');
+  newPage.classList.add('current');
+  currentPage = newPage;
+}
+
+
 
   function metricToImperial(input,units,precision){
     var output = null;

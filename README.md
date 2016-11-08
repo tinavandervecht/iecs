@@ -35,3 +35,7 @@
 * started restyling dashboard.
 * finished dashboard styling and functionality, in respect to history card and expanding/collapsing tabs.
 * added icons that were missing and changed filler text to Harry Potter Ipsum : http://www.christinachern.com/hpipsum/
+* Started working on the new quote page.
+* changing styles on the new quote page.
+* added pagnation to new quote page.
+* reworking field layout to conform to designs.

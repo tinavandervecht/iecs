@@ -301,8 +301,81 @@ form.testing input{
 .tab{
   display: none;
 }
-#calculator{
+.pagnation-page-tracker{
+background:#407c08;
+text-align: center;
+}
+.pagnation-page-tracker .pages{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.pagnation-page-tracker .pages:after{
+  z-index: 0;
+position: absolute;
+top:50%;
+width:140%;
+left:-20%;
+border-bottom: thin solid #222;
+content:'';
+display: block;
+}
+.pagnation-page-tracker .pageNo{
+  text-decoration: none;
+  z-index: 2;
+  position: relative;
   color:#fff;
+  float: left;
+  display: block;
+    width:2em;
+    height:2em;
+    margin:1em 3em;
+    border-radius: 50%;
+    line-height: 2em;
+    box-sizing: content-box;
+    background: #305509;
+    color: #889e72;
+    font-family: "opensans-bold";
+    font-size: 1.2rem;
+}
+.pagnation-page-tracker .pageNo.current{
+      position: relative;
+      background: #fff;
+      color:#4b8709;
+      z-index: 3;
+}
+.pagnation-page-tracker .pageNo.current:after{
+  z-index: 2;
+  width:120%;
+  display: block;
+  position: absolute;
+  top:-10%;
+  left:-10%;
+  content: '';
+  height:120%;
+  background-color:transparent;
+  border-radius: 50%;
+  box-sizing:border-box !important;
+  border:0.1em solid #fff;
+  opacity: 0.4;
+}
+.pagnation-page-tracker .pageNo.current:before{
+  z-index: 1;
+  width:140%;
+  display: block;
+  position: absolute;
+  top:-20%;
+  left:-20%;
+  content: '';
+  height:140%;
+  background-color:transparent;
+  border-radius: 50%;
+  box-sizing:border-box !important;
+  border:0.1em solid #fff;
+  opacity: 0.2;
+}
+
+#calculator{
 }
 #calculator h2,#calculator h3,#calculator h4,#calculator h5,#calculator h6{
   margin:0;
@@ -318,20 +391,22 @@ form.testing input{
   color:inherit;
   background-color: transparent;
   border:0;
-  border-bottom:thin solid rgba(255,255,255,0.2);
+  border-bottom:thin solid #ccc;
+  border-bottom:thin solid rgba(0,0,0,0.2);
 }
 #calculator input:focus{
-  border-bottom:thin solid rgba(255,255,255,0.8);
+  border-bottom:thin solid #222;
+  border-bottom:thin solid rgba(0,0,0,0.8);
   outline:0;
 }
 .pagnation-page.current{
-
+    display: block;
 }
 .pagnation-page{
   margin-top: 2em;
   padding:1em;
-  display: block;
-  background: rgba(255,255,255,0.235);
+  display: none;
+  border-bottom:thin solid rgba(0,0,0,0.45);
 }
 .pagnation-page > div{
   display: block;
@@ -426,7 +501,7 @@ label .tip:hover + .tipCont{
   top:0;
   left:0;
   background-color:transparent;
-  border: thin solid #eee;
+  border: thin solid #222;
 }
 .checkbox label:after{
   opacity: 0.0;
@@ -437,7 +512,7 @@ label .tip:hover + .tipCont{
   background-color:transparent;
   top:0.2em;
   left:0.24em;
-  border: 0.18em solid #eee;
+  border: 0.18em solid #222;
   border-top:none;
   border-right: none;
   transform: rotate(-45deg);
@@ -722,16 +797,23 @@ width:0.5em;
   margin-top:1em;
   max-width: 60em;
   width:70%;
-  clear: both;
 }
 #scrollWrapper.quotesPage .title{
   font-size: 1.4em;
 }
+#scrollWrapper.quotesPage .buttons{
+}
 #scrollWrapper.quotesPage .buttons .rightButton{
   border-left: none;
 }
-
+#scrollWrapper.quotesPage .dateModified{
+  margin-top:2em;
+}
+#scrollWrapper.quotesPage .dateCreated{
+  margin-top:0.5em;
+}
 #scrollWrapper.quotesPage .dateModified,#scrollWrapper.quotesPage .dateCreated{
+  margin-right: 3em;
   clear: right;
   float:right;
 }
@@ -761,6 +843,7 @@ width:0.5em;
 
 
 @media only screen and (min-width:40rem){
+
   .card > p.welcomeText{
     float: left;
   }
@@ -792,6 +875,9 @@ width:0.5em;
   }
   #mainQuotes{
     padding-left:23%;
+  }
+  #newQuote{
+    padding-left: 23%;
   }
   #background{
     display: none;
@@ -870,10 +956,7 @@ width:0.5em;
       width: auto;
       text-align: left;
     }
-  #dashboard, #calculator{
-    max-width: 66rem;
-    margin-left:26%;
-  }
+
   .desk{
     display:block;
   }
