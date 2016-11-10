@@ -10,6 +10,7 @@ var pagnationPageTrackerPages = document.querySelectorAll(".pagnation-page-track
 var pageNo = document.querySelector('.pagnation-page-tracker .current');
 var pages =   document.querySelectorAll('.pagnation-page');
 var currentPage = document.querySelector('.pagnation-page.current');
+var contButton = document.querySelector('.continueButton');
 for(var i=0; i< pagnationPageTrackerPages.length;i++){
   pagnationPageTrackerPages[i].addEventListener('click', pagnation, false);
 }
@@ -20,8 +21,12 @@ for(var i=0; i< pagnationPageTrackerPages.length;i++){
     tips[i].addEventListener('mouseover',tipShow,false);
   }
 
+var calc = false;
 function pagnation(event){
   event.preventDefault();
+  var it = event.currentTarget;
+  var pageNumber;
+
   function swapPage(){
     function change(){
       currentPage = newPage;
@@ -31,23 +36,39 @@ function pagnation(event){
   newPage.classList.add('current');
   TweenLite.to(newPage, 0.2, {opacity:1.0,onComplete:change});
   }
-  var it = event.currentTarget;
+
   if(it.classList.contains('pageNo')){
+    console.log("pag");
+    if(calc){
+      console.log("calc is shown");
+      contButton.classList.remove('hidden');
+      document.querySelector('#calc').classList.add('hidden');
+      calc = false;
+    }
+
   it.classList.add('current');
   pageNo.classList.remove('current');
   pageNo = it;
+  pageNumber = pageNo.innerHTML;
   }else if(pageNo.nextElementSibling!=null){
-    // console.log(pageNo.nextElementSibling)
-    pageNo.classList.remove('current');;
+    console.log("advance");
+    pageNo.classList.remove('current');
     pageNo.nextElementSibling.classList.add('current');
     pageNo = pageNo.nextElementSibling;
+    pageNumber = pageNo.innerHTML;
+  }else{
+    pageNo.classList.remove('current');
+    pageNumber =  4;
+    contButton.classList.add('hidden');
+    document.querySelector('#calc').classList.remove('hidden');
+    calc = true;
+    console.log(calc);
   }
-  var pageNumber = pageNo.innerHTML;
   for(var i=0;i<pages.length;i++){
-    if(parseInt(pages[i].id) == pageNumber){
+    if(parseInt(pages[i].id) == pageNumber || pages[i].id === pageNumber){
       var newPage = pages[i];
     }
-  }
+    }
   TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage});
 }
 
@@ -240,7 +261,7 @@ for(var i=0;i<fields.length;i++){
 }
 
 toggleUnits();
-document.querySelector('.continueButton').addEventListener('click', pagnation,false);
+contButton.addEventListener('click', pagnation,false);
 calcSubmit.addEventListener('submit',calculate,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);

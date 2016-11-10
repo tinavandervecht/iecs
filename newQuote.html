@@ -299,15 +299,13 @@
                   <input id="soilType" />
                 </div>
 
-                <div id="comments"  class="clearfix columns small-6">
+                <div id="comments"  class="clearfix">
                   <h4 class="title">Comments</h4>
                   <label for="commentsBox">
                   </label>
                   <textarea id="commentsBox"></textarea>
                 </div>
-                <div id="calc">
-                  <input type="submit" value="Calculate">
-                </div>
+
               </div>
             </div>
             </section>
@@ -326,18 +324,20 @@
 
 
             <!--==================================================================-->
-            <section class="pagnation-page">
-                <h3 class="hidden">Calculated</h3>
+            <section class="pagnation-page" id="4">
+                <h3 class="hidden">Summary</h3>
             </section>
             <!--==================================================================-->
-            <section class="pagnation-page">
-                <h3 class="hidden">Summary</h3>
+            <section class="pagnation-page" id="5">
+              <h3 class="hidden">Calculated</h3>
             </section>
             <!--==================================================================-->
 
 
             <a href="#" class="continueButton">CONTINUE</a>
-
+            <div id="calc" class="hidden">
+              <input type="submit" value="Calculate">
+            </div>
 
 
         </form>

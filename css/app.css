@@ -303,8 +303,7 @@ form.testing input {
     z-index: 0;
     position: absolute;
     top: 50%;
-    width: 140%;
-    left: -20%;
+    width: 100%;
     border-bottom: thin solid #222;
     content: '';
     display: block;
@@ -326,6 +325,12 @@ form.testing input {
     color: #889e72;
     font-family: "opensans-bold";
     font-size: 1.2em;
+}
+.pagnation-page-tracker .pageNo:first-child{
+  margin-left:0;
+}
+.pagnation-page-tracker .pageNo:last-child{
+  margin-right:0;
 }
 .pagnation-page-tracker .pageNo.current {
     position: relative;
@@ -401,10 +406,30 @@ form.testing input {
     border-bottom: thin solid #ccc;
     border-bottom: thin solid rgba(0, 0, 0, 0.2);
 }
+#calculator textarea {
+  resize:none;
+  width:100%;
+  border: thin solid #ccc;
+  border: thin solid rgba(0, 0, 0, 0.2);
+}
+
 #calculator input:focus {
     border-bottom: thin solid #222;
     border-bottom: thin solid rgba(0, 0, 0, 0.8);
     outline: 0;
+}
+#calculator #calc input[type="submit"]{
+  border-bottom:0;
+  display: inline-block;
+  font-family: "opensans-bold";
+  text-decoration: none;
+  text-transform: uppercase;
+  padding:1em 8em;
+  margin-top:0.5em;
+  margin-right:4em;
+  color:#fff;
+  background: #4a8609;
+  float: right;
 }
 .pagnation-page {
     margin-top: 2em;
