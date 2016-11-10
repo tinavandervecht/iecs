@@ -22,19 +22,33 @@ for(var i=0; i< pagnationPageTrackerPages.length;i++){
 
 function pagnation(event){
   event.preventDefault();
+  function swapPage(){
+    function change(){
+      currentPage = newPage;
+    }
+    console.log(currentPage);
+  currentPage.classList.remove('current');
+  newPage.classList.add('current');
+  TweenLite.to(newPage, 0.2, {opacity:1.0,onComplete:change});
+  }
   var it = event.currentTarget;
-  pageNo.classList.remove('current');
+  if(it.classList.contains('pageNo')){
   it.classList.add('current');
+  pageNo.classList.remove('current');
   pageNo = it;
+  }else if(pageNo.nextElementSibling!=null){
+    // console.log(pageNo.nextElementSibling)
+    pageNo.classList.remove('current');;
+    pageNo.nextElementSibling.classList.add('current');
+    pageNo = pageNo.nextElementSibling;
+  }
   var pageNumber = pageNo.innerHTML;
   for(var i=0;i<pages.length;i++){
     if(parseInt(pages[i].id) == pageNumber){
       var newPage = pages[i];
     }
   }
-  currentPage.classList.remove('current');
-  newPage.classList.add('current');
-  currentPage = newPage;
+  TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage});
 }
 
 
@@ -226,6 +240,7 @@ for(var i=0;i<fields.length;i++){
 }
 
 toggleUnits();
+document.querySelector('.continueButton').addEventListener('click', pagnation,false);
 calcSubmit.addEventListener('submit',calculate,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);
