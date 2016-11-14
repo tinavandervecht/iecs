@@ -507,6 +507,12 @@ form.testing input {
   margin-bottom: 1em;
   margin-top: 2em;
 }
+a.sectionTitle{
+  text-decoration: none;
+  font-weight: 1000;
+  font-family: "opensans-bold";
+  color:inherit;
+}
 #calculator .row .columns:first-child .sectionTitle{
   margin-top: 0;
 }
@@ -518,6 +524,29 @@ form.testing input {
 
 #calculator h5.unit {
     font-weight: 100;
+}
+
+.summaryEntry:first-child{
+  margin-top:2em;
+}
+.summaryEntry .entryTitle{
+  font-weight: 100;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  width:100%;
+  border-bottom:thin solid #222;
+}
+.summaryEntry .edit{
+  float: right;
+  text-transform: none;
+  padding-right:1.5em;
+  position: relative;
+}
+.summaryEntry .edit img{
+  max-width: 1em;
+  position: absolute;
+  top:0.1em;
+  right:0;
 }
 
 .checkbox {

@@ -63,6 +63,7 @@ function pagnation(event){
   }else{
     pageNo.classList.remove('current');
     pageNumber =  4;
+    calcSubmit.summarize;
     contButton.classList.add('hidden');
     document.querySelector('#calc').classList.remove('hidden');
     calc = true;
@@ -213,7 +214,8 @@ var showI;
 
 
 
-function calculate(event){
+function summarize(event){
+  var summary;
   event.preventDefault();
   var it = event.currentTarget;
   //Runs calculation in  METRIC, converts to imperial afterward if wanted
@@ -223,6 +225,7 @@ function calculate(event){
 
   var flow = it.parentNode.querySelector('#flowMeters').value;
   var velocity = it.parentNode.querySelector('#velocityMeters').value;
+
   var bedSlope = it.parentNode.querySelector('#bedSlopeDecimal').value;
   var sideSlope = it.parentNode.querySelector('#sideSlopeDecimal').value;
   var flowType = it.parentNode.querySelector('#flowType').value;
@@ -237,11 +240,18 @@ function calculate(event){
 
   var comments = it.parentNode.querySelector('#commentsBox').value;
 
+  summary = document.querySelector('#sum_details');
   console.log(date);
   console.log(location);
   console.log(engineer +"\n");
+  summary.innerHTML = date + "\n";
+  summary.innerHTML+=location + "\n";
+  summary.innerHTML+=engineer;
+  summary = document.querySelector("#sum_flow");
   console.log(flow);
   console.log(velocity);
+  summary.innerHTML = flow +"\n";
+  summary.innerHTML+= velocity;
   console.log(bedSlope);
   console.log(sideSlope);
   console.log(flowType);
