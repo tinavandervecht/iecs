@@ -1,6 +1,6 @@
 $(document).foundation();
 (function(){
-document.querySelector('#newQuoteButton').addEventListener('click',function(event){event.preventDefault();});
+// document.querySelector('#newQuoteButton').addEventListener('click',function(event){event.preventDefault();});
 var quotes = document.querySelectorAll('#quotes .quote');
 
 
