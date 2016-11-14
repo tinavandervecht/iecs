@@ -14,6 +14,10 @@ var contButton = document.querySelector('.continueButton');
 for(var i=0; i< pagnationPageTrackerPages.length;i++){
   pagnationPageTrackerPages[i].addEventListener('click', pagnation, false);
 }
+var tooltips = document.querySelectorAll('.tip');
+for(i=0;i<tooltips.length;i++){
+  tooltips[i].addEventListener('click', function(event){event.preventDefault();}, false);
+}
 
   var calcSubmit = document.querySelector('#calculator');
   var tips = document.querySelectorAll('tip');

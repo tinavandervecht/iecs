@@ -371,6 +371,7 @@ form.testing input {
 #calculator {
     width: 100%;
     margin: 0 auto;
+    font-size: 1em;
 }
 #hideTheMetric {
     clear: both;
@@ -418,19 +419,8 @@ form.testing input {
     border-bottom: thin solid rgba(0, 0, 0, 0.8);
     outline: 0;
 }
-#calculator #calc input[type="submit"]{
-  border-bottom:0;
-  display: inline-block;
-  font-family: "opensans-bold";
-  text-decoration: none;
-  text-transform: uppercase;
-  padding:1em 8em;
-  margin-top:0.5em;
-  margin-right:4em;
-  color:#fff;
-  background: #4a8609;
-  float: right;
-}
+
+
 .pagnation-page {
     margin-top: 2em;
     padding: 1em;
@@ -498,10 +488,12 @@ form.testing input {
   z-index: 12;
 }
 
-#calculator label + input:not([type="checkbox"]) {
-    width: 100%;
-    margin-bottom: 0.6em;
-    clear: left;
+
+
+#calculator label + input:not([type="checkbox"]), #calculator label + input:not([type="submit"]){
+  width:100%;
+  clear: left;
+  margin-bottom:0.6em;
 }
 .checkbox label {
     padding-right: 0 !important;
@@ -509,16 +501,25 @@ form.testing input {
 #calculator .checkbox {
     float: right;
 }
+#calculator .sectionTitle{
+  text-transform: uppercase;
+  font-size: 1.4em;
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+#calculator .row .columns:first-child .sectionTitle{
+  margin-top: 0;
+}
 #calculator .title {
     margin-bottom: 0.5em;
     font-weight: 100;
 }
+
+
 #calculator h5.unit {
     font-weight: 100;
 }
-#calculator div input:last-child {
-    margin-bottom: 2em;
-}
+
 .checkbox {
     width: 1.4em;
     height: 1.4em;
@@ -563,19 +564,6 @@ form.testing input {
 }
 .shown {
     display: block !important;
-}
-
-
-.continueButton{
-  display: inline-block;
-  font-family: "opensans-bold";
-  text-decoration: none;
-  padding:1em 8em;
-  margin-top:0.5em;
-  margin-right:4em;
-  color:#fff;
-  background: #4a8609;
-  float: right;
 }
 
 
@@ -861,19 +849,6 @@ form.testing input {
 .dateModified {
     font-weight: 100;
 }
-#newQuoteButton {
-    text-transform: uppercase;
-    color: #fff;
-    display: inline-block;
-    padding: 0.75em 3em;
-    text-decoration: none;
-    background: #589021;
-    float: right;
-    margin-right: 4em;
-}
-#newQuoteButton:hover {
-    background: #59a20a;
-}
 #mainQuotes .card h3.block {
     display: block;
 }
@@ -882,6 +857,23 @@ form.testing input {
     max-width: 40em;
     display: inline-block;
 }
+
+.greenButton, #calculator input.greenButton{
+  border-bottom:0;
+  background: #4a8609;
+  color:#fff;
+  display: inline-block;
+  float: right;
+  font-family: "opensans-bold";
+  margin-right:4em;
+  margin-top:0.5em;
+  padding:1em 8em;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom:2em;
+}
+
+
 @media only screen and (min-width: 40rem) {
     .card > p.welcomeText {
         float: left;
