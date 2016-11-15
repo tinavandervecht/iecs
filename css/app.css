@@ -541,6 +541,7 @@ a.sectionTitle{
   text-transform: none;
   padding-right:1.5em;
   position: relative;
+  text-decoration: none;
 }
 .summaryEntry .edit img{
   max-width: 1em;

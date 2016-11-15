@@ -63,7 +63,7 @@ function pagnation(event){
   }else{
     pageNo.classList.remove('current');
     pageNumber =  4;
-    calcSubmit.summarize;
+    summarize();
     contButton.classList.add('hidden');
     document.querySelector('#calc').classList.remove('hidden');
     calc = true;
@@ -212,57 +212,119 @@ var showI;
         }
 }
 
+var projName;
+var projDate;
+var cityProv;
+var addr;
+var engineer;
+var flow;
+var velocity;
+var bedSlope;
+var sideSlope;
+var flowType;
+var bedWidth;
+var alignment;
+var crest;
+var length;
+var depth;
+var topWidth;
+var source;
+var soil;
+var comments;
 
+function getInputs(){
+  //Grabs values in metric, to convert to imperial if needed.
+  projName = calcSubmit.querySelector('#name').value;
+  projDate = calcSubmit.querySelector('#d').value;
+  console.log(calcSubmit.querySelector('#cityProv'));
+  console.log(calcSubmit.querySelector('#cityProv').value);
+  cityProv = calcSubmit.querySelector('#cityProv').value;
+  addr = calcSubmit.querySelector('#addr').value;
+  engineer = calcSubmit.querySelector('#engineerName').value;
+//
+ flow = calcSubmit.querySelector('#flowMeters').value;
+ velocity = calcSubmit.querySelector('#velocityMeters').value;
+//
+ bedSlope = calcSubmit.querySelector('#bedSlopeDecimal').value;
+ sideSlope = calcSubmit.querySelector('#sideSlopeDecimal').value;
+ flowType = calcSubmit.querySelector('#flowType').value;
+ bedWidth = calcSubmit.querySelector('#bedMeters').value;
+ alignment = calcSubmit.querySelector('#alignType').value;
+ crest = calcSubmit.querySelector('#crestMeters').value;
+ length = calcSubmit.querySelector('#channelMeters').value;
+ depth = calcSubmit.querySelector('#depthMeters').value;
+ topWidth = calcSubmit.querySelector('#topMeters').value;
+ source = calcSubmit.querySelector('#sourceType').value;
+ soil = calcSubmit.querySelector('#soilType').value;
+//
+ comments = calcSubmit.querySelector('#commentsBox').value;
+ console.log("got inputs;");
+}
 
-function summarize(event){
+function summarize(){
+  // event.preventDefault();
   var summary;
-  event.preventDefault();
   var it = event.currentTarget;
-  //Runs calculation in  METRIC, converts to imperial afterward if wanted
-  var date = it.parentNode.querySelector('#d').value;
-  var location = it.parentNode.querySelector('#projectLocation').value;
-  var engineer = it.parentNode.querySelector('#engineerName').value;
+  getInputs();
 
-  var flow = it.parentNode.querySelector('#flowMeters').value;
-  var velocity = it.parentNode.querySelector('#velocityMeters').value;
-
-  var bedSlope = it.parentNode.querySelector('#bedSlopeDecimal').value;
-  var sideSlope = it.parentNode.querySelector('#sideSlopeDecimal').value;
-  var flowType = it.parentNode.querySelector('#flowType').value;
-  var bedWidth = it.parentNode.querySelector('#bedMeters').value;
-  var alignment = it.parentNode.querySelector('#alignType').value;
-  var crest = it.parentNode.querySelector('#crestMeters').value;
-  var length = it.parentNode.querySelector('#channelMeters').value;
-  var depth = it.parentNode.querySelector('#depthMeters').value;
-  var topWidth = it.parentNode.querySelector('#topMeters').value;
-  var source = it.parentNode.querySelector('#sourceType').value;
-  var soil = it.parentNode.querySelector('#soilType').value;
-
-  var comments = it.parentNode.querySelector('#commentsBox').value;
-
-  summary = document.querySelector('#sum_details');
-  console.log(date);
-  console.log(location);
-  console.log(engineer +"\n");
-  summary.innerHTML = date + "\n";
-  summary.innerHTML+=location + "\n";
+  //
+  summary = document.querySelector('#sum_details .text');
+  summary.innerHTML = projName + " <br>";
+  summary.innerHTML += projDate + " <br>";
+  summary.innerHTML+=cityProv + " <br>";
+  summary.innerHTML+=addr + " <br>";
   summary.innerHTML+=engineer;
-  summary = document.querySelector("#sum_flow");
+  console.log(projDate);
+  console.log(cityProv);
+  console.log(engineer +" <br>");
+
+  //
+  summary = document.querySelector("#sum_flow .text");
+  summary.innerHTML = flow +" <br>";
+  summary.innerHTML+= velocity;
   console.log(flow);
   console.log(velocity);
-  summary.innerHTML = flow +"\n";
-  summary.innerHTML+= velocity;
+
+  //
+  summary = document.querySelector('#sum_slopes .text');
+  summary.innerHTML = bedSlope+" <br>";
+  summary.innerHTML += sideSlope;
   console.log(bedSlope);
   console.log(sideSlope);
+
+  //
+  summary = document.querySelector("#sum_type .text");
+  summary.innerHTML = flowType;
   console.log(flowType);
+
+  //
+  summary = document.querySelector("#sum_bed .text");
+  summary.innerHTML = bedWidth + " <br>";
+  summary.innerHTML += alignment + " <br>";
+  summary.innerHTML += crest;
   console.log(bedWidth);
   console.log(alignment);
   console.log(crest);
+
+  //
+  summary = document.querySelector("#sum_channel .text");
+  summary.innerHTML = length + " <br>";
+  summary.innerHTML += depth + " <br>";
+  summary.innerHTML += topWidth;
   console.log(length);
   console.log(depth);
   console.log(topWidth);
+
+  //
+  summary = document.querySelector("#sum_environment .text");
+  summary.innerHTML = source + " <br>";
+  summary.innerHTML +=soil;
   console.log(source);
   console.log(soil);
+
+  //
+  summary = document.querySelector("#sum_comments .text");
+  summary.innerHTML = comments;
   console.log(comments);
 }
 
@@ -276,7 +338,7 @@ for(var i=0;i<fields.length;i++){
 
 toggleUnits();
 contButton.addEventListener('click', pagnation,false);
-calcSubmit.addEventListener('submit',calculate,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);
+// calcSubmit.addEventListener('submit',calculate,false);
 })();
