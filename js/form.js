@@ -6,26 +6,52 @@
 */
 
 (function(){
-var pagnationPageTrackerPages = document.querySelectorAll(".pagnation-page-tracker .pageNo");
-var pageNo = document.querySelector('.pagnation-page-tracker .current');
-var pages =   document.querySelectorAll('.pagnation-page');
-var currentPage = document.querySelector('.pagnation-page.current');
-var contButton = document.querySelector('.continueButton');
-for(var i=0; i< pagnationPageTrackerPages.length;i++){
-  pagnationPageTrackerPages[i].addEventListener('click', pagnation, false);
-}
-var tooltips = document.querySelectorAll('.tip');
-for(i=0;i<tooltips.length;i++){
-  tooltips[i].addEventListener('click', function(event){event.preventDefault();}, false);
-}
-
+  //SELECTING THE FORM
   var calcSubmit = document.querySelector('#calculator');
-  var tips = document.querySelectorAll('tip');
-  for(var i=0;i<tips.length;i++){
-    tips[i].addEventListener('mouseover',tipShow,false);
-  }
 
-var calc = false;
+// for pagnation pages.
+  var pagnationPageTrackerPages = document.querySelectorAll(".pagnation-page-tracker .pageNo");
+  var pageNo = document.querySelector('.pagnation-page-tracker .current');
+  var pages =   document.querySelectorAll('.pagnation-page');
+  var currentPage = document.querySelector('.pagnation-page.current');
+  var contButton = document.querySelector('.continueButton');
+
+
+//SELECTING FIELDS AND TOGGLEABLE FIELDS
+var convertFields = document.querySelectorAll("#calculator input.convert");
+var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit']):not([type='date'])");
+var showMetricBox = document.querySelector("#hideMetric");
+var showImperialBox = document.querySelector("#hideImperial");
+var lastChecked; //describes last checked display unit
+
+//TOOLTIPS on form fields
+var tooltips = document.querySelectorAll('.tip');
+
+var calc = false;//for pagnation
+
+//CONTAINERS FOR FORM INPUT VALUES
+var projName;
+var projDate;
+var cityProv;
+var addr;
+var engineer;
+var flow;
+var velocity;
+var bedSlope;
+var sideSlope;
+var flowType;
+var bedWidth;
+var alignment;
+var crest;
+var length;
+var depth;
+var topWidth;
+var source;
+var soil;
+var comments;
+
+
+//PAGNATION FUNCTIONALITY
 function pagnation(event){
   event.preventDefault();
   var it = event.currentTarget;
@@ -35,7 +61,6 @@ function pagnation(event){
     function change(){
       currentPage = newPage;
     }
-    console.log(currentPage);
   currentPage.classList.remove('current');
   newPage.classList.add('current');
   TweenLite.to(newPage, 0.2, {opacity:1.0,onComplete:change});
@@ -44,7 +69,6 @@ function pagnation(event){
   if(it.classList.contains('pageNo')){
     console.log("pag");
     if(calc){
-      console.log("calc is shown");
       contButton.classList.remove('hidden');
       document.querySelector('#calc').classList.add('hidden');
       calc = false;
@@ -55,7 +79,6 @@ function pagnation(event){
   pageNo = it;
   pageNumber = pageNo.innerHTML;
   }else if(pageNo.nextElementSibling!=null){
-    console.log("advance");
     pageNo.classList.remove('current');
     pageNo.nextElementSibling.classList.add('current');
     pageNo = pageNo.nextElementSibling;
@@ -67,7 +90,6 @@ function pagnation(event){
     contButton.classList.add('hidden');
     document.querySelector('#calc').classList.remove('hidden');
     calc = true;
-    console.log(calc);
   }
   for(var i=0;i<pages.length;i++){
     if(parseInt(pages[i].id) == pageNumber || pages[i].id === pageNumber){
@@ -78,7 +100,7 @@ function pagnation(event){
 }
 
 
-
+//CONVERT METRIC TO IMPERIAL
   function metricToImperial(input,units,precision){
     var output = null;
     var factor = 3.28084;
@@ -100,7 +122,7 @@ function pagnation(event){
     }
   }
 
-
+//CONVERT INPERIAL TO METRIC
   function imperialToMetric(input,units,precision){
     var output = null;
     var factor = 3.28084;
@@ -118,6 +140,7 @@ function pagnation(event){
     }
   }
 
+//CONVERT PERCENT TO DECIMAL
   function percentToDecimal(input){
     var output = parseFloat((parseFloat(input.replace("%",""))*0.01).toFixed(6));
     if(output.toString()!="NaN"){
@@ -127,6 +150,7 @@ function pagnation(event){
     }
   }
 
+//CONVERT DECIMAL TO PERCENT
   function decimalToPercent(input){
     var output = (input*100).toFixed(2) + "%";
     if(output.toString()!="NaN%"){
@@ -136,12 +160,13 @@ function pagnation(event){
     }
   }
 
+//UPDATE FIELDS
 function autoUpdate(event){
-var it = event.currentTarget;
-var metric = it.parentNode.querySelector('.metric');
-var imperial = it.parentNode.querySelector('.imperial');
-var percent = it.parentNode.querySelector('.P');
-var decimal = it.parentNode.querySelector('.D');
+  var it = event.currentTarget;
+  var metric = it.parentNode.querySelector('.metric');
+  var imperial = it.parentNode.querySelector('.imperial');
+  var percent = it.parentNode.querySelector('.P');
+  var decimal = it.parentNode.querySelector('.D');
     if(metric != null){
       if(it===metric){
         //console.log("metric!");
@@ -159,26 +184,21 @@ var decimal = it.parentNode.querySelector('.D');
     }
 }
 
+//CLEAR THE FIELD THIS IS EFFECTED ON
 function clearField(){
   var it = event.currentTarget;
   it.value="";
 }
-var convertFields = document.querySelectorAll("#calculator input.convert");
-var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit']):not([type='date'])");
-var showMetricBox = document.querySelector("#hideMetric");
-var showImperialBox = document.querySelector("#hideImperial");
-var lastChecked;
 
+//TOGGLE THE DISPLAY OF METRIC OR IMPERIAL UNITS - ALSO ENSURES ONE UNIT IS ALWAYS SHOWN
 function toggleUnits(){
-var showM;
-var showI;
+  var showM;
+  var showI;
   if(showMetricBox.checked){
-    console.log("metric's checked!");
     showM = true;
     lastChecked = showMetricBox;
   }
   if(showImperialBox.checked){
-    console.log("imperial's checked!");
     showI = true;
     lastChecked = showImperialBox;
   }
@@ -212,26 +232,7 @@ var showI;
         }
 }
 
-var projName;
-var projDate;
-var cityProv;
-var addr;
-var engineer;
-var flow;
-var velocity;
-var bedSlope;
-var sideSlope;
-var flowType;
-var bedWidth;
-var alignment;
-var crest;
-var length;
-var depth;
-var topWidth;
-var source;
-var soil;
-var comments;
-
+//FILL CONTAINERS WITH RESPECTIVE INPUT'S VALUES
 function getInputs(){
   //Grabs values in metric, to convert to imperial if needed.
   projName = calcSubmit.querySelector('#name').value;
@@ -241,26 +242,27 @@ function getInputs(){
   cityProv = calcSubmit.querySelector('#cityProv').value;
   addr = calcSubmit.querySelector('#addr').value;
   engineer = calcSubmit.querySelector('#engineerName').value;
-//
- flow = calcSubmit.querySelector('#flowMeters').value;
- velocity = calcSubmit.querySelector('#velocityMeters').value;
-//
- bedSlope = calcSubmit.querySelector('#bedSlopeDecimal').value;
- sideSlope = calcSubmit.querySelector('#sideSlopeDecimal').value;
- flowType = calcSubmit.querySelector('#flowType').value;
- bedWidth = calcSubmit.querySelector('#bedMeters').value;
- alignment = calcSubmit.querySelector('#alignType').value;
- crest = calcSubmit.querySelector('#crestMeters').value;
- length = calcSubmit.querySelector('#channelMeters').value;
- depth = calcSubmit.querySelector('#depthMeters').value;
- topWidth = calcSubmit.querySelector('#topMeters').value;
- source = calcSubmit.querySelector('#sourceType').value;
- soil = calcSubmit.querySelector('#soilType').value;
-//
+  //
+   flow = calcSubmit.querySelector('#flowMeters').value;
+   velocity = calcSubmit.querySelector('#velocityMeters').value;
+  //
+   bedSlope = calcSubmit.querySelector('#bedSlopeDecimal').value;
+   sideSlope = calcSubmit.querySelector('#sideSlopeDecimal').value;
+   flowType = calcSubmit.querySelector('#flowType').value;
+   bedWidth = calcSubmit.querySelector('#bedMeters').value;
+   alignment = calcSubmit.querySelector('#alignType').value;
+   crest = calcSubmit.querySelector('#crestMeters').value;
+   length = calcSubmit.querySelector('#channelMeters').value;
+   depth = calcSubmit.querySelector('#depthMeters').value;
+   topWidth = calcSubmit.querySelector('#topMeters').value;
+   source = calcSubmit.querySelector('#sourceType').value;
+   soil = calcSubmit.querySelector('#soilType').value;
+  //
  comments = calcSubmit.querySelector('#commentsBox').value;
  console.log("got inputs;");
 }
 
+//POPULATE THE SUMMARY PAGE WITH DATA
 function summarize(){
   // event.preventDefault();
   var summary;
@@ -328,15 +330,30 @@ function summarize(){
   console.log(comments);
 }
 
+
+//EVENT LISTENERS
+////PAGNATION
+for(var i=0; i< pagnationPageTrackerPages.length;i++){
+  pagnationPageTrackerPages[i].addEventListener('click', pagnation, false);
+}
+
+////TOOLTIPS
+for(i=0;i<tooltips.length;i++){
+  tooltips[i].addEventListener('click', function(event){event.preventDefault();}, false);
+}
+
+////UPDATING FIELDS
 for(var i=0;i<convertFields.length;i++){
   convertFields[i].addEventListener('input', autoUpdate, false);
 }
 
+////CLEARING FIELDS ONCLICK
 for(var i=0;i<fields.length;i++){
   fields[i].addEventListener('click', clearField, false);
 }
 
-toggleUnits();
+toggleUnits(); //initial activation of unit toggle functionality.
+
 contButton.addEventListener('click', pagnation,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);
