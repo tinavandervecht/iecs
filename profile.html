@@ -1,14 +1,83 @@
 <!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-<title>Cable Concrete Calculator | Profile</title>
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen">
-</head>
-<body>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cable Concrete Calculator | Profile</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
 
+            <header id="mainHeader">
+                <img class="logo" src="img/CC-whiteLogo.svg">
+            </header>
 
-<script src="js/main.js"></script>
-</body>
+          <section id="sideBar">
+            <h2 class="hidden">Sidebar</h2>
+            <img class="logo" src="img/iecslogo.png">
+            <section id="profile" class="clearfix">
+              <img src="img/default_dude_img.png" class="profilepic"/>
+              <h3 class="name">Ronald Weasley</h3>
+              <h4 class="title">Engineer, TC Consulting</h4>
+            </section>
+            <nav id="mainNav">
+                <h3 id="navTitle">Navigation</h3>
+                <ul>
+                  <li><a href="dashboard.html" class="current"><img src="img/home_icon.svg" class="navIcon"/><span class="navText">Home</span></a></li>
+                  <li><a href="quotes.html"><img src="img/paper_icon.svg" class="navIcon"/><span class="navText">Quotes</span></a></li>
+                  <li><a href="#"><img src="img/history_icon.svg" class="navIcon"/><span class="navText">History</span></a></li>
+                  <li><a href="profile.html"><img src="img/profile_icon.svg" class="navIcon"/><span class="navText">Profile</span></a></li>
+                  <li><a href="#"><img src="img/tip_icons.svg" class="navIcon"/><span class="navText">Tips</span></a></li>
+                  <li><a href="#"><img src="img/help_icon.svg" class="navIcon"/><span class="navText">FAQs</span></a></li>
+                </ul>
+            </nav>
+          </section>
+
+    <main>
+      <h2 class="hidden">Main Content</h2>
+      <section class="row expanded" id="mainProfile">
+        <div class="columns small-12">
+          <h2>Profile</h2>
+        </div>
+        <div class="columns small-12 medium-3">
+          <img class="profilePicLarge" src="img/default_dude_img.png">
+        </div>
+        <div class="columns small-12 medium-4">
+          <div class="field">
+            <h3 class="title">User Name</h3>
+            <a href="#" class="value">Ronald Weasley<img src="img/pencil_icon.svg"/></a>
+          </div>
+          <div class="field">
+            <h3 class="title">Company</h3>
+            <a href="#" class="value">TC Consulting<img src="img/pencil_icon.svg"/></a>
+          </div>
+          <div class="field">
+            <h3 class="title">Position</h3>
+            <a href="#" class="value">Engineer<img src="img/pencil_icon.svg"/></a>
+          </div>
+        </div>
+        <div class="columns small-12 medium-4 end">
+          <div class="field">
+            <h3 class="title">Phone Number</h3>
+            <a href="#" class="value">226 543 876<img src="img/pencil_icon.svg"/></a>
+          </div>
+          <div class="field">
+            <h3 class="title">Email</h3>
+            <a href="#" class="value">rmugglesgreat@gmail.com<img src="img/pencil_icon.svg"/></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/what-input.js"></script>
+  <script src="js/vendor/foundation.js"></script>
+  <script src="js\vendor\greensock\TweenLite.min.js"></script>
+  <script src="js\vendor\greensock\CSSPlugin.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
 </html>

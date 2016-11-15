@@ -538,12 +538,14 @@ a.sectionTitle{
 }
 .summaryEntry .edit{
   float: right;
-  text-transform: none;
   padding-right:1.5em;
-  position: relative;
-  text-decoration: none;
 }
-.summaryEntry .edit img{
+.edit{
+  text-transform: none;
+  text-decoration: none;
+  position: relative;
+}
+.edit img{
   max-width: 1em;
   position: absolute;
   top:0.1em;
@@ -903,6 +905,30 @@ a.sectionTitle{
   margin-bottom:2em;
 }
 
+#mainProfile .value{
+  width:100%;
+  display: block;
+  border-bottom: thin solid #222;
+  position: relative;
+  font-size: 1.2em;
+  text-decoration: none;
+  color:inherit;
+}
+#mainProfile .value img{
+  position: absolute;
+  max-width: 1.2em;
+  right:0.1em;
+  top:-0.1em;
+}
+#mainProfile .profilePicLarge{
+  width:100%;
+  max-width: 14em;
+  margin: 0 auto;
+  border: thin solid #222;
+  display: block;
+  border-radius: 50%;
+}
+
 
 @media only screen and (min-width: 40rem) {
     .card > p.welcomeText {
@@ -926,13 +952,7 @@ a.sectionTitle{
     #sideBar {
         display: block;
     }
-    #mainDashboard {
-        padding-left: 23%;
-    }
-    #mainQuotes {
-        padding-left: 23%;
-    }
-    #newQuote {
+    #mainDashboard, #mainQuotes, #newQuote, #mainProfile {
         padding-left: 23%;
     }
     #background {
