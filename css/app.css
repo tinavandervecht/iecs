@@ -923,6 +923,11 @@ a.sectionTitle{
     display: inline-block;
 }
 
+#saveProfile{
+  margin-top: 2em;
+  margin-right: 0;
+}
+
 .greenButton, #calculator input.greenButton{
   border-bottom:0;
   background: #4a8609;
