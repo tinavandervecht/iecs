@@ -228,7 +228,7 @@ main#newQuotePage{
 #login form #forgot:hover {
     color: #222;
 }
-#login input[type="submit"] {
+#login input[type="submit"], #signIn{
     color: #fff;
     background: #4a8609;
     border: none;
@@ -238,6 +238,9 @@ main#newQuotePage{
     font-family: "opensans-light";
     margin: 0 auto;
     transition: all ease 0.2s;
+    clear: both;
+    text-align: center;
+    text-decoration: none;
 }
 #login input[type="submit"]:hover {
     background: #59a20a;
@@ -924,9 +927,12 @@ a.sectionTitle{
 }
 #scrollWrapper.quotesPage .dateCreated {
     margin-top: 0.5em;
+    margin-bottom:0.5em;
 }
 #mainQuotes #scrollWrapper.quotesPage .dateModified,
 #mainQuotes #scrollWrapper.quotesPage .dateCreated {
+    width:30%;
+    padding-left: 1em;
     margin-right: 3em;
     clear: right;
     float: none;
