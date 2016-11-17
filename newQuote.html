@@ -13,6 +13,13 @@
 
         <header id="mainHeader">
             <img class="logo" src="img/CC-whiteLogo.svg">
+            <div class="pagnation-page-tracker">
+              <div class="pages">
+                  <a href="#" class="pageNo current">1</a>
+                  <a href="#" class="pageNo">2</a>
+                  <a href="#" class="pageNo">3</a>
+                </div>
+              </div>
         </header>
 
       <section id="sideBar">
@@ -36,16 +43,10 @@
         </nav>
       </section>
 
-    <main>
+    <main id="newQuotePage">
       <h2 class="hidden">Main Content</h2>
       <section class="row expanded" id="newQuote">
-        <div class="pagnation-page-tracker">
-          <div class="pages">
-          <a href="#" class="pageNo current">1</a>
-          <a href="#" class="pageNo">2</a>
-          <a href="#" class="pageNo">3</a>
-        </div>
-          </div>
+
         <form action="#" method="POST" class="row expanded small-collapse" id="calculator">
 
             <section class="pagnation-page current" id="1">
@@ -166,10 +167,10 @@
                 <div class="columns small-12">
                   <h3 class="sectionTitle">Slopes</h3>
                 </div>
-                <div class="columns small-12 medium-6">
-                  <img src="#">
+                <div class="columns small-12 medium-6 medium-push-6 large-6 large-pull-0">
+                  <img src="#" class="calcDiagram" alt="">
                 </div>
-              <div class="columns small-12 medium-6">
+              <div class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
                 <div id="bedSlope"  class="clearfix">
                     <h4 class="title">Channel Bed Slope</h4>
                     <label for="bedSlopePercent">
@@ -193,7 +194,7 @@
                     <input id="sideSlopeDecimal"  class="convert D" />
                 </div>
               </div>
-              <div class="columns small-12 medium-6">
+              <div class="columns small-12 medium-6 medium-clear">
                 <h3 class="sectionTitle">Types of Flow</h3>
                 <div id="type"  class="clearfix">
                     <h4 class="title">Choose Type of Flow:</h4>
@@ -203,7 +204,7 @@
                     <input id="flowType" />
                 </div>
               </div>
-                <div class="columns small-12 medium-6">
+                <div class="columns small-12 medium-6 end">
                     <h3 class="sectionTitle">Bed Width and Alignment</h3>
                 <div id="bedWidth"  class="clearfix">
                     <h4 class="title">Bed Width</h4>
@@ -255,10 +256,10 @@
                 <div class="columns small-12">
                 <h3 class="sectionTitle">Channel Specifications</h3>
               </div>
-            <div class="columns small-12 medium-6">
-              <img src="#" alt="">
+            <div class="columns small-12 medium-6 medium-push-6 large-pull-0">
+              <img src="#" class="calcDiagram"  alt="">
             </div>
-                <div class="columns small-12 medium-6">
+                <div class="columns small-12 medium-6 medium-pull-6 large-pull-0">
                 <div id="channelLength"  class="clearfix">
                 <h4 class="title">Chute/Channel Length</h4>
                 <label for="channelMeters">
@@ -307,7 +308,7 @@
                 </label>
                   <input id="sourceType" />
                 </div>
-                <img src="#" alt="">
+                <img src="#" class="calcDiagram hide-for-medium"  alt="">
                 <div id="soil"  class="clearfix">
                 <h4 class="title">Soil Type and Related Conditions</h4>
                 <label for="soilType">

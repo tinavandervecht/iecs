@@ -3,6 +3,12 @@ body {
     font-family: "opensans-light";
     font-size: 80%;
 }
+main{
+  margin-top:10em;
+}
+main#newQuotePage{
+  margin-top:14em;
+}
 #background {
     display: none;
     position: fixed;
@@ -128,8 +134,8 @@ body {
 .text-center {
     text-align: center;
 }
-.border-top {
-    border-top: thin solid #222;
+.border-top{
+  /*border-top: thin solid #bbb;*/
 }
 .backface {
     margin: auto;
@@ -445,6 +451,7 @@ form.testing input {
   width:100%;
   border: thin solid #ccc;
   border: thin solid rgba(0, 0, 0, 0.2);
+  height: 8em;
 }
 
 #calculator input:focus {
@@ -637,7 +644,9 @@ a.sectionTitle{
     background: #4b8709;
     width: 100%;
     box-sizing: border-box;
-    padding: 0.5em 0;
+    position: fixed;
+    top:0;
+    z-index: 88;
 }
 #mainHeader .logo {
     display: block;
@@ -654,6 +663,7 @@ a.sectionTitle{
     top: 0;
     background: #313131;
     color: #ffffff;
+    z-index: 89;
 }
 #sideBar .logo {
     width: 100%;
@@ -766,8 +776,13 @@ a.sectionTitle{
     border-color: #ccc;
 }
 #quotes #scrollWrapper {
+    overflow-y: visible;
+    height: auto;
+    padding-right: 1em;
+}
+#mainQuotes #scrollWrapper {
     overflow-y: scroll;
-    height: 18em;
+    height: 20em;
     padding-right: 1em;
 }
 /*CSS3 SCROLLBARS*/
@@ -886,11 +901,17 @@ a.sectionTitle{
 #quotes #scrollWrapper.quotesPage {
     height: 26em;
 }
-#scrollWrapper.quotesPage .desc {
-    margin: 0;
-    margin-top: 1em;
-    max-width: 60em;
-    width: 70%;
+#mainQuotes #scrollWrapper .quotesPage .desc{
+  margin-top: 1em;
+  margin: 0;
+  max-width: 60em;
+  width: 100%;
+}
+.calcDiagram{
+  display: none;
+  max-width: 24em;
+  margin: 0 auto;
+  width:90%;
 }
 #scrollWrapper.quotesPage .title {
     font-size: 1.4em;
@@ -904,11 +925,12 @@ a.sectionTitle{
 #scrollWrapper.quotesPage .dateCreated {
     margin-top: 0.5em;
 }
-#scrollWrapper.quotesPage .dateModified,
-#scrollWrapper.quotesPage .dateCreated {
+#mainQuotes #scrollWrapper.quotesPage .dateModified,
+#mainQuotes #scrollWrapper.quotesPage .dateCreated {
     margin-right: 3em;
     clear: right;
-    float: right;
+    float: none;
+    display: none;
 }
 .dateCreated,
 .dateModified {
@@ -983,8 +1005,26 @@ a.sectionTitle{
     margin-bottom: 6rem;
 }
 
+.hide-for-small{
+  display: none;
+}
+
 
 @media only screen and (min-width: 40rem) {
+  .calcDiagram{
+    display: block;
+  }
+  .hide-for-medium{
+    display: none;
+  }
+  .medium-clear{
+    clear:both;
+  }
+}
+
+@media only screen and (min-width: 63rem) {
+
+
   .greenButton, #calculator input.greenButton{
     margin-top: 0;
     max-width: 20em;
@@ -1073,6 +1113,24 @@ a.sectionTitle{
 /***************************************************************************************************************************************************************/
 
 @media only screen and (min-width: 64em) {
+  #mainQuotes #scrollWrapper .desc{
+    margin-top: 1em;
+    margin: 0;
+    max-width: 58em;
+    width: 70%;
+}
+  #mainQuotes #scrollWrapper.quotesPage .dateModified,
+  #mainQuotes #scrollWrapper.quotesPage .dateCreated {
+      margin-right: 3em;
+      clear: right;
+      float: right;
+      display: block;
+  }
+  #quotes #scrollWrapper {
+      overflow-y: scroll;
+      height: 18em;
+      padding-right: 1em;
+  }
     .card > p.welcomeText {
         float: left;
         width: 70%;
