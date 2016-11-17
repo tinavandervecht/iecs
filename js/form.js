@@ -9,49 +9,79 @@
   //SELECTING THE FORM
   var calcSubmit = document.querySelector('#calculator');
 
+
 // for pagnation pages.
   var pagnationPageTrackerPages = document.querySelectorAll(".pagnation-page-tracker .pageNo");
   var pageNo = document.querySelector('.pagnation-page-tracker .current');
   var pages =   document.querySelectorAll('.pagnation-page');
   var currentPage = document.querySelector('.pagnation-page.current');
   var contButton = document.querySelector('.continueButton');
-
+  var goBack = document.querySelector("#goBack");
+  var edits = document.querySelectorAll('.summaryEntry .edit');
 
 //SELECTING FIELDS AND TOGGLEABLE FIELDS
-var convertFields = document.querySelectorAll("#calculator input.convert");
-var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit']):not([type='date'])");
-var showMetricBox = document.querySelector("#hideMetric");
-var showImperialBox = document.querySelector("#hideImperial");
-var lastChecked; //describes last checked display unit
+  var convertFields = document.querySelectorAll("#calculator input.convert");
+  var fields = document.querySelectorAll("#calculator input:not([disabled]):not([type='submit']):not([type='date'])");
+  var showMetricBox = document.querySelector("#hideMetric");
+  var showImperialBox = document.querySelector("#hideImperial");
+  var lastChecked; //describes last checked display unit
 
 //TOOLTIPS on form fields
-var tooltips = document.querySelectorAll('.tip');
+  var tooltips = document.querySelectorAll('.tip');
 
-var calc = false;//for pagnation
+  var calc = false;//for pagnation
 
 //CONTAINERS FOR FORM INPUT VALUES
-var projName;
-var projDate;
-var cityProv;
-var addr;
-var engineer;
-var flow;
-var velocity;
-var bedSlope;
-var sideSlope;
-var flowType;
-var bedWidth;
-var alignment;
-var crest;
-var length;
-var depth;
-var topWidth;
-var source;
-var soil;
-var comments;
+  var projName;
+  var projDate;
+  var cityProv;
+  var addr;
+  var engineer;
+  var flow;
+  var velocity;
+  var bedSlope;
+  var sideSlope;
+  var flowType;
+  var bedWidth;
+  var alignment;
+  var crest;
+  var length;
+  var depth;
+  var topWidth;
+  var source;
+  var soil;
+  var comments;
 
 
 //PAGNATION FUNCTIONALITY
+function goingBack(event){
+  event.preventDefault();
+  var it = event.currentTarget;
+  if(it.dataset.pag !=null){
+  var pageNumber = parseInt(it.dataset.pag)-1;
+  var newPage = pages[pageNumber];
+  for(var i=0;i<pagnationPageTrackerPages.length;i++){
+    if(pagnationPageTrackerPages[i].id == pageNumber+1){
+      pagnationPageTrackerPages[i].classList.add('current');
+      pageNo = pagnationPageTrackerPages[i];
+    }
+  }
+  function swapPage(){
+    function change(){
+      currentPage = newPage;
+    }
+  currentPage.classList.remove('current');
+  newPage.classList.add('current');
+  TweenLite.to(newPage, 0.2, {opacity:1.0,onComplete:change});
+  }
+  if(calc){
+    contButton.classList.remove('hidden');
+    document.querySelector('#calc').classList.add('hidden');
+    calc = false;
+  }
+  TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage});
+  }
+}
 function pagnation(event){
   event.preventDefault();
   var it = event.currentTarget;
@@ -67,7 +97,7 @@ function pagnation(event){
   }
 
   if(it.classList.contains('pageNo')){
-    console.log("pag");
+    // console.log("pag");
     if(calc){
       contButton.classList.remove('hidden');
       document.querySelector('#calc').classList.add('hidden');
@@ -336,7 +366,10 @@ function summarize(){
 for(var i=0; i< pagnationPageTrackerPages.length;i++){
   pagnationPageTrackerPages[i].addEventListener('click', pagnation, false);
 }
-
+goBack.addEventListener("click",goingBack,false);
+for(var i=0;i<edits.length;i++){
+  edits[i].addEventListener("click",goingBack,false);
+}
 ////TOOLTIPS
 for(i=0;i<tooltips.length;i++){
   tooltips[i].addEventListener('click', function(event){event.preventDefault();}, false);
