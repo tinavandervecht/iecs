@@ -1076,12 +1076,18 @@ a.sectionTitle{
     #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips{
         padding-left: 23%;
     }
+    .tiptop{
+      border-bottom:thin solid #ccc;
+      padding:2em;
+      box-sizing: border-box;
+    }
     .tiptop h4{
       margin:0;
         font-size: 1.2em;
     }
     .tiptop p{
       margin:0;
+      margin-left:2em;
     }
     #background {
         display: none;
