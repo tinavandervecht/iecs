@@ -2,9 +2,10 @@ body {
     background: #ffffff;
     font-family: "opensans-light";
     font-size: 80%;
+    overflow-y: scroll;
 }
 main:not(.no-top-margin){
-  margin-top:10em;
+  margin-top:8em;
 }
 main#newQuotePage{
   margin-top:12em;
@@ -135,7 +136,7 @@ main#newQuotePage{
     text-align: center;
 }
 .border-top{
-  /*border-top: thin solid #bbb;*/
+border-top: thin solid #bbb;
 }
 .backface {
     margin: auto;
@@ -748,7 +749,7 @@ a.sectionTitle{
 }
 .card > p {
     max-width: 34em;
-    margin: 0 auto;
+    margin: 0;
     display: block;
     width: 100%;
 }
@@ -979,6 +980,10 @@ a.sectionTitle{
   font-size: 2em;
   line-height: 1rem;
 }
+#mainProfile{
+  padding-top:1em;
+  margin-left:2em
+}
 
 #mainProfile .value{
   border-bottom: thin solid #222;
@@ -1020,6 +1025,9 @@ a.sectionTitle{
 
 
 @media only screen and (min-width: 40rem) {
+  #mainDashboard, #mainQuotes, #newQuote, #mainProfile {
+      margin-bottom: 0rem;
+  }
   .calcDiagram{
     display: block;
   }
@@ -1056,14 +1064,8 @@ a.sectionTitle{
     .right-person {
         display: none;
     }
-    .card.left {
-        padding-left: 8em;
-    }
     .card.left:after {
         display: block;
-    }
-    .card.right {
-        padding-right: 8em;
     }
     #mainHeader {
         padding-left: 23%;
@@ -1071,8 +1073,15 @@ a.sectionTitle{
     #sideBar {
         display: block;
     }
-    #mainDashboard, #mainQuotes, #newQuote, #mainProfile {
+    #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips{
         padding-left: 23%;
+    }
+    .tiptop h4{
+      margin:0;
+        font-size: 1.2em;
+    }
+    .tiptop p{
+      margin:0;
     }
     #background {
         display: none;
