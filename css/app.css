@@ -1036,17 +1036,130 @@ a.sectionTitle{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory{
+#mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
 }
 
 .hide-for-small{
   display: none;
 }
+.block{
+  overflow: hidden;
+  height:6em;
+  margin-bottom:2em;
+}
+.block:last-child{
+  margin-bottom:6em;
+}
+.block.selected{
+  height:auto;
+}
+.blockbox{
+  width: 100%;
+  text-decoration: none;
+  color:inherit;
+  position: relative;
+  display: block;
+}
+.blockbox .blocktype{
+  background: #3a3a3a;
+  color:#fbfbfb;
+  float: left;
+  height:100%;
+  text-align: center;
+  padding:1em;
+  box-sizing: border-box;
+  position: relative;
+}
+.blockbox .blocktype:after{
+  position: absolute;
+  top:32%;
+  content: '';
+  background: inherit;
+  right:-1em;
+  width:2em;
+  height:2em;
+  transform: rotate(45deg);
+}
+.blockbox .blocktype p{
+  font-family: "opensans-bold";
+  margin:0;
+  font-size: 1.6em;
+}
+.blockbox .blocktype p.smaller{
+  font-family: "opensans";
+  font-size: 1.2em;
+}
+.blockbox{
+  height:6em;
+}
+.blockbox .factor{
+  background: #820f0f;
+  color:#fbfbfb;
+  float: right;
+  height:100%;
+  padding: 1em;
+  padding-right: 3em;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  font-size: 1.2em;
+}
+.blockbox .factor img.arrow{
+  position: absolute;
+  top:1em;
+  right:1em;
+  width:1.5em;
+  height:1.5em;
+}
+.blockbox .factor p{
+  margin:0;
+}
+.block .more{
+  width:100%;
+  background: #f4f4f4;
+}
+.block .more h4{
+  margin:0;
+  font-size: 1.2em;
+  padding: 1em 0;
+  text-align: center;
+  border-bottom: thin solid #ccc;
+}
+.block .more .factor{
+  float: left;
+display: block;
+margin:0;
+}
+.block .more .num{
+float: right;
+}
+.block .other{
+  padding:0.5em;
+  width:100%;
+  border-bottom:thin solid #ccc;
+}
+.block .other > div{
+  max-width: 40em;
+  width:60%;
+  margin: 0 auto;
+}
+.block .other:last-child{
+  border-bottom: none;
+}
+.blockbox .blockdiagram{
+  position:absolute;
+  left: 8em;
+}
+.more div{
+}
 
-
+/**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
-  #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory{
+  .hide-for-small{
+    display: inline;
+  }
+  #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
       margin-bottom: 0rem;
   }
   .calcDiagram{
@@ -1094,7 +1207,7 @@ a.sectionTitle{
     #sideBar {
         display: block;
     }
-    #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory{
+    #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
         padding-left: 23%;
     }
     .tiptop{
