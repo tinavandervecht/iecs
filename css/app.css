@@ -937,9 +937,9 @@ a.sectionTitle{
 }
 .calcDiagram{
   display: none;
-  max-width: 24em;
+  max-width: 42em;
   margin: 0 auto;
-  width:90%;
+  width:100%;
 }
 #scrollWrapper.quotesPage .title {
     font-size: 1.4em;
@@ -967,8 +967,8 @@ a.sectionTitle{
 .dateModified {
     font-weight: 100;
 }
-#mainQuotes .card h3.block {
-    display: block;
+.display-block{
+  display: block !important;
 }
 #mainQuotes .card p.halfsies {
     margin: 0;
