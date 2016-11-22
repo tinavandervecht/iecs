@@ -40,9 +40,9 @@
       <h2 class="hidden">Main Content</h2>
       <section class="row expanded" id="quoteCalc">
         <div class="columns small-12 card">
-          <h3>Summary</h3>
-
-        <div class="columns small-12 large-5 card">
+          <a href="newQuote.html" id="goBack" data-pag="3" class="sectionTitle"><h3>&lt;&nbsp;Summary</h3></a>
+        </div>
+        <div class="columns small-12 large-5 sel card">
           <h4>Recommended Block Sizes</h4>
           <div id="selectedblock"></div>
         </div>
@@ -79,7 +79,7 @@
               </div>
             </div>
         </div><!-- end block-->
-          <div class="block"><!--start block-->
+            <div class="block"><!--start block-->
             <a href="#" class="blockbox clearfix">
               <div class="blocktype">
                 <p>CC35</p>
@@ -110,10 +110,8 @@
                 </div>
               </div>
             </div>
-        </div><!-- end block-->
-
-
-        <div class="block selected"><!--start block-->
+            </div><!-- end block-->
+          <div class="block"><!--start block-->
           <a href="#" class="blockbox clearfix">
             <div class="blocktype">
               <p>CC45</p>
@@ -147,10 +145,60 @@
       </div><!-- end block-->
 
         </div>
+
+        <div class="columns small-12 card">
+        <h3>Input Summary</h3>
+        <!--
+        php open connect to database
+        store values in variables
+          -->
+
+          <div class="row">
+          <div class="columns small-12 medium-6">
+            <div class="summaryEntry" id="sum_details">
+              <h4 class="entryTitle">PROJECT DETAILS<a href="#" class="edit" data-pag="1">Edit<img src="img/pencil_icon.svg"/></a></h4>
+              <p class="text"> Nothing here.</p>
+            </div>
+            <!-- end of summaryEntry -->
+            <div class="summaryEntry" id="sum_flow">
+              <h4 class="entryTitle">Flow and velocity<a href="#" class="edit" data-pag="1">Edit<img src="img/pencil_icon.svg"/></a></h4>
+              <p class="text"> Nothing here.</p>
+            </div>
+            <!-- end of summaryEntry -->
+            <div class="summaryEntry" id="sum_slopes">
+              <h4 class="entryTitle">Slopes<a href="#" class="edit" data-pag="2">Edit<img src="img/pencil_icon.svg"/></a></h4>
+              <p class="text"> Nothing here.</p>
+            </div>
+            <!-- end of summaryEntry -->
+            <div class="summaryEntry" id="sum_type">
+              <h4 class="entryTitle">Types of Flow<a href="#" class="edit" data-pag="2">Edit<img src="img/pencil_icon.svg"/></a></h4>
+              <p class="text"> Nothing here.</p>
+            </div>
+            <!-- end of summaryEntry -->
         </div>
-
-        <div class="columns small-12">
-
+        <div class="columns small-12 medium-6">
+          <div class="summaryEntry" id="sum_bed">
+            <h4 class="entryTitle">Bed width and alignment<a href="#" class="edit" data-pag="2">Edit<img src="img/pencil_icon.svg"/></a></h4>
+            <p class="text"> Nothing here.</p>
+          </div>
+          <!-- end of summaryEntry -->
+          <div class="summaryEntry" id="sum_channel">
+            <h4 class="entryTitle">Channel Specifications<a href="#" class="edit" data-pag="3">Edit<img src="img/pencil_icon.svg"/></a></h4>
+            <p class="text"> Nothing here.</p>
+          </div>
+          <!-- end of summaryEntry -->
+          <div class="summaryEntry" id="sum_environment">
+            <h4 class="entryTitle">Environment<a href="#" class="edit" data-pag="3">Edit<img src="img/pencil_icon.svg"/></a></h4>
+            <p class="text"> Nothing here.</p>
+          </div>
+          <!-- end of summaryEntry -->
+          <div class="summaryEntry" id="sum_comments">
+            <h4 class="entryTitle">Comments<a href="#" class="edit" data-pag="3">Edit<img src="img/pencil_icon.svg"/></a></h4>
+            <p class="text"> Nothing here.</p>
+          </div>
+          <!-- end of summaryEntry -->
+      </div>
+        </div>
 
         </div>
       </section>

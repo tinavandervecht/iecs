@@ -1038,6 +1038,7 @@ a.sectionTitle{
 }
 #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
+
 }
 
 .hide-for-small{
@@ -1048,9 +1049,13 @@ a.sectionTitle{
   height:6em;
   margin-bottom:2em;
 }
-.block:last-child{
-  margin-bottom:6em;
+.sel h4{
+  margin:0;
+  padding-left:
 }
+/*.block:last-child{
+  margin-bottom:6em;
+}*/
 .block.selected{
   height:auto;
 }
