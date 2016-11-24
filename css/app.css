@@ -1130,6 +1130,10 @@ a.sectionTitle{
 .blockbox .factor p{
   margin:0;
 }
+.block.highlight{
+  border:thick solid #447019;
+  box-sizing: content-box !important;
+}
 .block.disabled:before{
   content: '';
   position: absolute;
@@ -1140,7 +1144,7 @@ a.sectionTitle{
   cursor: default;
   background: #222;
   opacity: 0.5;
-  z-index: 100;
+  z-index: 10;
 }
 .block .more{
   width:100%;
