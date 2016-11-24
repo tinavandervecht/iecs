@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 286.1 187.4" style="enable-background:new 0 0 286.1 187.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{font-family:'OpenSans-Semibold';}
+	.st2{font-size:9px;}
+	.st3{stroke:#000000;stroke-miterlimit:10;}
+	.st4{font-size:12px;}
+</style>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+	<path d="M143.3,121.5H0L35.8,15.7l78.2,0.4l30.3,104.3C144.4,121,143.9,121.5,143.3,121.5z M2.5,119.5H142l-29-102.4l-75.6,0.6
+		L2.5,119.5z"/>
+</g>
+<g>
+	<path d="M142.3,120.8L113.2,16.7l21.6-16c0.5-0.3,1.2-0.2,1.5,0.3l60.3,76.7l-52.7,43.6C143.3,121.8,142.5,121.5,142.3,120.8z
+		 M115,15.7l28.9,103l50-41.4L135.2,1.6L115,15.7z"/>
+</g>
+<g id="XMLID_61_">
+	<path id="XMLID_62_" d="M113.1,17.1H36.2c-0.7,0-1-1-0.4-1.4L62.9,0.2h71.8c0.7,0,1,1,0.4,1.4L113.1,17.1z M39,15.6h73.6l19.9-14
+		H63.3L39,15.6z"/>
+</g>
+<g>
+	<path d="M72.4,105.1c-2.2,0-3.9-1.8-3.9-3.9c0-2.2,1.8-3.9,3.9-3.9s3.9,1.8,3.9,3.9C76.3,103.4,74.5,105.1,72.4,105.1z M72.4,99.3
+		c-1.1,0-1.9,0.9-1.9,1.9s0.9,1.9,1.9,1.9s1.9-0.9,1.9-1.9S73.4,99.3,72.4,99.3z"/>
+</g>
+<rect id="XMLID_18_" x="11.1" y="124.1" class="st0" width="126" height="28.7"/>
+<text transform="matrix(1 0 0 1 64.604 130.4815)"><tspan x="0" y="0" class="st1 st2">15.5”</tspan><tspan x="-10.8" y="10.8" class="st1 st2">(393.7mm)</tspan></text>
+<g>
+	<path d="M46,138.8c-15.3,0-29.3,0-44.1,0"/>
+	<path d="M142.7,138.8c-13.2,0-26.4,0-39.5,0"/>
+	<path d="M46.9,137.8H2v2h44.9C46.9,139.1,46.9,138.4,46.9,137.8z"/>
+	<path d="M101.8,137.8c0,0.7,0,1.3,0,2h40.9v-2H101.8z"/>
+</g>
+<line id="XMLID_71_" class="st3" x1="2.5" y1="126.5" x2="2.5" y2="148.5"/>
+<line class="st3" x1="143" y1="126.8" x2="143" y2="148.8"/>
+<rect id="XMLID_2_" x="160.1" y="51.5" class="st0" width="126" height="28.7"/>
+<text id="XMLID_69_" transform="matrix(1 0 0 1 215.9688 57.8668)"><tspan x="0" y="0" class="st1 st2">8.5”</tspan><tspan x="-13.1" y="10.8" class="st1 st2">(215.9mm)</tspan></text>
+<line class="st3" x1="152.3" y1="119.8" x2="223.7" y2="119.8"/>
+<g>
+	<path id="XMLID_70_" d="M222.4,74.1v46h1.3v-46C223.3,74.1,222.9,74.1,222.4,74.1z"/>
+	<path id="XMLID_68_" d="M222.5,45.8c0.4,0,0.8,0,1.2,0l-0.6-45.3h-1.3L222.5,45.8z"/>
+</g>
+<line id="XMLID_64_" class="st3" x1="138.8" y1="0.5" x2="223.2" y2="0.5"/>
+<rect id="XMLID_1_" x="21.1" y="152.8" class="st0" width="102" height="34.7"/>
+<text id="XMLID_73_" transform="matrix(1 0 0 1 59.0257 161.2781)"><tspan x="0" y="0" class="st1 st4">CC90</tspan><tspan x="-9.8" y="14.4" class="st1 st4">(90lbs/sf)</tspan></text>
+</svg>

@@ -1048,6 +1048,7 @@ a.sectionTitle{
   overflow: hidden;
   height:6em;
   margin-bottom:2em;
+  position: relative;
 }
 .sel h4{
   margin:0;
@@ -1056,15 +1057,16 @@ a.sectionTitle{
 /*.block:last-child{
   margin-bottom:6em;
 }*/
-.block.selected{
+/*.block.selected{
   height:auto;
-}
+}*/
 .blockbox{
   width: 100%;
   text-decoration: none;
   color:inherit;
   position: relative;
   display: block;
+  text-align: center;
 }
 .blockbox .blocktype{
   background: #3a3a3a;
@@ -1099,7 +1101,7 @@ a.sectionTitle{
   height:6em;
 }
 .blockbox .factor{
-  background: #820f0f;
+  background: #589021;
   color:#fbfbfb;
   float: right;
   height:100%;
@@ -1110,15 +1112,35 @@ a.sectionTitle{
   position: relative;
   font-size: 1.2em;
 }
+.block.disabled .blockbox .factor{
+  background: #820f0f;
+}
 .blockbox .factor img.arrow{
   position: absolute;
   top:1em;
   right:1em;
   width:1.5em;
   height:1.5em;
+  transform: rotate(0deg);
+  transition: all ease 1s;
+}
+.block.selected .blockbox .factor img.arrow{
+  transform: rotate(180deg);
 }
 .blockbox .factor p{
   margin:0;
+}
+.block.disabled:before{
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height:100%;
+  cursor: default;
+  background: #222;
+  opacity: 0.5;
+  z-index: 100;
 }
 .block .more{
   width:100%;
@@ -1132,8 +1154,9 @@ a.sectionTitle{
   border-bottom: thin solid #ccc;
 }
 .block .more .factor{
-  float: left;
-display: block;
+/*float: right;*/
+/*display: block;*/
+display: inline;
 margin:0;
 }
 .block .more .num{
@@ -1153,8 +1176,12 @@ float: right;
   border-bottom: none;
 }
 .blockbox .blockdiagram{
+  padding:0.5em;
+  box-sizing: border-box;
   position:absolute;
-  left: 8em;
+  left: 35%;
+  height: 100%;
+  max-width: 12em;
 }
 .more div{
 }
