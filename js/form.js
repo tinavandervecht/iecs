@@ -6,6 +6,12 @@
 */
 
 (function(){
+  //CHECKING LOCAL STORAGE COMPATABILITY
+//   if (typeof(Storage) !== "undefined") {
+//     canLocal = true;
+// } else {
+//   canLocal = false;
+// }
   //SELECTING THE FORM
   var calcSubmit = document.querySelector('#calculator');
 
@@ -15,6 +21,7 @@
   var pageNo = document.querySelector('.pagnation-page-tracker .current');
   var pages =   document.querySelectorAll('.pagnation-page');
   var currentPage = document.querySelector('.pagnation-page.current');
+  var pageNumber;
   var contButton = document.querySelector('.continueButton');
   var goBack = document.querySelector("#goBack");
   var edits = document.querySelectorAll('.summaryEntry .edit');
@@ -52,13 +59,25 @@
   var soil;
   var comments;
 
+//PAGE SWAP
+function swapPage(page){
+  function change(){
+    currentPage = page;
+    // if(canLocal){
+    // localStorage.setItem("pagenumber", pageNumber);
+    // }
+  }
+currentPage.classList.remove('current');
+page.classList.add('current');
+TweenLite.to(page, 0.2, {opacity:1.0,onComplete:change});
+}
 
 //PAGNATION FUNCTIONALITY
 function goingBack(event){
   event.preventDefault();
   var it = event.currentTarget;
   if(it.dataset.pag !=null){
-  var pageNumber = parseInt(it.dataset.pag)-1;
+  pageNumber = parseInt(it.dataset.pag)-1;
   var newPage = pages[pageNumber];
   for(var i=0;i<pagnationPageTrackerPages.length;i++){
     if(pagnationPageTrackerPages[i].id == pageNumber+1){
@@ -66,35 +85,22 @@ function goingBack(event){
       pageNo = pagnationPageTrackerPages[i];
     }
   }
-  function swapPage(){
-    function change(){
-      currentPage = newPage;
-    }
-  currentPage.classList.remove('current');
-  newPage.classList.add('current');
-  TweenLite.to(newPage, 0.2, {opacity:1.0,onComplete:change});
-  }
+
   if(calc){
     contButton.classList.remove('hidden');
     document.querySelector('#calc').classList.add('hidden');
     calc = false;
   }
-  TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage});
+  TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
   }
 }
+
 function pagnation(event){
   event.preventDefault();
   var it = event.currentTarget;
   var pageNumber;
 
-  function swapPage(){
-    function change(){
-      currentPage = newPage;
-    }
-  currentPage.classList.remove('current');
-  newPage.classList.add('current');
-  TweenLite.to(newPage, 0.2, {opacity:1.0,onComplete:change});
-  }
+
 
   if(it.classList.contains('pageNo')){
     // console.log("pag");
@@ -126,7 +132,7 @@ function pagnation(event){
       var newPage = pages[i];
     }
     }
-  TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage});
+  TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
 }
 
 
@@ -391,4 +397,10 @@ contButton.addEventListener('click', pagnation,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);
 // calcSubmit.addEventListener('submit',calculate,false);
+// window.addEventListener('load', function(){
+//   if(canLocal && localStorage.getItem('pagenumber')!=null){
+//     console.log(document.querySelector('#two'));
+//     // pageSwap(document.querySelector('.pagnation-page#'+localStorage.getItem('pagenumber')));
+//   }
+// },false);
 })();

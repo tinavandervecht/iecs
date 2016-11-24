@@ -1061,6 +1061,7 @@ a.sectionTitle{
   height:auto;
 }*/
 .blockbox{
+  user-select:none;
   width: 100%;
   text-decoration: none;
   color:inherit;
@@ -1189,7 +1190,42 @@ float: right;
 }
 .more div{
 }
+.lefttop h4{
+  text-transform: uppercase;
+  font-size: 1.4em;
+  font-family: "opensans-bold";
+}
+.lefttop p{
+  width: 80%;
+  max-width: 30rem;
+}
 
+#selectedblock{
+  background: #f4f4f4;
+  padding:1em;
+  box-sizing: border-box;
+}
+.blockname{
+display: block;
+width: 100%;
+}
+.blockname p {
+  display: inline;
+}
+.blockname p.smaller{
+  font-size: 0.6em;
+}
+.blockdesc{
+  display: block;
+}
+.blockimg{
+  max-height: 14em;
+  max-width: 14em;
+  display: block;
+  clear: both;
+  width:90%;
+  margin:0 auto;
+}
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
   .hide-for-small{
