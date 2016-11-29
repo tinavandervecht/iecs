@@ -307,62 +307,62 @@ function summarize(){
 
   //
   summary = document.querySelector('#sum_details .text');
-  summary.innerHTML = "Project Name:" + projName + " <br>";
-  summary.innerHTML += projDate + " <br>";
-  summary.innerHTML+=cityProv + " <br>";
-  summary.innerHTML+=addr + " <br>";
-  summary.innerHTML+=engineer;
+  summary.innerHTML = "Project Name: " + projName + " <br>";
+  summary.innerHTML += "Date: " + projDate + " <br>";
+  summary.innerHTML+="City and Province: " + cityProv + " <br>";
+  summary.innerHTML+="Address: " + addr + " <br>";
+  summary.innerHTML+="Engineer:" + engineer;
   console.log(projDate);
   console.log(cityProv);
   console.log(engineer +" <br>");
 
   //
   summary = document.querySelector("#sum_flow .text");
-  summary.innerHTML = flow +" <br>";
-  summary.innerHTML+= velocity;
+  summary.innerHTML = "Flow: " + flow +" <br>";
+  summary.innerHTML+= "Veloctity:" + velocity;
   console.log(flow);
   console.log(velocity);
 
   //
   summary = document.querySelector('#sum_slopes .text');
-  summary.innerHTML = bedSlope+" <br>";
-  summary.innerHTML += sideSlope;
+  summary.innerHTML = "Bed Slope: " + bedSlope+" <br>";
+  summary.innerHTML += "Side Slope: " + sideSlope;
   console.log(bedSlope);
   console.log(sideSlope);
 
   //
   summary = document.querySelector("#sum_type .text");
-  summary.innerHTML = flowType;
+  summary.innerHTML = "Type of Flow:" + flowType;
   console.log(flowType);
 
   //
   summary = document.querySelector("#sum_bed .text");
-  summary.innerHTML = bedWidth + " <br>";
-  summary.innerHTML += alignment + " <br>";
-  summary.innerHTML += crest;
+  summary.innerHTML = "Bed Width: " + bedWidth + " <br>";
+  summary.innerHTML += "Alignment: " + alignment + " <br>";
+  summary.innerHTML += "Radius at Crest: " + crest;
   console.log(bedWidth);
   console.log(alignment);
   console.log(crest);
 
   //
   summary = document.querySelector("#sum_channel .text");
-  summary.innerHTML = length + " <br>";
-  summary.innerHTML += depth + " <br>";
-  summary.innerHTML += topWidth;
+  summary.innerHTML = "Channel Length: " + length + " <br>";
+  summary.innerHTML += "Channel Depth: " + depth + " <br>";
+  summary.innerHTML += "Channel Top Width: " + topWidth;
   console.log(length);
   console.log(depth);
   console.log(topWidth);
 
   //
   summary = document.querySelector("#sum_environment .text");
-  summary.innerHTML = source + " <br>";
-  summary.innerHTML +=soil;
+  summary.innerHTML = "Outlet Source: " + source + " <br>";
+  summary.innerHTML +="Soil Type: " + soil;
   console.log(source);
   console.log(soil);
 
   //
   summary = document.querySelector("#sum_comments .text");
-  summary.innerHTML = comments;
+  summary.innerHTML = "Comments: " + comments;
   console.log(comments);
 }
 
