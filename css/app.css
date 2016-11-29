@@ -4,6 +4,11 @@ body {
     font-size: 80%;
     overflow-y: scroll;
 }
+
+h3
+{
+    text-transform: uppercase;
+}
 .darkback{
   background: #464646;
 }
@@ -28,7 +33,7 @@ main#newQuotePage{
   bottom:0;
   left:0;
   z-index: 1000;
-  background: #4b8709;
+  background: #313131;
 }
 #mobileMenu ul{
   list-style: none;
@@ -46,7 +51,7 @@ main#newQuotePage{
   box-sizing: border-box;
 }
 #mobileMenu li a.current{
-  background: #213d02;
+  background: #589021;
   /*background: #589021;*/
 }
 #mobileMenu .navIcon{
@@ -187,6 +192,13 @@ border-top: thin solid #bbb;
     height: 100%;
     background: #000;
 }
+#loginProfile
+{
+    display: block;
+    width: 35%;
+    height: 35%;
+    margin: 0 auto;
+}
 #login {
     font-family: inherit;
     color: #fff;
@@ -246,17 +258,40 @@ border-top: thin solid #bbb;
 #login form #forgot:hover {
     color: #222;
 }
-#login input[type="submit"], #signIn{
+#login input[type="submit"], #loginButton{
     color: #fff;
     background: #4a8609;
     border: none;
     display: block;
-    width: 100%;
+    width: 50%;
     padding: 1em;
     font-family: "opensans-light";
     margin: 0 auto;
     transition: all ease 0.2s;
     clear: both;
+    text-align: center;
+    text-decoration: none;
+}
+#loginButton
+{
+    float: left;
+    width: 45%;
+}
+#notYou
+{
+    float: right;
+    width: 45%;
+}
+#login input[type="submit"], #notYou{
+    color: #fff;
+    background: #757575;
+    border: none;
+    display: block;
+    width: 50%;
+    padding: 1em;
+    font-family: "opensans-light";
+    margin: 0 auto;
+    transition: all ease 0.2s;
     text-align: center;
     text-decoration: none;
 }
@@ -315,35 +350,241 @@ form.testing input {
 #mainLogo {
     max-width: 18rem;
 }
-#mainDashTitle {
+#adminTitle
+{
+    text-align: center;
     color: #fff;
-    margin-bottom: 2em;
-    font-family: "opensans";
-    line-height: 1.8rem;
+    font-size:15pt;
+    padding:none;
+    margin-top:0px;
 }
-#mainDashTitle h2 {
-    font-family: "opensans-light";
-    margin-bottom: 0.2rem;
-    margin-top: -1em;
+.tabTitle
+{
+    border: solid #dee1e2;
+    border-width: 1px 1px 0 1px;  
+    width:30%;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom:0px;
+    font-size: 13pt;
 }
-#mainDashTitle h3 {
-    font-size: 2rem;
+#dashTab1
+{
+     margin-top: 50px; 
+}
+#recentContent h2
+{
     font-family: "opensans-bold";
-    margin-bottom: 0.2em;
+    color: #5c5b5b;
 }
-#mainDashTitle h4,
-#mainDashTitle h5 {
-    font-size: 1.4rem;
-    font-family: "opensans-light";
-    display: inline;
+#recentContent .quote:hover
+{
+    background-color: #ebebeb;
+    border-left: 4px solid #47800b;
 }
-#mainDashTitle h4:after {
-    content: '-'
+#recentContent
+{
+    margin-bottom: 40px;
 }
-#mainDashTitle >* {
-    font-weight: normal;
+#recentContent ul li
+{
+    list-style: none;
+}
+.quote.closed
+{
+    border: solid #dee1e2;
+    border-width: 1px 1px 1px 1px;
+    padding: 10px;  
+}
+#fakeIcon
+{
+    float:left;
+    width: 4%;
+    height: 4%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.titleInfo h4
+{
+    font-family: "opensans-bold";
+    color: #8a9596;
+    font-size: 10pt;
+}
+.titleInfo h5
+{
+    font-family: "opensans";
+    color: #8a9596;
+    font-size: 10pt;
+}
+.titleInfo span
+{
+    font-family: "opensans-bold";
+}
+#dashTab2
+{
+     margin-top: 40px; 
+}
+.tabDiv
+{
+    border: solid #dee1e2;
+    border-width: 1px 1px 1px 1px;
+    padding: 10px;  
+}
+#graph
+{
+    padding: 20px;
+}
+
+.button
+{
+    display: inline-block;
+    text-align: left;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 0;
+    padding: 0.85em 1em;
+    margin: 0 0 0 0;
+    font-size: 0.9rem;
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 20px;
+}
+
+.button:hover, .button:focus {
+    background-color: #888;
+    color: #fefefe;
+}
+
+.button.dropdown::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 0.4em;
+    border-color: #333 transparent transparent;
+    border-top-style: solid;
+    border-bottom-width: 0;
+    position: relative;
+    top: 0.4em;
+    float: right;
+    margin-left: 1em;
+    display: inline-block;
+}
+
+#estimates 
+{
+    padding: 0;
+    margin-left:0;
+    margin-right:0;
+}
+
+#estimates h2
+{
+    font-family: "opensans-bold";
+    color: #5c5b5b;
+}
+
+.estimatesTopBar
+{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     margin: 0;
 }
+
+.menu
+{
+    margin-top: 0px;
+}
+
+.menu input
+{
+    margin-top: 0px;
+    border: none;
+    box-shadow: none;
+    font-size: 12pt;
+    float:left;
+}
+
+.dropdown-pane
+{
+    width:100%;
+    top:0px;
+    left:0px;
+    margin: 0;
+    padding:0;
+}
+
+.dropdown-pane ul
+{
+    margin:0;
+    padding:0;
+}
+.dropdown-pane li
+{
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    padding:10px  10px 10px 20px;
+    font-family: "opensans";
+    color:#bbb;
+}
+input[type="search"] 
+{ 
+    font-size: 0.9rem;
+    padding-left: 20px;
+    color:#333;
+    float:left;
+    width:200%;
+}
+
+#searchButton .button
+{
+    border-bottom:none;
+    float:right;
+}
+
+#searchButton
+{
+        padding-left: 250px;
+}
+
+.reviewButton
+{
+    margin-top: 15px;
+}
+.reviewButton a
+{
+    background-color: #333;
+    padding:10px 15px 10px 15px;
+    color:#fff;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px; 
+    background-color: green;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
 .desk {
     display: none;
 }
@@ -699,7 +940,6 @@ a.sectionTitle{
     width: 100%;
     background: #5a5959;
     padding: 1em;
-    margin-top: 1.9em;
 }
 #profile .profilepic {
     float: none;
@@ -875,6 +1115,7 @@ a.sectionTitle{
     width: 10em;
     display: block;
     float: right;
+    text-align: right;
 }
 .statusbox .icon {
     float: left;
@@ -887,6 +1128,7 @@ a.sectionTitle{
 }
 .statusbox .status p {
     display: inline;
+    color: #a3a3a3;
     margin: 0;
     padding: 0;
     margin-left: 1em;
@@ -894,8 +1136,11 @@ a.sectionTitle{
 .statusbox .status span {
     margin: 0;
     padding: 0;
+    color: #a3a3a3;
     display: inline;
     margin-left: 1em;
+    font-weight:bold;
+    text-align: right;
 }
 .buttons .leftButton {
     float: left;
@@ -938,9 +1183,9 @@ a.sectionTitle{
 }
 .calcDiagram{
   display: none;
-  max-width: 42em;
+  max-width: 24em;
   margin: 0 auto;
-  width:100%;
+  width:90%;
 }
 #scrollWrapper.quotesPage .title {
     font-size: 1.4em;
@@ -948,14 +1193,14 @@ a.sectionTitle{
 #scrollWrapper.quotesPage .buttons {} #scrollWrapper.quotesPage .buttons .rightButton {
     border-left: none;
 }
-#scrollWrapper.quotesPage .dateModified {
+#scrollWrapper.quotesPage .recentText {
     margin-top: 2em;
 }
 #scrollWrapper.quotesPage .dateCreated {
     margin-top: 0.5em;
     margin-bottom:0.5em;
 }
-#mainQuotes #scrollWrapper.quotesPage .dateModified,
+#mainQuotes #scrollWrapper.quotesPage .recentText,
 #mainQuotes #scrollWrapper.quotesPage .dateCreated {
     width:30%;
     padding-left: 1em;
@@ -965,11 +1210,11 @@ a.sectionTitle{
     display: none;
 }
 .dateCreated,
-.dateModified {
+.recentText {
     font-weight: 100;
 }
-.display-block{
-  display: block !important;
+#mainQuotes .card h3.block {
+    display: block;
 }
 #mainQuotes .card p.halfsies {
     margin: 0;
@@ -1037,202 +1282,17 @@ a.sectionTitle{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+#mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory{
     margin-bottom: 6rem;
-
 }
 
 .hide-for-small{
   display: none;
 }
-.block{
-  overflow: hidden;
-  height:6em;
-  margin-bottom:2em;
-  position: relative;
-}
-.sel h4{
-  margin:0;
-  padding-left:
-}
-/*.block:last-child{
-  margin-bottom:6em;
-}*/
-/*.block.selected{
-  height:auto;
-}*/
-.blockbox{
-  user-select:none;
-  width: 100%;
-  text-decoration: none;
-  color:inherit;
-  position: relative;
-  display: block;
-  text-align: center;
-}
-.blockbox .blocktype{
-  background: #3a3a3a;
-  color:#fbfbfb;
-  float: left;
-  height:100%;
-  text-align: center;
-  padding:1em;
-  box-sizing: border-box;
-  position: relative;
-}
-.blockbox .blocktype:after{
-  position: absolute;
-  top:32%;
-  content: '';
-  background: inherit;
-  right:-1em;
-  width:2em;
-  height:2em;
-  transform: rotate(45deg);
-}
-.blockbox .blocktype p{
-  font-family: "opensans-bold";
-  margin:0;
-  font-size: 1.6em;
-}
-.blockbox .blocktype p.smaller{
-  font-family: "opensans";
-  font-size: 1.2em;
-}
-.blockbox{
-  height:6em;
-}
-.blockbox .factor{
-  background: #589021;
-  color:#fbfbfb;
-  float: right;
-  height:100%;
-  padding: 1em;
-  padding-right: 3em;
-  box-sizing: border-box;
-  text-align: center;
-  position: relative;
-  font-size: 1.2em;
-}
-.block.disabled .blockbox .factor{
-  background: #820f0f;
-}
-.blockbox .factor img.arrow{
-  position: absolute;
-  top:1em;
-  right:1em;
-  width:1.5em;
-  height:1.5em;
-  transform: rotate(0deg);
-  transition: all ease 1s;
-}
-.block.selected .blockbox .factor img.arrow{
-  transform: rotate(180deg);
-}
-.blockbox .factor p{
-  margin:0;
-}
-.block.highlight{
-  border:thick solid #447019;
-  box-sizing: content-box !important;
-}
-.block.disabled:before{
-  content: '';
-  position: absolute;
-  top:0;
-  left:0;
-  width: 100%;
-  height:100%;
-  cursor: default;
-  background: #222;
-  opacity: 0.5;
-  z-index: 10;
-}
-.block .more{
-  width:100%;
-  background: #f4f4f4;
-}
-.block .more h4{
-  margin:0;
-  font-size: 1.2em;
-  padding: 1em 0;
-  text-align: center;
-  border-bottom: thin solid #ccc;
-}
-.block .more .factor{
-/*float: right;*/
-/*display: block;*/
-display: inline;
-margin:0;
-}
-.block .more .num{
-float: right;
-}
-.block .other{
-  padding:0.5em;
-  width:100%;
-  border-bottom:thin solid #ccc;
-}
-.block .other > div{
-  max-width: 40em;
-  width:60%;
-  margin: 0 auto;
-}
-.block .other:last-child{
-  border-bottom: none;
-}
-.blockbox .blockdiagram{
-  padding:0.5em;
-  box-sizing: border-box;
-  position:absolute;
-  left: 35%;
-  height: 100%;
-  max-width: 12em;
-}
-.more div{
-}
-.lefttop h4{
-  text-transform: uppercase;
-  font-size: 1.4em;
-  font-family: "opensans-bold";
-}
-.lefttop p{
-  width: 80%;
-  max-width: 30rem;
-}
 
-#selectedblock{
-  background: #f4f4f4;
-  padding:1em;
-  box-sizing: border-box;
-}
-.blockname{
-display: block;
-width: 100%;
-}
-.blockname p {
-  display: inline;
-}
-.blockname p.smaller{
-  font-size: 0.6em;
-}
-.blockdesc{
-  display: block;
-}
-.blockimg{
-  max-height: 14em;
-  max-width: 14em;
-  display: block;
-  clear: both;
-  width:90%;
-  margin:0 auto;
-}
-/**********************************************************************************************/
+
 @media only screen and (min-width: 40rem) {
-  .hide-for-small{
-    display: inline;
-  }
-  #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+  #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory{
       margin-bottom: 0rem;
   }
   .calcDiagram{
@@ -1280,7 +1340,7 @@ width: 100%;
     #sideBar {
         display: block;
     }
-    #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
+    #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory{
         padding-left: 23%;
     }
     .tiptop{
@@ -1346,13 +1406,13 @@ width: 100%;
 /***************************************************************************************************************************************************************/
 
 @media only screen and (min-width: 64em) {
-  #mainQuotes #scrollWrapper .desc{
+#mainQuotes #scrollWrapper .desc{
     margin-top: 1em;
     margin: 0;
     max-width: 58em;
     width: 70%;
 }
-  #mainQuotes #scrollWrapper.quotesPage .dateModified,
+  #mainQuotes #scrollWrapper.quotesPage .recentText,
   #mainQuotes #scrollWrapper.quotesPage .dateCreated {
       margin-right: 3em;
       clear: right;
@@ -1393,5 +1453,20 @@ width: 100%;
     }
     .desk {
         display: block;
+    }
+
+    #dashTab1
+    {
+         margin-top: 40px; 
+    }
+
+    #dashTab2
+    {
+         margin-top: 40px; 
+    }
+
+    #recentContent
+    {
+        margin-bottom: 20px
     }
 }
