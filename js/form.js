@@ -307,7 +307,7 @@ function summarize(){
 
   //
   summary = document.querySelector('#sum_details .text');
-  summary.innerHTML = projName + " <br>";
+  summary.innerHTML = "Project Name:" + projName + " <br>";
   summary.innerHTML += projDate + " <br>";
   summary.innerHTML+=cityProv + " <br>";
   summary.innerHTML+=addr + " <br>";
