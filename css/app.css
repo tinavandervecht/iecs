@@ -1042,6 +1042,8 @@ a.sectionTitle{
 
 }
 
+
+
 .hide-for-small{
   display: none;
 }
@@ -1227,8 +1229,79 @@ width: 100%;
   width:90%;
   margin:0 auto;
 }
+#subforreview.shown{
+  display: block;
+}
+#subforreview{
+  opacity: 0.0;
+  display: none;
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background:#222;
+  background:rgba(23,23,23,0.5);
+  z-index: 1000;
+}
+#subforreview div.box{
+  opacity: 0.0;
+  width:100%;
+  box-sizing: content-box;
+  display: block;
+  max-width: 30em;
+  margin:0 auto;
+  background: #fff;
+  text-align: center;
+  padding-bottom: 2em;
+  margin-top: 10em;
+}
+#subforreview div.box h4{
+  margin:0;
+  width:100%;
+  display: block;
+  background: #4a8609;
+  text-align: center;
+  padding:2em;
+  box-sizing: border-box;
+  color:#fff;
+}
+#subforreview div.box p{
+  width:100%;
+  box-sizing: border-box;
+  padding:1em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.greyButton{
+  text-decoration: none;
+  display: inline;
+  box-sizing: border-box;
+  padding:0.4em 2.6em;
+  margin:2.5em;
+  background:#444;
+  color:#fff;
+  transition: all ease 0.4s;
+}
+.greyButton:hover{
+  background:#656565;
+  color:#fff;
+}
+
+#saveit.greenButton{
+  width:100%;
+  max-width: 20em;
+  margin: 0 auto;
+  float: none;
+  clear: both;
+}
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+
+  #subforreview div.box{
+    margin-top: 12em;
+}
   .hide-for-small{
     display: inline;
   }
@@ -1247,7 +1320,10 @@ width: 100%;
 }
 
 @media only screen and (min-width: 63rem) {
-
+  #saveit.greenButton{
+    float:right;
+    margin-right:4em;
+  }
 
   .greenButton, #calculator input.greenButton{
     margin-top: 0;
