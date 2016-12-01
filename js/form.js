@@ -152,7 +152,6 @@ function pagnation(event){
     }
     if(output.toString()!="NaN"){
       return parseFloat(output.toFixed(precision));
-      console.log("returned.");
     }else{
       return "Unexpected Input.";
     }
@@ -302,7 +301,6 @@ function getInputs(){
 function summarize(){
   // event.preventDefault();
   var summary;
-  var it = event.currentTarget;
   getInputs();
 
   //
