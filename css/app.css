@@ -4,11 +4,6 @@ body {
     font-size: 80%;
     overflow-y: scroll;
 }
-
-h3
-{
-    text-transform: uppercase;
-}
 .darkback{
   background: #464646;
 }
@@ -33,7 +28,7 @@ main#newQuotePage{
   bottom:0;
   left:0;
   z-index: 1000;
-  background: #313131;
+  background: #4b8709;
 }
 #mobileMenu ul{
   list-style: none;
@@ -51,7 +46,7 @@ main#newQuotePage{
   box-sizing: border-box;
 }
 #mobileMenu li a.current{
-  background: #589021;
+  background: #213d02;
   /*background: #589021;*/
 }
 #mobileMenu .navIcon{
@@ -192,13 +187,6 @@ border-top: thin solid #bbb;
     height: 100%;
     background: #000;
 }
-#loginProfile
-{
-    display: block;
-    width: 35%;
-    height: 35%;
-    margin: 0 auto;
-}
 #login {
     font-family: inherit;
     color: #fff;
@@ -258,40 +246,17 @@ border-top: thin solid #bbb;
 #login form #forgot:hover {
     color: #222;
 }
-#login input[type="submit"], #loginButton{
+#login input[type="submit"], #signIn{
     color: #fff;
     background: #4a8609;
     border: none;
     display: block;
-    width: 50%;
+    width: 100%;
     padding: 1em;
     font-family: "opensans-light";
     margin: 0 auto;
     transition: all ease 0.2s;
     clear: both;
-    text-align: center;
-    text-decoration: none;
-}
-#loginButton
-{
-    float: left;
-    width: 45%;
-}
-#notYou
-{
-    float: right;
-    width: 45%;
-}
-#login input[type="submit"], #notYou{
-    color: #fff;
-    background: #757575;
-    border: none;
-    display: block;
-    width: 50%;
-    padding: 1em;
-    font-family: "opensans-light";
-    margin: 0 auto;
-    transition: all ease 0.2s;
     text-align: center;
     text-decoration: none;
 }
@@ -350,241 +315,35 @@ form.testing input {
 #mainLogo {
     max-width: 18rem;
 }
-#adminTitle
-{
-    text-align: center;
+#mainDashTitle {
     color: #fff;
-    font-size:15pt;
-    padding:none;
-    margin-top:0px;
-}
-.tabTitle
-{
-    border: solid #dee1e2;
-    border-width: 1px 1px 0 1px;
-    width:30%;
-    padding: 10px;
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom:0px;
-    font-size: 13pt;
-}
-#dashTab1
-{
-     margin-top: 50px;
-}
-#recentContent h2
-{
-    font-family: "opensans-bold";
-    color: #5c5b5b;
-}
-#recentContent .quote:hover
-{
-    background-color: #ebebeb;
-    border-left: 4px solid #47800b;
-}
-#recentContent
-{
-    margin-bottom: 40px;
-}
-#recentContent ul li
-{
-    list-style: none;
-}
-.quote.closed
-{
-    border: solid #dee1e2;
-    border-width: 1px 1px 1px 1px;
-    padding: 10px;
-}
-#fakeIcon
-{
-    float:left;
-    width: 4%;
-    height: 4%;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.titleInfo h4
-{
-    font-family: "opensans-bold";
-    color: #8a9596;
-    font-size: 10pt;
-}
-.titleInfo h5
-{
+    margin-bottom: 2em;
     font-family: "opensans";
-    color: #8a9596;
-    font-size: 10pt;
+    line-height: 1.8rem;
 }
-.titleInfo span
-{
+#mainDashTitle h2 {
+    font-family: "opensans-light";
+    margin-bottom: 0.2rem;
+    margin-top: -1em;
+}
+#mainDashTitle h3 {
+    font-size: 2rem;
     font-family: "opensans-bold";
+    margin-bottom: 0.2em;
 }
-#dashTab2
-{
-     margin-top: 40px;
+#mainDashTitle h4,
+#mainDashTitle h5 {
+    font-size: 1.4rem;
+    font-family: "opensans-light";
+    display: inline;
 }
-.tabDiv
-{
-    border: solid #dee1e2;
-    border-width: 1px 1px 1px 1px;
-    padding: 10px;
+#mainDashTitle h4:after {
+    content: '-'
 }
-#graph
-{
-    padding: 20px;
-}
-
-.button
-{
-    display: inline-block;
-    text-align: left;
-    line-height: 1;
-    cursor: pointer;
-    -webkit-appearance: none;
-    transition: background-color 0.25s ease-out, color 0.25s ease-out;
-    vertical-align: middle;
-    border: 1px solid transparent;
-    border-radius: 0;
-    padding: 0.85em 1em;
-    margin: 0 0 0 0;
-    font-size: 0.9rem;
-    background-color: #fff;
-    color: #333;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-    padding: 20px;
-}
-
-.button:hover, .button:focus {
-    background-color: #888;
-    color: #fefefe;
-}
-
-.button.dropdown::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border: inset 0.4em;
-    border-color: #333 transparent transparent;
-    border-top-style: solid;
-    border-bottom-width: 0;
-    position: relative;
-    top: 0.4em;
-    float: right;
-    margin-left: 1em;
-    display: inline-block;
-}
-
-#estimates
-{
-    padding: 0;
-    margin-left:0;
-    margin-right:0;
-}
-
-#estimates h2
-{
-    font-family: "opensans-bold";
-    color: #5c5b5b;
-}
-
-.estimatesTopBar
-{
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+#mainDashTitle >* {
+    font-weight: normal;
     margin: 0;
 }
-
-.menu
-{
-    margin-top: 0px;
-}
-
-.menu input
-{
-    margin-top: 0px;
-    border: none;
-    box-shadow: none;
-    font-size: 12pt;
-    float:left;
-}
-
-.dropdown-pane
-{
-    width:100%;
-    top:0px;
-    left:0px;
-    margin: 0;
-    padding:0;
-}
-
-.dropdown-pane ul
-{
-    margin:0;
-    padding:0;
-}
-.dropdown-pane li
-{
-    list-style: none;
-    border-bottom: 1px solid #ccc;
-    padding:10px  10px 10px 20px;
-    font-family: "opensans";
-    color:#bbb;
-}
-input[type="search"]
-{
-    font-size: 0.9rem;
-    padding-left: 20px;
-    color:#333;
-    float:left;
-    width:200%;
-}
-
-#searchButton .button
-{
-    border-bottom:none;
-    float:right;
-}
-
-#searchButton
-{
-        padding-left: 250px;
-}
-
-.reviewButton
-{
-    margin-top: 15px;
-}
-.reviewButton a
-{
-    background-color: #333;
-    padding:10px 15px 10px 15px;
-    color:#fff;
-}
-
-.circle {
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: green;
-    float: left;
-    margin-right: 30px;
-    margin-bottom: 40px;
-    margin-top: 20px;
-}
-
-
-
-
-
-
-
-
-
-
 .desk {
     display: none;
 }
@@ -940,6 +699,7 @@ a.sectionTitle{
     width: 100%;
     background: #5a5959;
     padding: 1em;
+    margin-top: 1.9em;
 }
 #profile .profilepic {
     float: none;
@@ -1115,7 +875,6 @@ a.sectionTitle{
     width: 10em;
     display: block;
     float: right;
-    text-align: right;
 }
 .statusbox .icon {
     float: left;
@@ -1128,7 +887,6 @@ a.sectionTitle{
 }
 .statusbox .status p {
     display: inline;
-    color: #a3a3a3;
     margin: 0;
     padding: 0;
     margin-left: 1em;
@@ -1136,11 +894,8 @@ a.sectionTitle{
 .statusbox .status span {
     margin: 0;
     padding: 0;
-    color: #a3a3a3;
     display: inline;
     margin-left: 1em;
-    font-weight:bold;
-    text-align: right;
 }
 .buttons .leftButton {
     float: left;
@@ -1183,9 +938,9 @@ a.sectionTitle{
 }
 .calcDiagram{
   display: none;
-  max-width: 24em;
+  max-width: 42em;
   margin: 0 auto;
-  width:90%;
+  width:100%;
 }
 #scrollWrapper.quotesPage .title {
     font-size: 1.4em;
@@ -1193,14 +948,14 @@ a.sectionTitle{
 #scrollWrapper.quotesPage .buttons {} #scrollWrapper.quotesPage .buttons .rightButton {
     border-left: none;
 }
-#scrollWrapper.quotesPage .recentText {
+#scrollWrapper.quotesPage .dateModified {
     margin-top: 2em;
 }
 #scrollWrapper.quotesPage .dateCreated {
     margin-top: 0.5em;
     margin-bottom:0.5em;
 }
-#mainQuotes #scrollWrapper.quotesPage .recentText,
+#mainQuotes #scrollWrapper.quotesPage .dateModified,
 #mainQuotes #scrollWrapper.quotesPage .dateCreated {
     width:30%;
     padding-left: 1em;
@@ -1210,19 +965,16 @@ a.sectionTitle{
     display: none;
 }
 .dateCreated,
-.recentText {
+.dateModified {
     font-weight: 100;
 }
-#mainQuotes .card h3.block {
-    display: block;
-    float: left;
+.display-block{
+  display: block !important;
 }
 #mainQuotes .card p.halfsies {
     margin: 0;
     max-width: 50em;
     display: inline-block;
-    clear:both;
-    float:left;
 }
 
 #saveProfile{
@@ -1285,8 +1037,9 @@ a.sectionTitle{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory{
+#mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
+
 }
 
 
@@ -1294,20 +1047,11 @@ a.sectionTitle{
 .hide-for-small{
   display: none;
 }
-<<<<<<< HEAD
-
-
-@media only screen and (min-width: 40rem) {
-  #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory{
-=======
 .block{
   overflow: hidden;
   height:6em;
   margin-bottom:1em;
   position: relative;
-}
-.card.sel{
-  padding-right:0;
 }
 .sel h4{
   margin:0;
@@ -1562,7 +1306,6 @@ width: 100%;
     display: inline;
   }
   #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
->>>>>>> v10
       margin-bottom: 0rem;
   }
   .calcDiagram{
@@ -1613,7 +1356,7 @@ width: 100%;
     #sideBar {
         display: block;
     }
-    #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory{
+    #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
         padding-left: 23%;
     }
     .tiptop{
@@ -1679,13 +1422,13 @@ width: 100%;
 /***************************************************************************************************************************************************************/
 
 @media only screen and (min-width: 64em) {
-#mainQuotes #scrollWrapper .desc{
+  #mainQuotes #scrollWrapper .desc{
     margin-top: 1em;
     margin: 0;
     max-width: 58em;
     width: 70%;
 }
-  #mainQuotes #scrollWrapper.quotesPage .recentText,
+  #mainQuotes #scrollWrapper.quotesPage .dateModified,
   #mainQuotes #scrollWrapper.quotesPage .dateCreated {
       margin-right: 3em;
       clear: right;
@@ -1726,20 +1469,5 @@ width: 100%;
     }
     .desk {
         display: block;
-    }
-
-    #dashTab1
-    {
-         margin-top: 40px;
-    }
-
-    #dashTab2
-    {
-         margin-top: 40px;
-    }
-
-    #recentContent
-    {
-        margin-bottom: 20px
     }
 }
