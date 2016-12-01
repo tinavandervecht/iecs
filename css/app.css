@@ -1053,6 +1053,9 @@ a.sectionTitle{
   margin-bottom:1em;
   position: relative;
 }
+.card.sel{
+  padding-right:0;
+}
 .sel h4{
   margin:0;
   padding-left:
