@@ -1289,13 +1289,280 @@ a.sectionTitle{
     margin-bottom: 6rem;
 }
 
+
+
 .hide-for-small{
   display: none;
 }
+<<<<<<< HEAD
 
 
 @media only screen and (min-width: 40rem) {
   #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory{
+=======
+.block{
+  overflow: hidden;
+  height:6em;
+  margin-bottom:1em;
+  position: relative;
+}
+.card.sel{
+  padding-right:0;
+}
+.sel h4{
+  margin:0;
+  padding-left:
+}
+/*.block:last-child{
+  margin-bottom:6em;
+}*/
+/*.block.selected{
+  height:auto;
+}*/
+.blockbox{
+  user-select:none;
+  width: 100%;
+  text-decoration: none;
+  color:inherit;
+  position: relative;
+  display: block;
+  text-align: center;
+}
+.blockbox .blocktype{
+  background: #3a3a3a;
+  color:#fbfbfb;
+  float: left;
+  height:100%;
+  text-align: center;
+  padding:1em;
+  box-sizing: border-box;
+  position: relative;
+}
+.blockbox .blocktype:after{
+  position: absolute;
+  top:32%;
+  content: '';
+  background: inherit;
+  right:-1em;
+  width:2em;
+  height:2em;
+  transform: rotate(45deg);
+}
+.blockbox .blocktype p{
+  font-family: "opensans-bold";
+  margin:0;
+  font-size: 1.6em;
+}
+.blockbox .blocktype p.smaller{
+  font-family: "opensans";
+  font-size: 1.2em;
+}
+.blockbox{
+  height:6em;
+}
+.blockbox .factor{
+  background: #589021;
+  color:#fbfbfb;
+  float: right;
+  height:100%;
+  padding: 1em;
+  padding-right: 3em;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  font-size: 1.2em;
+}
+.block.disabled .blockbox .factor{
+  background: #820f0f;
+}
+.blockbox .factor img.arrow{
+  position: absolute;
+  top:1em;
+  right:1em;
+  width:1.5em;
+  height:1.5em;
+  transform: rotate(0deg);
+  transition: all ease 1s;
+}
+.block.selected .blockbox .factor img.arrow{
+  transform: rotate(180deg);
+}
+.blockbox .factor p{
+  margin:0;
+}
+.block.highlight{
+  border:thick solid #447019;
+  box-sizing: content-box !important;
+}
+.block.disabled:before{
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height:100%;
+  cursor: default;
+  background: #222;
+  opacity: 0.5;
+  z-index: 10;
+}
+.block .more{
+  width:100%;
+  background: #f4f4f4;
+}
+.block .more h4{
+  margin:0;
+  font-size: 1.2em;
+  padding: 1em 0;
+  text-align: center;
+  border-bottom: thin solid #ccc;
+}
+.block .more .factor{
+/*float: right;*/
+/*display: block;*/
+display: inline;
+margin:0;
+}
+.block .more .num{
+float: right;
+}
+.block .other{
+  padding:0.5em;
+  width:100%;
+  border-bottom:thin solid #ccc;
+}
+.block .other > div{
+  max-width: 40em;
+  width:60%;
+  margin: 0 auto;
+}
+.block .other:last-child{
+  border-bottom: none;
+}
+.blockbox .blockdiagram{
+  padding:0.5em;
+  box-sizing: border-box;
+  position:absolute;
+  left: 35%;
+  height: 100%;
+  max-width: 12em;
+}
+.more div{
+}
+.lefttop h4{
+  text-transform: uppercase;
+  font-size: 1.4em;
+  font-family: "opensans-bold";
+}
+.lefttop p{
+  width: 80%;
+  max-width: 30rem;
+}
+
+#selectedblock{
+  background: #f4f4f4;
+  padding:1em;
+  box-sizing: border-box;
+}
+.blockname{
+display: block;
+width: 100%;
+}
+.blockname p {
+  display: inline;
+}
+.blockname p.smaller{
+  font-size: 0.6em;
+}
+.blockdesc{
+  display: block;
+}
+.blockimg{
+  max-height: 14em;
+  max-width: 14em;
+  display: block;
+  clear: both;
+  width:90%;
+  margin:0 auto;
+}
+#subforreview.shown{
+  display: block;
+}
+#subforreview{
+  opacity: 0.0;
+  display: none;
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background:#222;
+  background:rgba(23,23,23,0.5);
+  z-index: 1000;
+}
+#subforreview div.box{
+  opacity: 0.0;
+  width:100%;
+  box-sizing: content-box;
+  display: block;
+  max-width: 30em;
+  margin:0 auto;
+  background: #fff;
+  text-align: center;
+  padding-bottom: 2em;
+  margin-top: 10em;
+}
+#subforreview div.box h4{
+  margin:0;
+  width:100%;
+  display: block;
+  background: #4a8609;
+  text-align: center;
+  padding:2em;
+  box-sizing: border-box;
+  color:#fff;
+}
+#subforreview div.box p{
+  width:100%;
+  box-sizing: border-box;
+  padding:1em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.greyButton{
+  text-decoration: none;
+  display: inline;
+  box-sizing: border-box;
+  padding:0.4em 2.6em;
+  margin:2.5em;
+  background:#444;
+  color:#fff;
+  transition: all ease 0.4s;
+}
+.greyButton:hover{
+  background:#656565;
+  color:#fff;
+}
+
+#saveit.greenButton{
+  width:100%;
+  max-width: 20em;
+  margin: 0 auto;
+  float: none;
+  clear: both;
+}
+/**********************************************************************************************/
+@media only screen and (min-width: 40rem) {
+
+  #subforreview div.box{
+    margin-top: 12em;
+}
+  .hide-for-small{
+    display: inline;
+  }
+  #mainDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+>>>>>>> v10
       margin-bottom: 0rem;
   }
   .calcDiagram{
@@ -1310,7 +1577,10 @@ a.sectionTitle{
 }
 
 @media only screen and (min-width: 63rem) {
-
+  #saveit.greenButton{
+    float:right;
+    margin-right:4em;
+  }
 
   .greenButton, #calculator input.greenButton{
     margin-top: 0;
