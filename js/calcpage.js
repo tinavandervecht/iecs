@@ -1,11 +1,4 @@
 (function(){
-  //doesn't do anything as far as I can remember. will remove soon if necessary ^
-  var localStorage;
-    if (typeof(Storage) !== "undefined") {
-      localStorage = true;
-  } else {
-    localStorage = false;
-  }
 var submittoIECS = document.querySelector("#saveit");
 var yeahSave = document.querySelector(".box #yes");
 var noSave = document.querySelector(".box #no");

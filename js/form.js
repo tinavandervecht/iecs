@@ -6,12 +6,7 @@
 */
 
 (function(){
-  //CHECKING LOCAL STORAGE COMPATABILITY
-//   if (typeof(Storage) !== "undefined") {
-//     canLocal = true;
-// } else {
-//   canLocal = false;
-// }
+
   //SELECTING THE FORM
   var calcSubmit = document.querySelector('#calculator');
 
@@ -63,9 +58,7 @@
 function swapPage(page){
   function change(){
     currentPage = page;
-    // if(canLocal){
-    // localStorage.setItem("pagenumber", pageNumber);
-    // }
+
   }
 currentPage.classList.remove('current');
 page.classList.add('current');
@@ -395,10 +388,4 @@ contButton.addEventListener('click', pagnation,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);
 // calcSubmit.addEventListener('submit',calculate,false);
-// window.addEventListener('load', function(){
-//   if(canLocal && localStorage.getItem('pagenumber')!=null){
-//     console.log(document.querySelector('#two'));
-//     // pageSwap(document.querySelector('.pagnation-page#'+localStorage.getItem('pagenumber')));
-//   }
-// },false);
 })();
