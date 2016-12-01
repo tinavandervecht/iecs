@@ -361,7 +361,7 @@ form.testing input {
 .tabTitle
 {
     border: solid #dee1e2;
-    border-width: 1px 1px 0 1px;  
+    border-width: 1px 1px 0 1px;
     width:30%;
     padding: 10px;
     margin-top: 20px;
@@ -371,7 +371,7 @@ form.testing input {
 }
 #dashTab1
 {
-     margin-top: 50px; 
+     margin-top: 50px;
 }
 #recentContent h2
 {
@@ -395,7 +395,7 @@ form.testing input {
 {
     border: solid #dee1e2;
     border-width: 1px 1px 1px 1px;
-    padding: 10px;  
+    padding: 10px;
 }
 #fakeIcon
 {
@@ -423,13 +423,13 @@ form.testing input {
 }
 #dashTab2
 {
-     margin-top: 40px; 
+     margin-top: 40px;
 }
 .tabDiv
 {
     border: solid #dee1e2;
     border-width: 1px 1px 1px 1px;
-    padding: 10px;  
+    padding: 10px;
 }
 #graph
 {
@@ -478,7 +478,7 @@ form.testing input {
     display: inline-block;
 }
 
-#estimates 
+#estimates
 {
     padding: 0;
     margin-left:0;
@@ -534,8 +534,8 @@ form.testing input {
     font-family: "opensans";
     color:#bbb;
 }
-input[type="search"] 
-{ 
+input[type="search"]
+{
     font-size: 0.9rem;
     padding-left: 20px;
     color:#333;
@@ -568,7 +568,7 @@ input[type="search"]
 .circle {
     border-radius: 50%;
     width: 10px;
-    height: 10px; 
+    height: 10px;
     background-color: green;
     float: left;
     margin-right: 30px;
@@ -1215,11 +1215,14 @@ a.sectionTitle{
 }
 #mainQuotes .card h3.block {
     display: block;
+    float: left;
 }
 #mainQuotes .card p.halfsies {
     margin: 0;
     max-width: 50em;
     display: inline-block;
+    clear:both;
+    float:left;
 }
 
 #saveProfile{
@@ -1457,12 +1460,12 @@ a.sectionTitle{
 
     #dashTab1
     {
-         margin-top: 40px; 
+         margin-top: 40px;
     }
 
     #dashTab2
     {
-         margin-top: 40px; 
+         margin-top: 40px;
     }
 
     #recentContent
