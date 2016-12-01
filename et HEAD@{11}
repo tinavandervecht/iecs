@@ -1,0 +1,207 @@
+[33m5da7e18[m HEAD@{0}: merge v10: Merge made by the 'recursive' strategy.
+[33m9490e53[m HEAD@{1}: checkout: moving from v10 to master
+[33m9189ec7[m HEAD@{2}: checkout: moving from master to v10
+[33m9490e53[m HEAD@{3}: checkout: moving from v10 to master
+[33m9189ec7[m HEAD@{4}: checkout: moving from master to v10
+[33m9490e53[m HEAD@{5}: commit: commit bc conflicts
+[33m8184bfe[m HEAD@{6}: checkout: moving from v10 to master
+[33m9189ec7[m HEAD@{7}: checkout: moving from master to v10
+[33m8184bfe[m HEAD@{8}: checkout: moving from v10 to master
+[33m9189ec7[m HEAD@{9}: checkout: moving from master to v10
+[33m8184bfe[m HEAD@{10}: checkout: moving from v10 to master
+[33m9189ec7[m HEAD@{11}: commit: final commit for the summary page
+[33me8edff2[m HEAD@{12}: commit: added popup functionality to the calculation summary page
+[33m9ee544e[m HEAD@{13}: commit: minor fixes to form output page
+[33mca58304[m HEAD@{14}: checkout: moving from master to v10
+[33m8184bfe[m HEAD@{15}: commit: morning commit
+[33me089feb[m HEAD@{16}: merge shannon_cms_v1: Fast-forward
+[33mca58304[m HEAD@{17}: checkout: moving from shannon_cms_v1 to master
+[33me089feb[m HEAD@{18}: pull origin shannon_cms_v1: Fast-forward
+[33mca58304[m HEAD@{19}: checkout: moving from v10 to shannon_cms_v1
+[33mca58304[m HEAD@{20}: checkout: moving from master to v10
+[33mca58304[m HEAD@{21}: merge v10: Fast-forward
+[33mcf50382[m HEAD@{22}: checkout: moving from v10 to master
+[33mca58304[m HEAD@{23}: commit: fixed issue with alignment on the left side
+[33mcf50382[m HEAD@{24}: checkout: moving from master to v10
+[33mcf50382[m HEAD@{25}: merge v10: Fast-forward
+[33m9ed7833[m HEAD@{26}: checkout: moving from v10 to master
+[33mcf50382[m HEAD@{27}: commit: changed the summary page before calculation to have labels for the inputs.
+[33m9ed7833[m HEAD@{28}: checkout: moving from master to v10
+[33m9ed7833[m HEAD@{29}: commit: commit for adam
+[33m9b0462e[m HEAD@{30}: merge v9: Fast-forward
+[33m1aa00a7[m HEAD@{31}: checkout: moving from v9 to master
+[33m9b0462e[m HEAD@{32}: commit: might need to rework form just to get backward functionality from the calculation page working.leaving it for now.
+[33m915dc26[m HEAD@{33}: commit: added highlight class
+[33ma4984f8[m HEAD@{34}: commit: added a disabled style that will prevent blocks that have a low safety rating (checked when pulled from server with php) from being selected and displaying additional information
+[33mf198a6b[m HEAD@{35}: commit: added an open-close animation to the block tabs on the calculation page.
+[33mf7a134e[m HEAD@{36}: commit: added images to the calculator
+[33mbd42573[m HEAD@{37}: commit: added more elements to the summary page.
+[33m5bc3730[m HEAD@{38}: commit: styling and layout for the calculation summary page
+[33m1aa00a7[m HEAD@{39}: merge master: Fast-forward
+[33m2a08d7e[m HEAD@{40}: checkout: moving from v8 to v9
+[33m2a08d7e[m HEAD@{41}: checkout: moving from v7 to v8
+[33m4ce7442[m HEAD@{42}: checkout: moving from master to v7
+[33m1aa00a7[m HEAD@{43}: commit: added new pages
+[33m2a08d7e[m HEAD@{44}: checkout: moving from v9 to master
+[33m2a08d7e[m HEAD@{45}: checkout: moving from master to v9
+[33m2a08d7e[m HEAD@{46}: merge v8: Fast-forward
+[33maea99e5[m HEAD@{47}: checkout: moving from v8 to master
+[33m2a08d7e[m HEAD@{48}: commit: added a FAQs page. changed some styling of the login. worked on improving mobile sizing issues/ fixing them. starting final calculation page.
+[33m0244c29[m HEAD@{49}: commit: added styling to the menu
+[33m9995db8[m HEAD@{50}: commit: added a tips page with some dummy-text tips.
+[33m66f8384[m HEAD@{51}: commit: added a tips page with some dummy-text tips.
+[33me872301[m HEAD@{52}: commit: fixed some sizing issues and added a persistent scollbar to ensure consitency
+[33m805efd1[m HEAD@{53}: commit: fixed login topspace bug
+[33maea99e5[m HEAD@{54}: checkout: moving from master to v8
+[33maea99e5[m HEAD@{55}: merge v8: Fast-forward
+[33m4ce7442[m HEAD@{56}: checkout: moving from v8 to master
+[33maea99e5[m HEAD@{57}: commit: fixed github issue
+[33m48a271b[m HEAD@{58}: commit: added backtracking navigation functionality to the form summary page.
+[33mee3efd2[m HEAD@{59}: commit: Changed some layout stuff on the form and other pages to make it more reposnsive and generally nicer to look at on different screen sizes. Also made the main header fixed position, so that content scrolls underneath on longer pages. Included the pagnation on this in the form pages, so that ESPECIALLY for mobile navigation amongst the form is easier.
+[33m3e5be14[m HEAD@{60}: commit: final commit for today
+[33m0a5961e[m HEAD@{61}: commit: created profile page. started optimizing for mobile.
+[33m44b010d[m HEAD@{62}: commit: added profile page layout and styles. starting functionality.
+[33m4ce7442[m HEAD@{63}: checkout: moving from master to v8
+[33m4ce7442[m HEAD@{64}: checkout: moving from v7 to master
+[33m4ce7442[m HEAD@{65}: merge master: Fast-forward
+[33m240d837[m HEAD@{66}: checkout: moving from v7 to v7
+[33m240d837[m HEAD@{67}: checkout: moving from master to v7
+[33m4ce7442[m HEAD@{68}: merge v7: Merge made by the 'recursive' strategy.
+[33me391589[m HEAD@{69}: checkout: moving from v7 to master
+[33m240d837[m HEAD@{70}: checkout: moving from master to v7
+[33me391589[m HEAD@{71}: commit: x
+[33mb26191b[m HEAD@{72}: checkout: moving from v7 to master
+[33m240d837[m HEAD@{73}: checkout: moving from master to v7
+[33mb26191b[m HEAD@{74}: commit: commit
+[33m02d2aa2[m HEAD@{75}: checkout: moving from v7 to master
+[33m240d837[m HEAD@{76}: commit: edited title tags of multiple pages. still need to add <<back>> functionality to the form summary page. starting work on profile page. still need to create calculated output page.
+[33mb573cf2[m HEAD@{77}: commit: added comments to form.js to prevent confusion for later developers
+[33m3b3992b[m HEAD@{78}: commit: added the summarization functionality.
+[33mda803f2[m HEAD@{79}: commit: working on the summary page.
+[33m3d545e9[m HEAD@{80}: commit: fixing some styles and formatting to make room for images in the form.
+[33me5a097b[m HEAD@{81}: commit: fixed issues with tooltips. need styling.
+[33ma05a950[m HEAD@{82}: commit: finished some form things. just need to add the summary and calc pages
+[33mf4750a0[m HEAD@{83}: checkout: moving from v6 to v7
+[33mf4750a0[m HEAD@{84}: checkout: moving from v7 to v6
+[33mf4750a0[m HEAD@{85}: checkout: moving from v6 to v7
+[33mf4750a0[m HEAD@{86}: checkout: moving from v7 to v6
+[33m703de69[m HEAD@{87}: commit: S
+[33mc4e62fa[m HEAD@{88}: checkout: moving from v6 to v7
+[33mf4750a0[m HEAD@{89}: checkout: moving from v7 to v6
+[33mc4e62fa[m HEAD@{90}: commit: s
+[33me4cbb98[m HEAD@{91}: checkout: moving from v6 to v7
+[33mf4750a0[m HEAD@{92}: commit: form is shaping up. formatting looking good, positioning good, needs some more styling, but almost done - images still need to be inserted.
+[33m02d2aa2[m HEAD@{93}: checkout: moving from v7 to v6
+[33me4cbb98[m HEAD@{94}: commit: font sizes messed up.
+[33m3603e7e[m HEAD@{95}: commit: changes to font sizing due to an error in judgement
+[33md709743[m HEAD@{96}: checkout: moving from master to v7
+[33m02d2aa2[m HEAD@{97}: checkout: moving from v6 to master
+[33m02d2aa2[m HEAD@{98}: checkout: moving from v7 to v6
+[33md709743[m HEAD@{99}: commit: initial commit for v7
+[33m02d2aa2[m HEAD@{100}: checkout: moving from master to v7
+[33m02d2aa2[m HEAD@{101}: merge v6: Fast-forward
+[33m112e926[m HEAD@{102}: checkout: moving from v6 to master
+[33m02d2aa2[m HEAD@{103}: commit: changes to form layout. first page of pagnation done.
+[33m55ee044[m HEAD@{104}: commit: reworking field layout to conform to designs.
+[33mfa96106[m HEAD@{105}: commit: finished new quote page for today.
+[33ma83bbd2[m HEAD@{106}: commit: Started working on the new quote page.
+[33mf656bfa[m HEAD@{107}: commit: added icons that were missing and changed filler text to Harry Potter Ipsum : http://www.christinachern.com/hpipsum/
+[33m6a1c40d[m HEAD@{108}: commit: -Nick
+[33m0611745[m HEAD@{109}: commit: made some more changes to the dashboard. waiting on icons from shannon.
+[33mc5a5421[m HEAD@{110}: commit: changes to the dashboard
+[33m4181df5[m HEAD@{111}: commit: changes to the dashboard
+[33m276efbb[m HEAD@{112}: commit: final commit for today
+[33m94a56d8[m HEAD@{113}: commit: more work on the dashboard
+[33m112e926[m HEAD@{114}: checkout: moving from master to v6
+[33m112e926[m HEAD@{115}: merge v6: Fast-forward
+[33m33eda13[m HEAD@{116}: checkout: moving from v6 to master
+[33m112e926[m HEAD@{117}: commit: edited some styles and reworked part of the stylesheet. experiencing a bug in chrome that does not enact media queries when the browser window is resized - but works fine in dev tools responsive mode. also works fine in firefox. have not yet testing in IE.
+[33mabfcf72[m HEAD@{118}: checkout: moving from v5 to v6
+[33m33eda13[m HEAD@{119}: checkout: moving from v6 to v5
+[33mabfcf72[m HEAD@{120}: commit: ugh
+[33m8598bac[m HEAD@{121}: commit: mostly finished navigation menu. added header and rows/cols for the main dash content.
+[33m5a8a864[m HEAD@{122}: commit: readme
+[33m302c296[m HEAD@{123}: commit: readme
+[33m94514b7[m HEAD@{124}: commit: started work on the dashboard with the new styles shannon sent.
+[33m90a1b45[m HEAD@{125}: commit: final edit for this version of the login
+[33mdf71f8b[m HEAD@{126}: commit: finished rework of the login page.
+[33m3921b75[m HEAD@{127}: commit: changed the background images to fit better and display nicer.
+[33m2f3d3dc[m HEAD@{128}: commit: added a timer and a fade to show two backgrounds.
+[33mb558e6e[m HEAD@{129}: commit: changed the styles for the login page to match new designs. Still waiting on CableConcrete logo for the page.
+[33md39e026[m HEAD@{130}: commit: working on tips popup.
+[33m7282d18[m HEAD@{131}: commit: edited form, pre-styled checkboxes for re-styling upon design confirmation
+[33m20dcdb7[m HEAD@{132}: commit: second commit. edited the percent-decimal function to account for null or invalid values
+[33m57d17c7[m HEAD@{133}: commit: initial commit for v6 - some edits done, got form input hiding toggle working
+[33m33eda13[m HEAD@{134}: checkout: moving from master to v6
+[33m33eda13[m HEAD@{135}: merge v5: Fast-forward
+[33m545db16[m HEAD@{136}: checkout: moving from v5 to master
+[33m33eda13[m HEAD@{137}: commit: edited the readme
+[33m61e2205[m HEAD@{138}: commit: edited the form. in the process of writing a togglable js form field hiding function, instead of just one to hide metric.
+[33m151317d[m HEAD@{139}: commit: further work on the forms page. redid function for calculation, now gets input of each field and prints to console. starting styling now
+[33ma5e4b85[m HEAD@{140}: commit: finished the dashboard for desktop, still need to insert name and such for mobile (on the left on desktop). started work on the new page for the form.
+[33m222c837[m HEAD@{141}: commit: merged changes into main dashboard.html file
+[33me12d34a[m HEAD@{142}: commit: made some major changes, and rewrote the entire dash in foundation again
+[33m0f02ccd[m HEAD@{143}: commit: added icons for quotes
+[33m320c878[m HEAD@{144}: commit: adjustments to the dashboard, added quote boxes, fixed padding and collapsing margins, etc. etc.
+[33ma900578[m HEAD@{145}: commit: changed a tags for the cards to section tags - forgot about the 'no nesting within another of the same kind' rule
+[33ma09f656[m HEAD@{146}: commit: minor text fixes
+[33m946451a[m HEAD@{147}: commit: Dashboard is coming along - profile bar on left complete, working on icons and such for the cards.
+[33m0111c05[m HEAD@{148}: commit: set up layout. so much easier with custom code.
+[33m5cfe0bc[m HEAD@{149}: commit: a
+[33me89fa5c[m HEAD@{150}: commit: frigging thing won't work properly with foundation. I'm going to try again writing my own code. If it works, might go back and fight with foundation again.
+[33m02ac414[m HEAD@{151}: commit: small changes
+[33m4a23db1[m HEAD@{152}: commit: edits to mobile view.
+[33m7746753[m HEAD@{153}: commit: Made some major changes and additions. formatted svgs to be proper size - next step is adding modernizr. created card view for mobile, and FINALLY figured out the margins on the cards.
+[33mc8d1ff6[m HEAD@{154}: commit: added a font (opensans-bold), started dasboard
+[33md802853[m HEAD@{155}: commit: created a separate js file for the login, as the queryselector calls are useless once logged in. app.js is now a separate entity, only for global functions.
+[33m76b5f56[m HEAD@{156}: commit: started dashboard
+[33m821df1f[m HEAD@{157}: checkout: moving from v4 to v5
+[33m545db16[m HEAD@{158}: checkout: moving from v5 to v4
+[33m821df1f[m HEAD@{159}: merge v4: Merge made by the 'recursive' strategy.
+[33mb0a500d[m HEAD@{160}: checkout: moving from master to v5
+[33m545db16[m HEAD@{161}: merge v4: Fast-forward
+[33m5aa5c65[m HEAD@{162}: checkout: moving from v4 to master
+[33m545db16[m HEAD@{163}: commit: created new file for dashboard. deleted, decided to start v5 first.
+[33ma97710e[m HEAD@{164}: commit: added functions to pull form inputs and perform a simple calculation to the form.
+[33m5aa5c65[m HEAD@{165}: checkout: moving from v5 to v4
+[33mb0a500d[m HEAD@{166}: commit: edited readme
+[33m5aa5c65[m HEAD@{167}: checkout: moving from master to v5
+[33m5aa5c65[m HEAD@{168}: merge v4: Fast-forward
+[33m0f597a6[m HEAD@{169}: checkout: moving from v4 to master
+[33m5aa5c65[m HEAD@{170}: commit: Edited readme
+[33m4842295[m HEAD@{171}: commit: added function to hide metric, and a corresponding checkbox selection.
+[33m0e473c3[m HEAD@{172}: commit: edited readme
+[33m9221860[m HEAD@{173}: commit: the BIG validation update! fixed validation for form, is now more comprehensive and doesn't break when focussing and all that.
+[33m5d59c87[m HEAD@{174}: commit: edited README
+[33m0f597a6[m HEAD@{175}: checkout: moving from master to v4
+[33m0f597a6[m HEAD@{176}: merge v3: Fast-forward
+[33m98419ca[m HEAD@{177}: checkout: moving from v3 to master
+[33m0f597a6[m HEAD@{178}: commit: added HTML5 + JS form confirmation for same-passwords on the signup form.
+[33mf1f77e3[m HEAD@{179}: commit: changed the functions that cleared the fields to placeholder atributes. Can't believe I forgot about those, and spent all that time(~10mins) writing those (albeit simple) functions
+[33mc23ea19[m HEAD@{180}: commit: README
+[33m35f8ba5[m HEAD@{181}: commit: README
+[33ma845a63[m HEAD@{182}: commit: README
+[33mcf1bc4d[m HEAD@{183}: checkout: moving from master to v3
+[33m98419ca[m HEAD@{184}: checkout: moving from v3 to master
+[33mcf1bc4d[m HEAD@{185}: commit: updated README.md with weely updates.
+[33mbb2c83b[m HEAD@{186}: commit: wrote fucntions for converting decimal to percent and percent to decimal. Also inserted corresponding form fields.
+[33m1107af0[m HEAD@{187}: commit: wrote fucntions for converting decimal to percent and percent to decimal. Also inserted corresponding form fields.
+[33m48bd1de[m HEAD@{188}: commit: inserted full form minus ratio/% conversions.
+[33m5fd63c3[m HEAD@{189}: commit: wrote additional functions to change from metric to imperial, imperial to metric
+[33m0088788[m HEAD@{190}: commit: rewrote js function to convert to imperial
+[33mb17417c[m HEAD@{191}: commit: wrote js function to convert to imperial
+[33mecf21a5[m HEAD@{192}: commit: form is now written
+[33m549a74d[m HEAD@{193}: commit: started working on form
+[33m98419ca[m HEAD@{194}: checkout: moving from master to v3
+[33m98419ca[m HEAD@{195}: merge v2: Fast-forward
+[33m2e18297[m HEAD@{196}: checkout: moving from v2 to master
+[33m98419ca[m HEAD@{197}: checkout: moving from v3 to v2
+[33m2e18297[m HEAD@{198}: checkout: moving from master to v3
+[33m2e18297[m HEAD@{199}: checkout: moving from v2 to master
+[33m98419ca[m HEAD@{200}: commit: v2 edit 1
+[33mbe69bfe[m HEAD@{201}: commit: started v2
+[33m2e18297[m HEAD@{202}: checkout: moving from Master to v2
+[33m2e18297[m HEAD@{203}: checkout: moving from v2 to Master
+[33m2e18297[m HEAD@{204}: checkout: moving from master to v2
+[33m2e18297[m HEAD@{205}: pull https://github.com/MinigraphixCA/erosion_control: Merge made by the 'recursive' strategy.
+[33m8e88e22[m HEAD@{206}: commit (initial): Client-side login
