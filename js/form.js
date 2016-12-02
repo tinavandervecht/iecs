@@ -388,4 +388,16 @@ contButton.addEventListener('click', pagnation,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);
 // calcSubmit.addEventListener('submit',calculate,false);
+
+
+//THIS UPDATES THE FIELDS WHEN THEY LOAD
+window.addEventListener('load', function(){
+  for(var i=0;i<convertFields[i].length();i++){
+    var met = convertFields[i].parentNode.querySelector('.metric');
+    var imp = convertFields[i].parentNode.querySelector('.imperial');
+    if(metric!=null){
+      imp.value = metricToImperial(met.value,"ft",4);
+    }
+  }
+}, false);
 })();
