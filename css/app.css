@@ -1307,8 +1307,12 @@ width: 100%;
   padding:1em 2em;
   padding-left:6em;
   border:thin solid #ddd;
+  border-top: none;
   border-left:thick solid #161;
   width:100%;
+}
+.companyEntry.first{
+  border-top: thin solid #ddd;
 }
 .companyEntry .companyName, .companyEntry .companyUpdate, .companyEntry .dateOfUpdate{
 display: inline-block;
