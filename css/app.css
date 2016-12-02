@@ -1347,7 +1347,7 @@ width: 100%;
   border-top: none;
   width:100%;
 }
-.companyEntry.selected{
+.companyEntry:hover{
   border-left:thick solid #161;
   background: #eee;
 }
