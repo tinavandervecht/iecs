@@ -144,7 +144,7 @@ function pagnation(event){
       console.log("parameter passed is invalid. ERROR");
     }
     if(output.toString()!="NaN"){
-      return parseFloat(output.toFixed(precision));
+      return parseFloat(output.toFixed(2));
     }else{
       return "Unexpected Input.";
     }
@@ -161,7 +161,7 @@ function pagnation(event){
       console.log("parameter passed is invalid. ERROR");
     }
     if(output.toString()!="NaN"){
-      return parseFloat(output.toFixed(precision));
+      return parseFloat(output.toFixed(2));
       //console.log("returned.");
     }else if(output.toString()!=""){
       return "Unexpected Input.";
@@ -172,7 +172,7 @@ function pagnation(event){
   function percentToDecimal(input){
     var output = parseFloat((parseFloat(input.replace("%",""))*0.01).toFixed(6));
     if(output.toString()!="NaN"){
-      return output;
+      return output.toFixed(2);
     }else if(output.toString()!=""){
       return "Unexpected Input.";
     }
@@ -182,7 +182,7 @@ function pagnation(event){
   function decimalToPercent(input){
     var output = (input*100).toFixed(2) + "%";
     if(output.toString()!="NaN%"){
-      return output;
+      return output.toFixed(2);
     }else if(output.toString()!=""){
       return "Unexpected Input.";
     }
