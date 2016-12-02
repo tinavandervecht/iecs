@@ -1300,6 +1300,53 @@ width: 100%;
   float: none;
   clear: both;
 }
+
+
+/*FOR CMS*/
+.companyEntry{
+  padding:1em 2em;
+  padding-left:6em;
+  border:thin solid #ddd;
+  border-left:thick solid #161;
+  width:100%;
+}
+.companyEntry .companyName, .companyEntry .companyUpdate, .companyEntry .dateOfUpdate{
+display: inline-block;
+line-height: 2rem;
+padding:0;
+margin:0;
+}
+.companyEntry .companyName, .companyEntry .companyUpdate{
+  float:left;
+}
+.companyEntry .companyName{
+  text-transform: uppercase;
+  font-family: 'opensans-bold';
+}
+.companyEntry .companyUpdate{
+  padding-left: 2em;
+}
+
+.companyEntry .dateOfUpdate{
+  float: right;
+}
+.companyEntry .dateOfUpdate .dateup{
+text-align: right;
+margin:0;
+padding:0;
+display: block;
+line-height: 1rem;
+}
+.companyEntry .dateOfUpdate .time{
+text-align: right;
+line-height: 1rem;
+clear: right;
+margin:0;
+padding:0;
+display: block;
+}
+
+
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
 
