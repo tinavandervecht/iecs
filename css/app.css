@@ -1331,17 +1331,17 @@ width: 100%;
 /*FOR CMS*/
 .tabTitle{
   display: inline-block;
-  padding:1em;
+  padding:0.5em 1em;
   border:thin solid #ddd;
   border-bottom: none;
   margin:0;
   font-size: 1.5em;
   font-family: "opensans-bold";
   text-decoration: none;
-  color:inherit;
+  color:#5c5b5b;
 }
 .companyEntry{
-  padding:1em 2em;
+  padding:0.5em 1em;
   padding-left:2em;
   border:thin solid #ddd;
   border-top: none;
@@ -1353,9 +1353,9 @@ width: 100%;
 }
 .companyEntry .companyPic{
   float: left;
-  width:2em;
-  height:2em;
-  line-height: 2rem;
+  width:3em;
+  height:3em;
+  /*line-height: 2rem;*/
   margin-top:0.2em;
   margin-right:1em;
 }
@@ -1364,22 +1364,28 @@ width: 100%;
 }
 .companyEntry .companyName, .companyEntry .companyUpdate, .companyEntry .dateOfUpdate{
 display: inline-block;
-line-height: 2rem;
+/*line-height: 2rem;*/
 padding:0;
 margin:0;
+color:#8a9596;
 }
 .companyEntry .companyName, .companyEntry .companyUpdate{
-  float:left;
+  /*float:left;*/
+  display: block;
+  font-size: 0.5rem;
+}
+.companyEntry .companyUpdate{
 }
 .companyEntry .companyName{
   text-transform: uppercase;
   font-family: 'opensans-bold';
 }
 .companyEntry .companyUpdate{
-  padding-left: 2em;
+  /*padding-left: 2em;*/
 }
 
 .companyEntry .dateOfUpdate{
+  margin-top: 0em;
   float: right;
 }
 .companyEntry .dateOfUpdate .dateup{
@@ -1387,7 +1393,7 @@ text-align: right;
 margin:0;
 padding:0;
 display: block;
-line-height: 1rem;
+/*line-height: 1rem;*/
 }
 .companyEntry .dateOfUpdate .time{
 text-align: right;
