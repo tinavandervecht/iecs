@@ -1409,8 +1409,27 @@ display: block;
 }
 
 
+#cmsCompanies .companii p{
+  border:thin solid #ddd;
+  border-top: none;
+  padding:0;
+  margin:0;
+  display: block;
+  padding:1em;
+}
+#cmsCompanies .companii p a.greyButton{
+padding:0.6em 3.8em;
+margin:0 auto;
+float: none;
+display: block;
+width:100%;
+max-width: 12em;
+text-align: center;
+}
 #cmsCompanies .companii{
   max-width: 16em;
+  margin:2em;
+  display: inline-block;
 }
 #cmsCompanies .companii .title{
 text-align: center;
