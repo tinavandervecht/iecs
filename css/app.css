@@ -1408,7 +1408,12 @@ padding:0;
 display: block;
 }
 
-
+#cmsCompanies #cardsbox{
+  border:thin solid #eee;
+}
+#cmsCompanies #cardsbox form{
+margin-left: 2em;
+}
 #cmsCompanies .companii p{
   border:thin solid #ddd;
   border-top: none;
@@ -1448,6 +1453,44 @@ border-bottom: thick solid #4b8709;
   font-family: "opensans-bold"
 }
 
+#cmsCompanies .centerIt{
+  display: block;
+  margin:0 auto;
+  /*max-width: 80em;*/
+  width:94%;
+}
+
+#comp{
+  padding-left:23%;
+  margin-bottom:4em;
+  margin-top: 2em;
+}
+.fluidTable{
+  width: 100%;
+  /*max-width: 80em;*/
+  border:thin solid #ddd;
+}
+.fluidTable thead{
+  background:#f8f8f8;
+  color: #0a0a0a;
+  width:100%;
+  border:thin solid #ddd;
+}
+.fluidTable thead tr th{
+  text-align: left;
+  padding:1em;
+}
+.fluidTable tbody{
+}
+.fluidTable tbody tr td{
+  padding:1em;
+}
+.fluidTable tbody tr td a.greyButton{
+  margin:0;
+}
+.fluidTable tbody tr:nth-child(2n){
+  background:#f8f8f8;
+}
 
 
 /**********************************************************************************************/
