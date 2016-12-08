@@ -1048,11 +1048,11 @@ a.sectionTitle{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+#mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
 
 }
-#cmsDashboard, #cmsEstimates, #cmsCompanies{
+#cmsDashboard, #cmsEstimates, #cmsCompanies, #cmsCompanyProfile{
   margin-top: 12em;
 }
 #dashTab2{
@@ -1410,7 +1410,7 @@ margin:0;
 padding:0;
 display: block;
 }
-#cmsEstimates #cardsbox, #cmsCompanies #cardsbox{
+#cmsEstimates #cardsbox, #cmsCompanies #cardsbox, #cmsCompanyProfile #cardsbox{
   border:thin solid #eee;
 }
 #cmsEstimates #cardsbox form, #cmsCompanies #cardsbox form{
@@ -1456,7 +1456,7 @@ border-bottom: thick solid #4b8709;
   font-family: "opensans-bold"
 }
 
-#cmsEstimates .centerIt, #cmsCompanies .centerIt{
+#cmsEstimates .centerIt, #cmsCompanies .centerIt, #cmsCompanyProfile .centerIt{
   display: block;
   margin:0 auto;
   text-align: center;
@@ -1537,19 +1537,19 @@ margin:0 auto;
 margin-top: 0.5em;
 background: #eee;
 }
-#cmsCompanies .companii .title{
+#cmsCompanies .companii .title,#cmsCompanyProfile #companyInfo .title{
   color:#fff;
   margin-top: 0.5em;
   font-size: 0.5em;
 }
-#cmsCompanies .companii .title h3{
+#cmsCompanies .companii .title h3, #cmsCompanyProfile #companyInfo .title h3{
   text-transform: uppercase;
   font-family: "opensans-bold";
 }
-#cmsCompanies .companii .title h4{
+#cmsCompanies .companii .title h4, #companyInfo .title h4{
   font-family: "opensans-light";
 }
-  #cmsCompanies .companii .title h3, #cmsCompanies .companii .title h4{
+#cmsCompanies .companii .title h3, #cmsCompanies .companii .title h4, #companyInfo .title h3, #companyInfo .title h4{
 font-weight: normal;
 margin:0 auto;
 padding:0;
@@ -1568,6 +1568,40 @@ text-align: center;
   font-family: "opensans";
   padding-bottom:0.6em;
 }
+
+#cmsCompanyProfile{
+
+}
+#cmsCompanyProfile #companyInfo #company{
+  padding-top: 1px;
+background: #313131;
+}
+#cmsCompanyProfile #companyInfo #company .bottom{
+  background: #eee;
+  margin-top: 2em;
+}
+#cmsCompanyProfile #companyInfo #company .bottom p{
+  font-family: "opensans-bold";
+  display: block;
+  margin:0 auto;
+  padding:0.8em;
+  border-bottom: thin solid #ddd;
+}
+#cmsCompanyProfile #companyInfo #company .bottom p .value{
+  display: block;
+  font-family: "opensans-light";
+  /*float: right;*/
+}
+#cmsCompanyProfile #companyInfo #company > img{
+  clear: both;
+  display: block;
+  width:100%;
+  max-width:6em;
+  margin:2em auto 1em auto;
+  border-radius: 50%;
+  border: thick solid #535353;
+}
+
 /*#mainDashboard, #cmsDashboard{
   display: none;
 }*/
@@ -1580,7 +1614,7 @@ text-align: center;
 /*THE ABOVE FOR mainDashboard AND cmsDashboard NEEDS TO BE IMPLEMENTED LATER*/
 
 .fluidTable{
-  display: block;
+  display:table;
 }
 
   #subforreview div.box{
@@ -1589,7 +1623,7 @@ text-align: center;
   .hide-for-small{
     display: inline;
   }
-  #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #cmsDashboard{
+  #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #cmsDashboard{
       margin-bottom: 0rem;
   }
   .calcDiagram{
@@ -1640,7 +1674,7 @@ text-align: center;
     #sideBar {
         display: block;
     }
-    #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
+    #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
         padding-left: 23%;
     }
     .tiptop{
