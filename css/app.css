@@ -1048,11 +1048,10 @@ a.sectionTitle{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+#mainDashboard, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
-
 }
-#cmsDashboard, #cmsEstimates, #cmsCompanies, #cmsCompanyProfile{
+#cmsDashboard, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
   margin-top: 12em;
 }
 #dashTab2{
@@ -1410,7 +1409,7 @@ margin:0;
 padding:0;
 display: block;
 }
-#cmsEstimates #cardsbox, #cmsCompanies #cardsbox, #cmsCompanyProfile #cardsbox{
+#cmsEstimates #cardsbox, #cmsStats #cardsbox, #cmsEstimateSummary #cardsbox, #cmsCompanies #cardsbox, #cmsCompanyProfile #cardsbox{
   border:thin solid #eee;
 }
 #cmsEstimates #cardsbox form, #cmsCompanies #cardsbox form{
@@ -1618,6 +1617,12 @@ background: #313131;
   margin-bottom: 2em;
 }
 
+#cmsStats img{
+  max-width: 60em;
+  display: block;
+  margin:4em auto;
+}
+
 /*#mainDashboard, #cmsDashboard{
   display: none;
 }*/
@@ -1639,7 +1644,7 @@ background: #313131;
   .hide-for-small{
     display: inline;
   }
-  #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #cmsDashboard{
+  #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #cmsDashboard{
       margin-bottom: 0rem;
   }
   .calcDiagram{
@@ -1690,7 +1695,7 @@ background: #313131;
     #sideBar {
         display: block;
     }
-    #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
+    #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
         padding-left: 23%;
     }
     .tiptop{
