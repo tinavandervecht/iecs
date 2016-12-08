@@ -299,7 +299,7 @@
                 <h4 class="title">Comments</h4>
                 <label for="commentsBox">
                 </label>
-                <textarea id="commentsBox" name="commentsBox" value="<?php echo $estimate['estimate_comments'];?>"></textarea>
+                <textarea id="commentsBox" name="commentsBox"><?php echo $estimate['estimate_comments'];?></textarea>
               </div>
 
             </div>

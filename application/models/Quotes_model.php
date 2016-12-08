@@ -89,6 +89,7 @@ public function alter_quote($estimateID){
 $this->load->helper('url');
 
 $data = array(
+'estimate_id' => $estimateID,
 'company_id' => $_SESSION['company_id'],
 'estimate_name' => $this->input->post('name'),
 'estimate_projectedDate' => $this->input->post('d'),
@@ -112,7 +113,6 @@ $data = array(
 'estimate_comments' => $this->input->post('commentsBox')
 );
 
-$this->db->where('estimate_id', $estimateID);
-$this->db->update('tbl_estimates', $data);
+$this->db->replace('tbl_estimates', $data);
 }
 }
