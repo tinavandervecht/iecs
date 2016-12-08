@@ -1,6 +1,7 @@
-#EROSION CONTROL - CURRENT WEEK : 6
+#EROSION CONTROL
 
-##Nick
+#TERM ONE
+###Nick
 
 ###Week 1
 * drew up UX chart for admin login.
@@ -39,3 +40,10 @@
 * changing styles on the new quote page.
 * added pagnation to new quote page.
 * reworking field layout to conform to designs.
+
+###Week Whatever
+
+* tool is almost done. Need to add calculation.
+* *Stopped updating this readme. will restart next term.*
+
+##END OF TERM ONE

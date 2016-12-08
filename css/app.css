@@ -1576,9 +1576,15 @@ text-align: center;
   padding-top: 1px;
 background: #313131;
 }
+#cmsCompanyProfile #companyInfo, #cmsCompanyProfile #companyEstimates{
+  margin-top: 2em;
+}
+#cmsCompanyProfile #companyEstimates #cmsEstimates{
+  border-left: thin solid #ddd;
+}
 #cmsCompanyProfile #companyInfo #company .bottom{
   background: #eee;
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 #cmsCompanyProfile #companyInfo #company .bottom p{
   font-family: "opensans-bold";
@@ -1597,9 +1603,19 @@ background: #313131;
   display: block;
   width:100%;
   max-width:6em;
-  margin:2em auto 1em auto;
+  margin:1.5em auto 1em auto;
   border-radius: 50%;
   border: thick solid #535353;
+}
+
+#companyEstimates #cmsEstimates{
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 6em;
+}
+#companyEstimates #cmsEstimates .estiimat{
+  margin-top:0;
+  margin-bottom: 2em;
 }
 
 /*#mainDashboard, #cmsDashboard{
