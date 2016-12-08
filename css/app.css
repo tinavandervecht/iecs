@@ -1001,9 +1001,12 @@ a.sectionTitle{
   text-align: center;
   box-sizing: border-box;
   width:100%;
-
+  border-radius: 0.4em;
   text-decoration: none;
   text-transform: uppercase;
+}
+.greenButton:hover{
+  background: #397408;
 }
 #mainProfile h2{
   margin-left: 0.5em;
@@ -1045,11 +1048,11 @@ a.sectionTitle{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #cmsDashboard, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+#mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
 
 }
-#cmsDashboard, #cmsCompanies{
+#cmsDashboard, #cmsEstimates, #cmsCompanies{
   margin-top: 12em;
 }
 #dashTab2{
@@ -1407,15 +1410,14 @@ margin:0;
 padding:0;
 display: block;
 }
-
-#cmsCompanies #cardsbox{
+#cmsEstimates #cardsbox, #cmsCompanies #cardsbox{
   border:thin solid #eee;
 }
-#cmsCompanies #cardsbox form{
+#cmsEstimates #cardsbox form, #cmsCompanies #cardsbox form{
 margin-left: 2em;
 margin-top: 2em;
 }
-#cmsCompanies .companii p{
+#cmsEstimates .estiimat p{
   border:thin solid #ddd;
   border-top: none;
   padding:0;
@@ -1423,7 +1425,7 @@ margin-top: 2em;
   display: block;
   padding:1em;
 }
-#cmsCompanies .companii p a.greyButton{
+#cmsEstimates .estiimat p a.greyButton{
 padding:0.6em 3.8em;
 margin:0 auto;
 float: none;
@@ -1432,33 +1434,34 @@ width:100%;
 max-width: 12em;
 text-align: center;
 }
-#cmsCompanies .companii{
+#cmsEstimates .estiimat{
   max-width: 16em;
   margin:2em;
   display: inline-block;
 }
-#cmsCompanies .companii .title{
+#cmsEstimates .estiimat .title{
 text-align: center;
 background: #589021;
 padding:1em;
 color:#fff;
 border-bottom: thick solid #4b8709;
 }
-#cmsCompanies .companii .title h3, #cmsCompanies .companii .title h4{
+#cmsEstimates .estiimat .title h3, #cmsEstimates .estiimat .title h4{
   text-transform: uppercase;
   margin:0;
   font-size: 1em;
 }
-#cmsCompanies .companii .title h4{
+#cmsEstimates .estiimat .title h4{
   font-size: 1.2em;
   font-family: "opensans-bold"
 }
 
-#cmsCompanies .centerIt{
+#cmsEstimates .centerIt, #cmsCompanies .centerIt{
   display: block;
   margin:0 auto;
+  text-align: center;
   /*max-width: 80em;*/
-  width:94%;
+  width:100%;
 }
 
 #comp{
@@ -1467,6 +1470,7 @@ border-bottom: thick solid #4b8709;
   margin-top: 2em;
 }
 .fluidTable{
+  display: none;
   width: 100%;
   /*max-width: 80em;*/
   border:thin solid #ddd;
@@ -1493,9 +1497,91 @@ border-bottom: thick solid #4b8709;
   background:#f8f8f8;
 }
 
+#graph{
+  padding:4em;
+  border:thin solid #ddd;
+  margin-bottom: 2em;
+}
 
+#cmsCompanies .companii{
+  margin:1em;
+  max-width: 18em;
+  width: 100%;
+  display:inline-block;
+  background: #313131;
+  position: relative;
+  padding-top: 1px;
+}
+#cmsCompanies .companii > img{
+  clear: both;
+  display: block;
+  width:100%;
+  max-width:6em;
+  margin:0 auto;
+  margin-top: 1em;
+  border-radius: 50%;
+  border: thick solid #535353;
+}
+#cmsCompanies #row1{
+  border-bottom: thin solid #ddd;
+}
+#cmsCompanies #row2{
+border-top: 0;
+}
+#cmsCompanies .companii .viewCallout{
+display: block;
+width: 100%;
+padding:1em 0.5em;
+box-sizing: border-box;
+margin:0 auto;
+margin-top: 0.5em;
+background: #eee;
+}
+#cmsCompanies .companii .title{
+  color:#fff;
+  margin-top: 0.5em;
+  font-size: 0.5em;
+}
+#cmsCompanies .companii .title h3{
+  text-transform: uppercase;
+  font-family: "opensans-bold";
+}
+#cmsCompanies .companii .title h4{
+  font-family: "opensans-light";
+}
+  #cmsCompanies .companii .title h3, #cmsCompanies .companii .title h4{
+font-weight: normal;
+margin:0 auto;
+padding:0;
+display: block;
+width:80%;
+font-size: 0.5em;
+text-align: center;
+}
+#cmsCompanies .companii .viewCallout .greenButton{
+  margin: 0 auto;
+  display: block;
+  float: none;
+  width:90%;
+  font-size: 0.1rem;
+  padding-top:0.6em;
+  font-family: "opensans";
+  padding-bottom:0.6em;
+}
+/*#mainDashboard, #cmsDashboard{
+  display: none;
+}*/
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+/*#mainDashboard, #cmsDashboard{
+  display: block;
+}*/
+
+/*THE ABOVE FOR mainDashboard AND cmsDashboard NEEDS TO BE IMPLEMENTED LATER*/
+
+.fluidTable{
+  display: block;
+}
 
   #subforreview div.box{
     margin-top: 12em;
@@ -1503,7 +1589,7 @@ border-bottom: thick solid #4b8709;
   .hide-for-small{
     display: inline;
   }
-  #mainDashboard, #cmsDashboard, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #cmsDashboard{
+  #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #cmsDashboard{
       margin-bottom: 0rem;
   }
   .calcDiagram{
@@ -1554,7 +1640,7 @@ border-bottom: thick solid #4b8709;
     #sideBar {
         display: block;
     }
-    #mainDashboard, #cmsDashboard, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
+    #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsCompanies, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
         padding-left: 23%;
     }
     .tiptop{
