@@ -1485,6 +1485,17 @@ border-bottom: thick solid #4b8709;
   /*max-width: 80em;*/
   border:thin solid #ddd;
 }
+.fluidTable tr .dot{
+  display: none;
+}
+.fluidTable tr.new .dot{
+  display: block;
+  width:0.8em;
+  height:0.8em;
+  margin:0 auto;
+  border-radius: 50%;
+  background: #4b8709;
+}
 .fluidTable thead{
   background:#f8f8f8;
   color: #0a0a0a;
@@ -1494,6 +1505,9 @@ border-bottom: thick solid #4b8709;
 .fluidTable thead tr th{
   text-align: left;
   padding:1em;
+}
+.fluidTable thead tr th.text-center{
+  text-align: center;
 }
 .fluidTable tbody{
 }
