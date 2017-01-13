@@ -1151,7 +1151,7 @@ div.more a{
   text-align: center;
   position: relative;
   font-size: 1.2em;
-  z-index: 100;
+  z-index: 87;
 }
 .block.disabled .blockbox .factor{
   background: #820f0f;
@@ -1211,6 +1211,9 @@ float: right;
   padding:0.5em;
   width:100%;
   border-bottom:thin solid #ccc;
+}
+.block .other .factor{
+  float:left;
 }
 .block .other > div{
   max-width: 40em;

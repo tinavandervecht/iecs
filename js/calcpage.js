@@ -20,7 +20,7 @@ function openClose(event){
     }
   }
   if(it!=selected){
-    TweenLite.to(it, 0.5,{height:"18em"});
+    TweenLite.to(it, 0.5,{height:"15.5em"});
     it.classList.add('selected');
     selected = it;
   }else{
@@ -33,7 +33,7 @@ function openClose(event){
 
 for(var i=0;i<blocks.length;i++){
   if(blocks[i].classList.contains('highlight')){
-    TweenLite.to(blocks[i], 0.5,{height:"18em"});
+    TweenLite.to(blocks[i], 0.5,{height:"15.5em"});
     selected = blocks[i];
   }
   blocks[i].addEventListener("click",openClose,false);
