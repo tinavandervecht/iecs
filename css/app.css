@@ -54,6 +54,37 @@ main#newQuotePage{
   padding:1em 0;
   box-sizing: border-box;
 }
+#loginButtons
+{
+    margin-top: 70px;
+}
+#loginButton2, #notYou2
+{
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+}
+#notYou2
+{
+    background: #333;
+    margin-left: 5px;
+    float: right;
+}
+#loginButton2, #notYou2
+{
+    width: 45%;
+    margin: 2em auto;
+    float:left;
+    margin-left: 10px;
+    margin-top: 0;
+}
+#loginProfile
+{
+    display: block;
+    margin: 0 auto;
+    height: 125px;
+    margin-bottom: 10px;
+}
 #mobileMenu li a.current{
   background: #4b8709;
 }
