@@ -12,10 +12,14 @@ body {
   background: #464646;
 }
 main:not(.no-top-margin){
-  margin-top:8em;
+  margin-top:2em;
 }
 main#newQuotePage{
   margin-top:12em;
+}
+#statsFakeImg{
+  width:100%;
+  max-width: 20em;
 }
 #background {
     display: none;
@@ -1049,11 +1053,11 @@ a.sectionTitle{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+#mainDashboard, #cmsActivity, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
 }
 #cmsDashboard, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
-  margin-top: 12em;
+  margin-top: 0;
 }
 #dashTab2{
   margin-top: 4em;
@@ -1427,6 +1431,7 @@ display: block;
 margin-left: 2em;
 margin-top: 2em;
 }
+
 #cmsEstimates .estiimat p{
   border:thin solid #ddd;
   border-top: none;
@@ -1676,8 +1681,11 @@ background: #313131;
   .hide-for-small{
     display: inline;
   }
-  #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsEstimateSummary, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #cmsDashboard{
+  #mainDashboard, #cmsActivity, #cmsEstimates, #cmsEstimateSummary, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
       margin-bottom: 0rem;
+  }
+  #cmsDashboard, #cmsStats, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
+    margin-top: 12em;
   }
   .calcDiagram{
     display: block;
@@ -1691,6 +1699,10 @@ background: #313131;
 }
 
 @media only screen and (min-width: 63rem) {
+
+  #cmsActivity{
+    margin-top:8em;
+  }
   #desktopInfo{
     position:fixed;
     left:0;
@@ -1746,7 +1758,7 @@ background: #313131;
     #sideBar {
         display: block;
     }
-    #mainDashboard, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
+    #mainDashboard, #cmsActivity, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
         padding-left: 23%;
     }
     .tiptop{
