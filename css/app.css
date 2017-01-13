@@ -1151,6 +1151,7 @@ div.more a{
   text-align: center;
   position: relative;
   font-size: 1.2em;
+  z-index: 100;
 }
 .block.disabled .blockbox .factor{
   background: #820f0f;
@@ -1626,6 +1627,10 @@ background: #313131;
 /*#mainDashboard, #cmsDashboard{
   display: none;
 }*/
+
+#desktopInfo{
+  display: none;
+}
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
 /*#mainDashboard, #cmsDashboard{
@@ -1659,6 +1664,23 @@ background: #313131;
 }
 
 @media only screen and (min-width: 63rem) {
+  #desktopInfo{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    color:#fff;
+    padding:0.2em 1em;
+    display: block;
+    z-index: 101;
+    background:#4b8709;
+  }
+  #desktopInfo .left{
+    float:left;
+  }
+  #desktopInfo .right{
+    float:right;
+  }
   #saveit.greenButton{
     float:right;
     margin-right:4em;
