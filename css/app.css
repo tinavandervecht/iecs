@@ -1718,6 +1718,9 @@ background: #313131;
   #cmsDashboard, #cmsStats, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
     margin-top: 12em;
   }
+  #mainDashboard, #mainQuotes, #mainHistory, #mainProfile, #mainTips, #mainFAQs{
+    margin-top: 10em;
+  }
   .calcDiagram{
     display: block;
   }
@@ -1732,7 +1735,7 @@ background: #313131;
 @media only screen and (min-width: 63rem) {
 
   #cmsActivity{
-    margin-top:8em;
+    margin-top:12em;
   }
   #desktopInfo{
     position:fixed;
