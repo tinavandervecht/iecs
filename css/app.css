@@ -582,11 +582,12 @@ form.testing input {
   z-index: 9;
 }
 .tip:hover .tooltip{
-  display: inline-block;
+  display: block;
   position: absolute;
   top:3em;
   left:-4.5em;
-  width:10em;
+  min-width:20em;
+  max-width: 40em;
   background: #222;
   color:#eee;
   padding:1em;
