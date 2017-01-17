@@ -174,7 +174,7 @@ main#newQuotePage{
     width: 100%;
     height:100%;
     background: #000;
-    z-index: 1;
+    z-index: 0;
     opacity: 0.4;
 }
 .callout *,
