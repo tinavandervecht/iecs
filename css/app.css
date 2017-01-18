@@ -1425,7 +1425,7 @@ color:#8a9596;
 .companyEntry .companyName, .companyEntry .companyUpdate{
   /*float:left;*/
   display: block;
-  font-size: 0.5rem;
+  font-size: 1em;
 }
 .companyEntry .companyUpdate{
 }
@@ -1601,7 +1601,7 @@ background: #eee;
 #cmsCompanies .companii .title,#cmsCompanyProfile #companyInfo .title{
   color:#fff;
   margin-top: 0.5em;
-  font-size: 0.5em;
+  font-size: 1em;
 }
 #cmsCompanies .companii .title h3, #cmsCompanyProfile #companyInfo .title h3{
   text-transform: uppercase;
@@ -1616,7 +1616,6 @@ margin:0 auto;
 padding:0;
 display: block;
 width:80%;
-font-size: 0.5em;
 text-align: center;
 }
 #cmsCompanies .companii .viewCallout .greenButton{
@@ -1624,7 +1623,7 @@ text-align: center;
   display: block;
   float: none;
   width:90%;
-  font-size: 0.1rem;
+  font-size: 1em;
   padding-top:0.6em;
   font-family: "opensans";
   padding-bottom:0.6em;
