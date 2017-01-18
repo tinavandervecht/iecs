@@ -39,6 +39,7 @@
     <main class="clearfix">
       <h2 class="hidden">Main Content</h2>
       <section class="row expanded" id="mainProfile">
+        <form action="#" method="POST">
         <div class="columns small-12">
           <h2>Profile</h2>
         </div>
@@ -49,27 +50,33 @@
           <div class="field">
             <h3 class="title">User Name</h3>
             <a href="#" class="value">Ronald Weasley<img src="img/pencil_icon.svg"/></a>
+            <input class="value hidden">
           </div>
           <div class="field">
             <h3 class="title">Company</h3>
             <a href="#" class="value">TC Consulting<img src="img/pencil_icon.svg"/></a>
+            <input class="value hidden">
           </div>
           <div class="field">
             <h3 class="title">Position</h3>
             <a href="#" class="value">Engineer<img src="img/pencil_icon.svg"/></a>
+            <input class="value hidden">
           </div>
         </div>
         <div class="columns small-12 large-4 end">
           <div class="field">
             <h3 class="title">Phone Number</h3>
             <a href="#" class="value">226 543 876<img src="img/pencil_icon.svg"/></a>
+            <input class="value hidden">
           </div>
           <div class="field">
             <h3 class="title">Email</h3>
             <a href="#" class="value">rmugglesgreat@gmail.com<img src="img/pencil_icon.svg"/></a>
+            <input class="value hidden">
           </div>
-          <a id="saveProfile" class="greenButton" href="#">Save Changes</a>
+          <input type="submit" id="saveProfile" class="greenButton hidden">
         </div>
+      </form>
       </section>
     </main>
 <footer id="mobileMenu">
@@ -94,7 +101,8 @@
   <script src="js/vendor/foundation.js"></script>
   <script src="js\vendor\greensock\TweenLite.min.js"></script>
   <script src="js\vendor\greensock\CSSPlugin.min.js"></script>
-    <script src="js/classList.js"></script><script src="js/app.js"></script>
+    <script src="js/classList.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/profile.js"></script>
   </body>
 </html>
