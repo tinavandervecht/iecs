@@ -66,17 +66,17 @@ class Quotes_model extends CI_Model {
         'estimate_engineer' => $this->input->post('engineerName'),
         'estimate_status' => 1,
         'estimate_location' => $this->input->post('cityProv'),
-        'estimate_expectedFlow' => $this->input->post('flowMeters'),
-        'estimate_expectedVelocity' => $this->input->post('velocityMeters'),
-        'estimate_bedSlope' => $this->input->post('bedSlopeDecimal'),
-        'estimate_sideSlope' => $this->input->post('sideSlopeDecimal'),
+        'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
+        'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+        'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
+        'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
         'estimate_flowType' => $this->input->post('flowType'),
-        'estimate_bedWidth' => $this->input->post('bedMeters'),
+        'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
         'estimate_alignment' => $this->input->post('alignType'),
-        'estimate_crestRadius' => $this->input->post('crestMeters'),
-        'estimate_channelLength' => $this->input->post('channelMeters'),
-        'estimate_channelDepth' => $this->input->post('depthMeters'),
-        'estimate_topWidth' => $this->input->post('topMeters'),
+        'estimate_crestRadius' => number_format($this->input->post('crestMeters'),2),
+        'estimate_channelLength' => number_format($this->input->post('channelMeters'),2),
+        'estimate_channelDepth' => number_format($this->input->post('depthMeters'),2),
+        'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
         'estimate_outLetSource' => $this->input->post('sourceType'),
         'estimate_soilType' => $this->input->post('soilType'),
         'estimate_comments' => $this->input->post('commentsBox')
@@ -89,30 +89,31 @@ public function alter_quote($estimateID){
 $this->load->helper('url');
 
 $data = array(
-'company_id' => $_SESSION['company_id'],
+'estimate_id' => $estimateID,
 'estimate_name' => $this->input->post('name'),
 'estimate_projectedDate' => $this->input->post('d'),
 'estimate_address' => $this->input->post('addr'),
 'estimate_engineer' => $this->input->post('engineerName'),
 'estimate_status' => 1,
 'estimate_location' => $this->input->post('cityProv'),
-'estimate_expectedFlow' => $this->input->post('flowMeters'),
-'estimate_expectedVelocity' => $this->input->post('velocityMeters'),
-'estimate_bedSlope' => $this->input->post('bedSlopeDecimal'),
-'estimate_sideSlope' => $this->input->post('sideSlopeDecimal'),
+'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
+'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
+'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
 'estimate_flowType' => $this->input->post('flowType'),
-'estimate_bedWidth' => $this->input->post('bedMeters'),
+'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
 'estimate_alignment' => $this->input->post('alignType'),
-'estimate_crestRadius' => $this->input->post('crestMeters'),
-'estimate_channelLength' => $this->input->post('channelMeters'),
-'estimate_channelDepth' => $this->input->post('depthMeters'),
-'estimate_topWidth' => $this->input->post('topMeters'),
+'estimate_crestRadius' => number_format($this->input->post('crestMeters'),2),
+'estimate_channelLength' => number_format($this->input->post('channelMeters'),2),
+'estimate_channelDepth' => number_format($this->input->post('depthMeters'),2),
+'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
 'estimate_outLetSource' => $this->input->post('sourceType'),
 'estimate_soilType' => $this->input->post('soilType'),
 'estimate_comments' => $this->input->post('commentsBox')
 );
 
+$this->db->set($data);
 $this->db->where('estimate_id', $estimateID);
-$this->db->update('tbl_estimates', $data);
+$this->db->update('tbl_estimates');
 }
 }

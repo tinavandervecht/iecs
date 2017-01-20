@@ -1725,6 +1725,7 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+<<<<<<< HEAD
   #cmsEstimates .estiimat{
     margin:2em;
     display: inline-block;
@@ -1739,6 +1740,9 @@ background: #313131;
   #mainQuotes #scrollWrapper.quotesPage .dateCreated {
       display: none;
   }
+=======
+
+>>>>>>> a27250b8b8dcf82302f8f1525f558d9fcbf3a4a0
   #newQuotePage{
     margin-top:12em;
   }
