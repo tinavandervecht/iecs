@@ -1011,20 +1011,26 @@ a.sectionTitle{
 }
 #mainQuotes #scrollWrapper.quotesPage .dateModified,
 #mainQuotes #scrollWrapper.quotesPage .dateCreated {
+  display:none;
     width:50%;
     padding-left: 1em;
     margin-right: 3em;
     clear: right;
     float: none;
-    display: block;
     position: absolute;
-    top:-0.5em;
-    right:-2em;
     text-align: right;
   }
-#mainQuotes #scrollWrapper.quotesPage .dateCreated {
-    display: none;
-}
+
+  #mainQuotes #scrollWrapper.quotesPage .dateModified{
+    display: inline;
+    position: absolute;
+    bottom:0;
+    right:0;
+    width:100%;
+    margin-right:0;
+    color:#4B8709;
+  }
+
 scrollWrapper.quotesPage .quote .dateModified span{
   display: inline;
 }
@@ -1717,7 +1723,16 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+  #mainQuotes #scrollWrapper.quotesPage .dateModified{
+    top:-0.5em;
+    right:1em;
+      display: block;
+      color:inherit;
+    }
 
+  #mainQuotes #scrollWrapper.quotesPage .dateCreated {
+      display: none;
+  }
   #newQuotePage{
     margin-top:12em;
   }
@@ -1897,7 +1912,7 @@ background: #313131;
       float: right;
       display: block;
       position: static;
-      text-align: left;
+      text-align: right;
       width: 30%;
   }
   #quotes #scrollWrapper {
