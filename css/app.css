@@ -14,8 +14,8 @@ body {
 main:not(.no-top-margin){
   margin-top:2em;
 }
-main#newQuotePage{
-  margin-top:12em;
+#newQuotePage{
+  margin-top:0;
 }
 #statsFakeImg{
   width:100%;
@@ -847,6 +847,9 @@ a.sectionTitle{
     padding-bottom: 2em;
     padding-top: 1em;
     border-color: #ccc;
+}
+#quotes{
+  margin-bottom:10em;
 }
 #quotes #scrollWrapper {
     overflow-y: visible;
@@ -1702,6 +1705,10 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+
+  #newQuotePage{
+    margin-top:12em;
+  }
   #mainHeader{
     position:fixed;
   }
@@ -1741,8 +1748,10 @@ background: #313131;
   }
 }
 
-@media only screen and (min-width: 63rem) {
-
+@media only screen and (min-width: 64rem) {
+  #quotes{
+    margin-bottom:2em;
+  }
   #cmsActivity{
     margin-top:12em;
   }
@@ -1863,10 +1872,6 @@ background: #313131;
     .no-tab {
         display: none;
     }
-}
-/***************************************************************************************************************************************************************/
-
-@media only screen and (min-width: 64em) {
   #mainQuotes #scrollWrapper .desc{
     margin-top: 1em;
     margin: 0;
