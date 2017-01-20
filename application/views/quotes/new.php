@@ -81,13 +81,13 @@
               <div id="flow"  class="clearfix columns small-12 medium-6">
                   <h4 class="title">Maximum Expected Flow</h4>
                   <label for="flowMeters">
-                    <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a>
+                    <a href="#" class="tip"><span class="tooltip">Ensure the highest design flows are entered in cubic metres per second.</span>?</a>
                       <h5 class="unit">Cubic m/s</h5>
                       <?php echo form_error('flowMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="flowMeters" class="convert metric" name="flowMeters" placeholder=""/>
                   <label for="flowFeet">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Cubic ft/s</h5>
+                      <a href="#" class="tip"><span class="tooltip">Ensure the highest design flows are entered in cubic feet per second.</span>?</a><h5 class="unit">Cubic ft/s</h5>
                       <?php echo form_error('flowMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="flowFeet"  class="convert imperial" />
@@ -96,7 +96,7 @@
               <div id="velocity"  class="clearfix columns small-12 medium-6">
                   <h4 class="title">Maximum Expected Velocity</h4>
                   <label for="velocityMeters">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Meters per Second</h5>
+                      <a href="#" class="tip"><span class="tooltip">Input the pre-determined max velocity in m/s</span>?</a><h5 class="unit">Meters per Second</h5>
                       <?php echo form_error('velocityMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="velocityMeters" class="convert metric"  name="velocityMeters" placeholder=""/>
@@ -134,12 +134,12 @@
               <div id="bedSlope"  class="clearfix">
                   <h4 class="title">Channel Bed Slope</h4>
                   <label for="bedSlopePercent">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Percent (%)</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in percentage form.</span>?</a><h5 class="unit">Percent (%)</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedSlopePercent" class="convert P" />
                   <label for="bedSlopeDecimal">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Decimal</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in decimal form.</span>?</a><h5 class="unit">Decimal</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedSlopeDecimal"  class="convert D" name="bedSlopeDecimal" placeholder=""/>
@@ -187,7 +187,7 @@
               <div id="alignment"  class="clearfix">
                   <h4 class="title">Alignment</h4>
                   <label for="alignType">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">(straight, moderate, severe, extreme)</h5>
+                      <a href="#" class="tip hidden"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">(straight, moderate, severe, extreme)</h5>
                       <?php echo form_error('alignType', '<span class="error">', '</span>');?>
                   </label>
                   <input id="alignType" name="alignType" placeholder=""/>
@@ -195,7 +195,7 @@
               <div id="crestRadius"  class="clearfix">
                   <h4 class="title">Radius at the Crest</h4>
                   <label for="crestMeters">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Meters</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity. </span>?</a><h5 class="unit">Meters</h5>
                       <?php echo form_error('crestMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="crestMeters" class="convert metric" name="crestMeters" placeholder=""/>
@@ -233,12 +233,12 @@
               <div id="channelLength"  class="clearfix">
               <h4 class="title">Chute/Channel Length</h4>
               <label for="channelMeters">
-                <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Meters</h5>
+                <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
               </label>
                 <input id="channelMeters" class="convert metric" name="channelMeters" placeholder=""/>
               <label for="channelFeet">
-                <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Feet</h5>
+                <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in feet.</span>?</a><h5 class="unit">Feet</h5>
                 <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
               </label>
                 <input id="channelFeet"  class="convert imperial" />
@@ -247,12 +247,12 @@
               <div id="channelDepth"  class="clearfix">
               <h4 class="title">Channel Depth</h4>
               <label for="depthMeters">
-                <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Meters</h5>
+                <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
               </label>
                 <input id="depthMeters" class="convert metric" name="depthMeters" placeholder=""/>
               <label for="depthFeet">
-                <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Feet</h5>
+                <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in feet.</span>?</a><h5 class="unit">Feet</h5>
                 <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
               </label>
                 <input id="depthFeet"  class="convert imperial" />
@@ -261,12 +261,12 @@
               <div id="topWidth"  class="clearfix">
               <h4 class="title">Top Width of Channel</h4>
               <label for="topMeters">
-                <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Meters</h5>
+                <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('topMeters', '<span class="error">', '</span>');?>
               </label>
                 <input id="topMeters" class="convert metric" name="topMeters" placeholder=""/>
               <label for="topFeet">
-                <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Feet</h5>
+                <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in feet.</span>?</a><h5 class="unit">Feet</h5>
               </label>
                 <input id="topFeet"  class="convert imperial" />
               </div>
