@@ -1493,7 +1493,13 @@ display: block;
 margin-left: 2em;
 margin-top: 2em;
 }
-
+#cmsEstimates .estiimat{
+  /*margin:2em;*/
+  /*display: inline-block;*/
+  max-width: 16em;
+  display: block;
+  margin:0 auto;
+}
 #cmsEstimates .estiimat p{
   border:thin solid #ddd;
   border-top: none;
@@ -1511,11 +1517,7 @@ width:100%;
 max-width: 12em;
 text-align: center;
 }
-#cmsEstimates .estiimat{
-  max-width: 16em;
-  margin:2em;
-  display: inline-block;
-}
+
 #cmsEstimates .estiimat .title{
 text-align: center;
 background: #589021;
@@ -1723,6 +1725,10 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+  #cmsEstimates .estiimat{
+    margin:2em;
+    display: inline-block;
+}
   #mainQuotes #scrollWrapper.quotesPage .dateModified{
     top:-0.5em;
     right:1em;
