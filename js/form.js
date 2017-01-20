@@ -60,7 +60,10 @@ function swapPage(page){
     currentPage = page;
 
   }
+
+
 currentPage.classList.remove('current');
+// currentPage.className = currentPage.className.replace('current','');
 page.classList.add('current');
 TweenLite.to(page, 0.2, {opacity:1.0,onComplete:change});
 }

@@ -12,10 +12,14 @@ body {
   background: #464646;
 }
 main:not(.no-top-margin){
-  margin-top:8em;
+  margin-top:2em;
 }
 main#newQuotePage{
   margin-top:12em;
+}
+#statsFakeImg{
+  width:100%;
+  max-width: 20em;
 }
 #background {
     display: none;
@@ -32,9 +36,10 @@ main#newQuotePage{
   bottom:0;
   left:0;
   z-index: 1000;
-  background: #4b8709;
+  background: #313131;
 }
 #mobileMenu ul{
+  font-size: 0.8rem !important;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -46,12 +51,42 @@ main#newQuotePage{
   text-align: center;
   text-decoration: none;
   color:#fff;
-  padding:1em;
+  padding:1em 0;
   box-sizing: border-box;
 }
+#loginButtons
+{
+    margin-top: 70px;
+}
+#loginButton2, #notYou2
+{
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+}
+#notYou2
+{
+    background: #333;
+    margin-left: 5px;
+    float: right;
+}
+#loginButton2, #notYou2
+{
+    width: 45%;
+    margin: 2em auto;
+    float:left;
+    margin-left: 10px;
+    margin-top: 0;
+}
+#loginProfile
+{
+    display: block;
+    margin: 0 auto;
+    height: 125px;
+    margin-bottom: 10px;
+}
 #mobileMenu li a.current{
-  background: #213d02;
-  /*background: #589021;*/
+  background: #4b8709;
 }
 #mobileMenu .navIcon{
   max-width: 2em;
@@ -126,6 +161,11 @@ main#newQuotePage{
     margin-left: 0.8em;
     font-size: 1.2em;
 }
+#secondaryNav ul.smaller-text .navText{
+  font-size: 0.4em;
+  text-align: center;
+  display: inline;
+}
 .darkOverlay {
     display: block;
     position: absolute;
@@ -134,7 +174,7 @@ main#newQuotePage{
     width: 100%;
     height:100%;
     background: #000;
-    z-index: 1;
+    z-index: 0;
     opacity: 0.4;
 }
 .callout *,
@@ -542,11 +582,12 @@ form.testing input {
   z-index: 9;
 }
 .tip:hover .tooltip{
-  display: inline-block;
+  display: block;
   position: absolute;
   top:3em;
   left:-4.5em;
-  width:10em;
+  min-width:20em;
+  max-width: 40em;
   background: #222;
   color:#eee;
   padding:1em;
@@ -672,7 +713,7 @@ a.sectionTitle{
     background: #4b8709;
     width: 100%;
     box-sizing: border-box;
-    position: fixed;
+    position: static;
     top:0;
     z-index: 88;
 }
@@ -743,7 +784,7 @@ a.sectionTitle{
     top: 10%;
     right: 0;
     height: 80%;
-    z-index: 100;
+    z-index: 87;
     border-right: thin solid #222;
 }
 .card h3 {
@@ -918,6 +959,7 @@ a.sectionTitle{
     display: block;
     margin: 0 auto;
     width: 100%;
+    height:100%;
     max-height: 1.7em;
     opacity: 0.5;
 }
@@ -997,9 +1039,12 @@ a.sectionTitle{
   text-align: center;
   box-sizing: border-box;
   width:100%;
-
+  border-radius: 0.4em;
   text-decoration: none;
   text-transform: uppercase;
+}
+.greenButton:hover{
+  background: #397408;
 }
 #mainProfile h2{
   margin-left: 0.5em;
@@ -1011,7 +1056,12 @@ a.sectionTitle{
   margin-left:2em
 }
 
+#mainProfile input.value{
+  background:#f5f5f5;
+}
+
 #mainProfile .value{
+  border:0;
   border-bottom: thin solid #222;
   color:inherit;
   display: block;
@@ -1041,15 +1091,15 @@ a.sectionTitle{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #cmsDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+#mainDashboard, #cmsActivity, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
-
 }
-#cmsDashboard{
-  margin-top: 12em;
+#cmsDashboard, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
+  margin-top: 0;
 }
 #dashTab2{
   margin-top: 4em;
+  margin-bottom:2em;
 }
 div.more{
   width:100%;
@@ -1145,6 +1195,7 @@ div.more a{
   text-align: center;
   position: relative;
   font-size: 1.2em;
+  z-index: 87;
 }
 .block.disabled .blockbox .factor{
   background: #820f0f;
@@ -1204,6 +1255,9 @@ float: right;
   padding:0.5em;
   width:100%;
   border-bottom:thin solid #ccc;
+}
+.block .other .factor{
+  float:left;
 }
 .block .other > div{
   max-width: 40em;
@@ -1326,22 +1380,27 @@ width: 100%;
   float: none;
   clear: both;
 }
-
+#saveit.greenButton.email{
+  margin:2em 0;
+}
 
 /*FOR CMS*/
 .tabTitle{
   display: inline-block;
-  padding:1em;
+  padding:0.5em 1em;
   border:thin solid #ddd;
   border-bottom: none;
   margin:0;
   font-size: 1.5em;
   font-family: "opensans-bold";
   text-decoration: none;
-  color:inherit;
+  color:#5c5b5b;
 }
 .companyEntry{
-  padding:1em 2em;
+  color:inherit;
+  display: block;
+  text-decoration: none;
+  padding:0.5em 1em;
   padding-left:2em;
   border:thin solid #ddd;
   border-top: none;
@@ -1353,9 +1412,9 @@ width: 100%;
 }
 .companyEntry .companyPic{
   float: left;
-  width:2em;
-  height:2em;
-  line-height: 2rem;
+  width:3em;
+  height:3em;
+  /*line-height: 2rem;*/
   margin-top:0.2em;
   margin-right:1em;
 }
@@ -1364,22 +1423,28 @@ width: 100%;
 }
 .companyEntry .companyName, .companyEntry .companyUpdate, .companyEntry .dateOfUpdate{
 display: inline-block;
-line-height: 2rem;
+/*line-height: 2rem;*/
 padding:0;
 margin:0;
+color:#8a9596;
 }
 .companyEntry .companyName, .companyEntry .companyUpdate{
-  float:left;
+  /*float:left;*/
+  display: block;
+  font-size: 1em;
+}
+.companyEntry .companyUpdate{
 }
 .companyEntry .companyName{
   text-transform: uppercase;
   font-family: 'opensans-bold';
 }
 .companyEntry .companyUpdate{
-  padding-left: 2em;
+  /*padding-left: 2em;*/
 }
 
 .companyEntry .dateOfUpdate{
+  margin-top: 0em;
   float: right;
 }
 .companyEntry .dateOfUpdate .dateup{
@@ -1387,7 +1452,7 @@ text-align: right;
 margin:0;
 padding:0;
 display: block;
-line-height: 1rem;
+/*line-height: 1rem;*/
 }
 .companyEntry .dateOfUpdate .time{
 text-align: right;
@@ -1397,10 +1462,255 @@ margin:0;
 padding:0;
 display: block;
 }
+#cmsEstimates #cardsbox, #cmsStats #cardsbox, #cmsEstimateSummary #cardsbox, #cmsCompanies #cardsbox, #cmsCompanyProfile #cardsbox{
+  border:thin solid #eee;
+}
+#cmsEstimates #cardsbox form, #cmsCompanies #cardsbox form{
+margin-left: 2em;
+margin-top: 2em;
+}
 
+#cmsEstimates .estiimat p{
+  border:thin solid #ddd;
+  border-top: none;
+  padding:0;
+  margin:0;
+  display: block;
+  padding:1em;
+}
+#cmsEstimates .estiimat p a.greyButton{
+padding:0.6em 3.8em;
+margin:0 auto;
+float: none;
+display: block;
+width:100%;
+max-width: 12em;
+text-align: center;
+}
+#cmsEstimates .estiimat{
+  max-width: 16em;
+  margin:2em;
+  display: inline-block;
+}
+#cmsEstimates .estiimat .title{
+text-align: center;
+background: #589021;
+padding:1em;
+color:#fff;
+border-bottom: thick solid #4b8709;
+}
+#cmsEstimates .estiimat .title h3, #cmsEstimates .estiimat .title h4{
+  text-transform: uppercase;
+  margin:0;
+  font-size: 1em;
+}
+#cmsEstimates .estiimat .title h4{
+  font-size: 1.2em;
+  font-family: "opensans-bold"
+}
 
+#cmsEstimates .centerIt, #cmsCompanies .centerIt, #cmsCompanyProfile .centerIt{
+  display: block;
+  margin:0 auto;
+  text-align: center;
+  /*max-width: 80em;*/
+  width:100%;
+}
+
+#comp{
+  padding-left:23%;
+  margin-bottom:4em;
+  margin-top: 2em;
+}
+.fluidTable{
+  display: none;
+  width: 100%;
+  /*max-width: 80em;*/
+  border:thin solid #ddd;
+}
+.fluidTable tr .dot{
+  display: none;
+}
+.fluidTable tr.new .dot{
+  display: block;
+  width:0.8em;
+  height:0.8em;
+  margin:0 auto;
+  border-radius: 50%;
+  background: #4b8709;
+}
+.fluidTable thead{
+  background:#f8f8f8;
+  color: #0a0a0a;
+  width:100%;
+  border:thin solid #ddd;
+}
+.fluidTable thead tr th{
+  text-align: left;
+  padding:1em;
+}
+.fluidTable thead tr th.text-center{
+  text-align: center;
+}
+.fluidTable tbody{
+}
+.fluidTable tbody tr td{
+  padding:1em;
+}
+.fluidTable tbody tr td a.greyButton{
+  margin:0;
+}
+.fluidTable tbody tr:nth-child(2n){
+  background:#f8f8f8;
+}
+
+#graph{
+  padding:4em;
+  border:thin solid #ddd;
+  margin-bottom: 2em;
+}
+
+#cmsCompanies .companii{
+  margin:1em;
+  max-width: 18em;
+  width: 100%;
+  display:inline-block;
+  background: #313131;
+  position: relative;
+  padding-top: 1px;
+}
+#cmsCompanies .companii > img{
+  clear: both;
+  display: block;
+  width:100%;
+  max-width:6em;
+  margin:0 auto;
+  margin-top: 1em;
+  border-radius: 50%;
+  border: thick solid #535353;
+}
+#cmsCompanies #row1{
+  border-bottom: thin solid #ddd;
+}
+#cmsCompanies #row2{
+border-top: 0;
+}
+#cmsCompanies .companii .viewCallout{
+display: block;
+width: 100%;
+padding:1em 0.5em;
+box-sizing: border-box;
+margin:0 auto;
+margin-top: 0.5em;
+background: #eee;
+}
+#cmsCompanies .companii .title,#cmsCompanyProfile #companyInfo .title{
+  color:#fff;
+  margin-top: 0.5em;
+  font-size: 1em;
+}
+#cmsCompanies .companii .title h3, #cmsCompanyProfile #companyInfo .title h3{
+  text-transform: uppercase;
+  font-family: "opensans-bold";
+}
+#cmsCompanies .companii .title h4, #companyInfo .title h4{
+  font-family: "opensans-light";
+}
+#cmsCompanies .companii .title h3, #cmsCompanies .companii .title h4, #companyInfo .title h3, #companyInfo .title h4{
+font-weight: normal;
+margin:0 auto;
+padding:0;
+display: block;
+width:80%;
+text-align: center;
+}
+#cmsCompanies .companii .viewCallout .greenButton{
+  margin: 0 auto;
+  display: block;
+  float: none;
+  width:90%;
+  font-size: 1em;
+  padding-top:0.6em;
+  font-family: "opensans";
+  padding-bottom:0.6em;
+}
+
+#cmsCompanyProfile{
+
+}
+#cmsCompanyProfile #companyInfo #company{
+  padding-top: 1px;
+background: #313131;
+}
+#cmsCompanyProfile #companyInfo, #cmsCompanyProfile #companyEstimates{
+  margin-top: 2em;
+}
+#cmsCompanyProfile #companyEstimates #cmsEstimates{
+  border-left: thin solid #ddd;
+}
+#cmsCompanyProfile #companyInfo #company .bottom{
+  background: #eee;
+  margin-top: 1.5em;
+}
+#cmsCompanyProfile #companyInfo #company .bottom p{
+  font-family: "opensans-bold";
+  display: block;
+  margin:0 auto;
+  padding:0.8em;
+  border-bottom: thin solid #ddd;
+}
+#cmsCompanyProfile #companyInfo #company .bottom p .value{
+  display: block;
+  font-family: "opensans-light";
+  /*float: right;*/
+}
+#cmsCompanyProfile #companyInfo #company > img{
+  clear: both;
+  display: block;
+  width:100%;
+  max-width:6em;
+  margin:1.5em auto 1em auto;
+  border-radius: 50%;
+  border: thick solid #535353;
+}
+
+#companyEstimates #cmsEstimates{
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 6em;
+}
+#companyEstimates #cmsEstimates .estiimat{
+  margin-top:0;
+  margin-bottom: 2em;
+}
+
+#cmsStats img{
+  max-width: 60em;
+  display: block;
+  margin:4em auto;
+}
+
+/*#mainDashboard, #cmsDashboard{
+  display: none;
+}*/
+
+#desktopInfo{
+  display: none;
+}
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+  #mainHeader{
+    position:fixed;
+  }
+/*#mainDashboard, #cmsDashboard{
+  display: block;
+}*/
+
+/*THE ABOVE FOR mainDashboard AND cmsDashboard NEEDS TO BE IMPLEMENTED LATER*/
+
+.fluidTable{
+  display:table;
+}
 
   #subforreview div.box{
     margin-top: 12em;
@@ -1408,8 +1718,14 @@ display: block;
   .hide-for-small{
     display: inline;
   }
-  #mainDashboard, #cmsDashboard, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #cmsDashboard{
+  #mainDashboard, #cmsActivity, #cmsEstimates, #cmsEstimateSummary, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
       margin-bottom: 0rem;
+  }
+  #cmsDashboard, #cmsStats, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
+    margin-top: 12em;
+  }
+  #mainDashboard, #mainQuotes, #mainHistory, #mainProfile, #mainTips, #mainFAQs{
+    margin-top: 10em;
   }
   .calcDiagram{
     display: block;
@@ -1423,6 +1739,29 @@ display: block;
 }
 
 @media only screen and (min-width: 63rem) {
+
+  #cmsActivity{
+    margin-top:12em;
+  }
+  #desktopInfo{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    color:#fff;
+    padding:0.4em 1em;
+    display: block;
+    z-index: 101;
+    /*background:#4b8709;*/
+    background: #313131;
+  }
+  #desktopInfo .left{
+    margin-left:28em;
+    float:left;
+  }
+  #desktopInfo .right{
+    float:right;
+  }
   #saveit.greenButton{
     float:right;
     margin-right:4em;
@@ -1459,7 +1798,7 @@ display: block;
     #sideBar {
         display: block;
     }
-    #mainDashboard, #cmsDashboard, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
+    #mainDashboard, #cmsActivity, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
         padding-left: 23%;
     }
     .tiptop{
