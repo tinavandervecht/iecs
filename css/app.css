@@ -45,14 +45,17 @@ main#newQuotePage{
   margin: 0;
 }
 #mobileMenu li a{
-  display: block;
   width:20%;
+  display: block;
   float: left;
   text-align: center;
   text-decoration: none;
   color:#fff;
   padding:1em 0;
   box-sizing: border-box;
+}
+#mobileMenu #secondaryNav.four li a{
+  width:25%;
 }
 #loginButtons
 {
