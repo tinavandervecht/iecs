@@ -907,6 +907,7 @@ a.sectionTitle{
     user-select: none;
     border-bottom: thin solid #ccc;
     padding-bottom: 0;
+    position: relative;
 }
 #quotes .quote .title {
     text-transform: uppercase;
@@ -1003,18 +1004,35 @@ a.sectionTitle{
 #scrollWrapper.quotesPage .dateModified {
     margin-top: 2em;
 }
+
 #scrollWrapper.quotesPage .dateCreated {
     margin-top: 0.5em;
     margin-bottom:0.5em;
 }
 #mainQuotes #scrollWrapper.quotesPage .dateModified,
 #mainQuotes #scrollWrapper.quotesPage .dateCreated {
-    width:30%;
+  display:none;
+    width:50%;
     padding-left: 1em;
     margin-right: 3em;
     clear: right;
     float: none;
-    display: none;
+    position: absolute;
+    text-align: right;
+  }
+
+  #mainQuotes #scrollWrapper.quotesPage .dateModified{
+    display: inline;
+    position: absolute;
+    bottom:0;
+    right:0;
+    width:100%;
+    margin-right:0;
+    color:#4B8709;
+  }
+
+scrollWrapper.quotesPage .quote .dateModified span{
+  display: inline;
 }
 .dateCreated,
 .dateModified {
@@ -1475,7 +1493,13 @@ display: block;
 margin-left: 2em;
 margin-top: 2em;
 }
-
+#cmsEstimates .estiimat{
+  /*margin:2em;*/
+  /*display: inline-block;*/
+  max-width: 16em;
+  display: block;
+  margin:0 auto;
+}
 #cmsEstimates .estiimat p{
   border:thin solid #ddd;
   border-top: none;
@@ -1493,11 +1517,7 @@ width:100%;
 max-width: 12em;
 text-align: center;
 }
-#cmsEstimates .estiimat{
-  max-width: 16em;
-  margin:2em;
-  display: inline-block;
-}
+
 #cmsEstimates .estiimat .title{
 text-align: center;
 background: #589021;
@@ -1705,7 +1725,24 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+<<<<<<< HEAD
+  #cmsEstimates .estiimat{
+    margin:2em;
+    display: inline-block;
+}
+  #mainQuotes #scrollWrapper.quotesPage .dateModified{
+    top:-0.5em;
+    right:1em;
+      display: block;
+      color:inherit;
+    }
 
+  #mainQuotes #scrollWrapper.quotesPage .dateCreated {
+      display: none;
+  }
+=======
+
+>>>>>>> a27250b8b8dcf82302f8f1525f558d9fcbf3a4a0
   #newQuotePage{
     margin-top:12em;
   }
@@ -1884,6 +1921,9 @@ background: #313131;
       clear: right;
       float: right;
       display: block;
+      position: static;
+      text-align: right;
+      width: 30%;
   }
   #quotes #scrollWrapper {
       overflow-y: scroll;
