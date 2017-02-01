@@ -2,7 +2,7 @@
     <h2 class="hidden">Main Content</h2>
     <section class="row expanded" id="newQuote">
       <?php $attributes = array('class' => 'row expanded small-collapse', 'id' => 'calculator');
-      echo form_open('quotes/newQuote', $attributes);?>
+      echo form_open('quotes/editQuote/'.$estimate['estimate_id'], $attributes);?>
 
           <section class="pagnation-page current" id="1">
             <div class="row">

@@ -22,13 +22,13 @@
               <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. .</p>
                 <div class="buttons clearfix">
                   <div class="leftButton">
-                    <a href="<?php echo base_url('/quotes/editQuote/'.$estimatesInfo[0]['estimate_id']);?>" class="clearfix">
+                    <a href="<?php echo site_url('/quotes/editQuote/'.$estimatesInfo[0]['estimate_id']);?>" class="clearfix">
                     <img class="centered" src="<?php echo base_url('img/pencil_icon.svg');?>">
                       <span class="text">EDIT</span>
                     </a>
                   </div>
                   <div class="rightButton">
-                    <a href="#" class="clearfix">
+                    <a href="<?php echo site_url('/quotes/deleteQuote/'.$estimatesInfo[0]['estimate_id'].'/dashboard');?>" class="clearfix">
                     <img class="centered" src="<?php echo base_url('img/trash_icon.svg');?>">
                     <span class="text">DISCARD</span>
                   </a>
@@ -60,16 +60,16 @@
                 <?php endif; ?>
                 </div>
                 <h4 class="title"><?php echo $estimate['estimate_name'];?></h4>
-                <h5 class="dateModified">DATE CREATED: <span class="date"><?php echo $estimate['estimate_date'];?></span></h5>
+                <h5 class="dateModified">DATE MODIFIED: <span class="date"><?php echo $estimate['estimate_modifiedDate'];?></span></h5>
                   <div class="buttons clearfix">
                     <div class="leftButton">
-                      <a href="<?php echo base_url('/quotes/editQuote/'.$estimate['estimate_id']);?>" class="clearfix">
+                      <a href="<?php echo site_url('/quotes/editQuote/'.$estimate['estimate_id']);?>" class="clearfix">
                       <img class="centered" src="<?php echo base_url('img/pencil_icon.svg');?>">
                         <span class="text">EDIT</span>
                       </a>
                     </div>
                     <div class="rightButton">
-                      <a href="#" class="clearfix">
+                      <a href="<?php echo site_url('/quotes/deleteQuote/'.$estimate['estimate_id'].'/dashboard');?>" class="clearfix">
                       <img class="centered" src="<?php echo base_url('img/trash_icon.svg');?>">
                       <span class="text">DISCARD</span>
                     </a>
