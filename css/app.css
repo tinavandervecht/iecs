@@ -1792,6 +1792,7 @@ background: #313131;
     margin-top:12em;
   }
   #desktopInfo{
+    border-top:thin solid #444;
     position:fixed;
     left:0;
     bottom:0;
@@ -1804,9 +1805,19 @@ background: #313131;
     background: #313131;
   }
   #desktopInfo .left{
-    margin-left:28em;
+    /*margin-left:28em;*/
     float:left;
   }
+  #desktopInfo .left span.fade{
+    color:#aaa;
+  }
+    #desktopInfo .left a{
+    color:inherit;
+    text-decoration: none;
+    }
+    #desktopInfo .left a:hover{
+      text-decoration: underline;
+    }
   #desktopInfo .right{
     float:right;
   }
