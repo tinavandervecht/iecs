@@ -11,9 +11,9 @@
         <img class="logo" id="ccLogo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
         <h4>Admin Panel Log-In</h4></h4>
       </div>
-      <div class="darkOverlay"></div>
+      <!-- <div class="darkOverlay"></div>
       <img class="back" src="<?php echo base_url('img/loginTop.jpg');?>">
-      <img class="back" id="two" src="<?php echo base_url('img/loginTopTwo.jpg')?>">
+      <img class="back" id="two" src="<?php echo base_url('img/loginTopTwo.jpg')?>"> -->
     </div>
 
     <div id="formCont">
