@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="row border-top">
-          <div class="columns small-12 medium-6 card left">
+          <div class="columns small-12 medium-12 large-6 card left">
             <h3>Most Recent Quote</h3><img class="icon" src="<?php echo base_url('img/paper_icon_black.svg');?>">
             <?php if($estimatesInfo != false):?>
             <div class="quote">
@@ -44,7 +44,7 @@
             </div>
             <?php endif ?>
           </div>
-          <div class="columns small-12 medium-6 card right" id="quotes">
+          <div class="columns small-12 medium-12 large-6 card right" id="quotes">
             <h3>History</h3><img class="icon" src="<?php echo base_url('img/history_icon_black.svg');?>">
             <div id="scrollWrapper">
               <!-- ========================================================================= -->

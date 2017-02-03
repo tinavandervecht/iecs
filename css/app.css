@@ -846,7 +846,7 @@ a.sectionTitle{
     border-color: #ccc;
 }
 #quotes{
-  margin-bottom:10em;
+  /*margin-bottom:10em;*/
 }
 #quotes #scrollWrapper {
     overflow-y: visible;
@@ -1211,7 +1211,7 @@ div.more a{
   float: right;
   height:100%;
   padding: 1em;
-  padding-right: 3em;
+  padding-right: 2em;
   box-sizing: border-box;
   text-align: center;
   position: relative;
@@ -1223,8 +1223,8 @@ div.more a{
 }
 .blockbox .factor img.arrow{
   position: absolute;
-  top:1em;
-  right:1em;
+  top:2.5em;
+  right:1.5em;
   width:1.5em;
   height:1.5em;
   transform: rotate(0deg);
@@ -1292,7 +1292,7 @@ float: right;
   padding:0.5em;
   box-sizing: border-box;
   position:absolute;
-  left: 35%;
+  left: 30%;
   height: 100%;
   max-width: 12em;
 }
@@ -1713,10 +1713,6 @@ background: #313131;
   margin:4em auto;
 }
 
-/*#mainDashboard, #cmsDashboard{
-  display: none;
-}*/
-
 #desktopInfo{
   display: none;
 }
@@ -1742,11 +1738,7 @@ background: #313131;
   #mainHeader{
     position:fixed;
   }
-/*#mainDashboard, #cmsDashboard{
-  display: block;
-}*/
 
-/*THE ABOVE FOR mainDashboard AND cmsDashboard NEEDS TO BE IMPLEMENTED LATER*/
 
 .fluidTable{
   display:table;
@@ -1759,7 +1751,7 @@ background: #313131;
     display: inline;
   }
   #mainDashboard, #cmsActivity, #cmsEstimates, #cmsEstimateSummary, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
-      margin-bottom: 0rem;
+      /*margin-bottom: 0rem;*/
   }
   #cmsDashboard, #cmsStats, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
     margin-top: 12em;
