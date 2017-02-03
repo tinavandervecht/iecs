@@ -30,7 +30,7 @@
           <h3 class="title">Email</h3>
           <a href="#" class="value"><?php echo $userInfo['company_email'];?><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a>
         </div>
-        <a id="saveProfile" class="greenButton" href="#">Save Changes</a>
+        <a id="saveProfile" class="hidden greenButton" href="#">Save Changes</a>
       </div>
     </section>
   </main>
