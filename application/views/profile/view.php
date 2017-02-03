@@ -31,7 +31,7 @@
             <a href="#" class="value"><?php echo $userInfo['company_email'];?><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a>
             <input class="value hidden" name="email" value="<?php echo $userInfo['company_email'];?>">
           </div>
-          <input id="saveProfile" class="greenButton" name="submit" type="submit" value="Save Changes">
+          <input id="saveProfile" class="greenButton hidden" name="submit" type="submit" value="Save Changes">
         </div>
       </form>
     </section>
