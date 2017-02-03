@@ -37,18 +37,39 @@ class Profile_model extends CI_Model {
                       }
         }
 
-        public function set_profile()
-{
-    $this->load->helper('url');
+      public function set_profile(){
 
-    $data = array(
-        'company_email' => $this->input->post('company_email'),
-        'company_pw' => $this->input->post('company_pw'),
-        'company_name' => $this->input->post('company_name'),
-        'company_contactName' => $this->input->post('company_contactName'),
-        'company_status' => 1
-    );
+                      $this->load->helper('url');
 
-    return $this->db->insert('tbl_company', $data);
-}
+                      $data = array(
+                          'company_email' => $this->input->post('company_email'),
+                          'company_pw' => $this->input->post('company_pw'),
+                          'company_name' => $this->input->post('company_name'),
+                          'company_contactName' => $this->input->post('company_contactName'),
+                          'company_status' => 1
+                      );
+
+                      return $this->db->insert('tbl_company', $data);
+      }
+
+      public function alter_profile(){
+        date_default_timezone_set('America/Toronto');
+        $data = array(
+        'company_name' => $this->input->post('name'),
+        'company_contactName' => $this->input->post('contactName'),
+        'company_email' => $this->input->post('email'),
+        'company_phone' => $this->input->post('phone'),
+        );
+        $this->db->set($data);
+        $this->db->where('company_id', $_SESSION['company_id']);
+        $this->db->update('tbl_company');
+
+        $data = array(
+          'company_id' => $_SESSION['company_id'],
+          'activity_desc' => "Updated their company profile.",
+          'activity_date' => date('Y-m-d H:i:s')
+        );
+
+        return $this->db->insert('tbl_activity', $data);
+      }
 }

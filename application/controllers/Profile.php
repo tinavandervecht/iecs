@@ -14,19 +14,49 @@ class Profile extends CI_Controller {
         {
           redirect('/profile/login');
         }
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('name', 'Phone Number', 'required|max_length[140]');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'required|max_length[12]');
+        $this->form_validation->set_rules('contactName', 'Phone Number', 'required|max_length[30]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[40]');
+
+        if ($this->form_validation->run() === FALSE){
+
+          $data['userInfo'] = $this->profile_model->get_company($_SESSION['company_id']);
+
+          $data['title'] = "Profile | IECS";
+          $data['jsLink'] = 'js/profile.js';
+          $data['current'] = "profile";
+
+          $this->load->view('templates/header', $data);
+          $this->load->view('templates/nav', $data);
+          $this->load->view('profile/view', $data);
+          $this->load->view('templates/footerNav', $data);
+          $this->load->view('templates/footer', $data);
+
+        }
+
+        else{
+          $this->profile_model->alter_profile();
+          $data['userInfo'] = $this->profile_model->get_company($_SESSION['company_id']);
+
+          $data['title'] = "Profile | IECS";
+          $data['jsLink'] = 'js/profile.js';
+          $data['current'] = "profile";
+
+          $this->load->view('templates/header', $data);
+          $this->load->view('templates/nav', $data);
+          $this->load->view('profile/view', $data);
+          $this->load->view('templates/footerNav', $data);
+          $this->load->view('templates/footer', $data);
+        }
+
         //$data['tbl_company'] = $this->profile_model->get_company();
         //$data['title'] = 'Companies';
-        $data['userInfo'] = $this->profile_model->get_company($_SESSION['company_id']);
 
-        $data['title'] = "Profile | IECS";
-        $data['jsLink'] = 'js/profile.js';
-        $data['current'] = "profile";
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
-        $this->load->view('profile/view', $data);
-        $this->load->view('templates/footerNav', $data);
-        $this->load->view('templates/footer', $data);
 }
 
         public function views($companyID = NULL){

@@ -15,13 +15,13 @@
                 <p class="desc">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus.</p>
                   <div class="buttons clearfix">
                     <div class="leftButton">
-                      <a href="<?php echo base_url('/quotes/editQuote/'.$estimate['estimate_id']);?>" class="clearfix">
+                      <a href="<?php echo site_url('/quotes/editQuote/'.$estimate['estimate_id']);?>" class="clearfix">
 
                         <span class="text">EDIT</span>
                       </a>
                     </div>
                     <div class="rightButton">
-                      <a href="#" class="clearfix">
+                      <a href="<?php echo site_url('/quotes/deleteQuote/'.$estimate['estimate_id'].'/quotes');?>" class="clearfix">
 
                       <span class="text">DISCARD</span>
                     </a>

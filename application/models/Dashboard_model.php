@@ -29,7 +29,8 @@ class Dashboard_model extends CI_Model {
                       $this->db->from('tbl_company');
                       $this->db->join('tbl_estimates', 'tbl_company.company_id = tbl_estimates.company_id');
                       $this->db->where('tbl_company.company_id', $companyID);
-                      $this->db->order_by('tbl_estimates.estimate_date', 'DESC');
+                      $this->db->where('tbl_estimates.estimate_status', 1);
+                      $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
 
                       $query = $this->db->get();
                       if($query -> num_rows() > 0){
