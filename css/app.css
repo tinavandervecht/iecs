@@ -22,7 +22,12 @@ main:not(.no-top-margin){
   max-width: 20em;
 }
 #background {
-    display: none;
+    background-image: url("../img/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -223,17 +228,6 @@ border-top: thin solid #bbb;
     width: 100%;
     height: 100%;
 }
-.backface::before {
-    opacity: 1.0;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #000;
-}
 #login {
     font-family: inherit;
     color: #fff;
@@ -318,6 +312,8 @@ border-top: thin solid #bbb;
     color: #c0c0c0;
     display: block;
     z-index: 3;
+    max-width: 32em;
+    margin: 0 auto;
 }
 #login #onNoAccountShouldYou a {
     color: #d3d3d3;
@@ -795,6 +791,7 @@ a.sectionTitle{
     padding: 0;
     margin: 0;
     display: inline-block;
+    /*display: block;*/
     margin-bottom: 0.2em;
 }
 .card h3+img.icon {
@@ -806,7 +803,6 @@ a.sectionTitle{
     /*background: #222;*/
 }
 .card > p.welcomeText {
-    margin: 0 auto;
     display: block;
     width: 100%;
     max-width: 34em;
@@ -821,7 +817,8 @@ a.sectionTitle{
 }
 .right-person {
     display: block;
-    margin: 2em auto;
+    margin:2em auto;
+    float: none;
     width: 80%;
     max-width: 8em;
     border: thin solid #777;
@@ -1779,6 +1776,9 @@ background: #313131;
   .medium-clear{
     clear:both;
   }
+  .right-person {
+      display: none;
+  }
 }
 
 @media only screen and (min-width: 64rem) {
@@ -1842,9 +1842,7 @@ background: #313131;
     .card > p.welcomeText {
         float: left;
     }
-    .right-person {
-        display: none;
-    }
+
     .card.left:after {
         display: block;
     }
@@ -1886,14 +1884,7 @@ background: #313131;
       margin:0;
       margin-left:2em;
     }
-    #background {
-        display: block;
-        background-image: url("../img/background.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-    }
+
     #login .darkOverlay {
         display: none;
     }
@@ -1945,6 +1936,7 @@ background: #313131;
         display: block;
         float: right;
         width: 30%;
+        /*margin:0;*/
     }
     #profile .profilepic {
         float: left;
