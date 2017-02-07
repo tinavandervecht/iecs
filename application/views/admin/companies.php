@@ -7,12 +7,11 @@
             <!-- ================================ -->
 
             <?php echo form_open('/admin/companies');?>
-            <input id="sort_input" list="sort" value="Most Recent"/>
-            <datalist id="sort">
-                  <option value="Most Recent"></option>
-                  <option value="Flagged for Review"></option>
-                  <option value="Company (A-Z)"></option>
-            </datalist>
+            <select id="sort">
+                  <option value="recent">Most Recent</option>
+                  <option value="flagged">Flagged for Review</option>
+                  <option value="a_z">Alphabetical (A-Z)</option>
+            </select>
             <input type="search" placeholder="Search" name="search" id="search">
             <input type="submit" name="submit" value="submit">
           </form>

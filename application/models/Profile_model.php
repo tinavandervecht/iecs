@@ -57,7 +57,6 @@ class Profile_model extends CI_Model {
         $data = array(
         'company_name' => $this->input->post('name'),
         'company_contactName' => $this->input->post('contactName'),
-        'company_email' => $this->input->post('email'),
         'company_phone' => $this->input->post('phone'),
         );
         $this->db->set($data);
