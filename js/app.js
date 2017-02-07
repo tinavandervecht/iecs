@@ -16,4 +16,22 @@ function mainNavFunc(event){
 for(var i=0;i<mainNavLinks.length;i++){
     mainNavLinks[i].addEventListener('click', mainNavFunc, false);
 }
+
+try {
+  var deletes = document.querySelectorAll(".rightButton a");
+  for(var i=0;i<deletes.length;i++){
+    deletes[i].addEventListener('click',function(){
+      event.preventDefault();
+      var r = confirm("Are you sure you want to delete?");
+      if(r){
+        //code for confirm (delete) here
+      }else{
+        //code for cancel (not delete) here
+      }
+    },false);
+  }
+}
+catch(err){
+  console.log(err +" error happened!");
+}
 })();
