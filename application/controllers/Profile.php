@@ -21,7 +21,6 @@ class Profile extends CI_Controller {
         $this->form_validation->set_rules('name', 'Phone Number', 'required|max_length[140]');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|max_length[12]');
         $this->form_validation->set_rules('contactName', 'Phone Number', 'required|max_length[30]');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[40]');
 
         if ($this->form_validation->run() === FALSE){
 
@@ -86,8 +85,6 @@ class Profile extends CI_Controller {
             $this->form_validation->set_rules('company_pw', 'Password', 'required|min_length[6]|max_length[30]|alpha_numeric');
             $this->form_validation->set_rules('passwordconf', 'Password Confirmation', 'required|matches[company_pw]');
             $this->form_validation->set_rules('company_pw', 'Password', 'required|matches[company_pw]');
-
-
 
             if ($this->form_validation->run() === FALSE)
             {

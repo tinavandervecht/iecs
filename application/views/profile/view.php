@@ -26,11 +26,6 @@
             <a href="#" class="value"><?php echo $userInfo['company_phone'];?><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a>
             <input class="value hidden" name="phone" value="<?php echo $userInfo['company_phone'];?>">
           </div>
-          <div class="field">
-            <h3 class="title">Email</h3><?php echo form_error('email', '<span class="error">', '</span>');?>
-            <a href="#" class="value"><?php echo $userInfo['company_email'];?><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a>
-            <input class="value hidden" name="email" value="<?php echo $userInfo['company_email'];?>">
-          </div>
           <input id="saveProfile" class="greenButton hidden" name="submit" type="submit" value="Save Changes">
         </div>
       </form>
