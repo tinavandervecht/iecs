@@ -538,7 +538,7 @@ form.testing input {
 }
 .pagnation-page > div {
     display: block;
-    padding: 1em 3em !important;
+    padding: 1em 1em !important;
 }
 #calculator input:not([type="submit"]) {
     float: left;
@@ -554,7 +554,8 @@ form.testing input {
 .tip {
     color: inherit;
     text-decoration: none;
-    border: thin solid #999;
+    border: thin solid  #FFBF00;
+    color:  #FFBF00;
     width: 1.4em;
     height: 1.4em;
     text-align: center;
@@ -608,6 +609,7 @@ form.testing input {
 }
 #calculator .sectionTitle{
   text-transform: uppercase;
+  font-family: "opensans-bold";
   font-size: 1.4em;
   margin-bottom: 1em;
   margin-top: 2em;
@@ -636,11 +638,13 @@ a.sectionTitle{
 }
 .summaryEntry .entryTitle{
   font-weight: 100;
-  font-size: 1.4em;
+  font-size: 1.2em;
   text-transform: uppercase;
+  font-family: "opensans";
   width:100%;
   border-bottom:thin solid #222;
 }
+
 .summaryEntry .edit{
   float: right;
   padding-right:1.5em;
@@ -772,7 +776,7 @@ a.sectionTitle{
     text-align: center;
 }
 .card {
-    padding: 2em 4em;
+    padding: 2em 2em;
     position: relative;
 }
 .card.left:after {
@@ -787,7 +791,10 @@ a.sectionTitle{
     border-right: thin solid #222;
 }
 .card h3 {
-    font-size: 2em;
+    font-family: opensans-bold;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 1.6em;
     padding: 0;
     margin: 0;
     display: inline-block;
@@ -837,6 +844,7 @@ a.sectionTitle{
 .quote h3,
 .quote h4,
 .quote h5 {
+    color:#555;
     padding: 0;
     margin: 0;
 }
@@ -1070,6 +1078,8 @@ scrollWrapper.quotesPage .quote .dateModified span{
 #mainProfile h2{
   margin-left: 0.5em;
   font-size: 2em;
+  font-family: "opensans-bold";
+  color: #666;
   line-height: 1rem;
 }
 #mainProfile{
@@ -1087,11 +1097,10 @@ scrollWrapper.quotesPage .quote .dateModified span{
   color:inherit;
   display: block;
   font-size: 1.2em;
-  margin: 0 auto;
   padding-bottom:0.5em;
   position: relative;
   text-decoration: none;
-  width:80%;
+  width:90%;
   margin-bottom: 2em;
 }
 #mainProfile div:last-child div:last-child .value{
@@ -1716,6 +1725,12 @@ background: #313131;
 #desktopInfo{
   display: none;
 }
+
+.faqtitle
+{
+    font-family: "opensans";
+    color:#666;
+}
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
   #cmsEstimates .estiimat{
@@ -1771,6 +1786,16 @@ background: #313131;
   .right-person {
       display: none;
   }
+
+    .card h3
+    {
+        font-size: 2em;
+    }
+.summaryEntry .entryTitle{
+  
+  font-size: 1.4em;
+
+}
 }
 
 @media only screen and (min-width: 64rem) {
