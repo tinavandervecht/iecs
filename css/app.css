@@ -757,9 +757,17 @@ a.sectionTitle{
     margin: 0.1em;
     padding: 0;
     clear: left;
-    font-size: 1.4em;
+    font-size: 1.1em;
     width: 100%;
+    white-space: nowrap;
     text-align: center;
+    font-weight: bold;
+    text-transform: capitalize;
+    overflow: hidden;
+}
+#mainProfile .title {
+  max-width: 20em;
+  margin:0.5em auto;
 }
 #profile .title {
     font-weight: normal;
@@ -1019,13 +1027,13 @@ a.sectionTitle{
   }
 
   #mainQuotes #scrollWrapper.quotesPage .dateModified{
-    display: inline;
+    /*display: inline;
     position: absolute;
-    bottom:0;
     right:0;
     width:100%;
     margin-right:0;
     color:#4B8709;
+    bottom:0;*/
   }
 
 scrollWrapper.quotesPage .quote .dateModified span{
@@ -1074,7 +1082,7 @@ scrollWrapper.quotesPage .quote .dateModified span{
 }
 #mainProfile{
   padding-top:1em;
-  margin-left:2em
+  /*margin-left:2em;*/
 }
 
 #mainProfile input.value{
@@ -1091,7 +1099,8 @@ scrollWrapper.quotesPage .quote .dateModified span{
   padding-bottom:0.5em;
   position: relative;
   text-decoration: none;
-  width:80%;
+  width:100%;
+  max-width: 20em;
   margin-bottom: 2em;
 }
 #mainProfile div:last-child div:last-child .value{
@@ -1718,6 +1727,10 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+  #mainProfile{
+    padding-top:1em;
+    margin-left:2em;
+  }
   #cmsEstimates .estiimat{
     margin:2em;
     display: inline-block;
