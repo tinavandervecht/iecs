@@ -5,14 +5,15 @@
           <?php //echo $estimates[0]['estimate_modifiedDate'];?>
            <?php //echo strtotime($estimates[0]['estimate_modifiedDate']);?>
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
-                  <a href="cms_dashboard.html" class="tabTitle">&#10092; ESTIMATES</a>
+                  <a href="<?php echo site_url('/admin');?>" class="tabTitle">&#10092; ESTIMATES</a>
                   <div id="cardsbox">
 
                   <?php echo form_open('/admin/estimates');?>
-                  <select id="sort">
-                        <option value="recent">Most Recent</option>
-                        <option value="flagged">Flagged Estimates</option>
-                        <option value="a_z">Alphabetical (A-Z)</option>
+                  <select id="sort" name="sort">
+                        <option value="1">Most Recent</option>
+                        <option value="2">Oldest First</option>
+                        <option value="3">Alphabetical (A-Z)</option>
+                        <option value="4">Alphabetical (Z-A)</option>
                   </select>
                   <input type="search" placeholder="Search" name="search" id="search">
                   <input type="submit" name="submit" value="submit">

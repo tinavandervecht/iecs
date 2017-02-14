@@ -107,9 +107,9 @@ class Admin extends CI_Controller {
       $this->load->helper('form');
       $this->load->library('form_validation');
 
+      $post = $this->input->post("submit");
 
-      $this->form_validation->set_rules('search', 'Search parameter', 'required');
-      if ($this->form_validation->run() === FALSE){
+      if (!isset($post)){
         $data['estimates'] = $this->admin_model->get_allEstimates(12);
 
         $data['title'] = "Actity | IECS";
@@ -176,9 +176,9 @@ class Admin extends CI_Controller {
   $this->load->helper('form');
   $this->load->library('form_validation');
 
+  $post = $this->input->post('sort');
 
-  $this->form_validation->set_rules('search', 'Search parameter', 'required');
-  if ($this->form_validation->run() === FALSE){
+  if (!isset($post)){
     $data['companies'] = $this->admin_model->get_allCompanies(8);
 
     $data['title'] = "Companies | IECS";
@@ -237,5 +237,26 @@ class Admin extends CI_Controller {
     $this->load->view('admin/company', $data);
     $this->load->view('templates/adminFooterNav', $data);
     $this->load->view('templates/footer', $data);
+ }
+
+ public function statistics(){
+
+   if (isset($_SESSION['admin_id']) == FALSE){
+     redirect('/admin/login');
+   }
+
+   //$data['tbl_company'] = $this->profile_model->get_company();
+   //$data['title'] = 'Companies';
+   //$data['userInfo'] = $this->admin_model->get_adminInfo($_SESSION['admin_id']);
+
+   $data['title'] = 'Statistics Page';
+   $data['jsLink'] = 'js/dash.js';
+   $data['current'] = "statistics";
+
+   $this->load->view('templates/header', $data);
+   $this->load->view('templates/adminNav', $data);
+   $this->load->view('admin/statistics', $data);
+   $this->load->view('templates/adminFooterNav', $data);
+   $this->load->view('templates/footer', $data);
 }
 }
