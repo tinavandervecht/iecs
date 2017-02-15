@@ -27,7 +27,7 @@
                       <h4><?php echo $estimates[$i]['estimate_name'];?></h4>
                     </div>
                     <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
-                    <p><span class="block">Recommended Block: CC35</span></p>
+                    <p><span class="block est">Recommended Block: CC35</span></p>
                     <p><span class="factor">Safety Factor: 2.3</span></p>
                     <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton greyButton">Review</a></p>
                   </div>
@@ -42,7 +42,7 @@
                         <h4><?php echo $estimates[$i]['estimate_name'];?></h4>
                       </div>
                       <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
-                      <p><span class="block">Recommended Block: CC35</span></p>
+                      <p><span class="block est">Recommended Block: CC35</span></p>
                       <p><span class="factor">Safety Factor: 2.3</span></p>
                       <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton greyButton">Review</a></p>
                     </div>
