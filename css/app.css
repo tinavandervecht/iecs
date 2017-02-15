@@ -2,6 +2,9 @@
   padding-bottom: -10px;
   color: rgb(228, 47, 47);
 }
+#dashTab1{
+  margin-top: 0;
+}
 body {
     background: #ffffff;
     font-family: "opensans-light";
@@ -761,9 +764,17 @@ a.sectionTitle{
     margin: 0.1em;
     padding: 0;
     clear: left;
-    font-size: 1.4em;
+    font-size: 1.1em;
     width: 100%;
+    white-space: nowrap;
     text-align: center;
+    font-weight: bold;
+    text-transform: capitalize;
+    overflow: hidden;
+}
+#mainProfile .title {
+  max-width: 20em;
+  margin:0.5em auto;
 }
 #profile .title {
     font-weight: normal;
@@ -1027,13 +1038,13 @@ a.sectionTitle{
   }
 
   #mainQuotes #scrollWrapper.quotesPage .dateModified{
-    display: inline;
+    /*display: inline;
     position: absolute;
-    bottom:0;
     right:0;
     width:100%;
     margin-right:0;
     color:#4B8709;
+    bottom:0;*/
   }
 
 scrollWrapper.quotesPage .quote .dateModified span{
@@ -1084,7 +1095,7 @@ scrollWrapper.quotesPage .quote .dateModified span{
 }
 #mainProfile{
   padding-top:1em;
-  margin-left:2em
+  /*margin-left:2em;*/
 }
 
 #mainProfile input.value{
@@ -1100,7 +1111,12 @@ scrollWrapper.quotesPage .quote .dateModified span{
   padding-bottom:0.5em;
   position: relative;
   text-decoration: none;
+<<<<<<< HEAD
+  width:100%;
+  max-width: 20em;
+=======
   width:90%;
+>>>>>>> 087049a72a09dd1eac7dc4084181fafdbc2ea928
   margin-bottom: 2em;
 }
 #mainProfile div:last-child div:last-child .value{
@@ -1163,6 +1179,7 @@ div.more a{
   height:6em;
   margin-bottom:1em;
   position: relative;
+  border: thin solid #bbb;
 }
 .sel h4{
   margin:0;
@@ -1505,7 +1522,7 @@ margin-top: 2em;
   /*display: inline-block;*/
   max-width: 16em;
   display: block;
-  margin:0 auto;
+  margin:2em auto;
 }
 #cmsEstimates .estiimat p{
   border:thin solid #ddd;
@@ -1536,6 +1553,7 @@ border-bottom: thick solid #4b8709;
   text-transform: uppercase;
   margin:0;
   font-size: 1em;
+  max-width: 10em;
 }
 #cmsEstimates .estiimat .title h4{
   font-size: 1.2em;
@@ -1552,7 +1570,7 @@ border-bottom: thick solid #4b8709;
 
 #comp{
   padding-left:23%;
-  margin-bottom:4em;
+  margin-bottom:10em;
   margin-top: 2em;
 }
 .fluidTable{
@@ -1679,7 +1697,7 @@ background: #313131;
   margin-top: 2em;
 }
 #cmsCompanyProfile #companyEstimates #cmsEstimates{
-  border-left: thin solid #ddd;
+  border-left: none;
 }
 #cmsCompanyProfile #companyInfo #company .bottom{
   background: #eee;
@@ -1738,6 +1756,22 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+  #dashTab1{
+    margin-top:10em;
+  }
+
+  #cmsCompanyProfile #companyEstimates #cmsEstimates{
+    border-left: thin solid #ddd;
+  }
+
+  #comp{
+    margin-bottom: 10em;
+      padding-left:0%;
+  }
+  #mainProfile{
+    padding-top:1em;
+    margin-left:2em;
+  }
   #cmsEstimates .estiimat{
     margin:2em;
     display: inline-block;
@@ -1804,6 +1838,13 @@ background: #313131;
 }
 
 @media only screen and (min-width: 64rem) {
+  #dashTab1{
+    margin-top:0;
+  }
+  #comp{
+    padding-left: 23%;
+      margin-bottom:10em;
+  }
   #quotes{
     margin-bottom:2em;
   }

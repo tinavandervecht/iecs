@@ -395,7 +395,7 @@ showImperialBox.addEventListener('click', toggleUnits, false);
 
 //THIS UPDATES THE FIELDS WHEN THEY LOAD
 window.addEventListener('load', function(){
-  for(var i=0;i<convertFields[i].length();i++){
+  for(var i=0;i<convertFields[i].length;i++){
     var met = convertFields[i].parentNode.querySelector('.metric');
     var imp = convertFields[i].parentNode.querySelector('.imperial');
     if(metric!=null){
