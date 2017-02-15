@@ -1111,12 +1111,8 @@ scrollWrapper.quotesPage .quote .dateModified span{
   padding-bottom:0.5em;
   position: relative;
   text-decoration: none;
-<<<<<<< HEAD
   width:100%;
   max-width: 20em;
-=======
-  width:90%;
->>>>>>> 087049a72a09dd1eac7dc4084181fafdbc2ea928
   margin-bottom: 2em;
 }
 #mainProfile div:last-child div:last-child .value{
@@ -1180,6 +1176,11 @@ div.more a{
   position: relative;
   border: thin solid #bbb;
 }
+
+.block.est{
+  border:none;
+}
+
 .sel h4{
   margin:0;
   padding-left:
@@ -1550,7 +1551,7 @@ border-bottom: thick solid #4b8709;
 }
 #cmsEstimates .estiimat .title h3, #cmsEstimates .estiimat .title h4{
   text-transform: uppercase;
-  margin:0;
+  margin:0 auto;
   font-size: 1em;
   max-width: 10em;
 }
@@ -1826,7 +1827,7 @@ background: #313131;
         font-size: 2em;
     }
 .summaryEntry .entryTitle{
-  
+
   font-size: 1.4em;
 
 }
