@@ -18,7 +18,7 @@
               <div id="date" class="columns small-12 medium-6">
                 <label for="d">
                   <h4 class="title">Projected Start Date for Project:</h4>
-                    <a href="#" class="tip"><span class="tooltip">An Exstimated Start Date for this project.</span>?</a>
+                    <a href="#" class="tip"><span class="tooltip">An Estimated Start Date for this project.</span>?</a>
                   </label>
                   <input type="date" id="d" name="d" value="<?php echo $estimate['estimate_projectedDate'];?>"/>
               </div>

@@ -1121,9 +1121,10 @@ scrollWrapper.quotesPage .quote .dateModified span{
   display: block;
   border-radius: 50%;
 }
-#mainDashboard, #cmsActivity, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+#mainDashboard, #cmsActivity, #cmsDashboard, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;
 }
+
 #cmsDashboard, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
   margin-top: 0;
 }
@@ -1731,6 +1732,10 @@ background: #313131;
     font-family: "opensans";
     color:#666;
 }
+
+#sort{
+  width: 124px;
+}
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
   #cmsEstimates .estiimat{
@@ -1789,10 +1794,10 @@ background: #313131;
 
     .card h3
     {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 .summaryEntry .entryTitle{
-  
+
   font-size: 1.4em;
 
 }

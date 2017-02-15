@@ -258,5 +258,14 @@ class Admin extends CI_Controller {
    $this->load->view('admin/statistics', $data);
    $this->load->view('templates/adminFooterNav', $data);
    $this->load->view('templates/footer', $data);
-}
+ }
+
+ public function ajaxCompanies(){
+   if (isset($post)){
+     $data['companies'] = $this->admin_model->search_companies(8);
+     echo json_encode($data['companies']);
+   }
+ }
+
+
 }
