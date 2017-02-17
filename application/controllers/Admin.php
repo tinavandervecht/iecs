@@ -120,7 +120,7 @@ class Admin extends CI_Controller {
         $this->load->view('templates/adminNav', $data);
         $this->load->view('admin/estimates', $data);
         $this->load->view('templates/adminFooterNav', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/estimatefooter', $data);
     }
 
       else {
@@ -134,7 +134,7 @@ class Admin extends CI_Controller {
         $this->load->view('templates/adminNav', $data);
         $this->load->view('admin/estimates', $data);
         $this->load->view('templates/adminFooterNav', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/estimatefooter', $data);
       }
       //$data['tbl_company'] = $this->profile_model->get_company();
       //$data['title'] = 'Companies';
@@ -189,7 +189,7 @@ class Admin extends CI_Controller {
     $this->load->view('templates/adminNav', $data);
     $this->load->view('admin/companies', $data);
     $this->load->view('templates/adminFooterNav', $data);
-    $this->load->view('templates/footer', $data);
+    $this->load->view('templates/companyfooter', $data);
 }
 
   else {
@@ -203,7 +203,7 @@ class Admin extends CI_Controller {
     $this->load->view('templates/adminNav', $data);
     $this->load->view('admin/companies', $data);
     $this->load->view('templates/adminFooterNav', $data);
-    $this->load->view('templates/footer', $data);
+    $this->load->view('templates/companyfooter', $data);
   }
 
   //$data['tbl_company'] = $this->profile_model->get_company();
@@ -261,9 +261,16 @@ class Admin extends CI_Controller {
  }
 
  public function ajaxCompanies(){
-   if (isset($post)){
-     $data['companies'] = $this->admin_model->search_companies(8);
+   if (isset($_GET['value'])){
+     $data['companies'] = $this->admin_model->ajax_companies($_GET['value'], $_GET['search']);
      echo json_encode($data['companies']);
+   }
+ }
+
+ public function ajaxEstimates(){
+   if (isset($_GET['value'])){
+     $data['estimates'] = $this->admin_model->ajax_estimate($_GET['value'], $_GET['search']);
+     echo json_encode($data['estimates']);
    }
  }
 

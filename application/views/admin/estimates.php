@@ -18,7 +18,7 @@
                   <input type="search" placeholder="Search" name="search" id="search">
                   <input type="submit" name="submit" value="SEARCH">
                 </form>
-                  <div class="centerIt">
+                  <div class="centerIt" id="centerIt">
                 <?php if(count($estimates)>=4): ?>
                 <?php for ($i=0; $i < 4; $i++): ?>
 
@@ -30,7 +30,7 @@
                     <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
                     <p><span class="block">Recommended Block: CC35</span></p>
                     <p><span class="factor">Safety Factor: 2.3</span></p>
-                    <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton greyButton">Review</a></p>
+                    <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">Review</a></p>
                   </div>
 
                   <?php endfor; ?>

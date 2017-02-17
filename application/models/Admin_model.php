@@ -89,6 +89,44 @@ class Admin_model extends CI_Model {
 
 
             }
+
+            public function ajax_estimate($sort, $search){
+
+              $this->db->select('*');
+              $this->db->from('tbl_company');
+              $this->db->join('tbl_estimates', 'tbl_company.company_id = tbl_estimates.company_id');
+              if (isset($search)) {
+                $this->db->like('tbl_estimates.estimate_name', $search);
+                $this->db->or_like('tbl_company.company_name', $search);
+              }
+
+                if ($sort=="1"){
+                  $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
+                }
+                elseif ($sort=="3") {
+                    $this->db->order_by('tbl_estimates.estimate_name', 'ASC');
+                }
+                elseif ($sort=="4") {
+                    $this->db->order_by('tbl_estimates.estimate_name', 'DESC');
+                }
+                else{
+                    $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'ASC');
+                }
+
+              $this->db->limit(12);
+
+              $query = $this->db->get();
+
+              if($query -> num_rows() == 0){
+                return false;
+              }
+              else{
+                return $query->result_array();
+              }
+
+            }
+
+
             public function search_companies($limit){
 
               $search = $this->input->post('search');
@@ -96,8 +134,8 @@ class Admin_model extends CI_Model {
 
               $this->db->select('*');
               $this->db->from('tbl_company');
-              $this->db->like('company_name', $search);
               if (isset($search)) {
+                $this->db->like('company_name', $search);
                 $this->db->or_like('company_contactName', $search);
                 $this->db->or_like('company_email', $search);
               }
@@ -132,8 +170,41 @@ class Admin_model extends CI_Model {
               else{
                 return $query->result_array();
               }
+            }
 
+            public function ajax_companies($sort, $search){
 
+              $this->db->select('*');
+              $this->db->from('tbl_company');
+              if (isset($search)) {
+                $this->db->like('company_name', $search);
+                $this->db->or_like('company_contactName', $search);
+                $this->db->or_like('company_email', $search);
+              }
+
+              if ($sort=="1"){
+                $this->db->order_by('company_date', 'DESC');
+              }
+              elseif ($sort=="3") {
+                  $this->db->order_by('company_name', 'ASC');
+              }
+              elseif ($sort=="4") {
+                  $this->db->order_by('company_name', 'DESC');
+              }
+              else{
+                  $this->db->order_by('company_date', 'ASC');
+              }
+
+              $this->db->limit(8);
+
+              $query = $this->db->get();
+
+              if($query -> num_rows() == 0){
+                return false;
+              }
+              else{
+                return $query->result_array();
+              }
             }
 
             public function get_activity($limit){
