@@ -4,11 +4,11 @@
                     var data = [
                       {
                         "mon":"1",
-                        "usage": "4"
+                        "usage":"20"
                       },
                       {
                         "mon":"2",
-                        "usage":"25"
+                        "usage":"15"
                       },
                       {
                         "mon":"3",
@@ -16,7 +16,7 @@
                       },
                       {
                         "mon":"4",
-                        "usage":"183"
+                        "usage":"13"
                       }
                     ];
                     var data2 = [
@@ -26,15 +26,15 @@
                       },
                       {
                         "mon":"2",
-                        "usage":"67"
+                        "usage": "44"
                       },
                       {
                         "mon":"3",
-                        "usage": "23"
+                        "usage":"67"
                       },
                       {
                         "mon":"4",
-                        "usage":"220"
+                        "usage": "23"
                       }
                     ];
                     var currentData = data;
@@ -48,7 +48,24 @@
                       max = maxArr[i].value.usage;
                       }
 
-
+                      var now = new Date().getMonth()+1;
+                      var twelve = now + 11;
+                      var months = [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                      ];
+                      console.log(now);
+                      console.log(twelve);
                     var vis = d3.select("#vis"),
                         visWidth = visualization.width.baseVal.value,
                         visHeight = visualization.height.baseVal.value;
@@ -59,10 +76,21 @@
                             bottom: 20,
                             left: 50
                         },
-                        xScale = d3.scale.linear().range([visMargins.left, visWidth - visMargins.right]).domain([1, 4]),
+                        // xScale = d3.scale.ordinal()
+                        // .domain(d3.range(10))
+                        // .rangeBands([50, 580]),
+                        xScale = d3.scale.ordinal()
+                        .range([visMargins.left, visWidth -  visMargins.right])
+                        .domain([1,2,3,4])
+                        .rangePoints([0.5,1.5,2.5,3.5])
+                        .rangeBands([visMargins.left, visWidth -  visMargins.right]),
+                        // xScale = d3.scale.ordinal().range([1,2,3,4,5,6,7,8,9,10,11,12]).domain([1,2,3,4,5,6,7,8,9,10,11,12]),
+                        // xScale = d3.scale.ordinal().range([visMargins.left, visWidth - visMargins.right]).domain(months.),//.rangePoints([0,600]),
                         yScale = d3.scale.linear().range([visHeight - visMargins.top, visMargins.bottom]).domain([0, max]),
                         xAxis = d3.svg.axis()
-                        .scale(xScale),
+                        .scale(xScale)
+                        .orient("bottom"),
+                        // .tickFormat(d3.time.format("%M")),
                         yAxis = d3.svg.axis()
                         .scale(yScale)
                         .orient("left");
@@ -78,18 +106,19 @@
                         .call(yAxis);
                     var lineGen = d3.svg.line()
                         .x(function(d) {
-                            return xScale(d.mon);
+                            return xScale(d.mon) + 60;
                         })
                         .y(function(d) {
                             return yScale(d.usage);
                         });
                         var lineInit = d3.svg.line()
                             .x(function(d) {
-                                return xScale(d.mon);
+                                return xScale(d.mon) +60;
                             })
                             .y(function(d) {
                                 return yScale(0);
                             });
+
                         // .interpolate("basis");
                         vis.on("click",function(){
                           vis.selectAll("path.line")
@@ -141,7 +170,7 @@
                             .attr("d", lineGen(currentData));
                           }
 
-                        d3.select(window).on('resize', resize);
+                        // d3.select(window).on('resize', resize);
                 }
 
                 // window.addEventListener('load',initChart,false);
