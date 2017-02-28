@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3-array.v0.7.min.js"></script>
+  <script src="https://d3js.org/d3-collection.v0.1.min.js"></script>
+  <script src="https://d3js.org/d3-color.v0.4.min.js"></script>
+  <script src="https://d3js.org/d3-format.v0.5.min.js"></script>
+  <script src="https://d3js.org/d3-interpolate.v0.5.min.js"></script>
+  <script src="https://d3js.org/d3-scale.v0.6.min.js"></script>
+
+  <script src="https://d3js.org/d3-selection.v0.6.min.js"></script>
+  <script src="https://d3js.org/d3-axis.v0.2.min.js"></script>
+
+  <script src="https://d3js.org/d3-array.v0.6.min.js"></script>
+  <style>
+  .panel{
+    margin:0 auto;
+    display: block;
+  }
+    line, path, .domain {
+      /*stroke: black;*/
+      fill: none;
+    }
+
+    text{
+    }
+
+  </style>
+</head>
+<body>
+  <script>
+    var margin = {top: 20, right: 10, bottom: 40, left: 10};
+    var width = 600;
+    var height = 300;
+    var chartWidth = width - margin.left - margin.right;
+    var chartHeight = height - margin.top - margin.bottom;
+    var axisHeight = 30;
+    // var data = [
+    //   {key:'A', value: 1},
+    //   {key:'B', value: 3},
+    //   {key:'C', value: 2},
+    //   {key:'D', value: 3},
+    //   {key:'E', value: 4},
+    // ];
+    var data = [
+      {"label": "Jan","num" : 147},
+      {"label": "Feb","num" : 76},
+      {"label": "Mar","num" : 309},
+      {"label": "Apr","num" : 81},
+      {"label": "May","num" : 57},
+      {"label": "Jun","num" : 94},
+      {"label": "Jul","num" : 45},
+      {"label": "Aug","num" : 23},
+      {"label": "Sep","num" : 5},
+      {"label": "Nov","num" : 12},
+      {"label": "Dec","num" : 23}
+    ];
+
+		var scaleX = d3_scale.scaleBand()
+    	.domain(data.map(function(d){ return d.label; }))
+    	.range([0, chartWidth])
+    	.paddingInner([0.1])
+	    .paddingOuter([0.3])
+	    .align([0.5]);
+
+    var scaleY = d3_scale.scaleLinear()
+      .domain([0, d3_array.max(data.map(function(d){ return d.num; }))])
+      .range([0, chartHeight]);
+
+    var axis = d3_axis.axisBottom(scaleX)
+	    .tickSizeInner(4)
+    	.tickSizeOuter(20)
+	    .tickPadding(3);
+
+    var panel = d3_selection.select("body").append("svg")
+      .attr("class", "panel")
+      .attr("width", width)
+      .attr("height", height)
+     .append("g")
+      .attr("transform", "translate("+[margin.left, margin.top]+")");
+
+      var viewbox = "0,0,"+width+ "," + height;
+
+      var DOMpanel = document.querySelector('.panel');
+      DOMpanel.setAttribute('viewbox', viewbox);
+
+    panel.attr("transform", "translate("+[margin.left, height - margin.bottom]+")")
+      .call(axis);
+
+    // panel.selectAll('rect.bar')
+    // 	.data(data)
+    // 	.enter().append('rect')
+    // 	.attr("class", "bar")
+	  //   .attr("width", scaleX.bandwidth())
+    //   .attr('fill',function(d,i){return i%2 ? "#213D02" : "#589021";})
+    // 	.attr("height", function(d){ return scaleY(d.num); })
+	  //   .attr("x", function(d){ return scaleX(d.label); })
+	  //   .attr("y", function(d){ return -scaleY(d.num); })
+
+    var bar = panel.selectAll('.bar')
+      .data(data)
+      .enter().append('g')
+      .attr('class', 'bar');
+
+      bar.append('rect')
+      .attr('x',function(d){
+        return scaleX(d.label);
+      })
+      .attr('y', function(d){
+        return -scaleY(d.num);
+      })
+      .attr('width', scaleX.bandwidth())
+      .attr('fill',function(d,i){return i%2 ? "#213D02" : "#589021";})
+      .attr('height', function(d){return scaleY(d.num)});
+
+      bar.append('text')
+      .attr('x',function(d){
+        return scaleX(d.label);
+      })
+      .attr('y', function(d){
+        return -scaleY(d.num);
+      })
+      .attr('text-anchor','middle')
+      .attr('dx', function(d,i){return scaleX.bandwidth()/2;})
+      .attr('dy', function(d){
+        if((scaleY(d.num)/height) < 0.2){return -20;}else{return 40;}})
+      .attr('fill', function(d){
+        if((scaleY(d.num)/height) < 0.2){return"#222";}else{return "#eee";}})
+      .attr('stroke-width', 0.8)
+      .text(function(d){ return d.num});
+
+  </script>
+</body>

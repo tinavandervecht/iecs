@@ -16,8 +16,8 @@ body{
 .lineGraph, .barGraph{
   margin:0 auto;
   display: block;
-  background: #efefef;
-  border:medium solid #222;
+  /*background: #efefef;*/
+  /*border:medium solid #222;*/
   /*padding: 1em;*/
   box-sizing: border-box;
 }
