@@ -10,7 +10,7 @@
               <div id="projectName" class="columns small-12 medium-6">
                   <label for="name">
                     <h4 class="title">Project Name:</h4>
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a>
+                      <a href="#" class="tip"><span class="tooltip">Required. Give Your Project a Name!</span>?</a>
                       <?php echo form_error('name', '<span class="error">', '</span>');?>
                   </label>
                   <input type="text" id="name" name="name" placeholder="" />
@@ -18,14 +18,13 @@
               <div id="date" class="columns small-12 medium-6">
                 <label for="d">
                   <h4 class="title">Projected Start Date for Project:</h4>
-                    <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a>
                   </label>
                   <input type="date" id="d" name="d"/>
               </div>
               <div id="projectLocation" class="columns small-12 medium-6">
                   <label for="cityProv">
                     <h4 class="title">City  &amp; State/Province:</h4>
-                    <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a>
+                    <a href="#" class="tip"><span class="tooltip">The projected location of this project.</span>?</a>
 
                   </label>
                   <input type="text" id="cityProv" name="cityProv" />
@@ -35,7 +34,7 @@
               <div id="projectAddress" class="columns small-12 medium-6">
                   <label for="addr">
                     <h4 class="title">Address:</h4>
-                    <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a>
+                    <a href="#" class="tip"><span class="tooltip">The address of this job. Not Required.</span>?</a>
 
                   </label>
                   <input type="text" id="addr" name="addr"/>
@@ -44,7 +43,7 @@
               <div id="engineer" class="columns small-12 medium-6">
                   <label for="engineerName">
                     <h4 class="title">Engineer Name:</h4>
-                    <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a>
+                    <a href="#" class="tip"><span class="tooltip">Name of the Engineer undertaking this project.</span>?</a>
 
                   </label>
                   <input type="text" id="engineerName" name="engineerName"/>
@@ -52,7 +51,7 @@
               <div class="columns small-12 medium-6">
                 <label for="measurement">
                   <h4 class="title">Measurement:</h4>
-                  <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a>
+                  <a href="#" class="tip"><span class="tooltip">Will you be filling out this form in Metric or Imperial?</span>?</a>
 
                 </label>
               <div id="hideTheMetric">
@@ -101,7 +100,7 @@
                   </label>
                   <input id="velocityMeters" class="convert metric"  name="velocityMeters" placeholder=""/>
                   <label for="velocityFeet">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Feet per Second</h5>
+                      <a href="#" class="tip"><span class="tooltip">Input the pre-determined max velocity in f/s</span>?</a><h5 class="unit">Feet per Second</h5>
                       <?php echo form_error('velocityMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="velocityFeet"  class="convert imperial" />
@@ -148,11 +147,11 @@
                   <h4 class="title">Channel Side Slope</h4>
                   <label for="sideSlopePercent">
                     <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Percent (%)</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a><h5 class="unit">Percent (%)</h5>
                   </label>
                   <input id="sideSlopePercent" class="convert P"  />
                   <label for="sideSlopeDecimal">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Decimal</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a><h5 class="unit">Decimal</h5>
                       <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" placeholder=""/>
@@ -163,10 +162,19 @@
               <div id="type"  class="clearfix">
                   <h4 class="title">Choose Type of Flow:</h4>
                   <label for="flowType">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">(normal, overtopping, etc.)</h5>
+                    <h5 class="unit">(normal, overtopping, etc.)</h5>
                       <?php echo form_error('flowType', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="flowType" name="flowType" placeholder=""/>
+                  <select id="flowType" name="flowType">
+                    <option value="0">Normal</option>
+                    <option value="1">Overtopping</option>
+                    <option value="2">Sub Critical</option>
+                    <option value="3">Hydraulic</option>
+                    <option value="4">Jump</option>
+                    <option value="5">Impinging</option>
+                    <option value="6">Bridge/Culvert</option>
+                    <option value="7">Undulating Trans Critical</option>
+                  </select>
               </div>
             </div>
               <div class="columns small-12 medium-6 end">
@@ -174,12 +182,12 @@
               <div id="bedWidth"  class="clearfix">
                   <h4 class="title">Bed Width</h4>
                   <label for="bedMeters">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Meters</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter least bed width in meters (m).</span>?</a><h5 class="unit">Meters</h5>
                       <?php echo form_error('bedMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedMeters" class="convert metric" name="bedMeters" placeholder=""/>
                   <label for="bedFeet">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Feet</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter least bed width in feet (f).</span>?</a><h5 class="unit">Feet</h5>
                       <?php echo form_error('bedMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedFeet"  class="convert imperial" />
@@ -190,17 +198,22 @@
                       <a href="#" class="tip hidden"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">(straight, moderate, severe, extreme)</h5>
                       <?php echo form_error('alignType', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="alignType" name="alignType" placeholder=""/>
+                  <select id="alignType" name="alignType">
+                    <option value="0">Straight</option>
+                    <option value="1">Moderate</option>
+                    <option value="2">Severe</option>
+                    <option value="3">Extreme</option>
+                  </select>
               </div>
               <div id="crestRadius"  class="clearfix">
                   <h4 class="title">Radius at the Crest</h4>
                   <label for="crestMeters">
-                      <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity. </span>?</a><h5 class="unit">Meters</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity.</span>?</a><h5 class="unit">Meters</h5>
                       <?php echo form_error('crestMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="crestMeters" class="convert metric" name="crestMeters" placeholder=""/>
                   <label for="crestFeet">
-                      <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">Feet</h5>
+                      <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity.</span>?</a><h5 class="unit">Feet</h5>
                       <?php echo form_error('crestMeters', '<span class="error">', '</span>');?>
                   </label>
                   <input id="crestFeet"  class="convert imperial" />
@@ -279,10 +292,16 @@
               <div id="source"  class="clearfix">
               <h4 class="title">Outlet Source</h4>
               <label for="sourceType">
-                <a href="#" class="tip"><span class="tooltip">insert tip here</span>?</a><h5 class="unit">(river, manhole, etc.)</h5>
+                <h5 class="unit">(river, manhole, etc.)</h5>
                 <?php echo form_error('sourceType', '<span class="error">', '</span>');?>
               </label>
-                <input id="sourceType" name="sourceType" placeholder="" />
+                <select id="sourceType" name="sourceType">
+                  <option value="0">River</option>
+                  <option value="1">Manhole</option>
+                  <option value="2">Pond</option>
+                  <option value="3">Weir</option>
+                  <option value="3">Other</option>
+                </select>
               </div>
               <img src="<?php echo base_url('img/outlet_source.jpg');?>" class="calcDiagram hide-for-medium"  alt="">
               <div id="soil"  class="clearfix">
@@ -290,7 +309,13 @@
               <label for="soilType">
                 <?php echo form_error('soilType', '<span class="error">', '</span>');?>
               </label>
-                <input id="soilType" name="soilType" placeholder=""/>
+                <select id="soilType" name="soilType">
+                  <option value="0">Top Soil</option>
+                  <option value="1">Clay</option>
+                  <option value="2">Sand</option>
+                  <option value="3">Silt</option>
+                  <option value="3">Other</option>
+                </select>
               </div>
             </div>
             <div class="columns small-12 medium-6">
@@ -327,44 +352,44 @@
             </div>
             <div class="columns small-12 medium-6">
               <div class="summaryEntry" id="sum_details">
-                <h4 class="entryTitle">PROJECT DETAILS<a href="#" class="edit" data-pag="1">Edit<img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+                <h4 class="entryTitle">PROJECT DETAILS<a href="#" class="edit" data-pag="1"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
                 <p class="text"> Nothing here.</p>
               </div>
               <!-- end of summaryEntry -->
               <div class="summaryEntry" id="sum_flow">
-                <h4 class="entryTitle">Flow and velocity<a href="#" class="edit" data-pag="1">Edit<img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+                <h4 class="entryTitle">Flow and velocity<a href="#" class="edit" data-pag="1"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
                 <p class="text"> Nothing here.</p>
               </div>
               <!-- end of summaryEntry -->
               <div class="summaryEntry" id="sum_slopes">
-                <h4 class="entryTitle">Slopes<a href="#" class="edit" data-pag="2">Edit<img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+                <h4 class="entryTitle">Slopes<a href="#" class="edit" data-pag="2"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
                 <p class="text"> Nothing here.</p>
               </div>
               <!-- end of summaryEntry -->
               <div class="summaryEntry" id="sum_type">
-                <h4 class="entryTitle">Types of Flow<a href="#" class="edit" data-pag="2">Edit<img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+                <h4 class="entryTitle">Types of Flow<a href="#" class="edit" data-pag="2"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
                 <p class="text"> Nothing here.</p>
               </div>
               <!-- end of summaryEntry -->
           </div>
           <div class="columns small-12 medium-6">
             <div class="summaryEntry" id="sum_bed">
-              <h4 class="entryTitle">Bed width and alignment<a href="#" class="edit" data-pag="2">Edit<img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+              <h4 class="entryTitle">Bed width and alignment<a href="#" class="edit" data-pag="2"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
               <p class="text"> Nothing here.</p>
             </div>
             <!-- end of summaryEntry -->
             <div class="summaryEntry" id="sum_channel">
-              <h4 class="entryTitle">Channel Specifications<a href="#" class="edit" data-pag="3">Edit<img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+              <h4 class="entryTitle">Channel Specifications<a href="#" class="edit" data-pag="3"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
               <p class="text"> Nothing here.</p>
             </div>
             <!-- end of summaryEntry -->
             <div class="summaryEntry" id="sum_environment">
-              <h4 class="entryTitle">Environment<a href="#" class="edit" data-pag="3">Edit<img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+              <h4 class="entryTitle">Environment<a href="#" class="edit" data-pag="3"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
               <p class="text"> Nothing here.</p>
             </div>
             <!-- end of summaryEntry -->
             <div class="summaryEntry" id="sum_comments">
-              <h4 class="entryTitle">Comments<a href="#" class="edit" data-pag="3">Edit<img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+              <h4 class="entryTitle">Comments<a href="#" class="edit" data-pag="3"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
               <p class="text"> Nothing here.</p>
             </div>
             <!-- end of summaryEntry -->

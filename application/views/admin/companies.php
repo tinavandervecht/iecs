@@ -2,18 +2,18 @@
 <h2 class="hidden">Main Content</h2>
   <section class="row expanded" id="cmsCompanies">
       <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
-            <a href="cms_dashboard.html" class="tabTitle">&#10092; COMPANIES</a>
+            <a href="<?php echo site_url('/admin');?>" class="tabTitle">&#10092; COMPANIES</a>
             <div id="cardsbox">
             <!-- ================================ -->
 
             <?php echo form_open('/admin/companies');?>
-            <select id="sort">
-                  <option value="recent">Most Recent</option>
-                  <option value="flagged">Flagged for Review</option>
-                  <option value="a_z">Alphabetical (A-Z)</option>
+            <select id="sort" name="sort">
+                  <option value="1">Most Recent</option>
+                  <option value="2">Oldest First</option>
+                  <option value="3">Alphabetical (A-Z)</option>
+                  <option value="4">Alphabetical (Z-A)</option>
             </select>
             <input type="search" placeholder="Search" name="search" id="search">
-            <input type="submit" name="submit" value="submit">
           </form>
             <!-- ================================ -->
             <div class="centerIt clearfix" id="row1">

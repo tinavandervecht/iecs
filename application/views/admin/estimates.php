@@ -5,19 +5,19 @@
           <?php //echo $estimates[0]['estimate_modifiedDate'];?>
            <?php //echo strtotime($estimates[0]['estimate_modifiedDate']);?>
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
-                  <a href="cms_dashboard.html" class="tabTitle">&#10092; ESTIMATES</a>
+                  <a href="<?php echo site_url('/admin');?>" class="tabTitle">&#10092; ESTIMATES</a>
                   <div id="cardsbox">
 
                   <?php echo form_open('/admin/estimates');?>
-                  <select id="sort">
-                        <option value="recent">Most Recent</option>
-                        <option value="flagged">Flagged Estimates</option>
-                        <option value="a_z">Alphabetical (A-Z)</option>
+                  <select id="sort" name="sort">
+                        <option value="1">Most Recent</option>
+                        <option value="2">Oldest First</option>
+                        <option value="3">Alphabetical (A-Z)</option>
+                        <option value="4">Alphabetical (Z-A)</option>
                   </select>
                   <input type="search" placeholder="Search" name="search" id="search">
-                  <input type="submit" name="submit" value="submit">
                 </form>
-                  <div class="centerIt">
+                  <div class="centerIt" id="centerIt">
                 <?php if(count($estimates)>=4): ?>
                 <?php for ($i=0; $i < 4; $i++): ?>
 
@@ -29,7 +29,7 @@
                     <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
                     <p><span class="block est">Recommended Block: CC35</span></p>
                     <p><span class="factor">Safety Factor: 2.3</span></p>
-                    <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton greyButton">Review</a></p>
+                    <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">Review</a></p>
                   </div>
 
                   <?php endfor; ?>

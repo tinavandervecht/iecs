@@ -3,7 +3,7 @@
   <section class="row expanded" id="cmsDashboard">
     <div class="row" id="dashTab1">
       <div class="columns small-12 medium-11 medium-centered large-11 large-centered" id="recentContent">
-        <a href="#" class="tabTitle">RECENT ACTIVITY</a>
+        <a href="<?php echo site_url('/admin/activity');?>" class="tabTitle">RECENT ACTIVITY</a>
     <!-- ================================ -->
     <?php foreach ($activity as $act): ?>
     <a href="<?php echo site_url('/admin/company/'.$act['company_id']);?>" class="companyEntry <?php if($act['activity_id'] == $activity[0]['activity_id']){echo "first";}?> clearfix">

@@ -32,7 +32,7 @@ class Quotes extends CI_Controller {
 
       public function deleteQuote($estimateID, $location){
         $this->quotes_model->delete_quote($estimateID);
-        redirect('/'.$location);                
+        redirect('/'.$location);
       }
 
       public function newQuote(){
@@ -49,15 +49,11 @@ class Quotes extends CI_Controller {
     $this->form_validation->set_rules('velocityMeters', 'Expected Velocity', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('flowType', 'Flow Type', 'required');
     $this->form_validation->set_rules('bedMeters', 'Bed Width', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('alignType', 'Alignment', 'required');
     $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('sourceType', 'Outlet Source', 'required');
-    $this->form_validation->set_rules('soilType', 'Soil Type', 'required');
     $this->form_validation->set_message('required', 'Please fill out the %s.');
 
 
@@ -100,15 +96,11 @@ class Quotes extends CI_Controller {
     $this->form_validation->set_rules('velocityMeters', 'Expected Velocity', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('flowType', 'Flow Type', 'required');
     $this->form_validation->set_rules('bedMeters', 'Bed Width', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('alignType', 'Alignment', 'required');
     $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('sourceType', 'Outlet Source', 'required');
-    $this->form_validation->set_rules('soilType', 'Soil Type', 'required');
     $this->form_validation->set_message('required', 'Please fill out the %s.');
 
 

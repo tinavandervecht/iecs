@@ -8,7 +8,7 @@
             <p class="welcomeText">Half-Blood Prince Invisibility Cloak cauldron cakes, hiya Harry! Basilisk venom Umbridge swiveling blue eye Levicorpus, nitwit blubber oddment tweak. Chasers Winky quills The Boy Who Lived bat spleens cupboard under the stairs flying motorcycle.</p>
           </div>
           <div class="columns small-12 medium-6 card right">
-            <h3>Contact IECS</h3>
+            <h3>About IECS</h3>
             <p>Cable Concrete&reg; is an Articulating­ Concrete­ Block (ACB) system connected by cables allowing each individual block to be flexible and form to the terrain of the ground. This interconnected block system is available in four different thicknesses to provide the required stability for each project economically. </p>
 
             <!-- 22295 Hoskins Lin, Rodney, ON, CA - N0L 2C0<br>
