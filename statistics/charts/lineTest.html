@@ -97,21 +97,27 @@
 	  //   .attr("x", function(d){ return scaleX(d.label); })
 	  //   .attr("y", function(d){ return -scaleY(d.num); })
 
-    var bar = panel.selectAll('.bar')
+    var line = panel.selectAll('.line')
       .data(data)
       .enter().append('g')
-      .attr('class', 'bar');
+      .attr('class', 'line');
 
-      bar.append('rect')
-      .attr('x',function(d){
-        return scaleX(d.label);
-      })
-      .attr('y', function(d){
-        return -scaleY(d.num);
-      })
-      .attr('width', scaleX.bandwidth())
-      .attr('fill',function(d,i){return i%2 ? "#213D02" : "#589021";})
-      .attr('height', function(d){return scaleY(d.num)});
+      var lineGen = d3.svg.line()
+          .x(function(d) {
+              return xScale(d.mon) + 60;
+          })
+          .y(function(d) {
+              return yScale(d.usage);
+          });
+          var lineInit = d3.svg.line()
+              .x(function(d) {
+                  return xScale(d.mon) +60;
+              })
+              .y(function(d) {
+                  return yScale(0);
+              });
+
+
 
       bar.append('text')
       .attr('x',function(d){
