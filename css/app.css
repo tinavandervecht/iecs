@@ -589,8 +589,8 @@ form.testing input {
   position: absolute;
   top:3em;
   left:-4.5em;
-  min-width:20em;
-  max-width: 40em;
+  min-width:15em;
+  max-width: 20em;
   background: #222;
   color:#eee;
   padding:1em;
@@ -661,6 +661,7 @@ a.sectionTitle{
   max-width: 1em;
   position: absolute;
   top:0.1em;
+  height: 1.1em;
   right:0;
 }
 .summaryEntry .text{
@@ -1113,7 +1114,7 @@ scrollWrapper.quotesPage .quote .dateModified span{
   text-decoration: none;
   width:100%;
   max-width: 20em;
-  margin-bottom: 2em;
+  margin: 2em auto;
 }
 #mainProfile div:last-child div:last-child .value{
   margin-bottom: 10em;
@@ -1239,7 +1240,7 @@ div.more a{
   float: right;
   height:100%;
   padding: 1em;
-  padding-right: 2em;
+  padding-right: 3.5em;
   box-sizing: border-box;
   text-align: center;
   position: relative;
@@ -1251,8 +1252,8 @@ div.more a{
 }
 .blockbox .factor img.arrow{
   position: absolute;
-  top:2.5em;
-  right:1.5em;
+  top:1.8em;
+  right:1em;
   width:1.5em;
   height:1.5em;
   transform: rotate(0deg);
@@ -1424,13 +1425,12 @@ width: 100%;
 
 #saveit.greenButton{
   width:100%;
-  max-width: 20em;
   margin: 0 auto;
   float: none;
   clear: both;
 }
 #saveit.greenButton.email{
-  margin:2em 0;
+  margin:2em auto;
 }
 
 /*FOR CMS*/
@@ -1521,9 +1521,9 @@ margin-top: 2em;
 #cmsEstimates .estiimat{
   /*margin:2em;*/
   /*display: inline-block;*/
-  max-width: 16em;
+  max-width: 20em;
   display: block;
-  margin:2em auto;
+  margin:4em auto;
 }
 #cmsEstimates .estiimat p{
   border:thin solid #ddd;
@@ -1539,7 +1539,6 @@ margin:0 auto;
 float: none;
 display: block;
 width:100%;
-max-width: 12em;
 text-align: center;
 }
 
@@ -1755,8 +1754,42 @@ background: #313131;
 #sort{
   width: 124px;
 }
+
+.hide-for-mobile{
+  display: none;
+}
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+
+  .hide-for-mobile{
+    display: inline;
+  }
+
+  .tip:hover .tooltip{
+    min-width:20em;
+    max-width: 40em;
+  }
+
+  #cmsEstimates .estiimat{
+    /*margin:2em;*/
+    /*display: inline-block;*/
+    max-width: 16em;
+    margin:2em auto;
+  }
+
+  #cmsEstimates .estiimat p a.greyButton{
+    max-width: 12em;
+  }
+
+  #saveit.greenButton{
+    max-width: 20em;
+  }
+
+  #saveit.greenButton.email{
+    margin:2em 0;
+  }
+
+
   #dashTab1{
     margin-top:10em;
   }
@@ -1902,6 +1935,7 @@ background: #313131;
 }
 #mainProfile .value{
   width:100%;
+    margin: 2em;
 }
     .card > p.welcomeText {
         float: left;

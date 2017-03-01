@@ -16,7 +16,6 @@
                         <option value="4">Alphabetical (Z-A)</option>
                   </select>
                   <input type="search" placeholder="Search" name="search" id="search">
-                  <input type="submit" name="submit" value="SEARCH">
                 </form>
                   <div class="centerIt" id="centerIt">
                 <?php if(count($estimates)>=4): ?>

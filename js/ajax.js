@@ -89,7 +89,7 @@
     span1.appendChild(document.createTextNode('Date Edited: '+json[i].estimate_modifiedDate.substring(0, 10)));
     p1.appendChild(span1);
     var span2 = document.createElement('span');
-    span2.className = "block";
+    span2.classList.add("block", "est");
     span2.appendChild(document.createTextNode('Recommended Block: CC35'));
     p2.appendChild(span2);
     var span3 = document.createElement('span');
