@@ -1697,7 +1697,7 @@ background: #313131;
   margin-top: 2em;
 }
 #cmsCompanyProfile #companyEstimates #cmsEstimates{
-  border-left: none;
+    border-left: thin solid #fff;
 }
 #cmsCompanyProfile #companyInfo #company .bottom{
   background: #eee;
