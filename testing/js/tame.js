@@ -3,52 +3,69 @@
    function initChart() {
                     var data = [
                       {
-                        "mon":"1",
-                        "usage": "4"
+                        "mon":"jan",
+                        "usage":"20"
                       },
                       {
-                        "mon":"2",
-                        "usage":"25"
+                        "mon":"feb",
+                        "usage":"15"
                       },
                       {
-                        "mon":"3",
+                        "mon":"mar",
                         "usage": "36"
                       },
                       {
-                        "mon":"4",
-                        "usage":"183"
+                        "mon":"apr",
+                        "usage":"13"
                       }
                     ];
                     var data2 = [
                       {
-                        "mon":"1",
+                        "mon":"may",
                         "usage": "44"
                       },
                       {
-                        "mon":"2",
+                        "mon":"june",
+                        "usage": "44"
+                      },
+                      {
+                        "mon":"july",
                         "usage":"67"
                       },
                       {
-                        "mon":"3",
+                        "mon":"aug",
                         "usage": "23"
-                      },
-                      {
-                        "mon":"4",
-                        "usage":"220"
                       }
                     ];
                     var currentData = data;
                     var newData = data2;
 
                     var maxArr = d3.entries(data);
-                    // .sort(function(a, b) { return d3.descending(a.value.usage, b.value.usage); })[0];
-                    var max = 100;
+                        var max = 0;
                     for(var i=0;i<maxArr.length;i++){
-                      if(maxArr[i].value.usage>max)
+                      if(maxArr[i].value.usage>max){
                       max = maxArr[i].value.usage;
                       }
+                    }
 
-
+                      var now = new Date().getMonth()+1;
+                      var twelve = now + 11;
+                      var months = [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                      ];
+                      console.log(now);
+                      console.log(twelve);
                     var vis = d3.select("#vis"),
                         visWidth = visualization.width.baseVal.value,
                         visHeight = visualization.height.baseVal.value;
@@ -59,10 +76,19 @@
                             bottom: 20,
                             left: 50
                         },
-                        xScale = d3.scale.linear().range([visMargins.left, visWidth - visMargins.right]).domain([1, 4]),
+                      
+                        xScale = d3.scale.ordinal()
+                        .range([visMargins.left, visWidth -  visMargins.right])
+                        .domain(data.map(function(d){ return d.mon; }))
+                        .rangePoints([0.5,1.5,2.5,3.5])
+                        .rangeBands([visMargins.left, visWidth -  visMargins.right]),
+                      
+                      
                         yScale = d3.scale.linear().range([visHeight - visMargins.top, visMargins.bottom]).domain([0, max]),
                         xAxis = d3.svg.axis()
-                        .scale(xScale),
+                        .scale(xScale)
+                        .orient("bottom"),
+                        
                         yAxis = d3.svg.axis()
                         .scale(yScale)
                         .orient("left");
@@ -78,38 +104,20 @@
                         .call(yAxis);
                     var lineGen = d3.svg.line()
                         .x(function(d) {
-                            return xScale(d.mon);
+                            return xScale(d.mon) + 60;
                         })
                         .y(function(d) {
                             return yScale(d.usage);
                         });
                         var lineInit = d3.svg.line()
                             .x(function(d) {
-                                return xScale(d.mon);
+                                return xScale(d.mon) +60;
                             })
                             .y(function(d) {
                                 return yScale(0);
                             });
-                        // .interpolate("basis");
-                        vis.on("click",function(){
-                          vis.selectAll("path.line")
-                            .transition().duration(500)
-                            .attr('d',lineInit(currentData))
-                            .transition().duration(500).delay(500)
-                            .attr('d', lineGen(newData));
-                          // vis.append('svg:path')
-                          //     .attr('stroke', '#ABFF24')
-                          //     .attr('stroke-width', 2)
-                          //     .attr('fill', 'none')
-                          //     .attr('d', lineInit(data2))
-                          //     .transition().duration(500).delay(500)
-                          //     .attr('d', lineGen(data2));
-                          var temp = currentData;
-                          currentData = newData;
-                          newData = temp;
-                        });
-                        // var path = vis.selectAll("path").data(lineGen(currentData));
 
+                      
                     vis.append('svg:path')
                         .attr('stroke', '#ABFF24')
                         .attr('class', 'line')
@@ -141,10 +149,10 @@
                             .attr("d", lineGen(currentData));
                           }
 
-                        d3.select(window).on('resize', resize);
+                    
                 }
 
-                // window.addEventListener('load',initChart,false);
+                
 
                 initChart();
 

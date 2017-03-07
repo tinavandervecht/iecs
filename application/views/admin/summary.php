@@ -15,7 +15,7 @@
                             <p>CC35</p>
                             <p class="smaller">(35LB/SF)</p>
                           </div>
-                          <img src="<?php echo base_url('img/CC35-block.svg')?>" alt="Block Size" class="blockdiagram">
+                          <img src="<?php echo base_url('img/CC35-block-JB.svg')?>" alt="Block Size" class="blockdiagram">
                           <div class="factor">
                             <p>Safety<span class="hide-for-small"> Factor</span>:</p>
                             <p class="safety">0.23</p>
@@ -43,7 +43,7 @@
                           <p>CC45</p>
                           <p class="smaller">(45LB/SF)</p>
                         </div>
-                        <img src="<?php echo base_url('img/cc45-block.svg');?>" alt="Block Size" class="blockdiagram">
+                        <img src="<?php echo base_url('img/cc45-block-JB.svg');?>" alt="Block Size" class="blockdiagram">
                         <div class="factor">
                           <p>Safety<span class="hide-for-small"> Factor</span>:</p>
                           <p class="safety">1.23</p>
@@ -71,7 +71,7 @@
                       <p>CC70</p>
                       <p class="smaller">(70LB/SF)</p>
                     </div>
-                    <img src="<?php echo base_url('img/cc70-block.svg');?>" alt="Block Size" class="blockdiagram">
+                    <img src="<?php echo base_url('img/cc70-block-JB.svg');?>" alt="Block Size" class="blockdiagram">
                     <div class="factor">
                       <p>Safety<span class="hide-for-small"> Factor</span>:</p>
                       <p class="safety">1.8</p>
@@ -99,7 +99,7 @@
                       <p>CC90</p>
                       <p class="smaller">(90LB/SF)</p>
                     </div>
-                    <img src="<?php echo base_url('img/CC90-block.svg');?>" alt="Block Size" class="blockdiagram">
+                    <img src="<?php echo base_url('img/CC90-block-JB.svg');?>" alt="Block Size" class="blockdiagram">
                     <div class="factor">
                       <p>Safety<span class="hide-for-small"> Factor</span>:</p>
                       <p class="safety">2.04</p>

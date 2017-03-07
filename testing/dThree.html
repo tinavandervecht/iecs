@@ -21,6 +21,7 @@ svg path.line{
   max-width: 40em;
   text-align: center;
   overflow: visible;
+  padding-right: 2em;
 }
 .axis{
   font-size: 1rem;
@@ -64,6 +65,9 @@ svg path.line{
     stroke-width: 2px;
   }
 
+svg#vis{
+  overflow: visible;
+}
   #graph {
     width: 100%;
     height: 100%;
@@ -76,7 +80,7 @@ svg path.line{
 <body>
   <!-- <div id="container"></div> -->
   <div id="container">
-    <svg id="vis" width="800" height="400" viewbox="0 0 800 400" preserveAspectRatio="xMinYMin meet">
+    <svg id="vis" width="600" height="300" viewbox="0 0 600 300" preserveAspectRatio="xMaxYMin slice">
         <!-- <svg id="graph" width="800" height="400"> -->
         <!-- <svg id="vis" width="800" height="400"> -->
       Sorry, your browser does not support the SVG tag or the D3 Data Visualization Library, and as such, you cannot view this graph.
@@ -86,5 +90,7 @@ svg path.line{
 <script src="http://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
 <!-- <script src="js/dresponsive.js"></script> -->
 <script src="js/tame.js"></script>
+<!-- <script src="js/create-data.js"></script> -->
+<!-- <script src="js/respEx.js"></script> -->
 </body>
 </html>

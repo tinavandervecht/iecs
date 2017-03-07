@@ -1,0 +1,28 @@
+body{
+  font-size: 100%;
+}
+.hidden{
+  display: none;
+}
+.clearfix:after{
+  content:'';
+  display: block;
+  width:0;
+  height:0;
+  opacity: 0.0;
+  visibility: hidden;
+  clear: both;
+}
+.lineGraph, .barGraph{
+  margin:1em auto;
+  display: block;
+  /*background: #efefef;*/
+  /*border:medium solid #222;*/
+  /*padding: 1em;*/
+  box-sizing: border-box;
+}
+.rand{
+  width:2em;
+  height:2em;
+  float: left;
+}
