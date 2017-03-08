@@ -5,7 +5,7 @@
 
       <section id="sideBar">
         <h2 class="hidden">Sidebar</h2>
-        <img class="logo" src="<?php echo base_url('img/iecslogo.png');?>">
+        <img class="logo" src="<?php echo base_url('img/iecslogo_copy.png');?>">
         <section id="profile" class="clearfix">
           <img src="<?php echo base_url('img/default_dude_img.png');?>" class="profilepic"/>
           <h3 class="name"><?php echo $userInfo['company_contactName'];?></h3>

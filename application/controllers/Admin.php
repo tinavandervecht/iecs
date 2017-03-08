@@ -87,7 +87,7 @@ class Admin extends CI_Controller {
       //$data['userInfo'] = $this->admin_model->get_adminInfo($_SESSION['admin_id']);
       $data['activity'] = $this->admin_model->get_activity(8);
 
-      $data['title'] = "Actity | IECS";
+      $data['title'] = "Activity | IECS";
       $data['jsLink'] = 'js/dash.js';
       $data['current'] = "activity";
 
@@ -112,7 +112,7 @@ class Admin extends CI_Controller {
       if (!isset($post)){
         $data['estimates'] = $this->admin_model->get_allEstimates(12);
 
-        $data['title'] = "Actity | IECS";
+        $data['title'] = "Analyses | IECS";
         $data['jsLink'] = 'js/dash.js';
         $data['current'] = "estimates";
 
@@ -126,7 +126,7 @@ class Admin extends CI_Controller {
       else {
         $data['estimates'] = $this->admin_model->search_estimates(12);
 
-        $data['title'] = "Actity | IECS";
+        $data['title'] = "Analyses | IECS";
         $data['jsLink'] = 'js/dash.js';
         $data['current'] = "estimates";
 

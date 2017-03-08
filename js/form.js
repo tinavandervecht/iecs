@@ -185,7 +185,7 @@ function pagnation(event){
   function decimalToPercent(input){
     var output = (input*100).toFixed(2) + "%";
     if(output.toString()!="NaN%"){
-      return output.toFixed(2);
+      return output;
     }else if(output.toString()!=""){
       return "Unexpected Input.";
     }
@@ -395,11 +395,20 @@ showImperialBox.addEventListener('click', toggleUnits, false);
 
 //THIS UPDATES THE FIELDS WHEN THEY LOAD
 window.addEventListener('load', function(){
-  for(var i=0;i<convertFields[i].length;i++){
+  //console.log("running");
+  //console.log(convertFields.length);
+  for(var i=0;i<convertFields.length;i++){
+    //console.log(i);
     var met = convertFields[i].parentNode.querySelector('.metric');
     var imp = convertFields[i].parentNode.querySelector('.imperial');
-    if(metric!=null){
+    var dec = convertFields[i].parentNode.querySelector('.D');
+    var per = convertFields[i].parentNode.querySelector('.P');
+    //console.log(met);
+    if(met!==null){
       imp.value = metricToImperial(met.value,"ft",4);
+    }
+    else if (dec!==null){
+      per.value = decimalToPercent(dec.value);
     }
   }
 }, false);
