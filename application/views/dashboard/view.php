@@ -29,6 +29,12 @@
               <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. .</p>
                 <div class="buttons clearfix">
                   <div class="leftButton">
+                    <a href="#" class="clearfix">
+                    <img class="centered" src="<?php echo base_url('img/paper_icon_black.svg');?>">
+                      <span class="text">VIEW</span>
+                    </a>
+                  </div>
+                  <div class="centerButton">
                     <a href="<?php echo site_url('/quotes/editQuote/'.$estimatesInfo[0]['estimate_id']);?>" class="clearfix">
                     <img class="centered" src="<?php echo base_url('img/pencil_icon.svg');?>">
                       <span class="text">EDIT</span>
@@ -70,6 +76,12 @@
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"><?php echo $estimate['estimate_modifiedDate'];?></span></h5>
                   <div class="buttons clearfix">
                     <div class="leftButton">
+                      <a href="#" class="clearfix">
+                      <img class="centered" src="<?php echo base_url('img/paper_icon_black.svg');?>">
+                        <span class="text">VIEW</span>
+                      </a>
+                    </div>
+                    <div class="centerButton">
                       <a href="<?php echo site_url('/quotes/editQuote/'.$estimate['estimate_id']);?>" class="clearfix">
                       <img class="centered" src="<?php echo base_url('img/pencil_icon.svg');?>">
                         <span class="text">EDIT</span>

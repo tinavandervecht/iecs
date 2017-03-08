@@ -968,17 +968,26 @@ a.sectionTitle{
 }
 .buttons .leftButton {
     float: left;
-    width: 50%;
+    width: 32%;
     text-align: center;
+}
+.buttons .centerButton{
+    margin: 0 2%;
+    float: left;
+    width:32%;
+    text-align: center;
+    border-left: thin solid #200;
+    border-color: inherit;
 }
 .buttons .rightButton {
     float: right;
-    width: 50%;
+    width: 32%;
     text-align: center;
     border-left: thin solid #200;
     border-color: inherit;
 }
 .leftButton img.centered,
+.centerButton img.centered,
 .rightButton img.centered {
     display: block;
     margin: 0 auto;
@@ -988,6 +997,7 @@ a.sectionTitle{
     opacity: 0.5;
 }
 .leftButton a,
+.centerButton a,
 .rightButton a {
     color: inherit;
 }
