@@ -126,10 +126,10 @@
               <div class="columns small-12">
                 <h3 class="sectionTitle">Slopes</h3>
               </div>
-              <div class="columns small-12 medium-6 medium-push-6 large-6 large-pull-0">
+              <div class="columns small-12 medium-6">
                 <img src="<?php echo base_url('img/channel_slope.jpg');?>" class="calcDiagram" alt="">
               </div>
-            <div class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
+            <div class="columns small-12 medium-6">
               <div id="bedSlope"  class="clearfix">
                   <h4 class="title">Channel Bed Slope</h4>
                   <label for="bedSlopePercent">
@@ -239,10 +239,10 @@
               <div class="columns small-12">
               <h3 class="sectionTitle">Channel Specifications</h3>
             </div>
-          <div class="columns small-12 medium-6 medium-push-6 large-pull-0">
+          <div class="columns small-12 medium-6">
             <img src="<?php echo base_url('img/channel_specifications.jpg');?>" class="calcDiagram"  alt="">
           </div>
-              <div class="columns small-12 medium-6 medium-pull-6 large-pull-0">
+              <div class="columns small-12 medium-6">
               <div id="channelLength"  class="clearfix">
               <h4 class="title">Chute/Channel Length</h4>
               <label for="channelMeters">
