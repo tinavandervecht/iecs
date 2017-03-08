@@ -99,7 +99,7 @@ function pagnation(event){
 
 
   if(it.classList.contains('pageNo')){
-    // console.log("pag");
+    // //console.log("pag");
     if(calc){
       contButton.classList.remove('hidden');
       document.querySelector('#calc').classList.add('hidden');
@@ -116,6 +116,7 @@ function pagnation(event){
     pageNo = pageNo.nextElementSibling;
     pageNumber = pageNo.innerHTML;
   }else{
+    it.classList.add('current');
     pageNo.classList.remove('current');
     pageNumber =  4;
     summarize();
@@ -144,7 +145,7 @@ function pagnation(event){
     }else if(units=== "yd"){
       output = input*factor/3;
     }else{
-      console.log("parameter passed is invalid. ERROR");
+      //console.log("parameter passed is invalid. ERROR");
     }
     if(output.toString()!="NaN"){
       return parseFloat(output.toFixed(2));
@@ -161,11 +162,11 @@ function pagnation(event){
     if(units === "m"){
       output = input/factor;
     }else{
-      console.log("parameter passed is invalid. ERROR");
+      //console.log("parameter passed is invalid. ERROR");
     }
     if(output.toString()!="NaN"){
       return parseFloat(output.toFixed(2));
-      //console.log("returned.");
+      ////console.log("returned.");
     }else if(output.toString()!=""){
       return "Unexpected Input.";
     }
@@ -200,10 +201,10 @@ function autoUpdate(event){
   var decimal = it.parentNode.querySelector('.D');
     if(metric != null){
       if(it===metric){
-        //console.log("metric!");
+        ////console.log("metric!");
         imperial.value = metricToImperial(metric.value,"ft",4);
       }else if(it===imperial){
-        //console.log("imperial!");
+        ////console.log("imperial!");
         metric.value = imperialToMetric(imperial.value,"m",4);
       }
     }else if(percent != null){
@@ -234,7 +235,7 @@ function toggleUnits(){
     lastChecked = showImperialBox;
   }
   if(!showMetricBox.checked&&!showImperialBox.checked){
-    console.log("nothing's checked!");
+    //console.log("nothing's checked!");
     showM=false;
     showI=false;
     setTimeout(function(){
@@ -268,8 +269,8 @@ function getInputs(){
   //Grabs values in metric, to convert to imperial if needed.
   projName = calcSubmit.querySelector('#name').value;
   projDate = calcSubmit.querySelector('#d').value;
-  console.log(calcSubmit.querySelector('#cityProv'));
-  console.log(calcSubmit.querySelector('#cityProv').value);
+  //console.log(calcSubmit.querySelector('#cityProv'));
+  //console.log(calcSubmit.querySelector('#cityProv').value);
   cityProv = calcSubmit.querySelector('#cityProv').value;
   addr = calcSubmit.querySelector('#addr').value;
   engineer = calcSubmit.querySelector('#engineerName').value;
@@ -290,7 +291,7 @@ function getInputs(){
    soil = calcSubmit.querySelector('#soilType').value;
   //
  comments = calcSubmit.querySelector('#commentsBox').value;
- console.log("got inputs;");
+ //console.log("got inputs;");
 }
 
 //POPULATE THE SUMMARY PAGE WITH DATA
@@ -306,58 +307,58 @@ function summarize(){
   summary.innerHTML+="City and Province: " + cityProv + " <br>";
   summary.innerHTML+="Address: " + addr + " <br>";
   summary.innerHTML+="Engineer:" + engineer;
-  console.log(projDate);
-  console.log(cityProv);
-  console.log(engineer +" <br>");
+  //console.log(projDate);
+  //console.log(cityProv);
+  //console.log(engineer +" <br>");
 
   //
   summary = document.querySelector("#sum_flow .text");
   summary.innerHTML = "Flow: " + flow +" <br>";
   summary.innerHTML+= "Veloctity:" + velocity;
-  console.log(flow);
-  console.log(velocity);
+  //console.log(flow);
+  //console.log(velocity);
 
   //
   summary = document.querySelector('#sum_slopes .text');
   summary.innerHTML = "Bed Slope: " + bedSlope+" <br>";
   summary.innerHTML += "Side Slope: " + sideSlope;
-  console.log(bedSlope);
-  console.log(sideSlope);
+  //console.log(bedSlope);
+  //console.log(sideSlope);
 
   //
   summary = document.querySelector("#sum_type .text");
   summary.innerHTML = "Type of Flow:" + flowType;
-  console.log(flowType);
+  //console.log(flowType);
 
   //
   summary = document.querySelector("#sum_bed .text");
   summary.innerHTML = "Bed Width: " + bedWidth + " <br>";
   summary.innerHTML += "Alignment: " + alignment + " <br>";
   summary.innerHTML += "Radius at Crest: " + crest;
-  console.log(bedWidth);
-  console.log(alignment);
-  console.log(crest);
+  //console.log(bedWidth);
+  //console.log(alignment);
+  //console.log(crest);
 
   //
   summary = document.querySelector("#sum_channel .text");
   summary.innerHTML = "Channel Length: " + length + " <br>";
   summary.innerHTML += "Channel Depth: " + depth + " <br>";
   summary.innerHTML += "Channel Top Width: " + topWidth;
-  console.log(length);
-  console.log(depth);
-  console.log(topWidth);
+  //console.log(length);
+  //console.log(depth);
+  //console.log(topWidth);
 
   //
   summary = document.querySelector("#sum_environment .text");
   summary.innerHTML = "Outlet Source: " + source + " <br>";
   summary.innerHTML +="Soil Type: " + soil;
-  console.log(source);
-  console.log(soil);
+  //console.log(source);
+  //console.log(soil);
 
   //
   summary = document.querySelector("#sum_comments .text");
   summary.innerHTML = "Comments: " + comments;
-  console.log(comments);
+  //console.log(comments);
 }
 
 
