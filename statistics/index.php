@@ -10,7 +10,7 @@
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="js/data.js"></script>
   <?php @include 'charts/line.html' ?>
-  <?php @include 'charts/bar.html' ?>
+  <!-- <php @include 'charts/bar.html' ?> -->
 <!-- <script src="js/load.js"></script> -->
 </body>
 </html>

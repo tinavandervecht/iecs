@@ -8,6 +8,7 @@ function toggleState(event){
 var it = event.currentTarget;
 it.classList.toggle('closed');
 TweenLite.fromTo(it.querySelector('.buttons .leftButton'),1,{opacity:0},{opacity:1});
+TweenLite.fromTo(it.querySelector('.buttons .centerButton'),1,{opacity:0},{opacity:1});
 TweenLite.fromTo(it.querySelector('.buttons .rightButton'),1,{opacity:0},{opacity:1});
 
 }
