@@ -649,6 +649,7 @@ a.sectionTitle{
 }
 
 .summaryEntry .edit{
+  color: inherit;
   float: right;
   padding-right:1.5em;
 }
@@ -665,7 +666,7 @@ a.sectionTitle{
   right:0;
 }
 .summaryEntry .text{
-  min-height: 6em;
+  min-height: 10em;
 }
 
 .checkbox {
