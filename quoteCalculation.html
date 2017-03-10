@@ -42,158 +42,593 @@
         <div class="columns small-12 card">
           <a href="newQuote.html" id="goBack" data-pag="3" class="sectionTitle"><h3>&lt;&nbsp;Summary</h3></a>
         </div>
-        <div class="columns small-12 large-5 sel card">
+        <!-- <div class="columns small-12 large-5 sel card">
           <div class="lefttop">
           <h4>Recommended Block Sizes</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
           </div>
           <div id="selectedblock">
             <h3 class="blockname"></h3>
             <p class="blockdesc">random text woo typing yay</p>
             <img class="blockimg" src="">
           </div>
-        </div>
-        <div class="columns small-12 large-7 card">
+        </div> -->
+        <div class="columns small-12 large-6 card">
           <div class="block disabled"><!--start block-->
-            <a href="#" class="blockbox clearfix">
-              <div class="blocktype">
-                <p>CCG2</p>
-                <p class="smaller">(25LB/SF)</p>
-              </div>
-              <img src="img/G2-block.svg" alt="Block Size" class="blockdiagram">
-              <div class="factor">
-                <p>Safety<span class="hide-for-small"> Factor</span>:</p>
-                <p class="safety">0.23</p>
-                <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
-              </div>
-            </a>
-            <div class="more clearfix">
-              <h4>Other Safety Factors</h4>
-              <div class="other clearfix">
-                <div>
-                <p class="factor">Slope</p><div class="num">1.02</div>
-              </div>
-              </div>
-              <div class="other clearfix">
-                <div>
-                  <p class="factor">Flow</p><div class="num">0.37</div>
+                <a href="#" class="blockbox clearfix">
+                  <div class="blocktype">
+                    <p>CCG2</p>
+                    <p class="smaller">(45LB/SF)</p>
+                  </div>
+                  <!-- <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram"> -->
+                  <div class="factor">
+                    <div id="overture">
+                      <p class="safety">Overturning Bed: <span class="num">0.2</span></p>
+                      <p class="safety">Overturning Side: <span class="num">0.2</span></p>
+                    </div>
+                    <div id="sliding">
+                      <p class="safety">Sliding for Bed: <span class="num">0.3</span></p>
+                      <p class="safety">Sliding for Bed: <span class="num">0.6</span></p>
+                    </div>
+                    <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
+                  </div>
+                </a>
+                <div class="more clearfix">
+                  <h4>Estimate Details</h4>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Centroid Depth (mm)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor"> bB/2 (mm)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Half Diagonal Distance (mm)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Verical Position of Drag (mm)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">dZ Vertical Offset (mm)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Block Weight (N)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Block Mass (kg)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Submerged Block Weight (N)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Submerged Mass (kg)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Drag on Block [Bed] (N)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Drag on Block [Side] (N)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Lift on Block [Bed] (N)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Lift on Block [Side] (N)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Cotangent of Side Slope</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Angle of Side Slope (Theta)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Bed Slope (ft/ft)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Lambda Degrees</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Beta Degrees</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Delta Degrees</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Froude Number</p><div class="num">1.02</div>
+                  </div></div>
+                  <!--===========================-->
+                  <div class="other clearfix"><div>
+                    <p class="factor">Manning's N</p><div class="num">1.02</div>
+                  </div></div>
                 </div>
-              </div>
-
-            </div>
-        </div><!-- end block-->
-            <div class="block disabled"><!--start block-->
-            <a href="#" class="blockbox clearfix">
-              <div class="blocktype">
-                <p>CC35</p>
-                <p class="smaller">(35LB/SF)</p>
-              </div>
-              <img src="img/CC35-block.svg" alt="Block Size" class="blockdiagram">
-              <div class="factor">
-                <p>Safety<span class="hide-for-small"> Factor</span>:</p>
-                <p class="safety">0.23</p>
-                <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
-              </div>
-            </a>
-            <div class="more clearfix">
-              <h4>Other Safety Factors</h4>
-              <div class="other clearfix">
-                <div>
-                <p class="factor">Slope</p><div class="num">1.02</div>
-              </div>
-              </div>
-              <div class="other clearfix">
-                <div>
-                  <p class="factor">Flow</p><div class="num">0.37</div>
-                </div>
-              </div>
-
-            </div>
             </div><!-- end block-->
-          <div class="block"><!--start block-->
+
+              <div class="block disabled"><!--start block-->
+              <a href="#" class="blockbox clearfix">
+                <div class="blocktype">
+                  <p>CC35</p>
+                  <p class="smaller">(45LB/SF)</p>
+                </div>
+                <!-- <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram"> -->
+                <div class="factor">
+                  <div id="overture">
+                    <p class="safety">Overturning Bed: <span class="num">0.2</span></p>
+                    <p class="safety">Overturning Side: <span class="num">0.2</span></p>
+                  </div>
+                  <div id="sliding">
+                    <p class="safety">Sliding for Bed: <span class="num">0.3</span></p>
+                    <p class="safety">Sliding for Bed: <span class="num">0.6</span></p>
+                  </div>
+                  <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
+                </div>
+              </a>
+              <div class="more clearfix">
+                <h4>Estimate Details</h4>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Centroid Depth (mm)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor"> bB/2 (mm)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Half Diagonal Distance (mm)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Verical Position of Drag (mm)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">dZ Vertical Offset (mm)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Block Weight (N)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Block Mass (kg)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Submerged Block Weight (N)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Submerged Mass (kg)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Drag on Block [Bed] (N)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Drag on Block [Side] (N)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Lift on Block [Bed] (N)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Lift on Block [Side] (N)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Cotangent of Side Slope</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Angle of Side Slope (Theta)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Bed Slope (ft/ft)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Lambda Degrees</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Beta Degrees</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Delta Degrees</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Froude Number</p><div class="num">1.02</div>
+                </div></div>
+                <!--===========================-->
+                <div class="other clearfix"><div>
+                  <p class="factor">Manning's N</p><div class="num">1.02</div>
+                </div></div>
+              </div>
+          </div><!-- end block-->
+    <div class="block"><!--start block-->
           <a href="#" class="blockbox clearfix">
             <div class="blocktype">
               <p>CC45</p>
               <p class="smaller">(45LB/SF)</p>
             </div>
-            <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram">
+            <!-- <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram"> -->
             <div class="factor">
-              <p>Safety<span class="hide-for-small"> Factor</span>:</p>
-              <p class="safety">1.23</p>
+              <div id="overture">
+                <p class="safety">Overturning Bed: <span class="num">0.2</span></p>
+                <p class="safety">Overturning Side: <span class="num">0.2</span></p>
+              </div>
+              <div id="sliding">
+                <p class="safety">Sliding for Bed: <span class="num">0.3</span></p>
+                <p class="safety">Sliding for Bed: <span class="num">0.6</span></p>
+              </div>
               <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
             </div>
           </a>
           <div class="more clearfix">
-            <h4>Other Safety Factors</h4>
-            <div class="other clearfix">
-              <div>
-              <p class="factor">Slope</p><div class="num">1.02</div>
-            </div>
-            </div>
-            <div class="other clearfix">
-              <div>
-                <p class="factor">Flow</p><div class="num">0.37</div>
-              </div>
-            </div>
-
+            <h4>Estimate Details</h4>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Centroid Depth (mm)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor"> bB/2 (mm)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Half Diagonal Distance (mm)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Verical Position of Drag (mm)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">dZ Vertical Offset (mm)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Block Weight (N)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Block Mass (kg)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Submerged Block Weight (N)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Submerged Mass (kg)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Drag on Block [Bed] (N)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Drag on Block [Side] (N)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Lift on Block [Bed] (N)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Lift on Block [Side] (N)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Cotangent of Side Slope</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Angle of Side Slope (Theta)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Bed Slope (ft/ft)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Lambda Degrees</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Beta Degrees</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Delta Degrees</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Froude Number</p><div class="num">1.02</div>
+            </div></div>
+            <!--===========================-->
+            <div class="other clearfix"><div>
+              <p class="factor">Manning's N</p><div class="num">1.02</div>
+            </div></div>
           </div>
-      </div><!-- end block-->
-      <div class="block"><!--start block-->
-      <a href="#" class="blockbox clearfix">
-        <div class="blocktype">
-          <p>CC70</p>
-          <p class="smaller">(70LB/SF)</p>
-        </div>
-        <img src="img/cc70-block.svg" alt="Block Size" class="blockdiagram">
-        <div class="factor">
-          <p>Safety<span class="hide-for-small"> Factor</span>:</p>
-          <p class="safety">1.8</p>
-          <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
-        </div>
-      </a>
-      <div class="more clearfix">
-        <h4>Other Safety Factors</h4>
-        <div class="other clearfix">
-          <div>
-          <p class="factor">Slope</p><div class="num">1.02</div>
-        </div>
-        </div>
-        <div class="other clearfix">
-          <div>
-            <p class="factor">Flow</p><div class="num">0.37</div>
-          </div>
-        </div>
-
-      </div>
       </div><!-- end block-->
       <div class="block highlight selected"><!--start block-->
       <a href="#" class="blockbox clearfix">
         <div class="blocktype">
-          <p>CC90</p>
-          <p class="smaller">(90LB/SF)</p>
+          <p>CC70</p>
+          <p class="smaller">(45LB/SF)</p>
         </div>
-        <img src="img/CC90-block.svg" alt="Block Size" class="blockdiagram">
+        <!-- <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram"> -->
         <div class="factor">
-          <p>Safety<span class="hide-for-small"> Factor</span>:</p>
-          <p class="safety">2.04</p>
+          <div id="overture">
+            <p class="safety">Overturning Bed: <span class="num">0.2</span></p>
+            <p class="safety">Overturning Side: <span class="num">0.2</span></p>
+          </div>
+          <div id="sliding">
+            <p class="safety">Sliding for Bed: <span class="num">0.3</span></p>
+            <p class="safety">Sliding for Bed: <span class="num">0.6</span></p>
+          </div>
           <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
         </div>
       </a>
       <div class="more clearfix">
-        <h4>Other Safety Factors</h4>
-        <div class="other clearfix">
-          <div>
-          <p class="factor">Slope</p><div class="num">1.02</div>
-        </div>
-        </div>
-        <div class="other clearfix">
-          <div>
-            <p class="factor">Flow</p><div class="num">0.37</div>
-          </div>
-        </div>
-
+        <h4>Estimate Details</h4>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Centroid Depth (mm)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor"> bB/2 (mm)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Half Diagonal Distance (mm)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Verical Position of Drag (mm)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">dZ Vertical Offset (mm)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Block Weight (N)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Block Mass (kg)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Submerged Block Weight (N)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Submerged Mass (kg)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Drag on Block [Bed] (N)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Drag on Block [Side] (N)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Lift on Block [Bed] (N)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Lift on Block [Side] (N)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Cotangent of Side Slope</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Angle of Side Slope (Theta)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Bed Slope (ft/ft)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Lambda Degrees</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Beta Degrees</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Delta Degrees</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Froude Number</p><div class="num">1.02</div>
+        </div></div>
+        <!--===========================-->
+        <div class="other clearfix"><div>
+          <p class="factor">Manning's N</p><div class="num">1.02</div>
+        </div></div>
       </div>
-      </div><!-- end block-->
+  </div><!-- end block-->
+  <div class="block"><!--start block-->
+  <a href="#" class="blockbox clearfix">
+    <div class="blocktype">
+      <p>CC90</p>
+      <p class="smaller">(45LB/SF)</p>
+    </div>
+    <!-- <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram"> -->
+    <div class="factor">
+      <div id="overture">
+        <p class="safety">Overturning Bed: <span class="num">0.2</span></p>
+        <p class="safety">Overturning Side: <span class="num">0.2</span></p>
+      </div>
+      <div id="sliding">
+        <p class="safety">Sliding for Bed: <span class="num">0.3</span></p>
+        <p class="safety">Sliding for Bed: <span class="num">0.6</span></p>
+      </div>
+      <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
+    </div>
+  </a>
+  <div class="more clearfix">
+    <h4>Estimate Details</h4>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Centroid Depth (mm)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor"> bB/2 (mm)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Half Diagonal Distance (mm)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Verical Position of Drag (mm)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">dZ Vertical Offset (mm)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Block Weight (N)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Block Mass (kg)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Submerged Block Weight (N)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Submerged Mass (kg)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Drag on Block [Bed] (N)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Drag on Block [Side] (N)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Lift on Block [Bed] (N)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Lift on Block [Side] (N)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Cotangent of Side Slope</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Angle of Side Slope (Theta)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Bed Slope (ft/ft)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Angle of Side Slope (Degrees)</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Lambda Degrees</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Beta Degrees</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Delta Degrees</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Froude Number</p><div class="num">1.02</div>
+    </div></div>
+    <!--===========================-->
+    <div class="other clearfix"><div>
+      <p class="factor">Manning's N</p><div class="num">1.02</div>
+    </div></div>
+  </div>
+</div><!-- end block-->
 
         </div>
         <a href="#" class="greenButton" id="saveit">SAVE RESULTS</a>
