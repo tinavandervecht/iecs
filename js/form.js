@@ -263,6 +263,18 @@ function toggleUnits(){
           }
         }
 }
+var align = calcSubmit.querySelector('#alignType');
+function checkAlign(){
+  if(align.value == 0){
+    // console.log("STRAIGHT");
+    calcSubmit.querySelector('#crestRadius').classList.add('hidden');
+    calcSubmit.querySelector('#channelSpecs').classList.add('hidden');
+  }else{
+    calcSubmit.querySelector('#crestRadius').classList.remove('hidden');
+    calcSubmit.querySelector('#channelSpecs').classList.remove('hidden');
+  }
+}
+  align.addEventListener('input',checkAlign,false);
 
 //FILL CONTAINERS WITH RESPECTIVE INPUT'S VALUES
 function getInputs(){
@@ -387,7 +399,7 @@ for(var i=0;i<fields.length;i++){
 }
 
 toggleUnits(); //initial activation of unit toggle functionality.
-
+checkAlign(); //initalize the hiding of the alignment conditional
 contButton.addEventListener('click', pagnation,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);

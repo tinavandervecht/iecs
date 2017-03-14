@@ -222,7 +222,12 @@
                     <label for="alignType">
                         <a href="#" class="tip"><span class="tooltip">Straight, moderate, severe, extreme</span>?</a><h5 class="unit">(straight, moderate, severe, extreme)</h5>
                     </label>
-                    <input id="alignType" />
+                    <select id="alignType" name="alignType">
+                      <option value="0">Straight</option>
+                      <option value="1">Moderate</option>
+                      <option value="2">Severe</option>
+                      <option value="3">Extreme</option>
+                    </select>
                 </div>
                 <div id="crestRadius"  class="clearfix">
                     <h4 class="title">Radius at the Crest</h4>
@@ -256,6 +261,7 @@
             <!--==================================================================-->
             <section class="pagnation-page" id="3">
               <div class="row">
+                <div id="channelSpecs">
                 <div class="columns small-12">
                 <h3 class="sectionTitle">Channel Specifications</h3>
               </div>
@@ -299,6 +305,7 @@
               <div class="columns small-12 medium-6">
                 <img src="img/diagrams/channel_specifications.jpg" class="calcDiagram"  alt="">
               </div>
+            </div>
               <div class="columns small-12">
               <h3 class="sectionTitle">Environment</h3>
             </div>

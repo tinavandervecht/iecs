@@ -236,6 +236,7 @@
           <!--==================================================================-->
           <section class="pagnation-page" id="3">
             <div class="row">
+              <div id="channelSpecs">
               <div class="columns small-12">
               <h3 class="sectionTitle">Channel Specifications</h3>
             </div>
@@ -284,6 +285,7 @@
                 <input id="topFeet"  class="convert imperial" />
               </div>
             </div>
+          </div>
 
             <div class="columns small-12">
             <h3 class="sectionTitle">Environment</h3>
