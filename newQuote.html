@@ -194,16 +194,36 @@
                 <div class="columns small-12 medium-6">
                   <img src="img/diagrams/channel_slope.jpg" class="calcDiagram" alt="">
                 </div>
-              <div class="columns small-12 medium-6 medium-clear">
-                <h3 class="sectionTitle">Types of Flow</h3>
-                <div id="type"  class="clearfix">
-                    <h4 class="title">Choose Type of Flow:</h4>
-                    <label for="flowType">
-                        <a href="#" class="tip"><span class="tooltip">Normal, overtopping, sub critical, hydraulic, jump, impinging, bridge/culvert, undulating trans critical)</span>?</a><h5 class="unit">(normal, overtopping, etc.)</h5>
-                    </label>
-                    <input id="flowType" />
+                <div class="columns small-12 medium-6 medium-clear">
+                  <h3 class="sectionTitle">Types of Flow</h3>
+                  <div id="type"  class="clearfix">
+                      <h4 class="title">Choose Type of Flow:</h4>
+                      <label for="flowType">
+                      <a href="#" class="tip"><span class="tooltip">Choose a type of flow. Defaults to Normal.</span>?</a><h5 class="unit">(normal, overtopping, etc.)</h5>
+                      </label>
+                      <select id="flowType" name="flowType">
+                        <option value="0">Normal</option>
+                        <option value="1">Overtopping</option>
+                        <option value="2">Sub Critical</option>
+                        <option value="3">Hydraulic</option>
+                        <option value="4">Jump</option>
+                        <option value="5">Impinging</option>
+                        <option value="6">Bridge/Culvert</option>
+                        <option value="7">Undulating Trans Critical</option>
+                      </select>
+                  </div>
                 </div>
-              </div>
+                <div class="columns small-12 medium-6 medium-clear">
+                  <h3 class="sectionTitle">Concrete Density</h3>
+                  <div id="gravy"  class="clearfix">
+                      <h4 class="title">Specific Gravity of Concrete:</h4>
+                      <label for="gravyy">
+                        <a href="#" class="tip"><span class="tooltip">This gravity / concrete density is the only one IECS offers currently.</span>?</a><h5 class="unit">Gravity</h5>
+                        <h5 class="unit"></h5>
+                      </label>
+                      <input id="gravvy" disabled="true" placeholder="2.4" class="convert">
+                  </div>
+                </div>
                 <div class="columns small-12 medium-6 end">
                     <h3 class="sectionTitle">Bed Width and Alignment</h3>
                 <div id="bedWidth"  class="clearfix">
