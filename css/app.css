@@ -599,10 +599,13 @@ form.testing input {
 
 
 
-#calculator label + input:not([type="checkbox"]), #calculator label + input:not([type="submit"]){
+#calculator label + input:not([type="checkbox"]), #calculator label + input:not([type="submit"]), #calculator label + select{
   width:100%;
   clear: left;
   margin-bottom:0.6em;
+}
+#calculator label + select{
+  margin-top:0.6em;
 }
 .checkbox label {
     padding-right: 0 !important;
@@ -646,6 +649,9 @@ a.sectionTitle{
   font-family: "opensans";
   width:100%;
   border-bottom:thin solid #222;
+}
+.summaryEntry .entryTitle{
+  color:inherit;
 }
 
 .summaryEntry .edit{
