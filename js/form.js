@@ -54,19 +54,24 @@
   var soil;
   var comments;
 
+//for the ONLY degrees in the form:
+
+var frAngle = document.querySelector('#frAngle');
+frAngle.addEventListener('change',function(){
+  var numb = parseInt(frAngle.value);
+  frAngle.value = numb + "°";
+},false);
+
 //PAGE SWAP
 function swapPage(page){
   function change(){
     currentPage = page;
 
   }
-
-
 currentPage.classList.remove('current');
-// currentPage.className = currentPage.className.replace('current','');
 page.classList.add('current');
 TweenLite.to(page, 0.2, {opacity:1.0,onComplete:change});
-}
+}//END swapPage
 
 //PAGNATION FUNCTIONALITY
 function goingBack(event){
@@ -81,7 +86,6 @@ function goingBack(event){
       pageNo = pagnationPageTrackerPages[i];
     }
   }
-
   if(calc){
     contButton.classList.remove('hidden');
     document.querySelector('#calc').classList.add('hidden');
@@ -89,23 +93,18 @@ function goingBack(event){
   }
   TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
   }
-}
+}//END goingBack
 
 function pagnation(event){
   event.preventDefault();
   var it = event.currentTarget;
   var pageNumber;
-
-
-
   if(it.classList.contains('pageNo')){
-    // //console.log("pag");
     if(calc){
       contButton.classList.remove('hidden');
       document.querySelector('#calc').classList.add('hidden');
       calc = false;
     }
-
   it.classList.add('current');
   pageNo.classList.remove('current');
   pageNo = it;

@@ -9,8 +9,8 @@ var BOXHEIGHT = "auto";
 var BLOCKSMALL = "10em";
 var selectedblock = document.querySelector("#selectedblock");
 function changeLeftBox(blockbox){
-  selectedblock.dataset.blockId = blockbox.querySelector('.blocktype p').innerHTML;
-  selectedblock.querySelector('.blockname').innerHTML = blockbox.querySelector('.blocktype').innerHTML;
+  // selectedblock.dataset.blockId = blockbox.querySelector('.blocktype p').innerHTML;
+  // selectedblock.querySelector('.blockname').innerHTML = blockbox.querySelector('.blocktype').innerHTML;
   // selectedblock.querySelector('img').src = blockbox.querySelector('.blockdiagram').src;
 }
 function openClose(event){
