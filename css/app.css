@@ -1076,8 +1076,12 @@ scrollWrapper.quotesPage .quote .dateModified span{
 }
 
 #saveProfile{
+  border:0;
+  max-width: 22em;
   margin-top: 2em;
   margin-right: 0;
+  margin: auto;
+  float: none;
 }
 
 .greenButton, #calculator input.greenButton{
@@ -1126,6 +1130,7 @@ scrollWrapper.quotesPage .quote .dateModified span{
   width:100%;
   max-width: 20em;
   margin: 2em auto;
+  box-sizing: border-box;
 }
 #mainProfile div:last-child div:last-child .value{
   margin-bottom: 10em;
@@ -1184,7 +1189,7 @@ div.more a{
 }
 .block{
   overflow: hidden;
-  height:6em;
+  height:10em;
   margin-bottom:1em;
   position: relative;
   border: thin solid #bbb;
@@ -1219,9 +1224,10 @@ div.more a{
   float: left;
   height:100%;
   text-align: center;
-  padding:1em;
+  padding:3em 1em;
   box-sizing: border-box;
   position: relative;
+  z-index: 2;
 }
 .blockbox .blocktype:after{
   position: absolute;
@@ -1231,6 +1237,7 @@ div.more a{
   right:-1em;
   width:2em;
   height:2em;
+  z-index: 200;
   transform: rotate(45deg);
 }
 .blockbox .blocktype p{
@@ -1243,25 +1250,27 @@ div.more a{
   font-size: 1.2em;
 }
 .blockbox{
-  height:6em;
+  height:10em;
 }
 .blockbox .factor{
   background: #589021;
   color:#fbfbfb;
-  float: right;
+  position: absolute;
+  top:0;
+  right:0;
   height:100%;
-  padding: 1em;
-  padding-right: 3.5em;
   box-sizing: border-box;
   text-align: center;
   position: relative;
-  font-size: 1.2em;
-  z-index: 87;
+  width:100%;
+  font-size: 0.5em;
+  z-index: -1;
 }
 .block.disabled .blockbox .factor{
   background: #820f0f;
 }
 .blockbox .factor img.arrow{
+  display: none;
   position: absolute;
   top:1.8em;
   right:1em;
@@ -1273,8 +1282,27 @@ div.more a{
 .block.selected .blockbox .factor img.arrow{
   transform: rotate(180deg);
 }
+.blockbox .factor #overture, .blockbox .factor #sliding{
+  /*font-size: 1.2rem;*/
+  /*float: right;*/
+}
+
+.block:not(.disabled) .blockbox .factor p:nth-child(2n){
+  background: #447019;
+}
+.block.disabled .blockbox .factor p:nth-child(2n){
+  background: #600c0c;
+}
 .blockbox .factor p{
+  text-align: right;
+  text-align: right;
+  padding:0.5em;
+  width:100%;
+  display: block;
+  /*line-height: 1em;*/
+  /*display: none;*/
   margin:0;
+  /*float: left;*/
 }
 .block.highlight{
   border:thick solid #447019;
@@ -1293,27 +1321,31 @@ div.more a{
   z-index: 10;
 }
 .block .more{
+  box-sizing: border-box;
   width:100%;
   background: #f4f4f4;
 }
 .block .more h4{
   margin:0;
+  box-sizing: border-box;
   font-size: 1.2em;
   padding: 1em 0;
   text-align: center;
   border-bottom: thin solid #ccc;
 }
 .block .more .factor{
+  box-sizing: border-box;
 /*float: right;*/
-/*display: block;*/
-display: inline;
+display: block;
+/*display: inline;*/
 margin:0;
 }
 .block .more .num{
 float: right;
 }
 .block .other{
-  padding:0.5em;
+  box-sizing: border-box;
+  padding:0.5em 0;
   width:100%;
   border-bottom:thin solid #ccc;
 }
@@ -1321,9 +1353,10 @@ float: right;
   float:left;
 }
 .block .other > div{
+  width:100%;
   max-width: 40em;
-  width:60%;
   margin: 0 auto;
+  transition: all ease 1s;
 }
 .block .other:last-child{
   border-bottom: none;
@@ -1771,7 +1804,9 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
-
+  .block .other > div{
+    width:60%;
+  }
   .hide-for-mobile{
     display: inline;
   }
@@ -1946,7 +1981,8 @@ background: #313131;
 }
 #mainProfile .value{
   width:100%;
-    margin: 2em;
+    /*margin: 2em;*/ /*KEEP THIS CRAP AWAY FROM MY BEAUTIFUL PROFILE FORM NICK*/
+    /* FINE I WILL NICK */
 }
     .card > p.welcomeText {
         float: left;
