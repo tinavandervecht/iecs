@@ -156,6 +156,13 @@
                   </label>
                   <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" placeholder=""/>
               </div>
+              <div id="frictionAngle"  class="clearfix">
+                  <h4 class="title">Friction Angle in Degrees</h4>
+                  <label for="frAngle">
+                      <a href="#" class="tip"><span class="tooltip">Enter a custom Friction Angle, if it applies - defaults to 30.</span>?</a><h5 class="unit">Degrees</h5>
+                  </label>
+                  <input id="frAngle" class=""  placeholder="30&deg;"/>
+              </div>
             </div>
             <div class="columns small-12 medium-6 medium-clear">
               <h3 class="sectionTitle">Types of Flow</h3>
@@ -236,6 +243,7 @@
           <!--==================================================================-->
           <section class="pagnation-page" id="3">
             <div class="row">
+              <div id="channelSpecs">
               <div class="columns small-12">
               <h3 class="sectionTitle">Channel Specifications</h3>
             </div>
@@ -284,6 +292,7 @@
                 <input id="topFeet"  class="convert imperial" />
               </div>
             </div>
+          </div>
 
             <div class="columns small-12">
             <h3 class="sectionTitle">Environment</h3>

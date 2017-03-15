@@ -5,7 +5,7 @@
         <div class="columns small-12">
           <h2>Profile</h2>
         </div>
-        <div class="columns small-12 medium-3">
+        <div class="columns small-12 large-3">
           <img class="profilePicLarge" src="<?php echo base_url('img/default_dude_img.png')?>">
         </div>
         <div class="columns small-12 large-4">
