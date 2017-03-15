@@ -15,7 +15,7 @@
                 <p class="desc">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus.</p>
                 <div class="buttons clearfix">
                   <div class="leftButton">
-                    <a href="#" class="clearfix">
+                    <a href="<?php echo site_url('/quotes/summary/'.$estimate['estimate_id']);?>" class="clearfix">
                     <img class="centered" src="<?php echo base_url('img/paper_icon_black.svg');?>">
                       <span class="text">VIEW</span>
                     </a>

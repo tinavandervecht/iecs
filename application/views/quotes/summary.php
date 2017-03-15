@@ -3,7 +3,7 @@
 
         <section class="row expanded" id="cmsEstimateSummary">
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
-                  <a href="<?php echo site_url('admin/estimates');?>" class="tabTitle">&#10092; ESTIMATE SUMMARY</a>
+                  <a href="<?php echo site_url('/dashboard');?>" class="tabTitle">&#10092; ESTIMATE SUMMARY</a>
                   <div id="cardsbox" class="clearfix row">
 
 
