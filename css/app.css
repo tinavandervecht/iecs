@@ -1266,11 +1266,11 @@ div.more a{
   right:1em;
   width:1.5em;
   height:1.5em;
-  transform: rotate(0deg);
+  transform: rotate(180deg);
   transition: all ease 1s;
 }
 .block.selected .blockbox .factor img.arrow{
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 .blockbox .factor p{
   margin:0;

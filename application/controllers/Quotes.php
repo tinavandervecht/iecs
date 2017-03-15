@@ -133,5 +133,31 @@ class Quotes extends CI_Controller {
 
   }
 
+  public function summary($id){
+
+    if (isset($_SESSION['company_id']) == FALSE)
+  {
+    redirect('/profile/login');
+  }
+
+    if ($id==NULL) {
+
+      redirect('/dashboard');
+    }
+
+    //$data['summary'] = $this->admin_model->get_summary($id);
+    $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
+    $data['title'] = "Estimate Summary";
+    $data['jsLink'] = 'js/cms_estimate_summary.js';
+    $data['current'] = "quotes";
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/nav', $data);
+    $this->load->view('quotes/summary', $data);
+    $this->load->view('templates/footerNav', $data);
+    $this->load->view('templates/footer', $data);
+
+}
+
 
 }
