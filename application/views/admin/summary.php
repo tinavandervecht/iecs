@@ -31,9 +31,12 @@
                                 <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
                               </div>
                             </a>
-                            <div class="more clearfix">
-                              <h4>Estimate Details</h4>
+                            <div class="more clearfix row">
+                              <div class="column small-12">
+                                <h4>Estimate Details</h4>
+                              </div>
                               <!--===========================-->
+                              <section class="column small-12 medium-6">
                               <div class="other clearfix"><div>
                                 <p class="factor">Centroid Depth (mm)</p><div class="num">1.02</div>
                               </div></div>
@@ -82,6 +85,9 @@
                                 <p class="factor">Lift on Block [Bed] (N)</p><div class="num">1.02</div>
                               </div></div>
                               <!--===========================-->
+                            </section>
+                            <section class="columns small-12 medium-6">
+                              <!--===========================-->
                               <div class="other clearfix"><div>
                                 <p class="factor">Lift on Block [Side] (N)</p><div class="num">1.02</div>
                               </div></div>
@@ -125,6 +131,7 @@
                               <div class="other clearfix"><div>
                                 <p class="factor">Manning's N</p><div class="num">1.02</div>
                               </div></div>
+                            </section>
                             </div>
                         </div><!-- end block-->
                   <?php endforeach;?>
