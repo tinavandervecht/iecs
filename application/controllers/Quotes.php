@@ -148,7 +148,7 @@ class Quotes extends CI_Controller {
     //$data['summary'] = $this->admin_model->get_summary($id);
     $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
     $data['title'] = "Estimate Summary";
-    $data['jsLink'] = 'js/cms_estimate_summary.js';
+    $data['jsLink'] = 'js/calcpage.js';
     $data['current'] = "quotes";
 
     $this->load->view('templates/header', $data);

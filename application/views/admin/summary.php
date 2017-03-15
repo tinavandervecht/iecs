@@ -1,21 +1,18 @@
 <main class="clearfix">
         <h2 class="hidden">Main Content</h2>
 
-        <!-- <section class="row expanded" id="cmsEstimateSummary">
+        <section class="row expanded" id="cmsEstimateSummary">
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
                   <a href="<?php echo site_url('admin/estimates');?>" class="tabTitle">&#10092; ESTIMATE SUMMARY</a>
-                  <div id="cardsbox clearfix row">
+                  <div id="cardsbox" class="clearfix row">
 
-                      <a href="#" class="greenButton email" id="saveit">EMAIL</a>
 
-                    <!--
 
-                    -->
                     <!-- the below will most likely me queried from the database, no? so we can pull down the individual # associated with each block -->
                     <?php $blocks = ["CCG2", "CC35", "CC45", "CC70", "CC90"];?>
-                    <div class="columns small-12 large-6 card">
-                    <?php foreach($block in $blocks):?>
-                      <div class="block disabled"><!--start block-->
+                    <div class="columns small-12 large-12 card">
+                    <?php foreach($blocks as $block):?>
+                      <div class="block"><!--start block-->
                             <a href="#" class="blockbox clearfix">
                               <div class="blocktype">
                                 <p><?php echo $block ?></p>
@@ -132,7 +129,8 @@
                         </div><!-- end block-->
                   <?php endforeach;?>
               </div><!-- END CARDSBOX -->
+                <a href="#" class="greenButton email" id="saveit">EMAIL</a>
             </div>
-        </section> -->
+        </section>
 
 </main>
