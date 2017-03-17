@@ -19,7 +19,7 @@
                 <label for="d">
                   <h4 class="title">Projected Start Date for Project:</h4>
                   </label>
-                  <input type="date" id="d" name="d"/>
+                  <input type="date" id="d" name="projectedDate"/>
               </div>
               <div id="projectLocation" class="columns small-12 medium-6">
                   <label for="cityProv">
