@@ -127,7 +127,7 @@
                 <h3 class="sectionTitle">Slopes</h3>
               </div>
               <div class="columns small-12 medium-6 medium-push-6 large-6 large-pull-0">
-                <img src="<?php echo base_url('img/channel_slope.jpg');?>" class="calcDiagram" alt="">
+                <img src="<?php echo base_url('img/isometric_slope2.png');?>" class="calcDiagram" alt="">
               </div>
             <div class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
               <div id="bedSlope"  class="clearfix">
@@ -163,6 +163,7 @@
                   </label>
                   <input id="frAngle" class=""  placeholder="30&deg;"/>
               </div>
+
             </div>
             <div class="columns small-12 medium-6 medium-clear">
               <h3 class="sectionTitle">Types of Flow</h3>
@@ -181,6 +182,27 @@
                     <option value="5">Impinging</option>
                     <option value="6">Bridge/Culvert</option>
                     <option value="7">Undulating Trans Critical</option>
+                  </select>
+              </div>
+              <div id="designComponent"  class="clearfix">
+                  <label> 
+                  <h4 class="title">Type of Block</h4>
+                      <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
+                  </label>
+                  <select id="flowType" name="flowType">
+                    <option value="0" >Same Block for Both</option>
+                    <option value="1" >Different Block for each</option>
+                  </select>
+              </div>
+
+                <div id="designComponent"  class="clearfix">
+                  <label> 
+                  <h4 class="title">Use block on...</h4>
+                  </label>
+                  <select id="flowType" name="flowType">
+                    <option value="0" >Both Bed and Side</option>
+                    <option value="1" >Bed Only</option>
+                    <option value="2" >Side Only</option>
                   </select>
               </div>
             </div>

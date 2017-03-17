@@ -217,3 +217,7 @@
         </section>
 
 </main>
+<script>
+  var id = <?php echo $id; ?>;
+  var base_url = "<?php echo site_url();?>"
+</script>

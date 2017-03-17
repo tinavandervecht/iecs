@@ -50,10 +50,12 @@ class Quotes extends CI_Controller {
     $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('bedMeters', 'Bed Width', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
+    if ($this->input->post('alignType')!=0) {
+      $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
+    }
     $this->form_validation->set_message('required', 'Please fill out the %s.');
 
 
@@ -73,7 +75,14 @@ class Quotes extends CI_Controller {
 
     else {
       $this->quotes_model->set_quote();
-      redirect('/quotes');
+      $data['estimate'] = $this->quotes_model->get_last_quote($this->input->post('name'));
+      if ($data['estimate'] != false) {
+        redirect('/quotes/summary/'.$data['estimate']['estimate_id']);
+      }
+      else{
+        redirect('/quotes');
+      }
+
     }
 
   }
@@ -97,10 +106,12 @@ class Quotes extends CI_Controller {
     $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('bedMeters', 'Bed Width', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
+    if ($this->input->post('alignType')!=0) {
+      $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
+    }
     $this->form_validation->set_message('required', 'Please fill out the %s.');
 
 
@@ -128,7 +139,7 @@ class Quotes extends CI_Controller {
 
     else {
       $this->quotes_model->alter_quote($estimateID);
-      redirect('/quotes');
+      redirect('/quotes/summary/'.$estimateID);
     }
 
   }
@@ -150,6 +161,7 @@ class Quotes extends CI_Controller {
     $data['title'] = "Estimate Summary";
     $data['jsLink'] = 'js/calcpage.js';
     $data['current'] = "quotes";
+    $data['id'] = $id;
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/nav', $data);
@@ -157,6 +169,13 @@ class Quotes extends CI_Controller {
     $this->load->view('templates/footerNav', $data);
     $this->load->view('templates/footer', $data);
 
+}
+
+public function ajaxSummary(){
+  if (isset($_GET['id'])){
+    $data['estimate'] = $this->quotes_model->get_summary_data($_GET['id']);
+    echo json_encode($data['estimate']);
+  }
 }
 
 
