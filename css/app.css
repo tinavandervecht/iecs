@@ -488,6 +488,10 @@ form.testing input {
     max-width: 20em;
     float: left;
 }
+#calculator .checkBox {
+    /* float: right; */
+}
+
 #hideTheImperial {
     margin-left: 6em;
 }
@@ -802,7 +806,7 @@ a.sectionTitle{
     content: '';
     display: none;
     position: absolute;
-    width: 10em;
+    width: 2px;
     top: 10%;
     right: 0;
     height: 80%;
