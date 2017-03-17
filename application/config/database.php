@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'localhost:7888',
 	'username' => 'root',
-	'password' => '',
+	'password' => 'root',
 	'database' => 'db_erosionapp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

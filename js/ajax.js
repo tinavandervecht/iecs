@@ -11,10 +11,9 @@
   function ajaxCall(){
     httpRequest = new XMLHttpRequest();
     if(httpRequest===null){
-			alert("Error! Please update your browser.");
-			return;
+    	alert("Whoa there! Your browser is not updated enough to use this site. Maybe it's time for and <a href='http://browsehappy.com'>upgrade</a>?");
+      return;
 		}
-
 
 		var url = base_url+"/admin/ajaxEstimates?value=" + select.value + "&search="+search.value;
     //console.log(url);
