@@ -50,10 +50,12 @@ class Quotes extends CI_Controller {
     $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('bedMeters', 'Bed Width', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
+    if ($this->input->post('alignType')!=0) {
+      $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
+    }
     $this->form_validation->set_message('required', 'Please fill out the %s.');
 
 
@@ -104,10 +106,12 @@ class Quotes extends CI_Controller {
     $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]');
     $this->form_validation->set_rules('bedMeters', 'Bed Width', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
-    $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
+    if ($this->input->post('alignType')!=0) {
+      $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('channelMeters', 'Channel Length', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('depthMeters', 'Channel Depth', 'required|numeric|max_length[6]');
+      $this->form_validation->set_rules('topMeters', 'Top Width', 'required|numeric|max_length[6]');
+    }
     $this->form_validation->set_message('required', 'Please fill out the %s.');
 
 
