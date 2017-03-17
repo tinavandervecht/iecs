@@ -5,7 +5,7 @@
           <div class="columns small-12 medium-6 card left">
             <h3>Welcome <span class="name"><?php echo $userInfo['company_contactName'];?></span></h3>
             <img class="right-person" src="<?php echo base_url('img/default_dude_img.png');?>"/>
-            <p class="welcomeText">Half-Blood Prince Invisibility Cloak cauldron cakes, hiya Harry! Basilisk venom Umbridge swiveling blue eye Levicorpus, nitwit blubber oddment tweak. Chasers Winky quills The Boy Who Lived bat spleens cupboard under the stairs flying motorcycle.</p>
+            <p class="welcomeText">This web application is a tool that allows contractors and engineers to calculate which Cable Concrete&reg; product will best suit their projects. You can preform these calculations yourself, as well as keep track and edit any calculations you make on this application.</p>
           </div>
           <div class="columns small-12 medium-6 card right">
             <h3>About IECS</h3>
@@ -26,7 +26,14 @@
             <div class="quote">
               <h4 class="title"><?php echo $estimatesInfo[0]['estimate_name'];?></h4>
               <h5 class="dateModified">DATE MODIFIED: <span class="date"><?php echo $estimatesInfo[0]['estimate_modifiedDate'];?></span></h5>
-              <p class="desc"> Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter. .</p>
+              <p class="desc"><?php if ($estimatesInfo[0]['estimate_projectedDate']!="Not Specified"){
+                echo "A calculation for a job ";
+                if ($estimatesInfo[0]['estimate_location']!="Not Specified")
+                  {
+                    echo "at ".$estimatesInfo[0]['estimate_location']." ";
+                  }
+                 echo "on ".$estimatesInfo[0]['estimate_projectedDate'].".";
+               }?></p>
                 <div class="buttons clearfix">
                   <div class="leftButton">
                     <a href="<?php echo site_url('/quotes/summary/'.$estimatesInfo[0]['estimate_id']);?>" class="clearfix">
