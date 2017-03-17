@@ -41,7 +41,7 @@
         </div>
           <div class="columns small-12 card">
             <h3 class="display-block">New Quote</h3>
-            <p class="halfsies">Squashy armchairs dirt on your nose brass scales crush the Sopophorous bean with flat side of silver dagger, releases juice better than cutting. Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup.</p>
+            <p class="halfsies">To begin a new analysis, click the green button to the right. The process will ask you to input information relating to your project, and will return the recommended Cable Concrete block as well as a number of safety factors to suit your project.</p>
             <a id="newQuoteButton" class="greenButton" href="<?php echo site_url('/quotes/newQuote');?>">Start New quote</a>
         </div>
         </div>
