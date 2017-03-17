@@ -54,7 +54,7 @@ console.log(data);
 
 
 function quoteJax(){
-  var url = base_url+"/quotes/ajaxSummary?id=" + parseInt(base_url);
+  var url = base_url+"/quotes/ajaxSummary?id=" + id;
   console.log(base_url);
   var httpReq = new XMLHttpRequest();
   if(httpReq===null){
