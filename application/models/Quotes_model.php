@@ -180,7 +180,7 @@ class Quotes_model extends CI_Model {
 
           }
           public function get_summary_data($id){
-            $this->db->select('estimate_id');
+            $this->db->select('*');
             $this->db->from('tbl_estimates');
             $this->db->where('estimate_id', $id);
             $this->db->order_by('estimate_id', 'DESC');

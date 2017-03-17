@@ -161,6 +161,7 @@ class Quotes extends CI_Controller {
     $data['title'] = "Estimate Summary";
     $data['jsLink'] = 'js/calcpage.js';
     $data['current'] = "quotes";
+    $data['id'] = $id;
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/nav', $data);
@@ -172,7 +173,7 @@ class Quotes extends CI_Controller {
 
 public function ajaxSummary(){
   if (isset($_GET['id'])){
-    $data['estimate'] = $this->admin_model->get_summary_data($_GET['id']);
+    $data['estimate'] = $this->quotes_model->get_summary_data($_GET['id']);
     echo json_encode($data['estimate']);
   }
 }
