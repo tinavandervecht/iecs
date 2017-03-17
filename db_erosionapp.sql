@@ -90,9 +90,11 @@ CREATE TABLE `tbl_company` (
   `company_email` varchar(40) NOT NULL DEFAULT 'Your Email Here',
   `company_phone` varchar(12) NOT NULL DEFAULT '000-000-0000',
   `company_pw` varchar(30) NOT NULL,
-  `company_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  -- `company_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `company_date` datetime NOT NULL,
   `company_contactName` varchar(30) NOT NULL,
-  `company_lastLogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  -- `company_lastLogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `company_lastLogin` datetime NOT NULL,
   `company_status` smallint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
