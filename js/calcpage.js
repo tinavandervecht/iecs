@@ -6,7 +6,7 @@ var blocks = document.querySelectorAll(".block:not(.disabled)");
 var selected = null; //container for currently selected
 var TIME = 1; //seconds for expansion of dropdown/collapse
 var BOXHEIGHT = "auto";
-var BLOCKSMALL = "8em";
+var BLOCKSMALL = "7.9em";
 var selectedblock = document.querySelector("#selectedblock");
 function changeLeftBox(blockbox){
   // selectedblock.dataset.blockId = blockbox.querySelector('.blocktype p').innerHTML;
@@ -41,7 +41,7 @@ function openClose(event){
   changeLeftBox(it);
 }
 
-for(var i=0;i<blocks.length;i++){x
+for(var i=0;i<blocks.length;i++){
   if(blocks[i].classList.contains('highlight')){
     // TweenLite.to(blocks[i], TIME,{height:BOXHEIGHT});
     TweenLite.to(blocks[i], TIME,{height:"auto"});

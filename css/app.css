@@ -1224,21 +1224,24 @@ div.more a{
   display: block;
   text-align: center;
 }
+
 .blockbox .blocktype{
   background: #3a3a3a;
   color:#fbfbfb;
   height:100%;
   text-align: center;
-  padding:2em 1em;
+  padding:2em 0.1em;
   box-sizing: border-box;
   position: absolute;
   left:0;
   top:0;
   z-index: 2;
+  border:thick solid #1E1D1B;
+  border-right:0;
 }
 .blockbox .blocktype:after{
   position: absolute;
-  top:30%;
+  top:26%;
   border-top: thick solid #1E1D1B;
   border-right: thick solid #1E1D1B;
   content: '';
@@ -1249,8 +1252,8 @@ div.more a{
   z-index: 200;
   transform: rotate(45deg);
 
-/*MOBILE*/
-  display: none;
+
+    display: none;
 }
 .blockbox .blocktype p{
   font-family: "opensans-bold";
@@ -1283,15 +1286,13 @@ div.more a{
 .blockbox .factor h3{
   color:#fff;
   padding:0.4em;
-  font-size: 1rem;
   box-sizing: border-box;
   display: block;
   margin:0;
   background: #545454;
-  border-bottom: thick solid #1E1D1B;
   float: left;
 
-  /*MOBILE*/
+
   font-size: 0.5em;
   height:100%;
   border:0;
@@ -1317,9 +1318,8 @@ div.more a{
   box-sizing: border-box;
   padding:0;
   text-align: center;
-  height: 100%;
 
-  /*MOBILE*/
+
   height:50%;
 }
 .blockbox .slimshady-wrapper{
@@ -1331,15 +1331,14 @@ div.more a{
   /*width:100%;*/
   overflow: hidden;
   box-sizing: border-box;
-  border: thick solid #1E1D1B;
 
-  /*MOBILE*/
+
   border:0;
 }
 .blockbox .factor #overture{
   border-right: thick solid #1E1D1B;
 
-  /*MOBILE*/
+
   border:0;
   border-bottom: medium solid #1E1D1B;
 }
@@ -1351,19 +1350,21 @@ div.more a{
   background: #600c0c;
 }
 .blockbox .factor p{
-  padding:1.1em 0.5em;
   width:50%;
   box-sizing: border-box;
   margin:0;
-  font-size: 1.2em;
   display: block;
   float: left;
-  height:100%;
-
-  /*MOBILE*/
   height:auto;
   padding:0.25em;
   font-size: 0.5em;
+}
+.safety.nono{
+  background:#efd300 !important;
+  color:#1E1D1B;
+}
+.safety.bignono{
+  background:#820f0f !important;  
 }
 .blockbox .factor p .num{
   font-family: "opensans-bold";
@@ -1979,7 +1980,39 @@ background: #313131;
   font-size: 1.4em;
 
 }
+.blockbox .blocktype:after{
+  display: block;
 }
+.blockbox .factor h3{
+  /*DESKTOP*/
+  font-size: 1rem;
+  height:auto;
+  border-bottom: thick solid #1E1D1B;
+  line-height: 1.4em;
+}
+
+.blockbox .factor #overture, .blockbox .factor #sliding{
+  height: 100%;
+}
+
+.blockbox .slimshady-wrapper{
+  box-sizing: border-box;
+  border: thick solid #1E1D1B;
+}
+
+.blockbox .factor #overture{
+  border-right: thick solid #1E1D1B;
+  border-bottom: none;
+}
+.blockbox .factor p{
+  height:100%;
+  padding:1.1em 0.5em;
+  font-size: 1.2em;
+  line-height: 2.5em;
+}
+
+}/*END MEDIA QUERY*/
+
 
 @media only screen and (min-width: 64rem) {
   #dashTab1{
