@@ -19,7 +19,7 @@
                 <label for="d">
                   <h4 class="title">Projected Start Date for Project:</h4>
                   </label>
-                  <input type="date" id="d" name="d" value="<?php echo $estimate['estimate_projectedDate'];?>"/>
+                  <input type="date" id="d" name="projectedDate" value="<?php echo $estimate['estimate_projectedDate'];?>"/>
               </div>
               <div id="projectLocation" class="columns small-12 medium-6">
                   <label for="cityProv">
@@ -315,7 +315,7 @@
               </div>
             </div>
           </div>
-          
+
             <div class="columns small-12">
             <h3 class="sectionTitle">Environment</h3>
           </div>

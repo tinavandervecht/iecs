@@ -12,7 +12,17 @@
                 <h5 class="dateModified">DATE MODIFIED: <span class="date"> <?php echo $estimate['estimate_modifiedDate'];?></span></h5>
                 <h5 class="dateCreated">DATE CREATED: <span class="date"> <?php echo $estimate['estimate_date'];?></span></h5>
                 <h4 class="title"><?php echo $estimate['estimate_name'];?></h4>
-                <p class="desc">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus.</p>
+                <p class="desc"><?php if ($estimate['estimate_projectedDate']!="Not Specified"){
+                  echo "A calculation for a job ";
+                  if ($estimate['estimate_location']!="Not Specified")
+                    {
+                      echo "at ".$estimate['estimate_location']." ";
+                    }
+                   echo "on ".$estimate['estimate_projectedDate'].".";
+                   if ($estimate['estimate_comments']!="") {
+                     echo " Comments from the analysis author: ".$estimate['estimate_comments'];
+                   }
+                 }?></p>
                 <div class="buttons clearfix">
                   <div class="leftButton">
                     <a href="<?php echo site_url('/quotes/summary/'.$estimate['estimate_id']);?>" class="clearfix">
