@@ -163,4 +163,34 @@ class Quotes_model extends CI_Model {
 
             return $this->db->insert('tbl_activity', $data);
           }
+
+          public function get_last_quote($name){
+            $this->db->select('estimate_id');
+            $this->db->from('tbl_estimates');
+            $this->db->where('estimate_name', $name);
+            $this->db->order_by('estimate_id', 'DESC');
+            $this->db->limit(1);
+            $query = $this->db->get();
+            if($query -> num_rows() == 1){
+              return $query->row_array();
+            }
+            else{
+              return false;
+            }
+
+          }
+          public function get_summary_data($id){
+            $this->db->select('estimate_id');
+            $this->db->from('tbl_estimates');
+            $this->db->where('estimate_id', $id);
+            $this->db->order_by('estimate_id', 'DESC');
+            $this->db->limit(1);
+            $query = $this->db->get();
+            if($query -> num_rows() == 1){
+              return $query->row_array();
+            }
+            else{
+              return false;
+            }
+          }
 }

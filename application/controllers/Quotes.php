@@ -73,7 +73,14 @@ class Quotes extends CI_Controller {
 
     else {
       $this->quotes_model->set_quote();
-      redirect('/quotes');
+      $data['estimate'] = $this->quotes_model->get_last_quote($this->input->post('name'));
+      if ($data['estimate'] != false) {
+        redirect('/quotes/summary/'.$data['estimate']['estimate_id']);
+      }
+      else{
+        redirect('/quotes');
+      }
+
     }
 
   }
@@ -128,7 +135,7 @@ class Quotes extends CI_Controller {
 
     else {
       $this->quotes_model->alter_quote($estimateID);
-      redirect('/quotes');
+      redirect('/quotes/summary/'.$estimateID);
     }
 
   }
@@ -157,6 +164,13 @@ class Quotes extends CI_Controller {
     $this->load->view('templates/footerNav', $data);
     $this->load->view('templates/footer', $data);
 
+}
+
+public function ajaxSummary(){
+  if (isset($_GET['id'])){
+    $data['estimate'] = $this->admin_model->get_summary_data($_GET['id']);
+    echo json_encode($data['estimate']);
+  }
 }
 
 
