@@ -1281,7 +1281,7 @@ div.more a{
   position: relative;
   width:100%;
   z-index: -1;
-  font-size: 0.5em;
+  font-size: 1em;
 }
 .blockbox .factor h3{
   color:#fff;
@@ -1357,14 +1357,14 @@ div.more a{
   float: left;
   height:auto;
   padding:0.25em;
-  font-size: 0.5em;
+  font-size: 1em;
 }
 .safety.nono{
   background:#efd300 !important;
   color:#1E1D1B;
 }
 .safety.bignono{
-  background:#820f0f !important;  
+  background:#820f0f !important;
 }
 .blockbox .factor p .num{
   font-family: "opensans-bold";
