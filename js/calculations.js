@@ -10,6 +10,7 @@ Use the above in page to set JS variables via php on pageload or call to databas
 (function(){
 
 var jsonData;
+
 /*VARIABLE DECLARATIONS*/
 var name;
 var city;
@@ -19,21 +20,26 @@ var address;
 /*FLOW AND VELOCITY*/
 var maxFlow; //Cubic meters per second
 var maxVelocity; //Meters per seconds
+
 /*SLOPES*/
 var bedSlope; //Percent
 var sideSlope; //Ratio
 var frictionAngle; //Degrees,  note: Defaults to 30 degrees
+
 /*TYPES OF FLOW*/
 var flowType; //0 : normal, 1 : overtopping, 2 : sub-critical, 3 : hydraulic, 4 : jump, 5 : impinging, 6 : bridge/culvert, 7 : undulating trans critical
 var concreteDensity; //Defaults to 2.4 gravity, cannot be changed by user
+
 /*BED WIDTH AND ALIGNMENT*/
 var bedWidth; //Meters
 var alignment; //Defaults to Straight, opens more options if !straight
 var radiusAtCrest; //Meters, ONLY AVAILABLE IF alignment != straight
+
 /*CHANNEL SPECIFICATIONS*/
 var chuteLength; // Meters, ONLY AVAILABLE IF alignment != straight
 var channelDepth;// Meters, ONLY AVAILABLE IF alignment != straight
 var topWidth; // Meters, ONLY AVAILABLE IF alignment != straight
+
 /*ENVIRONMENT*/
 var outletSource; //River, manhole, etc.
 var soilType; //Soil type and related conditions
@@ -45,6 +51,7 @@ console.log(data);
   alert("An error has occurred! Please try again later.")
 }
 }
+
 
 function quoteJax(){
   var url = base_url+"/quotes/ajaxSummary?id=" + parseInt(base_url);
