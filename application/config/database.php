@@ -75,7 +75,8 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost:7888',
+	'hostname' => 'localhost',
+	'port'=>'3306',
 	'username' => 'root',
 	'password' => 'root',
 	'database' => 'db_erosionapp',
