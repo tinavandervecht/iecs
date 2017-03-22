@@ -18,14 +18,22 @@ function changeLeftBox(blockbox){
   // selectedblock.querySelector('.blockname').innerHTML = blockbox.querySelector('.blocktype').innerHTML;
   // selectedblock.querySelector('img').src = blockbox.querySelector('.blockdiagram').src;
 }
-function openClose(event){
+function openClose(event,block){
+  var it;
   try{
     event.preventDefault();
-    var it = event.currentTarget;
+    it = event.currentTarget;
   }
   catch(e){
     console.log(e);
   }
+  if(!(it.classList.contains('disabled'))){
+  toggleBlockOpen(it);
+}
+}
+
+function toggleBlockOpen(block){
+  var it = block;
   if(selected!=null && it!=selected){
     TweenLite.to(selected, TIME,{height:BLOCKSMALL});
     if(selected!=null){
@@ -43,7 +51,7 @@ function openClose(event){
     selected.classList.remove('selected');
     selected = null;
   }
-  changeLeftBox(it);
+  // changeLeftBox(it);
 }
 
 for(var i=0;i<blocks.length;i++){
@@ -137,16 +145,16 @@ function Calculations(data){
 
   //GENERIC OVERTURNING AND SLIDING CALCULATIONS
   this.overturningBed= function(){
-    return parseFloat(data.estimate_crestRadius)*1.1;
+    return parseFloat(data.estimate_crestRadius)*0.09;
   }
   this.overturningSide = function(){
-    return parseFloat(data.estimate_channelLength);
+    return parseFloat(data.estimate_channelLength)*0.08;
   }
   this.slidingBed = function(){
     return this.curvatureValue()*3/4;
   }
   this.slidingSide = function(){
-    return this.slopeValue()*2000;
+    return this.slopeValue()*856;
   }
 
   // INPUT BLOCK-SPEC VALUES, RETURNS JSON OF THE SAFETY FACTORS
@@ -178,22 +186,31 @@ function performCalcs(data){
     var calc = new Calculations(data);
     // console.log(calc.curvatureValue());
     var blocks = document.querySelectorAll(".block");
+    var firstHighlight = false; //value displaying if one of the blocks has been highlighted
     for(block of blocks){
+      var blockDisable = 0; //count the number of BAD safety factors
+      var blockOkay = 0; //count the number of OKAY safety factors
       // console.log(block.id);
       block.querySelector('.overturning .bed').innerHTML = calc.blockSon(block.id).o.bed;
       if(calc.blockSon(block.id).o.bed < UPSELL){
         if(calc.blockSon(block.id).o.bed < MINIMUM){
-          block.querySelector('.overturning .bed').classList.add('bignono');
+          block.querySelector('.overturning .bed').parentNode.classList.add('bignono');
+          blockDisable++;
+          blockOkay++;
         }else{
-          block.querySelector('.overturning .bed').classList.add('nono');
+          block.querySelector('.overturning .bed').parentNode.classList.add('nono');
+          blockOkay++;
         }
       }
       block.querySelector('.overturning .side').innerHTML = calc.blockSon(block.id).o.side;
       if(calc.blockSon(block.id).o.side < UPSELL){
         if(calc.blockSon(block.id).o.side < MINIMUM){
-          block.querySelector('.overturning .bed').parentNode.classList.add('bignono');
+          block.querySelector('.overturning .side').parentNode.classList.add('bignono');
+          blockDisable++;
+          blockOkay++;
         }else{
-          block.querySelector('.overturning .bed').parentNode.classList.add('nono');
+          block.querySelector('.overturning .side').parentNode.classList.add('nono');
+          blockOkay++;
         }
       }
 
@@ -201,8 +218,11 @@ function performCalcs(data){
       if(calc.blockSon(block.id).s.bed < UPSELL){
         if(calc.blockSon(block.id).s.bed < MINIMUM){
           block.querySelector('.sliding .bed').parentNode.classList.add('bignono');
+          blockDisable++;
+          blockOkay++;
         }else{
           block.querySelector('.sliding .bed').parentNode.classList.add('nono');
+          blockOkay++;
         }
       }
 
@@ -210,11 +230,24 @@ function performCalcs(data){
       if(calc.blockSon(block.id).s.side < UPSELL){
         if(calc.blockSon(block.id).s.side < MINIMUM){
           block.querySelector('.sliding .side').parentNode.classList.add('bignono');
+          blockDisable++;
+          blockOkay++;
         }else{
           block.querySelector('.sliding .side').parentNode.classList.add('nono');
+          blockOkay++;
         }
       }
-
+      // console.log(blockDisable);
+    if(blockDisable>=2){
+      block.classList.add('disabled');
+    }
+    // console.log(blockOkay + "blockOkay");
+    if(blockOkay==0 && !firstHighlight){
+      // console.log("highlighter");
+      block.classList.add('highlight');
+      firstHighlight = !firstHighlight;
+      toggleBlockOpen(block)
+    }
     }
   }else{
     alert("An error has occurred! Please try again later.")
