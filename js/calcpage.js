@@ -1,4 +1,9 @@
 (function(){
+//CONSTANTS
+var PRECISION = 2; //number of displayed decimals on block output.
+var MINIMUM = 1.5; //absolute minimum safe safety factor for a block
+var UPSELL = 2; //minimum safety factor to upsell to, anything below this but above MINIMUM is still acceptable, want to upsell to this
+
 var submittoIECS = document.querySelector("#saveit");
 var yeahSave = document.querySelector(".box #yes");
 var noSave = document.querySelector(".box #no");
@@ -116,9 +121,101 @@ var topWidth; // Meters, ONLY AVAILABLE IF alignment != straight
 var outletSource; //River, manhole, etc.
 var soilType; //Soil type and related conditions
 
-function calculations(data){
+
+function Calculations(data){
+  var numSides = 3;
+  this.slopeValue = function(){
+    return parseFloat(data.estimate_channelDepth)*parseFloat(data.estimate_bedSlope)*0.001;
+  }
+  this.topWidth = function(){
+    return parseFloat(data.estimate_bedWidth) + (this.slopeValue() * numSides);
+  }
+  this.curvatureValue = function(){
+    return parseFloat(data.estimate_crestRadius)/this.topWidth();
+  }
+
+
+  //GENERIC OVERTURNING AND SLIDING CALCULATIONS
+  this.overturningBed= function(){
+    return parseFloat(data.estimate_crestRadius)*1.1;
+  }
+  this.overturningSide = function(){
+    return parseFloat(data.estimate_channelLength);
+  }
+  this.slidingBed = function(){
+    return this.curvatureValue()*3/4;
+  }
+  this.slidingSide = function(){
+    return this.slopeValue()*2000;
+  }
+
+  // INPUT BLOCK-SPEC VALUES, RETURNS JSON OF THE SAFETY FACTORS
+  this.blockSon = function(block){
+    //BLOCK SPECIFIC FACTORS; probably shouldn't be stored in JS, should be stored serverside and pulled down with AJAX
+    var specs = {
+      "CCG2": 1.15,
+      "CC35": 1.65,
+      "CC45": 2.2,
+      "CC70": 2.8,
+      "CC90": 3.45
+    }
+    return {
+      o : { //overturning
+        bed: (this.overturningBed() * specs[block]).toFixed(PRECISION),
+        side: (this.overturningSide() * specs[block]).toFixed(PRECISION)
+      },
+      s: { //sliding
+        bed: (this.slidingBed() * specs[block]).toFixed(PRECISION),
+        side: (this.slidingSide() * specs[block]).toFixed(PRECISION)
+      }
+      };
+  }
+}
+
+function performCalcs(data){
   if(data){/*IF DATA IS NOT NULL*/
     console.log(data);
+    var calc = new Calculations(data);
+    // console.log(calc.curvatureValue());
+    var blocks = document.querySelectorAll(".block");
+    for(block of blocks){
+      // console.log(block.id);
+      block.querySelector('.overturning .bed').innerHTML = calc.blockSon(block.id).o.bed;
+      if(calc.blockSon(block.id).o.bed < UPSELL){
+        if(calc.blockSon(block.id).o.bed < MINIMUM){
+          block.querySelector('.overturning .bed').classList.add('bignono');
+        }else{
+          block.querySelector('.overturning .bed').classList.add('nono');
+        }
+      }
+      block.querySelector('.overturning .side').innerHTML = calc.blockSon(block.id).o.side;
+      if(calc.blockSon(block.id).o.side < UPSELL){
+        if(calc.blockSon(block.id).o.side < MINIMUM){
+          block.querySelector('.overturning .bed').parentNode.classList.add('bignono');
+        }else{
+          block.querySelector('.overturning .bed').parentNode.classList.add('nono');
+        }
+      }
+
+      block.querySelector('.sliding .bed').innerHTML = calc.blockSon(block.id).s.bed;
+      if(calc.blockSon(block.id).s.bed < UPSELL){
+        if(calc.blockSon(block.id).s.bed < MINIMUM){
+          block.querySelector('.sliding .bed').parentNode.classList.add('bignono');
+        }else{
+          block.querySelector('.sliding .bed').parentNode.classList.add('nono');
+        }
+      }
+
+      block.querySelector('.sliding .side').innerHTML = calc.blockSon(block.id).s.side;
+      if(calc.blockSon(block.id).s.side < UPSELL){
+        if(calc.blockSon(block.id).s.side < MINIMUM){
+          block.querySelector('.sliding .side').parentNode.classList.add('bignono');
+        }else{
+          block.querySelector('.sliding .side').parentNode.classList.add('nono');
+        }
+      }
+
+    }
   }else{
     alert("An error has occurred! Please try again later.")
 }
@@ -127,29 +224,26 @@ function calculations(data){
 
 function quoteJax(){
   var url = base_url+"/quotes/ajaxSummary?id=" + id;
-  console.log(base_url);
+  // console.log(base_url);
   var httpReq = new XMLHttpRequest();
   if(httpReq===null){
 		alert("Whoa there! Your browser is not updated enough to use this site. Maybe it's time for and <a href='http://browsehappy.com'>upgrade</a>?");
 		return;
 	}
-	httpReq.onreadystatechange = assignData();
-		httpReq.open("get", url);
-		httpReq.send();
-  }
-
-  function assignData(){
-    if(httpReq.readyState===4 || httpReq.readyState==="complete"){
-      // console.log(httpReq.responseText);
-      if (!(httpReq.responseText)){
-        return;
-      }
-      else{
-        jsonData = JSON.parse(httpReq.responseText);
-        calculations(jsonData);
-        return;
+	  httpReq.onreadystatechange = function(){
+      if(httpReq.readyState===4 || httpReq.readyState==="complete"){
+        if (!(httpReq.responseText)){
+          console.log(httpReq.responseText);
+          return;
+        }else{
+          jsonData = JSON.parse(httpReq.responseText);
+          performCalcs(jsonData);
+          return;
+        }
       }
     }
-  }
+		httpReq.open("get", url);
+		httpReq.send();
+}
   quoteJax();
 })();

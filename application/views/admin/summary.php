@@ -12,7 +12,7 @@
                     <?php $blocks = [["CCG2","25"], ["CC35","35"], ["CC45","45"], ["CC70","70"], ["CC90","90"]];?>
                   <div class="columns small-12 large-12 card">
                     <?php foreach($blocks as $block):?>
-                      <div class="block"> <!--Add in php for class 'highlight' depending on minimum safety factor of 2.0, class of 'disabled' if minimum safety factor is less than 1.5 -->
+                      <div class="block" id=<?php echo $block[0];?>>
                           <!--start block-->
                           <a href="#" class="blockbox clearfix">
                               <div class="blocktype small-4 medium-2">
@@ -22,15 +22,15 @@
                               <!-- <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram"> -->
                               <div class="factor row">
                                   <div class="slimshady-wrapper small-8 medium-10">
-                                      <div id="overture" class="columns small-12 medium-6">
-                                          <h3 class="small-6 medium-12 columns">Overture <span class="hide-for-small show-for-medium">Safety Factors</span></h3>
-                                          <p class="safety">Bed: <span class="num">0.2</span></p>
-                                          <p class="safety">Side: <span class="num">0.2</span></p>
+                                      <div class="columns small-12 medium-6 overturning">
+                                          <h3 class="small-6 medium-12 columns">Overturning<span class="hide-for-small show-for-medium">Safety Factors</span></h3>
+                                          <p class="safety">Bed: <span class="num bed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                                          <p class="safety">Side: <span class="num side">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
                                       </div>
-                                      <div id="sliding" class="column small-12 medium-6">
+                                      <div class="columns small-12 medium-6 sliding">
                                           <h3 class="small-6 medium-12 columns">Sliding <span class="hide-for-small show-for-medium">Safety Factors</span></h3>
-                                          <p class="safety">Bed: <span class="num">0.3</span></p>
-                                          <p class="safety">Side: <span class="num">0.6</span></p>
+                                          <p class="safety">Bed: <span class="num bed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                                          <p class="safety">Side: <span class="num side">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
                                       </div>
                                       <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
                                   </div>

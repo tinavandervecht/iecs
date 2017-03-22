@@ -1295,8 +1295,8 @@ div.more a{
   margin:0;
   background: #545454;
   float: left;
-
-
+  overflow:hidden;
+  text-overflow: ellipsis;
   font-size: 0.5em;
   height:100%;
   border:0;
@@ -1318,12 +1318,10 @@ div.more a{
 .block.selected .blockbox .factor img.arrow{
   transform: rotate(0deg);
 }
-.blockbox .factor #overture, .blockbox .factor #sliding{
+.blockbox .factor .overturning, .blockbox .factor .sliding{
   box-sizing: border-box;
   padding:0;
   text-align: center;
-
-
   height:50%;
 }
 .blockbox .slimshady-wrapper{
@@ -1339,13 +1337,12 @@ div.more a{
 
   border:0;
 }
-.blockbox .factor #overture{
+.blockbox .factor .overturning{
   border-right: thick solid #1E1D1B;
-
-
   border:0;
   border-bottom: medium solid #1E1D1B;
 }
+
 
 .block:not(.disabled) .blockbox .factor p:nth-child(2n){
   background: #447019;
@@ -1995,7 +1992,7 @@ background: #313131;
   line-height: 1.4em;
 }
 
-.blockbox .factor #overture, .blockbox .factor #sliding{
+.blockbox .factor .overturning, .blockbox .factor .sliding{
   height: 100%;
 }
 
@@ -2004,7 +2001,7 @@ background: #313131;
   border: thick solid #1E1D1B;
 }
 
-.blockbox .factor #overture{
+.blockbox .factor .overturning{
   border-right: thick solid #1E1D1B;
   border-bottom: none;
 }
