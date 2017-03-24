@@ -1,6 +1,8 @@
 <?php
 class Dashboard extends CI_Controller {
 
+  //THIS IS THE DASHBOARD CONTROLLER, WHICH DICTATES ALL THE CONTENT WITHIN THE DASHBOARD URL GATEWAY
+
         public function __construct()
         {
                 parent::__construct();
@@ -8,14 +10,15 @@ class Dashboard extends CI_Controller {
                 $this->load->helper('url_helper');
         }
 
-          public function index()
-  {
+          public function index(){ //FUNCTION FOR site/dashboard/
+
+            //THIS IS THE FUNCTIO
+
             if (isset($_SESSION['company_id']) == FALSE)
           {
             redirect('/profile/login');
           }
-          //$data['tbl_company'] = $this->profile_model->get_company();
-          //$data['title'] = 'Companies';
+          
           $data['userInfo'] = $this->dashboard_model->get_company($_SESSION['company_id']);
           $data['estimatesInfo'] = $this->dashboard_model->get_estimateHistory($_SESSION['company_id']);
 

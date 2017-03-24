@@ -1,28 +1,33 @@
 <?php
-class Admin extends CI_Controller {
+class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLLER
+
+  //THIS IS THE ADMIN CONTROLLER, WHICH DICTATES ALL THE CONTENT WITHIN THE ADMIN URL GATEWAY
 
         public function __construct()
         {
                 parent::__construct();
-                $this->load->model('admin_model');
+                $this->load->model('admin_model'); //THIS LOADS THE ADMIN MODEL, CONTAINING ALL QUERY FUNCTIONS FOR THE ADMIN CONTROLLER
                 $this->load->helper('url_helper');
         }
 
-        public function index(){
+        public function index(){ //FUNCTION FOR site/admin/
 
-          if (isset($_SESSION['admin_id']) == FALSE)
+        //THIS IS THE FUNCTION FOR PAGE THAT LOADS WHEN YOU ENTER THE CMS PANEL. IT GETS ACTIVITY HISTORY FROM THE DATABASE AND DISPLAYS IT VIA THE ADMIN/DASHBOARD VIEW.
+
+          if (isset($_SESSION['admin_id']) == FALSE) //IF THEY'RE NOT LOGGED IN
         {
           redirect('/admin/login');
         }
-        //$data['tbl_company'] = $this->profile_model->get_company();
-        //$data['title'] = 'Companies';
-        //$data['userInfo'] = $this->admin_model->get_adminInfo($_SESSION['admin_id']);
+
+        //VARIABLES ARE PASSED TO THE VIEW THROUGH THE DATA VARIABLES
+
         $data['activity'] = $this->admin_model->get_activity(4);
 
-        $data['title'] = "Admin Panel | IECS";
-        $data['jsLink'] = 'js/dash.js';
-        $data['current'] = "dashboard";
+        $data['title'] = "Admin Panel | IECS"; //THE TITLE VARIABLE DEFINES THE WEBPAGE TITLE IN THE HEADER TEMPLATE VIEW
+        $data['jsLink'] = 'js/dash.js'; //THE JSLINK VARIABLE DEFINES WHICH JAVASCRIPT FILE IS LINKED ON A PAGE IN THE FOOTER TEMPLATE VIEW
+        $data['current'] = "dashboard"; //THE CURRENT VARIABLE DEFINES WHICH PAGE IN THE NAV TEMPLATE VIEW IS CURRENTLY ACTIVE
 
+        //THE VIEWS ARE LOADED AND VARIABLES ARE PASSED THROUGH $data.
         $this->load->view('templates/header', $data);
         $this->load->view('templates/adminNav', $data);
         $this->load->view('admin/dashboard', $data);
@@ -30,61 +35,61 @@ class Admin extends CI_Controller {
         $this->load->view('templates/footer', $data);
 }
 
-        public function login(){
+        public function login(){ //FUNCTION FOR site/admin/login
 
-        if (isset($_SESSION['admin_id']) == TRUE){
+        //THIS IS THE ADMIN LOGIN PAGE FUNCTION. IT CALLS ITSELF FROM WITHIN THE VIEW TO LOG THE USER IN AS WELL
+
+        if (isset($_SESSION['admin_id']) == TRUE){ //IF THEY'RE ALREADY LOGGED IN
           redirect('/admin');
         }
 
         $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->load->library('form_validation'); //THE FORM VALIDATION LIBRARY IS LOADED EVERYTIME A FORM IS USED ON A FORM.
 
         $data['title'] = 'Log-In | IECS';
         $data['jsLink'] = 'js/login.js';
 
+        //LOG-IN FORM VALIDATION
         $this->form_validation->set_rules('admin_user', 'required');
         $this->form_validation->set_rules('admin_pw', 'Password', 'required');
 
-      if ($this->form_validation->run() === FALSE){
+      if ($this->form_validation->run() === FALSE){ //FORM VALIDATION RETURNS FALSE IF THE FORM HASNT BEEN FILLED OUT OR IS FILLED OUT WRONG
+
+          //IN THIS CASE THE PAGE IS JUST NORMALLY DISPLAYED. IF THERE ARE FORM ERRORS THEY ARE PASSED IN THE VIEWS.
 
           $this->load->view('templates/header', $data);
           $this->load->view('admin/login');
           $this->load->view('templates/footer', $data);
       }
 
-      else{
+      else{ //IF THE PAGE IS CALLING ITSELF THROUGH THE FORM AND IF THE FORM VALIDATES (MEANING THEY PROPERLY FILLED OUT THE LOGIN FORM)
 
-          $session = $this->admin_model->check_adminlogin();
+          $session = $this->admin_model->check_adminlogin(); //THIS FUNCTION ATTEMPTS TO LOG IN THE USER, RETURNS FALSE IF THE INFO IS WRONG
 
-          if($session === FALSE)
+          if($session === FALSE) //IF THE INFO DOESNT MATCH THE ADMIN LOGIN INFO
           {
-
+            //THE PAGE IS RELOADED
             $this->load->view('templates/header', $data);
             $this->load->view('admin/login');
             $this->load->view('templates/footer', $data);
           }
 
-          else{
+          else{ //THE LOGIN IS SUCCESSFUL
 
-            //$this->load->view('templates/header', $data);
-            //$this->load->view('profile/view', $data);
-            //$this->load->view('templates/footer');
-            $this->session->set_userdata($session);
-            //$this->views($data['userInfo']['company_id']);
-            redirect('/admin');
+            $this->session->set_userdata($session); //UPLOAD THE ADMIN INFO TO THE SESSION, THE USER IS NOW 'LOGGED IN'.
+            redirect('/admin'); //REDIRECT TO THE DASHBOARD.
           }
         }
       }
 
-      public function activity(){
+      public function activity(){ //FUNCTION FOR  site/admin/activity
 
-        if (isset($_SESSION['admin_id']) == FALSE)
+        //THIS PAGE GETS ACTIVITY INFORMATION FROM THE DATABASE AND DISPLAYS IT VIA THE admin/activity VIEW.
+
+        if (isset($_SESSION['admin_id']) == FALSE) //IF THEYRE NOT LOGGED IN
       {
         redirect('/admin/login');
       }
-      //$data['tbl_company'] = $this->profile_model->get_company();
-      //$data['title'] = 'Companies';
-      //$data['userInfo'] = $this->admin_model->get_adminInfo($_SESSION['admin_id']);
       $data['activity'] = $this->admin_model->get_activity(8);
 
       $data['title'] = "Activity | IECS";
@@ -98,7 +103,9 @@ class Admin extends CI_Controller {
       $this->load->view('templates/footer', $data);
     }
 
-      public function estimates(){
+      public function estimates(){ //FUNCTION FOR site/admin/Activity
+
+        //THIS PAGE GETS ALL ESTIMATES INFORMATION AND DISPLAYS IT VIA THE admin/estimates VIEW. IT HAS A UNIQUE FOOTER FOR THE AJAX ON THE PAGE.
 
         if (isset($_SESSION['admin_id']) == FALSE)
       {
@@ -136,19 +143,16 @@ class Admin extends CI_Controller {
         $this->load->view('templates/adminFooterNav', $data);
         $this->load->view('templates/estimatefooter', $data);
       }
-      //$data['tbl_company'] = $this->profile_model->get_company();
-      //$data['title'] = 'Companies';
-      //$data['userInfo'] = $this->admin_model->get_adminInfo($_SESSION['admin_id']);
-
     }
-    public function summary($id){
+
+    public function summary($id){ //THIS IS THE FUNCTION FOR site/admin/summary/(id)
 
       if (isset($_SESSION['admin_id']) == FALSE)
     {
       redirect('/admin/login');
     }
 
-      if ($id==NULL) {
+      if ($id==NULL) { //IF NO SUMMARY IS SELECTED
 
         redirect('/admin/estimates');
       }
@@ -166,7 +170,7 @@ class Admin extends CI_Controller {
 
   }
 
-  public function companies(){
+  public function companies(){ //THIS IS THE FUNCTION FOR site/admin/companies
 
     if (isset($_SESSION['admin_id']) == FALSE)
   {
@@ -212,7 +216,9 @@ class Admin extends CI_Controller {
 
 }
 
-  public function company($id){
+  public function company($id){ //THIS IS THE FUNCTION FOR INDIVIDUAL COMPANY PAGES at site/admin/company/(id).
+
+    //THE ID PARAMETER IS USED TO DETERMINE WHICH COMPANY INFO TO DISPLAY IN THE get_companyEstimates and get_companyInfo FUNCTIONS IN THE ADMIN MODEL.
 
     if (isset($_SESSION['admin_id']) == FALSE){
       redirect('/admin/login');
@@ -260,8 +266,9 @@ class Admin extends CI_Controller {
    $this->load->view('templates/footer', $data);
  }
 
+//AJAX FUNCTIONS, THESE FUNCTIONS RETURN JSON FOR AJAX FUNCTIONALIY. THEY ARE CALLED BY THE AJAX JAVASCRIPT FUNCTIONS ON THE ESTIMATES AND COMPANIES PAGES.
  public function ajaxCompanies(){
-   if (isset($_GET['value'])){
+   if (isset($_GET['value'])){ //IF THE GET value PARAMETER IS PASSED
      $data['companies'] = $this->admin_model->ajax_companies($_GET['value'], $_GET['search']);
      echo json_encode($data['companies']);
    }
@@ -271,6 +278,13 @@ class Admin extends CI_Controller {
    if (isset($_GET['value'])){
      $data['estimates'] = $this->admin_model->ajax_estimate($_GET['value'], $_GET['search']);
      echo json_encode($data['estimates']);
+   }
+ }
+
+ public function ajaxSummary(){
+   if (isset($_GET['id'])){
+     $data['estimate'] = $this->admin_model->get_summary_data($_GET['id']);
+     echo json_encode($data['estimate']);
    }
  }
 
