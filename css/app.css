@@ -1770,6 +1770,10 @@ background: #eee;
   margin-top: 0.5em;
   font-size: 1em;
 }
+#cmsCompanyProfile #companyInfo a{
+  color:inherit;
+}
+
 #cmsCompanies .companii .title h3, #cmsCompanyProfile #companyInfo .title h3{
   text-transform: uppercase;
   font-family: "opensans-bold";
