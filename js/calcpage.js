@@ -191,58 +191,75 @@ function performCalcs(data){
       var blockDisable = 0; //count the number of BAD safety factors
       var blockOkay = 0; //count the number of OKAY safety factors
       // console.log(block.id);
-      block.querySelector('.overturning .bed').innerHTML = calc.blockSon(block.id).o.bed;
-      if(calc.blockSon(block.id).o.bed < UPSELL){
-        if(calc.blockSon(block.id).o.bed < MINIMUM){
+      var TEST_USEBLOCK = 1; // 0:both, 1:bed, 2:side
+      var numSafety = (TEST_USEBLOCK == 0)  ? 4 : 2;
+      console.log(numSafety);
+
+      var blocky = calc.blockSon(block.id);
+
+      if(TEST_USEBLOCK == 0 || TEST_USEBLOCK == 1){
+      block.querySelector('.overturning .bed').innerHTML = blocky.o.bed;
+      if(blocky.o.bed < UPSELL){
+        if(blocky.o.bed < MINIMUM){
           block.querySelector('.overturning .bed').parentNode.classList.add('bignono');
           blockDisable++;
-          blockOkay++;
+          // blockOkay++;
         }else{
           block.querySelector('.overturning .bed').parentNode.classList.add('nono');
           blockOkay++;
         }
       }
-      block.querySelector('.overturning .side').innerHTML = calc.blockSon(block.id).o.side;
-      if(calc.blockSon(block.id).o.side < UPSELL){
-        if(calc.blockSon(block.id).o.side < MINIMUM){
+      block.querySelector('.sliding .bed').innerHTML = blocky.s.bed;
+      if(blocky.s.bed < UPSELL){
+        if(blocky.s.bed < MINIMUM){
+          block.querySelector('.sliding .bed').parentNode.classList.add('bignono');
+          blockDisable++;
+          // blockOkay++;
+        }else{
+          block.querySelector('.sliding .bed').parentNode.classList.add('nono');
+          blockOkay++;
+        }
+      }
+    }else{
+      block.querySelector('.sliding .bed').parentNode.classList.add('hidden');
+      block.querySelector('.overturning .bed').parentNode.classList.add('hidden');
+      block.querySelector('.factor').classList.add('one');
+    }
+    if(TEST_USEBLOCK == 0 || TEST_USEBLOCK == 2){
+      block.querySelector('.overturning .side').innerHTML = blocky.o.side;
+      if(blocky.o.side < UPSELL){
+        if(blocky.o.side < MINIMUM){
           block.querySelector('.overturning .side').parentNode.classList.add('bignono');
           blockDisable++;
-          blockOkay++;
+          // blockOkay++;
         }else{
           block.querySelector('.overturning .side').parentNode.classList.add('nono');
           blockOkay++;
         }
       }
 
-      block.querySelector('.sliding .bed').innerHTML = calc.blockSon(block.id).s.bed;
-      if(calc.blockSon(block.id).s.bed < UPSELL){
-        if(calc.blockSon(block.id).s.bed < MINIMUM){
-          block.querySelector('.sliding .bed').parentNode.classList.add('bignono');
-          blockDisable++;
-          blockOkay++;
-        }else{
-          block.querySelector('.sliding .bed').parentNode.classList.add('nono');
-          blockOkay++;
-        }
-      }
-
-      block.querySelector('.sliding .side').innerHTML = calc.blockSon(block.id).s.side;
-      if(calc.blockSon(block.id).s.side < UPSELL){
-        if(calc.blockSon(block.id).s.side < MINIMUM){
+      block.querySelector('.sliding .side').innerHTML = blocky.s.side;
+      if(blocky.s.side < UPSELL){
+        if(blocky.s.side < MINIMUM){
           block.querySelector('.sliding .side').parentNode.classList.add('bignono');
           blockDisable++;
-          blockOkay++;
+          // blockOkay++;
         }else{
           block.querySelector('.sliding .side').parentNode.classList.add('nono');
           blockOkay++;
         }
       }
-      // console.log(blockDisable);
-    if(blockDisable>=2){
-      block.classList.add('disabled');
+    }else{
+      block.querySelector('.sliding .side').parentNode.classList.add('hidden');
+      block.querySelector('.overturning .side').parentNode.classList.add('hidden');
+      if(!block.querySelector('.factor').classList.contains('one')){
+        block.querySelector('.factor').classList.add('one');
+      }
     }
-    // console.log(blockOkay + "blockOkay");
-    if(blockOkay==0 && !firstHighlight){
+      if(blockDisable >= (numSafety/2)){
+          block.classList.add('disabled');
+      }
+    if(blockOkay==0 && !block.classList.contains('disabled') && !firstHighlight){
       // console.log("highlighter");
       block.classList.add('highlight');
       firstHighlight = !firstHighlight;

@@ -941,7 +941,7 @@ a.sectionTitle{
     text-transform: uppercase;
 }
 #quotes .quote.closed {
-    padding-bottom: 1em;
+    /*padding-bottom: 1em;*/
 }
 #quotes .buttons {
     border-bottom: none;
@@ -1036,8 +1036,11 @@ a.sectionTitle{
 #scrollWrapper.quotesPage .title {
     font-size: 1.4em;
 }
-#scrollWrapper.quotesPage .buttons {} #scrollWrapper.quotesPage .buttons .rightButton {
-    border-left: none;
+#scrollWrapper.quotesPage .buttons {
+
+}
+#scrollWrapper.quotesPage .buttons .rightButton {
+    /*border-left: none;*/
 }
 #scrollWrapper.quotesPage .dateModified {
     margin-top: 2em;
@@ -1350,6 +1353,12 @@ div.more a{
   height:auto;
   padding:0.25em;
   font-size: 1em;
+}
+.blockbox .factor:not(.one) .safety:nth-child(2){
+  border-right: medium solid #1E1D1B;
+}
+.blockbox .factor.one p{
+  width: 100%;
 }
 .safety.nono{
   background:#efd300 !important;
@@ -2001,7 +2010,7 @@ background: #313131;
   height:100%;
   padding:1.1em 0.5em;
   font-size: 1.2em;
-  line-height: 2.5em;
+  /*line-height: 2.5em;*/
 }
 
 }/*END MEDIA QUERY*/
@@ -2146,6 +2155,8 @@ background: #313131;
     margin-top: 1em;
     margin: 0;
     max-width: 58em;
+    min-height: 3em;
+    margin-bottom: 1em;
     width: 70%;
 }
   #mainQuotes #scrollWrapper.quotesPage .dateModified,
