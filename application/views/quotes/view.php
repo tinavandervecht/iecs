@@ -37,7 +37,7 @@
                     </a>
                   </div>
                   <div class="rightButton">
-                    <a href="<?php echo site_url('/quotes/deleteQuote/'.$estimate['estimate_id'].'/dashboard');?>" class="clearfix">
+                    <a href="<?php echo site_url('/quotes/deleteQuote/'.$estimate['estimate_id'].'/quotes');?>" class="clearfix">
                     <img class="centered" src="<?php echo base_url('img/trash_icon.svg');?>">
                     <span class="text">DISCARD</span>
                   </a>
