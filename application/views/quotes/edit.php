@@ -185,24 +185,24 @@
               </div>
 
               <div id="designComponent"  class="clearfix">
-                  <label> 
+                  <label>
                   <h4 class="title">Type of Block</h4>
                       <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
                   </label>
-                  <select id="flowType" name="flowType">
-                    <option value="0" >Same Block for Both</option>
-                    <option value="1" >Different Block for each</option>
+                  <select name="blockType">
+                    <option value="0" <?php if ($estimate['estimate_blockType'] == 0) {echo "selected";}?>>Same Block for Both</option>
+                    <option value="1" <?php if ($estimate['estimate_blockType'] == 1) {echo "selected";}?>>Different Block for each</option>
                   </select>
               </div>
 
                 <div id="designComponent"  class="clearfix">
-                  <label> 
+                  <label>
                   <h4 class="title">Use block on...</h4>
                   </label>
-                  <select id="flowType" name="flowType">
-                    <option value="0" >Both Bed and Side</option>
-                    <option value="1" >Bed Only</option>
-                    <option value="2" >Side Only</option>
+                  <select name="blockUse">
+                    <option value="0"  <?php if ($estimate['estimate_blockUse'] == 0) {echo "selected";}?>>Both Bed and Side</option>
+                    <option value="1" <?php if ($estimate['estimate_blockUse'] == 1) {echo "selected";}?>>Bed Only</option>
+                    <option value="2" <?php if ($estimate['estimate_blockUse'] == 2) {echo "selected";}?>>Side Only</option>
                   </select>
               </div>
             </div>

@@ -1,0 +1,17 @@
+///////////UNDERSTANDING THE FOLDER STRUCTURE///////////
+
+This project uses the MVC framework CodeIgniter, meaning it is a Single Page Application. Here is how it works.
+
+There is only one webpage file now, index.php.
+Instead of linking to separate html pages, the URL now activates functions in the CONTROLLERS (/application/controllers) which display VIEWS (/application/views) containing html and php code.
+If data is required from the database, the controller grabs it via query functions defined in the MODEL (/application/models). Each Controller has a model associated with it.
+
+So for example, if you are looking at localhost/erosion_control/index.php/admin/summary/12, you are activating the summary($id) function with a parameter of 12 in the ADMIN controller. You can find that function in /application/controllers/Admin.php.
+
+So, for any url on the site the format will be localhost/(folder)/index.php/(controller)/(function)/(parameter)/(parameter)/(etc.) If the url has no function after the controller, it is the index() function.
+
+All web php files related to the website are kept in the application folder. CSS/Javascript/Images etc are kept outside the application folder. If they are linked in the html in the view, you need to use the PHP function base_url() (for example, base_url('img/img.jpg');).
+
+Configuration files, like the database settings are kept in application/config/
+
+You should not have to edit any other folders or files (third_party, libraries, language, logs etc).
