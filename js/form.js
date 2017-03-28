@@ -221,6 +221,7 @@ function toggleUnits(){
       toggleUnits();
     },100);
   }
+
   for(var i=0;i<fields.length;i++){
     if(showI && fields[i].classList.contains('imperial')){
         fields[i].classList.add('shown');
@@ -257,39 +258,41 @@ function checkAlign(){
 function getInputs(){
   //Grabs values in metric, to convert to imperial if needed.
   return {
-    project_details : {
+    sum_details : {
       projName : {title : "Project Name", value : calcSubmit.querySelector('#name').value},
       projDate : {title : "Project Date", value : calcSubmit.querySelector('#d').value},
       cityProv : {title : "City and Province", value : calcSubmit.querySelector('#cityProv').value},
       addr : {title : "Address", value : calcSubmit.querySelector('#addr').value},
       engineerName : {title : "Engineer Name", value : calcSubmit.querySelector('#engineerName').value}
     },
-    flow_and_velocity : {
+    sum_flow : {
       flowMeters : {title : "Flow", value : calcSubmit.querySelector('#flowMeters').value},
       velocityMeters : {title : "Velocity", value : calcSubmit.querySelector('#velocityMeters').value}
     },
-    slopes : {
+    sum_slopes : {
       bedSlope : {title : "Bed Slope", value : calcSubmit.querySelector('#bedSlopeDecimal').value},
       sideSlope : {title : "Side Slope", value : calcSubmit.querySelector('#sideSlopeDecimal').value}
     },
-    flow_type : {
+    sum_type : {
       flowType : {title : "Flow Type", value : calcSubmit.querySelector('#flowType').value},
     },
-    bed_width_and_alignment : {
+    sum_bed : {
       bedWidth : {title : "Bed Width", value : calcSubmit.querySelector('#bedMeters').value},
       alignment : {title : "Alignment", value : calcSubmit.querySelector('#alignType').value},
       crest : {title : "Radius at the Crest", value : calcSubmit.querySelector('#crestMeters').value},
     },
-    channel_specifications : {
+    sum_channel : {
       length : {title : "Channel Length", value : calcSubmit.querySelector('#channelMeters').value},
       depth : {title : "Depth", value : calcSubmit.querySelector('#depthMeters').value},
       topWidth : {title : "Top Width", value : calcSubmit.querySelector('#topMeters').value},
     },
-    environment : {
+    sum_environment : {
       source : {title : "Outlet Source", value : calcSubmit.querySelector('#sourceType').value},
       soil : {title : "Soil Type", value : calcSubmit.querySelector('#soilType').value},
     },
-    comments : {title : "Comments", value : calcSubmit.querySelector('#commentsBox').value},
+    sum_comments : {
+    comments : {title : "Comments", value : calcSubmit.querySelector('#commentsBox').value}
+    }
   };
 }
 
@@ -297,18 +300,20 @@ function getInputs(){
 function summarize(){
   function stringify(json){
     var s = "";
+    // console.log(json);
     for(i of Object.keys(json)){
-      s += json[i].title + ": " + json[i].value + " / " + "\n";
-      // console.log(json[i].title);
+      s += json[i].title + ": " + json[i].value + " " + "<br>";
     }
-  //  return s;
-  console.log(s);
+   return s;
   }
   var inputs = getInputs();
   var summaryEntries = document.querySelectorAll('.summaryEntry');
   var i=0;
-  for(json of Object.keys(inputs)){
-    stringify(inputs[json]);
+  // for(json of Object.keys(inputs)){
+  //   stringify(inputs[json]);
+  // }
+  for(box of summaryEntries){
+    box.querySelector('.text').innerHTML =  stringify(inputs[box.id]);
   }
 }
 
@@ -336,7 +341,6 @@ for(var i=0;i<convertFields.length;i++){
 for(var i=0;i<fields.length;i++){
   fields[i].addEventListener('click', clearField, false);
 }
-
 toggleUnits(); //initial activation of unit toggle functionality.
 checkAlign(); //initalize the hiding of the alignment conditional
 contButton.addEventListener('click', pagnation,false);

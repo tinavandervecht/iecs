@@ -145,16 +145,16 @@ function Calculations(data){
 
   //GENERIC OVERTURNING AND SLIDING CALCULATIONS
   this.overturningBed= function(){
-    return parseFloat(data.estimate_crestRadius)*0.09;
+    return 1/parseFloat(data.estimate_crestRadius);
   }
   this.overturningSide = function(){
-    return parseFloat(data.estimate_channelLength)*0.08;
+    return 1/parseFloat(data.estimate_channelLength)*3.4;
   }
   this.slidingBed = function(){
-    return this.curvatureValue()*3/4;
+    return this.curvatureValue()*1.4;
   }
   this.slidingSide = function(){
-    return this.slopeValue()*856;
+    return this.slopeValue()*20;
   }
 
   // INPUT BLOCK-SPEC VALUES, RETURNS JSON OF THE SAFETY FACTORS
