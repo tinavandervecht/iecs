@@ -2363,8 +2363,8 @@ background: #313131;
         padding: 60px;
         border: 1px solid #888;
         width: 100%;
-        max-width: 30em;
-        height: 150%;
+        max-width: 50em;
+        height: 120%;
         font-family: opensans;
         font-size: 14px;
     }
