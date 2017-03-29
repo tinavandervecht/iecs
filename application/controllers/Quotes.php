@@ -6,6 +6,7 @@ class Quotes extends CI_Controller {
                 parent::__construct();
                 $this->load->model('quotes_model');
                 $this->load->helper('url_helper');
+                $this->load->library('email');
         }
 
           public function index()
@@ -162,6 +163,19 @@ class Quotes extends CI_Controller {
     $data['jsLink'] = 'js/calcpage.js';
     $data['current'] = "quotes";
     $data['id'] = $id;
+
+    if (isset($_POST)){
+    $body = $this->input->post('email_text');
+    $sub = $this->input->post('email_sub');
+    $this->email->from($data['userInfo']['company_email'], $data['userInfo']['company_contactName']);
+    $this->email->to('IECS EMAIL');
+
+    $this->email->subject($sub);
+    $this->email->message($body);
+
+    $this->email->send();
+
+    }
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/nav', $data);

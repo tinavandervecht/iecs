@@ -260,7 +260,9 @@ class Admin_model extends CI_Model {
             public function get_summary($id){
 
               $this->db->select('*');
-              $this->db->from('tbl_results');
+              $this->db->from('tbl_estimates');
+              $this->db->join('tbl_results', 'tbl_estimates.estimate_id = tbl_results.results_id');
+              $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
               $this->db->where('tbl_results.estimate_id', $id);
 
               $query = $this->db->get();
