@@ -59,31 +59,60 @@ class Quotes_model extends CI_Model {
           $this->load->helper('url');
           date_default_timezone_set('America/Toronto');
 
-          $data = array(
-              'company_id' => $_SESSION['company_id'],
-              'estimate_name' => $this->input->post('name'),
-              'estimate_date' => date('Y-m-d H:i:s'),
-              'estimate_projectedDate' => $this->input->post('d'),
-              'estimate_address' => $this->input->post('addr'),
-              'estimate_engineer' => $this->input->post('engineerName'),
-              'estimate_status' => 1,
-              'estimate_location' => $this->input->post('cityProv'),
-              'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
-              'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
-              'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
-              'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
-              'estimate_flowType' => number_format($this->input->post('flowType')),
-              'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
-              'estimate_alignment' => number_format($this->input->post('alignType')),
-              'estimate_crestRadius' => number_format($this->input->post('crestMeters'),2),
-              'estimate_channelLength' => number_format($this->input->post('channelMeters'),2),
-              'estimate_channelDepth' => number_format($this->input->post('depthMeters'),2),
-              'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
-              'estimate_outLetSource' => number_format($this->input->post('sourceType')),
-              'estimate_soilType' => number_format($this->input->post('soilType')),
-              'estimate_modifiedDate' => date('Y-m-d H:i:s'),
-              'estimate_comments' => $this->input->post('commentsBox')
-          );
+          if ($this->input->post('alignType')!=0) {
+            $data = array(
+                'company_id' => $_SESSION['company_id'],
+                'estimate_name' => $this->input->post('name'),
+                'estimate_date' => date('Y-m-d H:i:s'),
+                'estimate_projectedDate' => $this->input->post('projectedDate'),
+                'estimate_address' => $this->input->post('addr'),
+                'estimate_engineer' => $this->input->post('engineerName'),
+                'estimate_status' => 1,
+                'estimate_location' => $this->input->post('cityProv'),
+                'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
+                'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+                'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
+                'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
+                'estimate_flowType' => number_format($this->input->post('flowType')),
+                'estimate_blockType' => $this->input->post('blockType'),
+                'estimate_blockUse' => $this->input->post('blockUse'),
+                'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
+                'estimate_alignment' => number_format($this->input->post('alignType')),
+                'estimate_crestRadius' => number_format($this->input->post('crestMeters'),2),
+                'estimate_channelLength' => number_format($this->input->post('channelMeters'),2),
+                'estimate_channelDepth' => number_format($this->input->post('depthMeters'),2),
+                'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
+                'estimate_outLetSource' => number_format($this->input->post('sourceType')),
+                'estimate_soilType' => number_format($this->input->post('soilType')),
+                'estimate_modifiedDate' => date('Y-m-d H:i:s'),
+                'estimate_comments' => $this->input->post('commentsBox')
+            );
+          }
+          else{
+            $data = array(
+                'company_id' => $_SESSION['company_id'],
+                'estimate_name' => $this->input->post('name'),
+                'estimate_date' => date('Y-m-d H:i:s'),
+                'estimate_projectedDate' => $this->input->post('projectedDate'),
+                'estimate_address' => $this->input->post('addr'),
+                'estimate_engineer' => $this->input->post('engineerName'),
+                'estimate_status' => 1,
+                'estimate_location' => $this->input->post('cityProv'),
+                'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
+                'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+                'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
+                'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
+                'estimate_flowType' => number_format($this->input->post('flowType')),
+                'estimate_blockType' => $this->input->post('blockType'),
+                'estimate_blockUse' => $this->input->post('blockUse'),
+                'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
+                'estimate_alignment' => number_format($this->input->post('alignType')),
+                'estimate_outLetSource' => number_format($this->input->post('sourceType')),
+                'estimate_soilType' => number_format($this->input->post('soilType')),
+                'estimate_modifiedDate' => date('Y-m-d H:i:s'),
+                'estimate_comments' => $this->input->post('commentsBox')
+            );
+          }
 
           $this->db->insert('tbl_estimates', $data);
 
@@ -103,32 +132,63 @@ class Quotes_model extends CI_Model {
             $this->load->helper('url');
             date_default_timezone_set('America/Toronto');
 
-            $data = array(
-              'estimate_id' => $estimateID,
-              'company_id' => $_SESSION['company_id'],
-              'estimate_name' => $this->input->post('name'),
-              'estimate_date' => $_SESSION['last_date'],
-              'estimate_projectedDate' => $this->input->post('d'),
-              'estimate_address' => $this->input->post('addr'),
-              'estimate_engineer' => $this->input->post('engineerName'),
-              'estimate_status' => 1,
-              'estimate_location' => $this->input->post('cityProv'),
-              'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
-              'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
-              'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
-              'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
-              'estimate_flowType' => number_format($this->input->post('flowType')),
-              'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
-              'estimate_alignment' => number_format($this->input->post('alignType')),
-              'estimate_crestRadius' => number_format($this->input->post('crestMeters'),2),
-              'estimate_channelLength' => number_format($this->input->post('channelMeters'),2),
-              'estimate_channelDepth' => number_format($this->input->post('depthMeters'),2),
-              'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
-              'estimate_outLetSource' => number_format($this->input->post('sourceType')),
-              'estimate_soilType' => number_format($this->input->post('soilType')),
-              'estimate_modifiedDate' => date('Y-m-d H:i:s'),
-              'estimate_comments' => $this->input->post('commentsBox')
-            );
+            if ($this->input->post('alignType')!=0) {
+              $data = array(
+                'estimate_id' => $estimateID,
+                'company_id' => $_SESSION['company_id'],
+                'estimate_name' => $this->input->post('name'),
+                'estimate_date' => $_SESSION['last_date'],
+                'estimate_projectedDate' => $this->input->post('projectedDate'),
+                'estimate_address' => $this->input->post('addr'),
+                'estimate_engineer' => $this->input->post('engineerName'),
+                'estimate_status' => 1,
+                'estimate_location' => $this->input->post('cityProv'),
+                'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
+                'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+                'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
+                'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
+                'estimate_flowType' => number_format($this->input->post('flowType')),
+                'estimate_blockType' => $this->input->post('blockType'),
+                'estimate_blockUse' => $this->input->post('blockUse'),
+                'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
+                'estimate_alignment' => number_format($this->input->post('alignType')),
+                'estimate_crestRadius' => number_format($this->input->post('crestMeters'),2),
+                'estimate_channelLength' => number_format($this->input->post('channelMeters'),2),
+                'estimate_channelDepth' => number_format($this->input->post('depthMeters'),2),
+                'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
+                'estimate_outLetSource' => number_format($this->input->post('sourceType')),
+                'estimate_soilType' => number_format($this->input->post('soilType')),
+                'estimate_modifiedDate' => date('Y-m-d H:i:s'),
+                'estimate_comments' => $this->input->post('commentsBox')
+              );
+            }
+            else{
+              $data = array(
+                'estimate_id' => $estimateID,
+                'company_id' => $_SESSION['company_id'],
+                'estimate_name' => $this->input->post('name'),
+                'estimate_date' => $_SESSION['last_date'],
+                'estimate_projectedDate' => $this->input->post('projectedDate'),
+                'estimate_address' => $this->input->post('addr'),
+                'estimate_engineer' => $this->input->post('engineerName'),
+                'estimate_status' => 1,
+                'estimate_location' => $this->input->post('cityProv'),
+                'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
+                'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+                'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
+                'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
+                'estimate_flowType' => number_format($this->input->post('flowType')),
+                'estimate_blockType' => $this->input->post('blockType'),
+                'estimate_blockUse' => $this->input->post('blockUse'),
+                'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
+                'estimate_alignment' => number_format($this->input->post('alignType')),
+                'estimate_outLetSource' => number_format($this->input->post('sourceType')),
+                'estimate_soilType' => number_format($this->input->post('soilType')),
+                'estimate_modifiedDate' => date('Y-m-d H:i:s'),
+                'estimate_comments' => $this->input->post('commentsBox')
+              );
+            }
+
 
             $this->db->replace('tbl_estimates', $data);
 

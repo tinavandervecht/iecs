@@ -941,7 +941,7 @@ a.sectionTitle{
     text-transform: uppercase;
 }
 #quotes .quote.closed {
-    padding-bottom: 1em;
+    /*padding-bottom: 1em;*/
 }
 #quotes .buttons {
     border-bottom: none;
@@ -1036,8 +1036,11 @@ a.sectionTitle{
 #scrollWrapper.quotesPage .title {
     font-size: 1.4em;
 }
-#scrollWrapper.quotesPage .buttons {} #scrollWrapper.quotesPage .buttons .rightButton {
-    border-left: none;
+#scrollWrapper.quotesPage .buttons {
+
+}
+#scrollWrapper.quotesPage .buttons .rightButton {
+    /*border-left: none;*/
 }
 #scrollWrapper.quotesPage .dateModified {
     margin-top: 2em;
@@ -1295,15 +1298,13 @@ div.more a{
   margin:0;
   background: #545454;
   float: left;
-
-
+  overflow:hidden;
+  text-overflow: ellipsis;
   font-size: 0.5em;
   height:100%;
   border:0;
   line-height: 3em;
-}
-.block.disabled .blockbox .factor{
-  background: #820f0f;
+  max-height: none;
 }
 .blockbox .factor img.arrow{
   display: none;
@@ -1318,12 +1319,10 @@ div.more a{
 .block.selected .blockbox .factor img.arrow{
   transform: rotate(0deg);
 }
-.blockbox .factor #overture, .blockbox .factor #sliding{
+.blockbox .factor .overturning, .blockbox .factor .sliding{
   box-sizing: border-box;
   padding:0;
   text-align: center;
-
-
   height:50%;
 }
 .blockbox .slimshady-wrapper{
@@ -1339,20 +1338,12 @@ div.more a{
 
   border:0;
 }
-.blockbox .factor #overture{
+.blockbox .factor .overturning{
   border-right: thick solid #1E1D1B;
-
-
   border:0;
   border-bottom: medium solid #1E1D1B;
 }
 
-.block:not(.disabled) .blockbox .factor p:nth-child(2n){
-  background: #447019;
-}
-.block.disabled .blockbox .factor p:nth-child(2n){
-  background: #600c0c;
-}
 .blockbox .factor p{
   width:50%;
   box-sizing: border-box;
@@ -1362,6 +1353,12 @@ div.more a{
   height:auto;
   padding:0.25em;
   font-size: 1em;
+}
+.blockbox .factor:not(.one) .safety:nth-child(2){
+  border-right: medium solid #1E1D1B;
+}
+.blockbox .factor.one p{
+  width: 100%;
 }
 .safety.nono{
   background:#efd300 !important;
@@ -1838,6 +1835,10 @@ background: #eee;
   margin-top: 0.5em;
   font-size: 1em;
 }
+#cmsCompanyProfile #companyInfo a{
+  color:inherit;
+}
+
 #cmsCompanies .companii .title h3, #cmsCompanyProfile #companyInfo .title h3{
   text-transform: uppercase;
   font-family: "opensans-bold";
@@ -2057,10 +2058,11 @@ background: #313131;
   font-size: 1rem;
   height:auto;
   border-bottom: thick solid #1E1D1B;
-  line-height: 1.4em;
+  line-height: 1.5em;
+  max-height: 2.5em;
 }
 
-.blockbox .factor #overture, .blockbox .factor #sliding{
+.blockbox .factor .overturning, .blockbox .factor .sliding{
   height: 100%;
 }
 
@@ -2069,7 +2071,7 @@ background: #313131;
   border: thick solid #1E1D1B;
 }
 
-.blockbox .factor #overture{
+.blockbox .factor .overturning{
   border-right: thick solid #1E1D1B;
   border-bottom: none;
 }
@@ -2077,7 +2079,7 @@ background: #313131;
   height:100%;
   padding:1.1em 0.5em;
   font-size: 1.2em;
-  line-height: 2.5em;
+  /*line-height: 2.5em;*/
 }
 
 .modal {
@@ -2288,6 +2290,8 @@ background: #313131;
     margin-top: 1em;
     margin: 0;
     max-width: 58em;
+    min-height: 3em;
+    margin-bottom: 1em;
     width: 70%;
 }
   #mainQuotes #scrollWrapper.quotesPage .dateModified,

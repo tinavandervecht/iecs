@@ -267,5 +267,21 @@ class Admin_model extends CI_Model {
               return $query->row_array();
             }
 
+            public function get_summary_data($id){
+              $this->db->select('*');
+              $this->db->from('tbl_estimates');
+              $this->db->join('tbl_company', 'tbl_estimates.company_id = tbl_company.company_id');
+              $this->db->where('estimate_id', $id);
+              $this->db->order_by('estimate_id', 'DESC');
+              $this->db->limit(1);
+              $query = $this->db->get();
+              if($query -> num_rows() == 1){
+                return $query->row_array();
+              }
+              else{
+                return false;
+              }
+            }
+
 
 }

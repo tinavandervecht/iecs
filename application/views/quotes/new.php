@@ -19,7 +19,7 @@
                 <label for="d">
                   <h4 class="title">Projected Start Date for Project:</h4>
                   </label>
-                  <input type="date" id="d" name="d"/>
+                  <input type="date" id="d" name="projectedDate"/>
               </div>
               <div id="projectLocation" class="columns small-12 medium-6">
                   <label for="cityProv">
@@ -185,21 +185,21 @@
                   </select>
               </div>
               <div id="designComponent"  class="clearfix">
-                  <label> 
+                  <label>
                   <h4 class="title">Type of Block</h4>
                       <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
                   </label>
-                  <select id="flowType" name="flowType">
+                  <select name="blockType">
                     <option value="0" >Same Block for Both</option>
                     <option value="1" >Different Block for each</option>
                   </select>
               </div>
 
                 <div id="designComponent"  class="clearfix">
-                  <label> 
+                  <label>
                   <h4 class="title">Use block on...</h4>
                   </label>
-                  <select id="flowType" name="flowType">
+                  <select name="blockUse">
                     <option value="0" >Both Bed and Side</option>
                     <option value="1" >Bed Only</option>
                     <option value="2" >Side Only</option>

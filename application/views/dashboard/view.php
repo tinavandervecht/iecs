@@ -32,7 +32,10 @@
                   {
                     echo "at ".$estimatesInfo[0]['estimate_location']." ";
                   }
-                 echo "on ".$estimatesInfo[0]['estimate_projectedDate'].".";
+                 echo "on ".$estimatesInfo[0]['estimate_projectedDate'].". The Cable Concrete&reg; product recommended through the calculation is the CC70 with an average safety factor of 2.06.";
+                 if ($estimatesInfo[0]['estimate_comments']!="") {
+                   echo " Comments from the analysis author: ".$estimatesInfo[0]['estimate_comments'];
+                 }
                }?></p>
                 <div class="buttons clearfix">
                   <div class="leftButton">

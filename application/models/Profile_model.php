@@ -40,12 +40,15 @@ class Profile_model extends CI_Model {
       public function set_profile(){
 
                       $this->load->helper('url');
+                      date_default_timezone_set('America/Toronto');
 
                       $data = array(
                           'company_email' => $this->input->post('company_email'),
                           'company_pw' => $this->input->post('company_pw'),
+                          'company_date' => date('Y-m-d H:i:s'),
                           'company_name' => $this->input->post('company_name'),
                           'company_contactName' => $this->input->post('company_contactName'),
+
                           'company_status' => 1
                       );
 
