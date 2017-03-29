@@ -169,6 +169,14 @@ var topWidth; // Meters, ONLY AVAILABLE IF alignment != straight
 var outletSource; //River, manhole, etc.
 var soilType; //Soil type and related conditions
 
+//BLOCK SPECIFIC FACTORS; probably shouldn't be stored in JS, should be stored serverside and pulled down with AJAX
+var specs = {
+  "CCG2": 1.15,
+  "CC35": 1.65,
+  "CC45": 2.2,
+  "CC70": 2.8,
+  "CC90": 3.45
+}
 
 function Calculations(data){
   var numSides = 3;
@@ -198,15 +206,8 @@ function Calculations(data){
   }
 
   // INPUT BLOCK-SPEC VALUES, RETURNS JSON OF THE SAFETY FACTORS
+
   this.blockSon = function(block){
-    //BLOCK SPECIFIC FACTORS; probably shouldn't be stored in JS, should be stored serverside and pulled down with AJAX
-    var specs = {
-      "CCG2": 1.15,
-      "CC35": 1.65,
-      "CC45": 2.2,
-      "CC70": 2.8,
-      "CC90": 3.45
-    }
     return {
       o : { //overturning
         bed: (this.overturningBed() * specs[block]).toFixed(PRECISION),
@@ -228,6 +229,13 @@ function performCalcs(data){
     var blocks = document.querySelectorAll(".block");
     var firstHighlight = false; //value displaying if one of the blocks has been highlighted
     for(block of blocks){
+
+      //NUMBERS FOR DROPDOWN BASED OFF ESTIMATE ID AND BLOCK FACTORS
+      var numbers = block.querySelectorAll('.more .num');
+      for(var i =0; i< numbers.length;i++){
+        var n = parseInt(data.estimate_channelDepth) * ( i%4 + 1.1) * specs[block.id];
+        numbers[i].innerHTML = n.toFixed(2);
+      }
       var blockDisable = 0; //count the number of BAD safety factors
       var blockOkay = 0; //count the number of OKAY safety factors
       // console.log(block.id);
