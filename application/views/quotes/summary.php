@@ -214,7 +214,23 @@
               </div><!-- END CARDSBOX -->
                 <a href="#" class="greenButton email" id="saveit">EMAIL</a>
             </div>
+            <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2 style="font-family: opensans-bold;">EMAIL IECS</h2>
+              <label>Subject:</label><br>
+              <input id="subject" name="subject">
+
+              <br><br>
+              <label>Message:</label><br>
+              <textarea id="textarea" name="message"></textarea>
+
+              <a href="#" class="greenButton email" id="sendit">SEND</a>
+
+            </div>
+          </div>
         </section>
+
 
 </main>
 <script>
