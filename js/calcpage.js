@@ -65,18 +65,42 @@ for(var i=0;i<blocks.length;i++){
 }
 var subpopup = document.querySelector('#subforreview');
 var shwn = false;
+
+function toggleSubmit(button){
+  if(button.classList.contains('email')){
+    var modal = document.querySelector('#myModal');
+    function closeModal(){
+      TweenLite.to(modal,0.5,{opacity:0,onComplete:function(){
+          modal.style.display = "none";
+        }
+      });
+    }
+    modal.style.display = "block";
+    TweenLite.to(modal,0.5,{opacity:1.0});
+    modal.querySelector(".close").addEventListener('click',closeModal,false);
+    modal.querySelector("#sendit").addEventListener('click',closeModal,false);
+    window.addEventListener('click',function(){
+      if (event.target == modal){
+        closeModal();
+      }
+    },false);
+  }else if(button.classList.contains('save')){
+    console.log("save");
+    if(!shwn){
+      subpopup.classList.add('shown');
+      TweenLite.to(subpopup,0.2,{opacity:1,onComplete:function(){TweenLite.to(subpopup.querySelector('.box'),0.1,{opacity:1});}});
+    }else{
+      TweenLite.to(subpopup,0.2,{opacity:0,onComplete:function(){subpopup.classList.remove('shown');}});
+    }
+    shwn = !shwn;
+  }else{
+    console.log("NOPE");
+  }
+}
 function tog(event){
   event.preventDefault();
-  toggleSubmit();
-}
-function toggleSubmit(){
-  if(!shwn){
-    subpopup.classList.add('shown');
-    TweenLite.to(subpopup,0.2,{opacity:1,onComplete:function(){TweenLite.to(subpopup.querySelector('.box'),0.1,{opacity:1});}});
-  }else{
-    TweenLite.to(subpopup,0.2,{opacity:0,onComplete:function(){subpopup.classList.remove('shown');}});
-  }
-  shwn = !shwn;
+  var it = event.currentTarget;
+  toggleSubmit(it);
 }
 changeLeftBox(document.querySelector('.block.highlight'));
 

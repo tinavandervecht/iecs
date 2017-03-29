@@ -41,7 +41,7 @@
                                   <h4>Estimate Details</h4>
                               </div>
                               <!--===========================-->
-                              <section class="column small-12 medium-6">
+                              <section class="column small-12 large-6">
                                   <div class="other clearfix">
                                       <div>
                                           <p class="factor">Centroid Depth (mm)</p>
@@ -128,7 +128,7 @@
                                   </div>
                                   <!--===========================-->
                               </section>
-                              <section class="columns small-12 medium-6">
+                              <section class="columns small-12 large-6">
                                   <!--===========================-->
                                   <div class="other clearfix">
                                       <div>
@@ -213,22 +213,16 @@
                   <?php endforeach;?>
               </div><!-- END CARDSBOX -->
                 <a href="#" class="greenButton email" id="saveit">EMAIL</a>
+
+                <div class="popup clearfix" id="subforreview">
+                    <div class="box clearfix">
+                        <h4>Your results have been saved!</h4>
+                        <p>Would you like to send your results to IECS for review?</p>
+                        <a href="#" id="yes" class="greyButton">YES</a>
+                        <a href="#" id="no" class="greyButton">NO</a>
+                    </div>
+                </div>
             </div>
-            <div id="myModal" class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <h2 style="font-family: opensans-bold;">EMAIL IECS</h2>
-              <label>Subject:</label><br>
-              <input id="subject" name="subject">
-
-              <br><br>
-              <label>Message:</label><br>
-              <textarea id="textarea" name="message"></textarea>
-
-              <a href="#" class="greenButton email" id="sendit">SEND</a>
-
-            </div>
-          </div>
         </section>
 
 
