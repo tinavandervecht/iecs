@@ -71,6 +71,9 @@ var shwn = false;
 function closeEl(el){
   TweenLite.to(el,0.5,{opacity:0,onComplete:function(){
       el.style.display = "none";
+      if(el.classList.contains('shown')){
+        el.classList.remove('shown');
+      }
     }
   });
 }
