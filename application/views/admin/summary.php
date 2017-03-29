@@ -41,7 +41,7 @@
                                   <h4>Estimate Details</h4>
                               </div>
                               <!--===========================-->
-                              <section class="column small-12 medium-6">
+                              <section class="column small-12 large-6">
                                   <div class="other clearfix">
                                       <div>
                                           <p class="factor">Centroid Depth (mm)</p>
@@ -128,7 +128,7 @@
                                   </div>
                                   <!--===========================-->
                               </section>
-                              <section class="columns small-12 medium-6">
+                              <section class="columns small-12 large-6">
                                   <!--===========================-->
                                   <div class="other clearfix">
                                       <div>
@@ -213,6 +213,21 @@
                   <?php endforeach;?>
               </div><!-- END CARDSBOX -->
                 <a href="#" class="greenButton email" id="saveit">EMAIL</a>
+                <div id="myModal" class="modal">
+                <div class="modal-content clearfix">
+                  <span class="close">&times;</span>
+                  <h2 style="font-family: opensans-bold;">EMAIL IECS</h2>
+                  <label>Subject:</label><br>
+                  <input id="subject" name="subject">
+
+                  <br><br>
+                  <label>Message:</label><br>
+                  <textarea id="textarea" name="message"></textarea>
+
+                  <a href="#" class="greenButton email" id="sendit">SEND</a>
+
+                </div>
+              </div>
             </div>
         </section>
 </main>
