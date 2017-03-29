@@ -1543,6 +1543,71 @@ width: 100%;
   margin:2em auto;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    left:0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    font-family: "opensans-light";
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 25em;
+    height: 150%;
+    font-family: opensans;
+    font-size: 14px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#textarea{
+  min-width: 100%;
+  border-radius: 0px;
+  border: 1px solid #bbb;
+  height: 200px;
+  overflow: scroll;
+  resize:none;
+  margin-top: 15px;
+}
+#subject{
+  min-width: 100%;
+  border: 1px solid #bbb;
+  height: 40px;
+  margin-top: 15px;
+}
+
+#sendit.greenButton{
+  width:60%;
+  margin: 0 auto;
+  float: right;
+  clear: both;
+}
+
+#sendit.greenButton.email{
+  margin:2em auto;
+}
 /*FOR CMS*/
 .tabTitle{
   display: inline-block;
@@ -2017,6 +2082,72 @@ background: #313131;
   /*line-height: 2.5em;*/
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    left:0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    font-family: "opensans-light";
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 30em;
+    /*width: 60%;*/
+    height: 150%;
+    font-family: opensans;
+    font-size: 14px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#textarea{
+  width: 100%;
+  max-width: 30em;
+  border-radius: 0px;
+  border: 1px solid #bbb;
+  height: 200px;
+  overflow-y: scroll;
+  resize:none;
+  margin-top: 15px;
+}
+#subject{
+  min-width: 100%;
+  border: 1px solid #bbb;
+  height: 40px;
+  margin-top: 15px;
+}
+
+#sendit.greenButton{
+  width:60%;
+  margin: 0 auto;
+  float: right;
+  clear: both;
+}
+#sendit.greenButton.email{
+  margin:2em auto;
+}
 }/*END MEDIA QUERY*/
 
 
@@ -2208,5 +2339,76 @@ background: #313131;
     }
     .desk {
         display: block;
+    }
+
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 50;
+        left:100px;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        font-family: "opensans-light";
+    }
+
+    .modal-content {
+      position: relative;
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 60px;
+        border: 1px solid #888;
+        width: 100%;
+        max-width: 30em;
+        height: 150%;
+        font-family: opensans;
+        font-size: 14px;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #textarea{
+      width: 100%;
+      max-width: 30em;
+      display: block;
+      margin: 0 auto;
+      border-radius: 0px;
+      border: 1px solid #bbb;
+      height: 200px;
+      overflow-y: scroll;
+      resize:none;
+      margin-top: 15px;
+    }
+    #subject{
+      min-width: 100%;
+      border: 1px solid #bbb;
+      height: 40px;
+      margin-top: 15px;
+    }
+
+    #sendit.greenButton{
+      width:60%;
+      margin: 0 auto;
+      float: right;
+      clear: both;
+    }
+
+    #sendit.greenButton.email{
+      margin:2em auto;
     }
 }
