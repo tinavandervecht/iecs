@@ -212,7 +212,7 @@
                       <!-- end block-->
                   <?php endforeach;?>
               </div><!-- END CARDSBOX -->
-                <a href="#" class="greenButton email" id="saveit">EMAIL</a>
+                <a href="#" class="greenButton email" id="saveit">SAVE</a>
 
                 <div class="popup clearfix" id="subforreview">
                     <div class="box clearfix">
