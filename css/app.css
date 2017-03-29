@@ -1564,7 +1564,7 @@ width: 100%;
     border: 1px solid #888;
     width: 100%;
     max-width: 25em;
-    height: 150%;
+    height: auto;
     font-family: opensans;
     font-size: 14px;
 }
@@ -2103,8 +2103,7 @@ background: #313131;
     border: 1px solid #888;
     width: 100%;
     max-width: 30em;
-    /*width: 60%;*/
-    height: 150%;
+    height: auto;
     font-family: opensans;
     font-size: 14px;
 }
@@ -2364,7 +2363,7 @@ background: #313131;
         border: 1px solid #888;
         width: 100%;
         max-width: 50em;
-        height: 120%;
+        height: auto;
         font-family: opensans;
         font-size: 14px;
     }

@@ -215,7 +215,7 @@
                 <a href="#" class="greenButton email" id="saveit">EMAIL</a>
             </div>
             <div id="myModal" class="modal">
-            <div class="modal-content">
+            <div class="modal-content clearfix">
               <span class="close">&times;</span>
               <h2 style="font-family: opensans-bold;">EMAIL IECS</h2>
               <label>Subject:</label><br>
