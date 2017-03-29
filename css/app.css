@@ -1543,14 +1543,18 @@ width: 100%;
   margin:2em auto;
 }
 
+/*MAIN MODAL*/
+
 .modal {
+  width: 100%;
+  margin-left: 0;
     display: none;
     opacity: 0;
     position: fixed;
     z-index: 50;
     left:0;
     top: 0;
-    width: 100%;
+    box-sizing: border-box;
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0);
@@ -1560,13 +1564,14 @@ width: 100%;
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 100%;
+    margin: 0 auto;
+    margin-top: 15%;
+    padding: 2em 3em;
+    border: thin solid #888;
+    width: 90%;
     max-width: 30em;
     font-family: opensans;
-    font-size: 14px;
+    font-size: 0.9em;
 }
 .close {
     color: #aaa;
@@ -1582,20 +1587,35 @@ width: 100%;
     cursor: pointer;
 }
 
+#textarea, #subject{
+  padding:0.4em 0.8em;
+}
+
 #textarea{
-  min-width: 100%;
-  border-radius: 0px;
-  border: 1px solid #bbb;
-  height: 200px;
-  overflow: scroll;
+  max-width: 30em;
+  width: 100%;
+  border-radius: 0;
+  border: thin solid #bbb;
+  height: 6.5em;
+  overflow-y: scroll;
+  overflow-x:auto;
   resize:none;
-  margin-top: 15px;
+  margin-top: 1em;
+}
+#textarea:focus, #subject:focus{
+  outline: 0;
+  border: thin solid #444;
 }
 #subject{
-  min-width: 100%;
-  border: 1px solid #bbb;
-  height: 40px;
-  margin-top: 15px;
+  max-width: 30em;
+  width: 100%;
+  border: thin solid #bbb;
+  height: 2.5em;
+  margin-top: 1em;
+}
+
+.modal #sendit.greenButton{
+  margin-bottom:0 !important;
 }
 
 #sendit.greenButton{
@@ -1939,6 +1959,7 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
+
   .block .other > div{
     width:60%;
   }
@@ -2082,73 +2103,6 @@ background: #313131;
   /*line-height: 2.5em;*/
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 50;
-    left:0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    /*overflow: auto;*/
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    font-family: "opensans-light";
-    box-sizing: border-box;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 0 auto;
-    margin-top:15%;
-    padding: 1em 3em;
-    border: 1px solid #888;
-    width: 100%;
-    max-width: 40em;
-    font-family: opensans;
-    font-size: 0.9em;
-}
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    transition: all ease 0.5s;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#textarea, #subject{
-  padding:0.4em 0.8em;
-}
-
-#textarea{
-  width: 100%;
-  max-width: 30em;
-  border-radius: 0;
-  border: thin solid #bbb;
-  height: 12.5em;
-  overflow-y: scroll;
-  overflow-x:auto;
-  resize:none;
-  margin-top: 1em;
-}
-#textarea:focus, #subject:focus{
-  outline: 0;
-  border: thin solid #444;
-}
-#subject{
-  min-width: 100%;
-  border: thin solid #bbb;
-  height: 2.5em;
-  margin-top: 1em;
-}
-
 #sendit.greenButton{
   width:60%;
   margin: 0 auto;
@@ -2162,6 +2116,11 @@ background: #313131;
 
 
 @media only screen and (min-width: 64rem) {
+  .modal {
+      width: 77%;
+      margin-left: 23%;
+  }
+
   #dashTab1{
     margin-top:0;
   }
@@ -2351,65 +2310,6 @@ background: #313131;
         display: block;
     }
 
-
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 50;
-        left:100px;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
-        font-family: "opensans-light";
-    }
-
-    .modal-content {
-      position: relative;
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 60px;
-        border: 1px solid #888;
-        width: 100%;
-        max-width: 50em;
-        height: auto;
-        font-family: opensans;
-        font-size: 14px;
-    }
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    #textarea{
-      width: 100%;
-      max-width: 30em;
-      display: block;
-      margin: 0 auto;
-      border-radius: 0px;
-      border: 1px solid #bbb;
-      height: 200px;
-      overflow-y: scroll;
-      resize:none;
-      margin-top: 15px;
-    }
-    #subject{
-      min-width: 100%;
-      border: 1px solid #bbb;
-      height: 40px;
-      margin-top: 15px;
-    }
 
     #sendit.greenButton{
       width:60%;

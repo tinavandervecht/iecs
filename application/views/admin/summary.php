@@ -23,7 +23,7 @@
                               <div class="factor row">
                                   <div class="slimshady-wrapper small-8 medium-10">
                                       <div class="columns small-12 medium-6 overturning">
-                                          <h3 class="small-6 medium-12 columns">Overturning<span class="hide-for-small show-for-medium">Safety Factors</span></h3>
+                                          <h3 class="small-6 medium-12 columns">Overturning <span class="hide-for-small show-for-medium">Safety Factors</span></h3>
                                           <p class="safety">Bed: <span class="num bed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
                                           <p class="safety">Side: <span class="num side">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
                                       </div>
