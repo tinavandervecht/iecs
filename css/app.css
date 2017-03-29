@@ -2374,7 +2374,7 @@ background: #313131;
         border: 1px solid #888;
         width: 100%;
         max-width: 50em;
-        height: 120%;
+        height: auto;
         font-family: opensans;
         font-size: 14px;
     }
