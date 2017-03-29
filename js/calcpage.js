@@ -231,13 +231,12 @@ function performCalcs(data){
       var blockDisable = 0; //count the number of BAD safety factors
       var blockOkay = 0; //count the number of OKAY safety factors
       // console.log(block.id);
-      var TEST_USEBLOCK = 1; // 0:both, 1:bed, 2:side
-      var numSafety = (TEST_USEBLOCK == 0)  ? 4 : 2;
-      console.log(numSafety);
+      var useBlock = parseInt(data.estimate_blockUse); // 0:both, 1:bed, 2:side
+      var numSafety = (useBlock == 0)  ? 4 : 2;
 
       var blocky = calc.blockSon(block.id);
 
-      if(TEST_USEBLOCK == 0 || TEST_USEBLOCK == 1){
+      if(useBlock == 0 || useBlock == 1){
       block.querySelector('.overturning .bed').innerHTML = blocky.o.bed;
       if(blocky.o.bed < UPSELL){
         if(blocky.o.bed < MINIMUM){
@@ -265,7 +264,7 @@ function performCalcs(data){
       block.querySelector('.overturning .bed').parentNode.classList.add('hidden');
       block.querySelector('.factor').classList.add('one');
     }
-    if(TEST_USEBLOCK == 0 || TEST_USEBLOCK == 2){
+    if(useBlock == 0 || useBlock == 2){
       block.querySelector('.overturning .side').innerHTML = blocky.o.side;
       if(blocky.o.side < UPSELL){
         if(blocky.o.side < MINIMUM){

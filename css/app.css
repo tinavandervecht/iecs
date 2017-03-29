@@ -1349,13 +1349,11 @@ div.more a{
   margin:0;
   display: block;
   float: left;
-  height:auto;
+  height:1.7em;
   padding:0.25em;
   font-size: 1em;
 }
-.blockbox .factor:not(.one) .safety:nth-child(2){
-  border-right: medium solid #1E1D1B;
-}
+
 .blockbox .factor.one p{
   height:100%;
   line-height: 3.5em;
@@ -1959,7 +1957,9 @@ background: #313131;
 }
 /**********************************************************************************************/
 @media only screen and (min-width: 40rem) {
-
+  .blockbox .factor:not(.one) .safety:nth-child(2){
+    border-right: medium solid #1E1D1B;
+  }
   .block .other > div{
     width:60%;
   }
