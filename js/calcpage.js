@@ -66,22 +66,32 @@ for(var i=0;i<blocks.length;i++){
 var subpopup = document.querySelector('#subforreview');
 var shwn = false;
 
+
+
+function closeEl(el){
+  TweenLite.to(el,0.5,{opacity:0,onComplete:function(){
+      el.style.display = "none";
+    }
+  });
+}
+
 function toggleSubmit(button){
   if(button.classList.contains('email')){
     var modal = document.querySelector('#myModal');
-    function closeModal(){
-      TweenLite.to(modal,0.5,{opacity:0,onComplete:function(){
-          modal.style.display = "none";
-        }
-      });
-    }
     modal.style.display = "block";
     TweenLite.to(modal,0.5,{opacity:1.0});
-    modal.querySelector(".close").addEventListener('click',closeModal,false);
-    modal.querySelector("#sendit").addEventListener('click',closeModal,false);
+    modal.querySelector(".close").addEventListener('click',function(){
+      closeEl(modal);
+    },false);
+    modal.querySelector("#sendit").addEventListener('click',function(e){
+      e.preventDefault();
+      // SEND EMAIL TO CLIENT HERE
+      alert("Your Email has NOT been sent!");
+      closeEl(modal);
+    },false);
     window.addEventListener('click',function(){
       if (event.target == modal){
-        closeModal();
+        closeEl(modal);
       }
     },false);
   }else if(button.classList.contains('save')){
@@ -93,6 +103,12 @@ function toggleSubmit(button){
       TweenLite.to(subpopup,0.2,{opacity:0,onComplete:function(){subpopup.classList.remove('shown');}});
     }
     shwn = !shwn;
+  }else if(button.id === "yes"){
+    //EMAIL RESULTS TO IECS HERE
+    alert("Your Email has NOT been sent!");
+    closeEl(subpopup);
+  }else if(button.id === "no"){
+    closeEl(subpopup);
   }else{
     console.log("NOPE");
   }

@@ -216,10 +216,9 @@
                 <div id="myModal" class="modal">
                 <div class="modal-content clearfix">
                   <span class="close">&times;</span>
-                  <h2 style="font-family: opensans-bold;">EMAIL IECS</h2>
+                  <h2 style="font-family: opensans-bold;">EMAIL CLIENT: <?php echo "DUMMY CLIENT" ;?></h2>
                   <label>Subject:</label><br>
                   <input id="subject" name="subject">
-
                   <br><br>
                   <label>Message:</label><br>
                   <textarea id="textarea" name="message"></textarea>
