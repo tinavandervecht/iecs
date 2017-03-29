@@ -1565,8 +1565,9 @@ width: 100%;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    height: 85%;
+    width: 100%;
+    max-width: 25em;
+    height: 150%;
     font-family: opensans;
     font-size: 14px;
 }
@@ -2098,8 +2099,10 @@ background: #313131;
     margin: 15% auto;
     padding: 40px;
     border: 1px solid #888;
-    width: 60%;
-    height: 85%;
+    width: 100%;
+    max-width: 30em;
+    /*width: 60%;*/
+    height: 150%;
     font-family: opensans;
     font-size: 14px;
 }
@@ -2118,11 +2121,12 @@ background: #313131;
 }
 
 #textarea{
-  min-width: 100%;
+  width: 100%;
+  max-width: 30em;
   border-radius: 0px;
   border: 1px solid #bbb;
   height: 200px;
-  overflow: scroll;
+  overflow-y: scroll;
   resize:none;
   margin-top: 15px;
 }
@@ -2349,12 +2353,14 @@ background: #313131;
     }
 
     .modal-content {
+      position: relative;
         background-color: #fefefe;
         margin: 15% auto;
         padding: 60px;
         border: 1px solid #888;
-        width: 40%;
-        height: 90%;
+        width: 100%;
+        max-width: 30em;
+        height: 150%;
         font-family: opensans;
         font-size: 14px;
     }
@@ -2373,11 +2379,14 @@ background: #313131;
     }
 
     #textarea{
-      min-width: 100%;
+      width: 100%;
+      max-width: 30em;
+      display: block;
+      margin: 0 auto;
       border-radius: 0px;
       border: 1px solid #bbb;
       height: 200px;
-      overflow: scroll;
+      overflow-y: scroll;
       resize:none;
       margin-top: 15px;
     }
