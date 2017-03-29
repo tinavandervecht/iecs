@@ -156,6 +156,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
 
         redirect('/admin/estimates');
       }
+      $data['id'] = $id;
 
       //$data['summary'] = $this->admin_model->get_summary($id);
       $data['title'] = "Estimate Summary";
