@@ -1334,9 +1334,8 @@ div.more a{
   /*width:100%;*/
   overflow: hidden;
   box-sizing: border-box;
-
-
   border:0;
+  border: thick solid #1E1D1B;
 }
 .blockbox .factor .overturning{
   border-right: thick solid #1E1D1B;
@@ -1358,7 +1357,8 @@ div.more a{
   border-right: medium solid #1E1D1B;
 }
 .blockbox .factor.one p{
-  width: 100%;
+  height:100%;
+  line-height: 3.5em;
 }
 .safety.nono{
   background:#efd300 !important;
@@ -1972,6 +1972,12 @@ background: #313131;
     max-width: 40em;
   }
 
+  .blockbox .factor.one p{
+    width: 100%;
+    height:100%;
+    line-height: 1.5em;
+  }
+
   #cmsEstimates .estiimat{
     /*margin:2em;*/
     /*display: inline-block;*/
@@ -2089,7 +2095,6 @@ background: #313131;
 
 .blockbox .slimshady-wrapper{
   box-sizing: border-box;
-  border: thick solid #1E1D1B;
 }
 
 .blockbox .factor .overturning{
@@ -2102,6 +2107,8 @@ background: #313131;
   font-size: 1.2em;
   /*line-height: 2.5em;*/
 }
+
+
 
 #sendit.greenButton{
   width:60%;
@@ -2120,6 +2127,7 @@ background: #313131;
       width: 77%;
       margin-left: 23%;
   }
+
 
   #dashTab1{
     margin-top:0;
