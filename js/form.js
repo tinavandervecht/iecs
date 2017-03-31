@@ -1,3 +1,4 @@
+$(document).foundation();
 /* CONVERSION FORMULAS FROM www.disabled-world.com/artman/publish/metric-imperial.shtml
   * m to ft : m*3.28
   * % to decimal : %*0.01
@@ -349,6 +350,63 @@ showImperialBox.addEventListener('click', toggleUnits, false);
 // calcSubmit.addEventListener('submit',calculate,false);
 
 
+
+function updateSvg(parent,val,elToFill){
+  if(val == "NaN"){
+    val = "";
+  }
+  parent.querySelector(elToFill).innerHTML = parent.querySelector(elToFill).innerHTML.replace(/\d/g,'').replace('.','') + val;
+}
+
+
+var svg = true;
+//CHANGING THE SVG VALUES
+if(svg){
+    var svg1 = document.querySelector("#svg1 svg");
+    console.log(svg1);
+    //BED SLOPE
+    var bedD = document.querySelector("#bedSlopeDecimal");
+    bedD.addEventListener('input',function(){
+      val = bedD.value;
+      val = parseFloat(val).toFixed(2);
+      updateSvg(svg1,val,'#bedSlope text');
+    },false);
+    var bedP = document.querySelector("#bedSlopePercent");
+    bedP.addEventListener('input',function(){
+      val = percentToDecimal(bedP.value);
+      val = parseFloat(val).toFixed(2);
+      updateSvg(svg1,val,'#bedSlope text');
+    },false);
+
+    //SIDE SLOPE
+    var sideD = document.querySelector("#sideSlopeDecimal");
+    sideD.addEventListener('input',function(){
+      val = sideD.value;
+      val = parseFloat(val).toFixed(2);
+      updateSvg(svg1,val,'#sideSlope text');
+    },false);
+    var sideP = document.querySelector("#sideSlopePercent");
+    sideP.addEventListener('input',function(){
+      val = percentToDecimal(sideP.value);
+      val = parseFloat(val).toFixed(2);
+      updateSvg(svg1,val,'#sideSlope text');
+    },false);
+
+    //TYPE OF FLOW
+    var flow = document.querySelector("#flowType");
+    var flows = new Array();
+    for(opt of flow.querySelectorAll('option')){
+      flows.push(opt.innerHTML);
+    }
+    console.log(flows);
+    flow.addEventListener('change',function(){
+      val = flows[parseInt(flow.value)].toUpperCase();
+      svg1.querySelector('#flowwy text').innerHTML = "FLOW TYPE: " + val;
+    },false);
+}
+
+
+
 //THIS UPDATES THE FIELDS WHEN THEY LOAD
 window.addEventListener('load', function(){
   //console.log("running");
@@ -367,5 +425,48 @@ window.addEventListener('load', function(){
       per.value = decimalToPercent(dec.value);
     }
   }
+
+
+//FOR svg1
+function loadSvg(){
+  var svg1 = document.querySelector("#svg1 svg");
+
+  //BED SLOPE
+  var bedD = document.querySelector("#bedSlopeDecimal");
+
+    val = bedD.value;
+    val = parseFloat(val).toFixed(2);
+    updateSvg(svg1,val,'#bedSlope text');
+
+  var bedP = document.querySelector("#bedSlopePercent");
+
+    val = percentToDecimal(bedP.value);
+    val = parseFloat(val).toFixed(2);
+    updateSvg(svg1,val,'#bedSlope text');
+
+
+  //SIDE SLOPE
+  var sideD = document.querySelector("#sideSlopeDecimal");
+
+    val = sideD.value;
+    val = parseFloat(val).toFixed(2);
+    updateSvg(svg1,val,'#sideSlope text');
+
+  var sideP = document.querySelector("#sideSlopePercent");
+
+    val = percentToDecimal(sideP.value);
+    val = parseFloat(val).toFixed(2);
+    updateSvg(svg1,val,'#sideSlope text');
+
+  var flow = document.querySelector("#flowType");
+  var flows = new Array();
+  for(opt of flow.querySelectorAll('option')){
+    flows.push(opt.innerHTML);
+  }
+  val = flows[parseInt(flow.value)].toUpperCase();
+  svg1.querySelector('#flowwy text').innerHTML = "FLOW TYPE: " + val;
+}
+
+loadSvg();
 }, false);
 })();

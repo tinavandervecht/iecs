@@ -127,7 +127,9 @@
                 <h3 class="sectionTitle">Slopes</h3>
               </div>
               <div class="columns small-12 medium-6">
-                <img src="<?php echo base_url('img/isometric_slope2.png');?>" class="calcDiagram" alt="">
+                <div class="calcDiagram" id="svg1">
+                  <?php echo file_get_contents(base_url('img/iso_slope.svg')); ?>
+                </div>
               </div>
             <div class="columns small-12 medium-6">
               <div id="bedSlope"  class="clearfix">
@@ -183,10 +185,11 @@
                     <option value="7" <?php if ($estimate['estimate_flowType'] == 7) {echo "selected";}?>>Undulating Trans Critical</option>
                   </select>
               </div>
-
+            <h3 class="sectionTitle">Block Usage</h3>
               <div id="designComponent"  class="clearfix">
-                  <label>
-                  <h4 class="title">Type of Block</h4>
+                  <h4 class="title">Blocks for Bed and Side:</h4>
+                  <label for="blockType">
+                    <h5 class="unit">Where will you use our blocks?</h5>
                       <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
                   </label>
                   <select name="blockType">
@@ -195,9 +198,11 @@
                   </select>
               </div>
 
-                <div id="designComponent"  class="clearfix">
-                  <label>
-                  <h4 class="title">Use block on...</h4>
+                <div id="designComponentTwo"  class="clearfix">
+                  <h4 class="title">Use blocks on...</h4>
+                  <label for="blockUse">
+                    <h5 class="unit">Where will you use our blocks?</h5>
+                    <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
                   </label>
                   <select name="blockUse">
                     <option value="0"  <?php if ($estimate['estimate_blockUse'] == 0) {echo "selected";}?>>Both Bed and Side</option>
