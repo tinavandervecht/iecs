@@ -4,11 +4,12 @@
         <section class="row expanded" id="cmsEstimateSummary">
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
                   <a href="<?php echo site_url('/dashboard');?>" class="tabTitle">&#10092; ESTIMATE SUMMARY</a>
+                  <a href="#" class="tabTitle">STANDARDS</a>
                   <div id="cardsbox" class="clearfix row">
+                    <!-- <p>CC-TM = Cable Concrete Technical Memorandum<br>HEC = U.S, DOT HEC-23 Circular</p> -->
 
 
-
-                    <!-- the below will most likely me queried from the database, no? so we can pull down the individual # associated with each block -->
+                    <!-- the below will most likely be queried from the database, no? so we can pull down the individual # associated with each block -->
                     <?php $blocks = [["CCG2","25"], ["CC35","35"], ["CC45","45"], ["CC70","70"], ["CC90","90"]];?>
                     <div class="columns small-12 large-12 card">
                     <?php foreach($blocks as $block):?>

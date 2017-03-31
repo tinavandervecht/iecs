@@ -8,6 +8,7 @@
         <div class="backface">
           <div class="content">
             <img class="logo" src="<?php echo base_url('img/iecslogo.png');?>">
+            <p>International Erosion Control Systems has been manufacturing and selling soil stabilizing erosion control products since 1984.</p>
             <img class="logo" id="ccLogo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
             <h4>Cable Concrete Calculator</h4>
           </div>
