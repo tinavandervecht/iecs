@@ -32,28 +32,6 @@
   var tooltips = document.querySelectorAll('.tip');
 
   var calc = false;//for pagnation
-
-//CONTAINERS FOR FORM INPUT VALUES
-  var projName;
-  var projDate;
-  var cityProv;
-  var addr;
-  var engineer;
-  var flow;
-  var velocity;
-  var bedSlope;
-  var sideSlope;
-  var flowType;
-  var bedWidth;
-  var alignment;
-  var crest;
-  var length;
-  var depth;
-  var topWidth;
-  var source;
-  var soil;
-  var comments;
-
 //for the ONLY degrees in the form:
 
 var frAngle = document.querySelector('#frAngle');
@@ -134,22 +112,27 @@ function pagnation(event){
 
 //CONVERT METRIC TO IMPERIAL
   function metricToImperial(input,units,precision){
-    var output = null;
-    var factor = 3.28084;
-    input = parseFloat(input);
-    if(units === "ft"){
-      output = input*factor;
-    }else if(units === "in"){
-      output = input*factor*12;
-    }else if(units=== "yd"){
-      output = input*factor/3;
-    }else{
-      //console.log("parameter passed is invalid. ERROR");
+    if (input!=""){
+      var output = null;
+      var factor = 3.28084;
+      input = parseFloat(input);
+      if(units === "ft"){
+        output = input*factor;
+      }else if(units === "in"){
+        output = input*factor*12;
+      }else if(units=== "yd"){
+        output = input*factor/3;
+      }else{
+        //console.log("parameter passed is invalid. ERROR");
+      }
+      if(output.toString()!="NaN"){
+        return parseFloat(output.toFixed(2));
+      }else{
+        return "Unexpected Input.";
+      }
     }
-    if(output.toString()!="NaN"){
-      return parseFloat(output.toFixed(2));
-    }else{
-      return "Unexpected Input.";
+    else{
+      return "";
     }
   }
 
@@ -221,10 +204,10 @@ function clearField(){
   it.value="";
 }
 
+var showM;
+var showI;
 //TOGGLE THE DISPLAY OF METRIC OR IMPERIAL UNITS - ALSO ENSURES ONE UNIT IS ALWAYS SHOWN
 function toggleUnits(){
-  var showM;
-  var showI;
   if(showMetricBox.checked){
     showM = true;
     lastChecked = showMetricBox;
@@ -243,6 +226,7 @@ function toggleUnits(){
       toggleUnits();
     },100);
   }
+
   for(var i=0;i<fields.length;i++){
     if(showI && fields[i].classList.contains('imperial')){
         fields[i].classList.add('shown');
@@ -278,98 +262,64 @@ function checkAlign(){
 //FILL CONTAINERS WITH RESPECTIVE INPUT'S VALUES
 function getInputs(){
   //Grabs values in metric, to convert to imperial if needed.
-  projName = calcSubmit.querySelector('#name').value;
-  projDate = calcSubmit.querySelector('#d').value;
-  //console.log(calcSubmit.querySelector('#cityProv'));
-  //console.log(calcSubmit.querySelector('#cityProv').value);
-  cityProv = calcSubmit.querySelector('#cityProv').value;
-  addr = calcSubmit.querySelector('#addr').value;
-  engineer = calcSubmit.querySelector('#engineerName').value;
-  //
-   flow = calcSubmit.querySelector('#flowMeters').value;
-   velocity = calcSubmit.querySelector('#velocityMeters').value;
-  //
-   bedSlope = calcSubmit.querySelector('#bedSlopeDecimal').value;
-   sideSlope = calcSubmit.querySelector('#sideSlopeDecimal').value;
-   flowType = calcSubmit.querySelector('#flowType').value;
-   bedWidth = calcSubmit.querySelector('#bedMeters').value;
-   alignment = calcSubmit.querySelector('#alignType').value;
-   crest = calcSubmit.querySelector('#crestMeters').value;
-   length = calcSubmit.querySelector('#channelMeters').value;
-   depth = calcSubmit.querySelector('#depthMeters').value;
-   topWidth = calcSubmit.querySelector('#topMeters').value;
-   source = calcSubmit.querySelector('#sourceType').value;
-   soil = calcSubmit.querySelector('#soilType').value;
-  //
- comments = calcSubmit.querySelector('#commentsBox').value;
- //console.log("got inputs;");
+  return {
+    sum_details : {
+      projName : {title : "Project Name", value : calcSubmit.querySelector('#name').value},
+      projDate : {title : "Project Date", value : calcSubmit.querySelector('#d').value},
+      cityProv : {title : "City and Province", value : calcSubmit.querySelector('#cityProv').value},
+      addr : {title : "Address", value : calcSubmit.querySelector('#addr').value},
+      engineerName : {title : "Engineer Name", value : calcSubmit.querySelector('#engineerName').value}
+    },
+    sum_flow : {
+      flowMeters : {title : "Flow", value : calcSubmit.querySelector('#flowMeters').value},
+      velocityMeters : {title : "Velocity", value : calcSubmit.querySelector('#velocityMeters').value}
+    },
+    sum_slopes : {
+      bedSlope : {title : "Bed Slope", value : calcSubmit.querySelector('#bedSlopeDecimal').value},
+      sideSlope : {title : "Side Slope", value : calcSubmit.querySelector('#sideSlopeDecimal').value}
+    },
+    sum_type : {
+      flowType : {title : "Flow Type", value : calcSubmit.querySelector('#flowType').value},
+    },
+    sum_bed : {
+      bedWidth : {title : "Bed Width", value : calcSubmit.querySelector('#bedMeters').value},
+      alignment : {title : "Alignment", value : calcSubmit.querySelector('#alignType').value},
+      crest : {title : "Radius at the Crest", value : calcSubmit.querySelector('#crestMeters').value},
+    },
+    sum_channel : {
+      length : {title : "Channel Length", value : calcSubmit.querySelector('#channelMeters').value},
+      depth : {title : "Depth", value : calcSubmit.querySelector('#depthMeters').value},
+      topWidth : {title : "Top Width", value : calcSubmit.querySelector('#topMeters').value},
+    },
+    sum_environment : {
+      source : {title : "Outlet Source", value : calcSubmit.querySelector('#sourceType').value},
+      soil : {title : "Soil Type", value : calcSubmit.querySelector('#soilType').value},
+    },
+    sum_comments : {
+    comments : {title : "Comments", value : calcSubmit.querySelector('#commentsBox').value}
+    }
+  };
 }
 
 //POPULATE THE SUMMARY PAGE WITH DATA
 function summarize(){
-  // event.preventDefault();
-  var summary;
-  getInputs();
-
-  //
-  summary = document.querySelector('#sum_details .text');
-  summary.innerHTML = "Project Name: " + projName + " <br>";
-  summary.innerHTML += "Date: " + projDate + " <br>";
-  summary.innerHTML+="City and Province: " + cityProv + " <br>";
-  summary.innerHTML+="Address: " + addr + " <br>";
-  summary.innerHTML+="Engineer:" + engineer;
-  //console.log(projDate);
-  //console.log(cityProv);
-  //console.log(engineer +" <br>");
-
-  //
-  summary = document.querySelector("#sum_flow .text");
-  summary.innerHTML = "Flow: " + flow +" <br>";
-  summary.innerHTML+= "Veloctity:" + velocity;
-  //console.log(flow);
-  //console.log(velocity);
-
-  //
-  summary = document.querySelector('#sum_slopes .text');
-  summary.innerHTML = "Bed Slope: " + bedSlope+" <br>";
-  summary.innerHTML += "Side Slope: " + sideSlope;
-  //console.log(bedSlope);
-  //console.log(sideSlope);
-
-  //
-  summary = document.querySelector("#sum_type .text");
-  summary.innerHTML = "Type of Flow:" + flowType;
-  //console.log(flowType);
-
-  //
-  summary = document.querySelector("#sum_bed .text");
-  summary.innerHTML = "Bed Width: " + bedWidth + " <br>";
-  summary.innerHTML += "Alignment: " + alignment + " <br>";
-  summary.innerHTML += "Radius at Crest: " + crest;
-  //console.log(bedWidth);
-  //console.log(alignment);
-  //console.log(crest);
-
-  //
-  summary = document.querySelector("#sum_channel .text");
-  summary.innerHTML = "Channel Length: " + length + " <br>";
-  summary.innerHTML += "Channel Depth: " + depth + " <br>";
-  summary.innerHTML += "Channel Top Width: " + topWidth;
-  //console.log(length);
-  //console.log(depth);
-  //console.log(topWidth);
-
-  //
-  summary = document.querySelector("#sum_environment .text");
-  summary.innerHTML = "Outlet Source: " + source + " <br>";
-  summary.innerHTML +="Soil Type: " + soil;
-  //console.log(source);
-  //console.log(soil);
-
-  //
-  summary = document.querySelector("#sum_comments .text");
-  summary.innerHTML = "Comments: " + comments;
-  //console.log(comments);
+  function stringify(json){
+    var s = "";
+    // console.log(json);
+    for(i of Object.keys(json)){
+      s += json[i].title + ": " + json[i].value + " " + "<br>";
+    }
+   return s;
+  }
+  var inputs = getInputs();
+  var summaryEntries = document.querySelectorAll('.summaryEntry');
+  var i=0;
+  // for(json of Object.keys(inputs)){
+  //   stringify(inputs[json]);
+  // }
+  for(box of summaryEntries){
+    box.querySelector('.text').innerHTML =  stringify(inputs[box.id]);
+  }
 }
 
 
@@ -396,7 +346,6 @@ for(var i=0;i<convertFields.length;i++){
 for(var i=0;i<fields.length;i++){
   fields[i].addEventListener('click', clearField, false);
 }
-
 toggleUnits(); //initial activation of unit toggle functionality.
 checkAlign(); //initalize the hiding of the alignment conditional
 contButton.addEventListener('click', pagnation,false);

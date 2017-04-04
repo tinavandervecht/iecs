@@ -161,7 +161,7 @@
                   <label for="frAngle">
                       <a href="#" class="tip"><span class="tooltip">Enter a custom Friction Angle, if it applies - defaults to 30.</span>?</a><h5 class="unit">Degrees</h5>
                   </label>
-                  <input id="frAngle" class=""  placeholder="30&deg;"/>
+                  <input id="frAngle" class=""  value="30"/>
               </div>
             </div>
             <div class="columns small-12 medium-6 medium-clear">

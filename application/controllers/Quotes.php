@@ -159,6 +159,7 @@ class Quotes extends CI_Controller {
 
     //$data['summary'] = $this->admin_model->get_summary($id);
     $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
+    $data['summaryInfo'] = $this->quotes_model->get_summary($id);
     $data['title'] = "Estimate Summary";
     $data['jsLink'] = 'js/calcpage.js';
     $data['current'] = "quotes";
@@ -167,13 +168,13 @@ class Quotes extends CI_Controller {
     if (isset($_POST)){
     $body = $this->input->post('email_text');
     $sub = $this->input->post('email_sub');
-    $this->email->from($data['userInfo']['company_email'], $data['userInfo']['company_contactName']);
+    $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']);
     $this->email->to('IECS EMAIL');
 
     $this->email->subject($sub);
     $this->email->message($body);
 
-    $this->email->send();
+    //$this->email->send();
 
     }
 

@@ -8,6 +8,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
                 parent::__construct();
                 $this->load->model('admin_model'); //THIS LOADS THE ADMIN MODEL, CONTAINING ALL QUERY FUNCTIONS FOR THE ADMIN CONTROLLER
                 $this->load->helper('url_helper');
+                $this->load->library('email');
         }
 
         public function index(){ //FUNCTION FOR site/admin/
@@ -170,6 +171,8 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
       $this->email->send();
 
       }
+
+      $data['id'] = $id;
 
       //$data['summary'] = $this->admin_model->get_summary($id);
       $data['title'] = "Estimate Summary";

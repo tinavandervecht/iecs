@@ -10,7 +10,7 @@
                     <img src="<?php echo base_url('img/default_dude_img.png');?>" alt="Profile Picture">
                     <div class="title">
                       <h3><?php echo $companyInfo['company_name'];?></h3>
-                      <a href="mailto:<?php echo $companyInfo['company_email'];?>"><h4><?php echo $companyInfo['company_email'];?></h4></a>
+                      <a href="mailto:<?php echo $companyInfo['company_email'];?>" style="text-decoration: none; color:white;"><h4><?php echo $companyInfo['company_email'];?></h4></a>
                     </div>
                     <div class="bottom">
                       <p class="username">Contact Name: <span class="value"><?php echo $companyInfo['company_contactName'];?></span></p>
