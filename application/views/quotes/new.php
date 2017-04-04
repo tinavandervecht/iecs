@@ -186,16 +186,16 @@
                     <option value="7">Undulating Trans Critical</option>
                   </select>
               </div>
-              <div id="designComponent"  class="clearfix">
+              <!-- <div id="designComponent"  class="clearfix">
                   <h4 class="title">Type of Block</h4>
                   <label for="blockType">
-                      <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
+                      <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
                   </label>
                   <select name="blockType">
-                    <option value="0" <?php if ($estimate['estimate_blockType'] == 0) {echo "selected";}?>>Same Block for Both</option>
-                    <option value="1" <?php if ($estimate['estimate_blockType'] == 1) {echo "selected";}?>>Different Block for each</option>
+                    <option value="0" <.?php if ($estimate['estimate_blockType'] == 0) {echo "selected";}?>>Same Block for Both</option>
+                    <option value="1" <.?php if ($estimate['estimate_blockType'] == 1) {echo "selected";}?>>Different Block for each</option>
                   </select>
-              </div>
+              </div> -->
 
                 <div id="designComponentTwo"  class="clearfix">
                   <h4 class="title">Use block on...</h4>
@@ -232,9 +232,10 @@
                   </label>
                   <select id="alignType" name="alignType">
                     <option value="0">Straight</option>
-                    <option value="1">Moderate</option>
+                    <option value="1">Not Straight</option>
+                    <!-- <option value="1">Moderate</option>
                     <option value="2">Severe</option>
-                    <option value="3">Extreme</option>
+                    <option value="3">Extreme</option> -->
                   </select>
               </div>
               <div id="crestRadius"  class="clearfix">
