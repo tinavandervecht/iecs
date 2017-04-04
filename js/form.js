@@ -1,3 +1,14 @@
+$(document).foundation();
+/*
+                         n___n_
+                       /       = =\             .------------------------------------------------.
+                     /         ._Y_)        <       I'M SORRY THIS IS A DISASTER   |
+                   /            "\                ' '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' '
+                 (_/         (_,  \
+                   \               ( \_,--""""""--.
+              ..-,-`._____,-` )-.________./
+
+*/
 /* CONVERSION FORMULAS FROM www.disabled-world.com/artman/publish/metric-imperial.shtml
   * m to ft : m*3.28
   * % to decimal : %*0.01
@@ -203,6 +214,9 @@ var showM;
 var showI;
 //TOGGLE THE DISPLAY OF METRIC OR IMPERIAL UNITS - ALSO ENSURES ONE UNIT IS ALWAYS SHOWN
 function toggleUnits(){
+  console.log("TOGGLE UNITS ACTIVATED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  showM = false;
+  showI = false;
   if(showMetricBox.checked){
     showM = true;
     lastChecked = showMetricBox;
@@ -212,7 +226,7 @@ function toggleUnits(){
     lastChecked = showImperialBox;
   }
   if(!showMetricBox.checked&&!showImperialBox.checked){
-    //console.log("nothing's checked!");
+    console.log("nothing's checked!");
     showM=false;
     showI=false;
     setTimeout(function(){
@@ -224,11 +238,13 @@ function toggleUnits(){
 
   for(var i=0;i<fields.length;i++){
     if(showI && fields[i].classList.contains('imperial')){
+      console.log("THIS THAR IS IMPERIAL!");
         fields[i].classList.add('shown');
         fields[i].previousElementSibling.classList.remove('hidden');
       }
       if(!showI && fields[i].classList.contains('imperial')){
           fields[i].classList.remove('shown');
+          console.log(fields[i].classList);
           fields[i].previousElementSibling.classList.add('hidden');
         }
       if(showM && fields[i].classList.contains('metric')){
@@ -257,7 +273,81 @@ function checkAlign(){
 //FILL CONTAINERS WITH RESPECTIVE INPUT'S VALUES
 function getInputs(){
   //Grabs values in metric, to convert to imperial if needed.
-  return {
+  function flw(num){
+      switch (parseInt(num)) {
+        case 0:
+          return "Normal";
+          break;
+        case 1:
+          return "Overtopping";
+          break;
+        case 2:
+          return "Sub-Critical";
+          break;
+        case 3:
+          return "Hydraulic";
+          break;
+        case 4:
+          return "Jump";
+          break;
+        case 5:
+          return "Impinging";
+          break;
+        case 6:
+          return "Bridge/Culvert";
+          break;
+        case 7:
+          return "Undulating Trans Critical";
+          break;
+        default:
+          return "Normal";
+        }
+    }
+    function outlet(num){
+      switch (parseInt(num)) {
+        case 0:
+          return "River";
+          break;
+        case 1:
+          return "Manhole";
+          break;
+        case 2:
+          return "Pond";
+          break;
+        case 3:
+          return "Weir";
+          break;
+        case 4:
+          return "Other";
+          break;
+        default:
+          return "River";
+      }
+    }
+    function soil(num){
+      switch (parseInt(num)) {
+        case 0:
+          return "Topsoil";
+          break;
+        case 1:
+          return "Clay";
+          break;
+        case 2:
+          return "Sand";
+          break;
+        case 3:
+          return "Silt";
+          break;
+        case 4:
+          return "Other";
+          break;
+        default:
+          return "Topsoil";
+      }
+    }
+    //DO YOU LOVE MY CODE YET
+  return/*s  a js object containing all the values, formatted with title and value, for outputting via object iterator*/ {
+    //I need to remove the iterator; I don't think iterators are spec in IE. works fine in edge tho
     sum_details : {
       projName : {title : "Project Name", value : calcSubmit.querySelector('#name').value},
       projDate : {title : "Project Date", value : calcSubmit.querySelector('#d').value},
@@ -274,11 +364,14 @@ function getInputs(){
       sideSlope : {title : "Side Slope", value : calcSubmit.querySelector('#sideSlopeDecimal').value}
     },
     sum_type : {
-      flowType : {title : "Flow Type", value : calcSubmit.querySelector('#flowType').value},
+      flowType : {title : "Flow Type", value : flw(calcSubmit.querySelector('#flowType').value)}
+    },
+    sum_block : {
+      blockType : {title : "Use block On", value : (parseInt(calcSubmit.querySelector('#blockUse').value) == 0 ? "Both Bed and Side" : ( parseInt(calcSubmit.querySelector('#flowType').value) == 1 ? "Only on Bed" : "Only on Side") ) }
     },
     sum_bed : {
       bedWidth : {title : "Bed Width", value : calcSubmit.querySelector('#bedMeters').value},
-      alignment : {title : "Alignment", value : calcSubmit.querySelector('#alignType').value},
+      alignment : {title : "Alignment", value : (parseInt(calcSubmit.querySelector('#alignType').value) == 0 ? "Straight" : "Not Straight")},
       crest : {title : "Radius at the Crest", value : calcSubmit.querySelector('#crestMeters').value},
     },
     sum_channel : {
@@ -287,7 +380,7 @@ function getInputs(){
       topWidth : {title : "Top Width", value : calcSubmit.querySelector('#topMeters').value},
     },
     sum_environment : {
-      source : {title : "Outlet Source", value : calcSubmit.querySelector('#sourceType').value},
+      source : {title : "Outlet Source", value : outlet(calcSubmit.querySelector('#sourceType').value)},
       soil : {title : "Soil Type", value : calcSubmit.querySelector('#soilType').value},
     },
     sum_comments : {
@@ -349,6 +442,64 @@ showImperialBox.addEventListener('click', toggleUnits, false);
 // calcSubmit.addEventListener('submit',calculate,false);
 
 
+
+function updateSvg(parent,val,elToFill){
+  if(val == "NaN"){
+    val = "";
+  }
+  parent.querySelector(elToFill).innerHTML = parent.querySelector(elToFill).innerHTML.replace(/\d/g,'').replace('.','') + val;
+}
+
+
+var svg = true;
+//CHANGING THE SVG VALUES
+if(svg){
+    var svg1 = document.querySelector("#svg1 svg");
+    console.log(svg1);
+    //BED SLOPE
+    var bedD = document.querySelector("#bedSlopeDecimal");
+    bedD.addEventListener('input',function(){
+      val = bedD.value;
+      val = parseFloat(val).toFixed(2);
+      updateSvg(svg1,val,'#bedSlope text');
+    },false);
+    var bedP = document.querySelector("#bedSlopePercent");
+    bedP.addEventListener('input',function(){
+      val = percentToDecimal(bedP.value);
+      val = parseFloat(val).toFixed(2);
+      updateSvg(svg1,val,'#bedSlope text');
+    },false);
+
+    //SIDE SLOPE
+    var sideD = document.querySelector("#sideSlopeDecimal");
+    sideD.addEventListener('input',function(){
+      val = sideD.value;
+      val = parseFloat(val).toFixed(2);
+      updateSvg(svg1,val,'#sideSlope text');
+    },false);
+    var sideP = document.querySelector("#sideSlopePercent");
+    sideP.addEventListener('input',function(){
+      val = percentToDecimal(sideP.value);
+      val = parseFloat(val).toFixed(2);
+      updateSvg(svg1,val,'#sideSlope text');
+    },false);
+
+    //TYPE OF FLOW
+    var flow = document.querySelector("#flowType");
+    var flows = new Array();
+    var opts = flow.querySelectorAll('option');
+    for(var i=0;i<opts.length;i++){
+      flows.push(opts[i].innerHTML);
+    }
+    console.log(flows);
+    flow.addEventListener('change',function(){
+      val = flows[parseInt(flow.value)].toUpperCase();
+      svg1.querySelector('#flowwy text').innerHTML = "FLOW TYPE: " + val;
+    },false);
+}
+
+
+
 //THIS UPDATES THE FIELDS WHEN THEY LOAD
 window.addEventListener('load', function(){
   //console.log("running");
@@ -367,5 +518,48 @@ window.addEventListener('load', function(){
       per.value = decimalToPercent(dec.value);
     }
   }
+
+
+//FOR svg1
+function loadSvg(){
+  var svg1 = document.querySelector("#svg1 svg");
+
+  //BED SLOPE
+  var bedD = document.querySelector("#bedSlopeDecimal");
+
+    val = bedD.value;
+    val = parseFloat(val).toFixed(2);
+    updateSvg(svg1,val,'#bedSlope text');
+
+  var bedP = document.querySelector("#bedSlopePercent");
+
+    val = percentToDecimal(bedP.value);
+    val = parseFloat(val).toFixed(2);
+    updateSvg(svg1,val,'#bedSlope text');
+
+
+  //SIDE SLOPE
+  var sideD = document.querySelector("#sideSlopeDecimal");
+
+    val = sideD.value;
+    val = parseFloat(val).toFixed(2);
+    updateSvg(svg1,val,'#sideSlope text');
+
+  var sideP = document.querySelector("#sideSlopePercent");
+
+    val = percentToDecimal(sideP.value);
+    val = parseFloat(val).toFixed(2);
+    updateSvg(svg1,val,'#sideSlope text');
+
+  var flow = document.querySelector("#flowType");
+  var flows = new Array();
+  for(opt of flow.querySelectorAll('option')){
+    flows.push(opt.innerHTML);
+  }
+  val = flows[parseInt(flow.value)].toUpperCase();
+  svg1.querySelector('#flowwy text').innerHTML = "FLOW TYPE: " + val;
+}
+
+loadSvg();
 }, false);
 })();
