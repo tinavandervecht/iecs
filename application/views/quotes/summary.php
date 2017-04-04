@@ -212,12 +212,12 @@
                       <!-- end block-->
                   <?php endforeach;?>
               </div><!-- END CARDSBOX -->
-                <a href="<?php echo site_url('/quotes/sendQuote/'.$id);?>" class="greenButton save" id="saveit">SAVE</a>
+                <a href="#" class="greenButton save" id="saveit">SAVE</a>
                 <div class="popup clearfix" id="subforreview">
                     <div class="box clearfix">
                         <h4>Your results have been saved!</h4>
                         <p>Would you like to send your results to IECS for review?</p>
-                        <a href="#" id="yes" class="greyButton">YES</a>
+                        <a href="<?php echo site_url('/quotes/sendQuote/'.$id);?>" id="yes" class="greyButton">YES</a>
                         <a href="#" id="no" class="greyButton">NO</a>
                     </div>
                 </div>
