@@ -265,4 +265,27 @@ class Quotes_model extends CI_Model {
             $query = $this->db->get();
             return $query->row_array();
           }
+
+          public function alter_sent_state($id){
+            date_default_timezone_set('America/Toronto');
+            $data = array(
+            'estimate_sent' => 1,
+            );
+            $this->db->set($data);
+            $this->db->where('estimate_id', $id);
+            $this->db->update('tbl_estimates');
+
+            $data = array(
+              'company_id' => $_SESSION['company_id'],
+              'activity_desc' => "Sent an Analysis to IECS for review.",
+              'activity_date' => date('Y-m-d H:i:s')
+            );
+
+            return $this->db->insert('tbl_activity', $data);
+          }
+
+        public function get_blocks(){
+          $query = $this->db->get('tbl_products');
+          return $query->result_array();
+        }
 }

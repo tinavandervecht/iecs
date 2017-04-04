@@ -68,17 +68,17 @@
               <?php foreach ($estimatesInfo as $estimate): ?>
               <div class="quote <?php if($estimate['estimate_id'] != $estimatesInfo[0]['estimate_id']){echo "closed";}?>">
                 <div class="statusbox">
-                  <?php if($estimate['estimate_status'] == 1):?>
+                  <?php if($estimate['estimate_sent'] == 1):?>
                   <img class="icon" src="<?php echo base_url('img/complete_icon.svg');?>"/>
                   <div class="status">
                     <p>STATUS:</p>
-                    <span>COMPLETE</span>
+                    <span>SUBMITTED</span>
                   </div>
               <?php else: ?>
                 <img class="icon" src="<?php echo base_url('img/not_complete.svg');?>"/>
                 <div class="status">
                   <p>STATUS:</p>
-                  <span>INCOMPLETE</span>
+                  <span>UNSENT</span>
                 </div>
                 <?php endif; ?>
                 </div>

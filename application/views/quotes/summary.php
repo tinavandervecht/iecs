@@ -10,15 +10,14 @@
 
 
                     <!-- the below will most likely be queried from the database, no? so we can pull down the individual # associated with each block -->
-                    <?php $blocks = [["CCG2","25"], ["CC35","35"], ["CC45","45"], ["CC70","70"], ["CC90","90"]];?>
                     <div class="columns small-12 large-12 card">
                     <?php foreach($blocks as $block):?>
-                      <div class="block" id=<?php echo $block[0];?>>
+                      <div class="block" id=<?php echo $block['product_name'];?>>
                         <!--start block-->
                           <a href="#" class="blockbox clearfix">
                               <div class="blocktype small-4 medium-2">
-                                  <p><?php echo $block[0]; ?></p>
-                                  <p class="smaller">(<?php echo $block[1]; ?> LB/SF)</p>
+                                  <p><?php echo $block['product_name']; ?></p>
+                                  <p class="smaller">(<?php echo $block['product_number']; ?> LB/SF)</p>
                               </div>
                               <!-- <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram"> -->
                               <div class="factor row">
@@ -213,7 +212,7 @@
                       <!-- end block-->
                   <?php endforeach;?>
               </div><!-- END CARDSBOX -->
-                <a href="#" class="greenButton save" id="saveit">SAVE</a>
+                <a href="<?php echo site_url('/quotes/sendQuote/'.$id);?>" class="greenButton save" id="saveit">SAVE</a>
                 <div class="popup clearfix" id="subforreview">
                     <div class="box clearfix">
                         <h4>Your results have been saved!</h4>

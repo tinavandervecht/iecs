@@ -160,23 +160,11 @@ class Quotes extends CI_Controller {
     //$data['summary'] = $this->admin_model->get_summary($id);
     $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
     $data['summaryInfo'] = $this->quotes_model->get_summary($id);
+    $data['blocks'] = $this->quotes_model->get_blocks();
     $data['title'] = "Estimate Summary";
     $data['jsLink'] = 'js/calcpage.js';
     $data['current'] = "quotes";
     $data['id'] = $id;
-
-    if (isset($_POST)){
-    $body = $this->input->post('email_text');
-    $sub = $this->input->post('email_sub');
-    $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']);
-    $this->email->to('IECS EMAIL');
-
-    $this->email->subject($sub);
-    $this->email->message($body);
-
-    //$this->email->send();
-
-    }
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/nav', $data);
@@ -185,6 +173,35 @@ class Quotes extends CI_Controller {
     $this->load->view('templates/footer', $data);
 
 }
+
+public function sendQuote($id){
+  if (isset($_SESSION['company_id']) == FALSE)
+{
+  redirect('/profile/login');
+}
+
+  if ($id==NULL) {
+
+    redirect('/dashboard');
+  }
+
+  $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
+  $data['summaryInfo'] = $this->quotes_model->get_summary($id);
+  $data['id'] = $id;
+
+  $body = $this->input->post('email_text');
+  $sub = $this->input->post('email_sub');
+  $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']);
+  $this->email->to('IECS EMAIL');
+
+  $this->email->subject($sub);
+  $this->email->message($body);
+
+  //$this->email->send();
+  $this->quotes_model->alter_sent_state($id);
+  redirect('/quotes/summary/'.$id);
+}
+
 
 public function ajaxSummary(){
   if (isset($_GET['id'])){
