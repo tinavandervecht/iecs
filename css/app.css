@@ -238,14 +238,19 @@ border-top: thin solid #bbb;
 #login img.logo {
     width: 100%;
     max-width: 10em;
+    float:left;
 }
 #login #ccLogo {
     max-width: 32em;
 }
 #login h4 {
-    margin: -1em auto 2em auto;
+    /*margin: -1em auto 2em auto;*/
     font-weight: 100;
     font-size: 1.6em;
+}
+
+#login p{
+  text-align: left;
 }
 #login form {
     text-align: left;

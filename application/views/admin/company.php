@@ -21,7 +21,7 @@
                   </div>
               </div>
               <div id="companyEstimates" class="small-12 large-9 columns">
-                <h2 class="hidden">Company Estimates</h2>
+                <h2 class="hidden">Company Analyses</h2>
                 <section id="cmsEstimates">
                   <?php foreach ($company as $estimate):?>
                   <div class="estiimat clearfix">

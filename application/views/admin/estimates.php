@@ -5,7 +5,7 @@
           <?php //echo $estimates[0]['estimate_modifiedDate'];?>
            <?php //echo strtotime($estimates[0]['estimate_modifiedDate']);?>
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
-                  <a href="<?php echo site_url('/admin');?>" class="tabTitle">&#10092; ESTIMATES</a>
+                  <a href="<?php echo site_url('/admin');?>" class="tabTitle">&#10092; ANALYSIS</a>
                   <div id="cardsbox">
 
                   <?php echo form_open('/admin/estimates');?>

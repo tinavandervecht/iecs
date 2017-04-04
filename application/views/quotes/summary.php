@@ -3,11 +3,27 @@
 
         <section class="row expanded" id="cmsEstimateSummary">
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
-                  <a href="<?php echo site_url('/dashboard');?>" class="tabTitle">&#10092; ESTIMATE SUMMARY</a>
+                  <a href="<?php echo site_url('/dashboard');?>" class="tabTitle">&#10092; ANALYSIS SUMMARY</a>
                   <a href="#" class="tabTitle">STANDARDS</a>
                   <div id="cardsbox" class="clearfix row">
                     <!-- <p>CC-TM = Cable Concrete Technical Memorandum<br>HEC = U.S, DOT HEC-23 Circular</p> -->
+                    <div class="clumns small-12 medium-12 medium-centered large-11 large-centered"><p>Design of Cable Concrete Mats for Open Channels<br>Developed by Drs Alex McCorquodale and David Machina
+    <br>This program has been prepared as an aid to determining the Factor of Safety for
+    Cable Concrete mat in simple open channels.<br> Several typical design cases are presented. The user is asked to select the appropriate case.
+    If the case is not represented then the user should contact IECS for technical information. THIS PROGRAM IS INTENDED AS A GUIDE TO THE DESIGN OF CABLE CONCRETE MATS. ALL FINAL DESIGNS SHOULD BE VERIFIED BY A LICENCED CIVIL ENGINEER.
+    Version 2017.01<br>
+    Copyright 2013-2017 by International Erosion Control Systems.<br>
+    IECS Call 519-785-1420  or 800-821-7462<br>
+<br>
+     THIS PROGRAM CALCULATES THE SEPARATE SAFETY FACTORS FOR FAILURE BY OVERTURNING AND SLIDING OF CONCRETE BLOCK REVETMENT SYSTEMS. THIS PROGRAM USES THE OVERTURNING EQUATION IN: <br>"Articulating Concrete Block Revetment Design - Factor of Safety Method"-- National Concrete Masonry Association TEK 11-12 and "Bridge Scour and Stream Instability Countermeasures" -- U.S. Department of Transportation, Hydraulic Engineering Circular No. 23 (HEC-23).
 
+<br>
+IN ADDITION, THE PROGRAM COMPUTES THE FACTOR AGAINST FAILURE DUE TO SLIDING BASED ON THE THEORY OF DAMS IN: "Design of Small Dams", by U.S.Bureau of Reclamation
+<br>The equations in this program are calibrated using laboratory studies conducted at:<br>
+         University of Minnesota<br>
+         Colorado State University<br>
+         University of Windsor<br>
+to derive the forces and moments in the Factors of Safety. See CC-TM.</p></div>
 
                     <!-- the below will most likely be queried from the database, no? so we can pull down the individual # associated with each block -->
                     <?php $blocks = [["CCG2","25"], ["CC35","35"], ["CC45","45"], ["CC70","70"], ["CC90","90"]];?>
@@ -39,7 +55,7 @@
                           </a>
                           <div class="more clearfix row">
                               <div class="column small-12">
-                                  <h4>Estimate Details</h4>
+                                  <h4>Analysis Details</h4>
                               </div>
                               <!--===========================-->
                               <section class="column small-12 large-6">
