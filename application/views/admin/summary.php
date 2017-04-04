@@ -23,7 +23,7 @@
                               <div class="factor row">
                                   <div class="slimshady-wrapper small-8 medium-10">
                                       <div class="columns small-12 medium-6 overturning">
-                                          <h3 class="small-6 medium-12 columns">Overturning<span class="hide-for-small show-for-medium">Safety Factors</span></h3>
+                                          <h3 class="small-6 medium-12 columns">Overturning <span class="hide-for-small show-for-medium">Safety Factors</span></h3>
                                           <p class="safety">Bed: <span class="num bed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
                                           <p class="safety">Side: <span class="num side">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
                                       </div>
@@ -216,10 +216,9 @@
                 <div id="myModal" class="modal">
                 <div class="modal-content clearfix">
                   <span class="close">&times;</span>
-                  <h2 style="font-family: opensans-bold;">EMAIL IECS</h2>
+                  <h2 style="font-family: opensans-bold;">EMAIL CLIENT: <?php echo "DUMMY CLIENT" ;?></h2>
                   <label>Subject:</label><br>
                   <input id="subject" name="subject">
-
                   <br><br>
                   <label>Message:</label><br>
                   <textarea id="textarea" name="message"></textarea>

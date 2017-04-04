@@ -66,22 +66,35 @@ for(var i=0;i<blocks.length;i++){
 var subpopup = document.querySelector('#subforreview');
 var shwn = false;
 
+
+
+function closeEl(el){
+  TweenLite.to(el,0.5,{opacity:0,onComplete:function(){
+      el.style.display = "none";
+      if(el.classList.contains('shown')){
+        el.classList.remove('shown');
+      }
+    }
+  });
+}
+
 function toggleSubmit(button){
   if(button.classList.contains('email')){
     var modal = document.querySelector('#myModal');
-    function closeModal(){
-      TweenLite.to(modal,0.5,{opacity:0,onComplete:function(){
-          modal.style.display = "none";
-        }
-      });
-    }
     modal.style.display = "block";
     TweenLite.to(modal,0.5,{opacity:1.0});
-    modal.querySelector(".close").addEventListener('click',closeModal,false);
-    modal.querySelector("#sendit").addEventListener('click',closeModal,false);
+    modal.querySelector(".close").addEventListener('click',function(){
+      closeEl(modal);
+    },false);
+    modal.querySelector("#sendit").addEventListener('click',function(e){
+      e.preventDefault();
+      // SEND EMAIL TO CLIENT HERE
+      alert("Your Email has NOT been sent!");
+      closeEl(modal);
+    },false);
     window.addEventListener('click',function(){
       if (event.target == modal){
-        closeModal();
+        closeEl(modal);
       }
     },false);
   }else if(button.classList.contains('save')){
@@ -93,6 +106,12 @@ function toggleSubmit(button){
       TweenLite.to(subpopup,0.2,{opacity:0,onComplete:function(){subpopup.classList.remove('shown');}});
     }
     shwn = !shwn;
+  }else if(button.id === "yes"){
+    //EMAIL RESULTS TO IECS HERE
+    alert("Your Email has NOT been sent!");
+    closeEl(subpopup);
+  }else if(button.id === "no"){
+    closeEl(subpopup);
   }else{
     console.log("NOPE");
   }
@@ -153,6 +172,14 @@ var topWidth; // Meters, ONLY AVAILABLE IF alignment != straight
 var outletSource; //River, manhole, etc.
 var soilType; //Soil type and related conditions
 
+//BLOCK SPECIFIC FACTORS; probably shouldn't be stored in JS, should be stored serverside and pulled down with AJAX
+var specs = {
+  "CCG2": 1.15,
+  "CC35": 1.65,
+  "CC45": 2.2,
+  "CC70": 2.8,
+  "CC90": 3.45
+}
 
 function Calculations(data){
   var numSides = 3;
@@ -182,15 +209,8 @@ function Calculations(data){
   }
 
   // INPUT BLOCK-SPEC VALUES, RETURNS JSON OF THE SAFETY FACTORS
+
   this.blockSon = function(block){
-    //BLOCK SPECIFIC FACTORS; probably shouldn't be stored in JS, should be stored serverside and pulled down with AJAX
-    var specs = {
-      "CCG2": 1.15,
-      "CC35": 1.65,
-      "CC45": 2.2,
-      "CC70": 2.8,
-      "CC90": 3.45
-    }
     return {
       o : { //overturning
         bed: (this.overturningBed() * specs[block]).toFixed(PRECISION),
@@ -212,16 +232,22 @@ function performCalcs(data){
     var blocks = document.querySelectorAll(".block");
     var firstHighlight = false; //value displaying if one of the blocks has been highlighted
     for(block of blocks){
+
+      //NUMBERS FOR DROPDOWN BASED OFF ESTIMATE ID AND BLOCK FACTORS
+      var numbers = block.querySelectorAll('.more .num');
+      for(var i =0; i< numbers.length;i++){
+        var n = parseInt(data.estimate_channelDepth) * ( i%4 + 1.1) * specs[block.id];
+        numbers[i].innerHTML = n.toFixed(2);
+      }
       var blockDisable = 0; //count the number of BAD safety factors
       var blockOkay = 0; //count the number of OKAY safety factors
       // console.log(block.id);
-      var TEST_USEBLOCK = 1; // 0:both, 1:bed, 2:side
-      var numSafety = (TEST_USEBLOCK == 0)  ? 4 : 2;
-      console.log(numSafety);
+      var useBlock = parseInt(data.estimate_blockUse); // 0:both, 1:bed, 2:side
+      var numSafety = (useBlock == 0)  ? 4 : 2;
 
       var blocky = calc.blockSon(block.id);
 
-      if(TEST_USEBLOCK == 0 || TEST_USEBLOCK == 1){
+      if(useBlock == 0 || useBlock == 1){
       block.querySelector('.overturning .bed').innerHTML = blocky.o.bed;
       if(blocky.o.bed < UPSELL){
         if(blocky.o.bed < MINIMUM){
@@ -249,7 +275,7 @@ function performCalcs(data){
       block.querySelector('.overturning .bed').parentNode.classList.add('hidden');
       block.querySelector('.factor').classList.add('one');
     }
-    if(TEST_USEBLOCK == 0 || TEST_USEBLOCK == 2){
+    if(useBlock == 0 || useBlock == 2){
       block.querySelector('.overturning .side').innerHTML = blocky.o.side;
       if(blocky.o.side < UPSELL){
         if(blocky.o.side < MINIMUM){
