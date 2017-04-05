@@ -133,27 +133,28 @@
               </div>
             <div class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
               <div id="bedSlope"  class="clearfix">
-                  <h4 class="title">Channel Bed Slope</h4>
                   <label for="bedSlopePercent">
-                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in percentage form.</span>?</a><h5 class="unit">Percent (%)</h5>
+                    <h4 class="title">Channel Bed Slope</h4>
+                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in percentage or decimal form.</span>?</a><h5 class="unit">Percent (%)</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedSlopePercent" class="convert P" />
                   <label for="bedSlopeDecimal">
-                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in decimal form.</span>?</a><h5 class="unit">Decimal</h5>
+                    <h5 class="unit">Decimal</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedSlopeDecimal"  class="convert D" name="bedSlopeDecimal" placeholder=""/>
               </div>
               <div id="sideSlope"  class="clearfix">
-                  <h4 class="title">Channel Side Slope</h4>
+
                   <label for="sideSlopePercent">
+                    <h4 class="title">Channel Side Slope</h4>
                     <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                       <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a><h5 class="unit">Percent (%)</h5>
                   </label>
                   <input id="sideSlopePercent" class="convert P"  />
                   <label for="sideSlopeDecimal">
-                      <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a><h5 class="unit">Decimal</h5>
+                    <h5 class="unit">Decimal</h5>
                       <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" placeholder=""/>
@@ -273,9 +274,9 @@
               <div class="columns small-12">
               <h3 class="sectionTitle">Channel Specifications</h3>
             </div>
-          <div class="columns small-12 medium-6 medium-push-6 large-pull-0">
+          <!-- <div class="columns small-12 medium-6 medium-push-6 large-pull-0">
             <img src="<?php echo base_url('img/channel_specifications.jpg');?>" class="calcDiagram"  alt="">
-          </div>
+          </div> -->
               <div class="columns small-12 medium-6 medium-pull-6 large-pull-0">
               <div id="channelLength"  class="clearfix">
               <h4 class="title">Chute/Channel Length</h4>
