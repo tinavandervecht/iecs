@@ -98,26 +98,45 @@ function pagnation(event){
   pageNo.classList.remove('current');
   pageNo = it;
   pageNumber = pageNo.innerHTML;
-  }else if(pageNo.nextElementSibling!=null){
+  if(parseInt(pageNumber)==4){
+      contButton.classList.add('hidden');
+      document.querySelector('#calc').classList.remove('hidden');
+      calc = true;
+  }
+}else if(pageNo.nextElementSibling!=null && parseInt(pageNumber)!=3){
     pageNo.classList.remove('current');
     pageNo.nextElementSibling.classList.add('current');
     pageNo = pageNo.nextElementSibling;
     pageNumber = pageNo.innerHTML;
   }else{
-    it.classList.add('current');
-    pageNo.classList.remove('current');
-    pageNumber =  4;
-    summarize();
-    contButton.classList.add('hidden');
-    document.querySelector('#calc').classList.remove('hidden');
-    calc = true;
+    pageNumber = pageNo.innerHTML;
   }
+  // else{
+  //   it.classList.add('current');
+  //   pageNo.classList.remove('current');
+  //   pageNumber =  4;
+  //   summarize();
+  //   contButton.classList.add('hidden');
+  //   document.querySelector('#calc').classList.remove('hidden');
+  //   calc = true;
+  // }
   for(var i=0;i<pages.length;i++){
-    if(parseInt(pages[i].id) == pageNumber || pages[i].id === pageNumber){
+    if(parseInt(pages[i].id) == parseInt(pageNumber)){
       var newPage = pages[i];
     }
     }
   TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
+  if(parseInt(pageNumber) == 4){
+    contButton.classList.add('hidden');
+    document.querySelector('#calc').classList.remove('hidden');
+    calc = true;
+  }else{
+    if(contButton.classList.contains('hidden')){
+      contButton.classList.remove('hidden');
+      document.querySelector('#calc').classList.add('hidden');
+      calc = false;
+    }
+  }
 }
 
 
