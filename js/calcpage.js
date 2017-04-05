@@ -1,4 +1,23 @@
 (function(){
+//THIS FILE IS WHERE THE CALCULATIONS TAKE PLACE.
+/*
+                n___n_
+              /       = =\             .--------------------------------------------------------------------------------------------------.
+            /         ._Y_)        <       I'M SORRY THIS ALSO IS A MAJOR CLUSTERCRAP OF A  DISASTER   |
+          /            "\                ' ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' '
+        (_/         (_,  \
+          \               ( \_,--""""""--.
+      ..-,-`._____,-` )-.________./
+
+      Here's what you need to know:
+      everything above
+
+      //CALCULATIONS
+
+      is responsible for some form of page animation, feature, pop up etc.
+
+      almost everything after //CALCULATIONS is where the formulas should go.
+*/
 //CONSTANTS
 var PRECISION = 2; //number of displayed decimals on block output.
 var MINIMUM = 1.5; //absolute minimum safe safety factor for a block
@@ -140,6 +159,9 @@ catch(e){
 var jsonData;
 
 /*VARIABLE DECLARATIONS*/
+/*
+let's make a bunch of vars, a whole shelf of jars, to hold the inputs from the form that are pulled from the DB
+*/
 var name;
 var city;
 var engineer;
@@ -172,7 +194,8 @@ var topWidth; // Meters, ONLY AVAILABLE IF alignment != straight
 var outletSource; //River, manhole, etc.
 var soilType; //Soil type and related conditions
 
-//BLOCK SPECIFIC FACTORS; probably shouldn't be stored in JS, should be stored serverside and pulled down with AJAX
+//BLOCK SPECIFIC FACTORS;
+//to be pulled from the server with AJAX :D
 var specs = {
   "CCG2": 1.15,
   "CC35": 1.65,
@@ -181,6 +204,16 @@ var specs = {
   "CC90": 3.45
 }
 
+/*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
+CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
+
+THIS SHOULD BE WHERE YOU INSERT YOUR NEW CALCULATIONS, WITH THE FOLLOWING FORMAT:
+
+this.calcName = function(){
+return (a*b*c)/d + e -f; //RANDOM CALC
+}
+
+*/
 function Calculations(data){
   var numSides = 3;
   this.slopeValue = function(){
@@ -210,6 +243,16 @@ function Calculations(data){
 
   // INPUT BLOCK-SPEC VALUES, RETURNS JSON OF THE SAFETY FACTORS
 
+/*THIS IS A METHOD THAT RETURNS A JS OBJECT OF THE SAFTEY FACTORS, WHICH LOOKS LIKE THIS:
+{o:{bed:1.2,side:2.3},s:{bed:2.4,side:1.4}}
+
+WHERE
+
+o.bed = the bed overturning safety factor;
+o.side = the side overturning safety factor;
+s.bed = the bed sliding safety factor;
+s.side = the side sliding safety factor;
+*/
   this.blockSon = function(block){
     return {
       o : { //overturning
@@ -231,8 +274,9 @@ function performCalcs(data){
     // console.log(calc.curvatureValue());
     var blocks = document.querySelectorAll(".block");
     var firstHighlight = false; //value displaying if one of the blocks has been highlighted
-    for(block of blocks){
-
+    // for(block of blocks){ // <---------------------------  ITERATORS DO NOT WORK IN IE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    for(var f=0;f<blocks.length;f++){
+      var block = blocks[f]; // LAZY WAY TO POLYFILL MY MISTAKE USING ITERATORS
       //NUMBERS FOR DROPDOWN BASED OFF ESTIMATE ID AND BLOCK FACTORS
       var numbers = block.querySelectorAll('.more .num');
       for(var i =0; i< numbers.length;i++){

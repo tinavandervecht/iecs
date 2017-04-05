@@ -5,6 +5,7 @@
                   <a href="#" class="pageNo current" id="1">1</a>
                   <a href="#" class="pageNo" id="2">2</a>
                   <a href="#" class="pageNo" id="3">3</a>
+                  <a href="#" class="pageNo" id="4">4</a>
                 </div>
               </div>
         </header>
