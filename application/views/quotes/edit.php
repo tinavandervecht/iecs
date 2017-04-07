@@ -128,7 +128,7 @@
               </div>
               <div class="columns small-12 medium-6">
                 <div class="calcDiagram" id="svg1">
-                  <?php echo file_get_contents(base_url('img/iso_slope.svg')); ?>
+                  <?php echo file_get_contents(base_url('img/iso_slope2.svg')); ?>
                 </div>
               </div>
             <div class="columns small-12 medium-6">

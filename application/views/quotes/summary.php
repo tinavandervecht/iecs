@@ -6,8 +6,8 @@
                   <a href="<?php echo site_url('/dashboard');?>" class="tabTitle">&#10092; DESIGN SUMMARY</a>
                   <a href="#" class="tabTitle">STANDARDS</a>
                   <div id="cardsbox" class="clearfix row">
-                    <!-- <p>CC-TM = Cable Concrete Technical Memorandum<br>HEC = U.S, DOT HEC-23 Circular</p> -->
-
+                    <p id="sumInfo">CC-TM = Cable Concrete Technical Memorandum<span style="margin-lefT: 30px;">HEC = U.S, DOT HEC-23 Circular</span></p>
+                    <?php echo file_get_contents(base_url('img/legend.svg')); ?>
 
                     <!-- the below will most likely be queried from the database, no? so we can pull down the individual # associated with each block -->
                     <?php $blocks = [["CCG2","25"], ["CC35","35"], ["CC45","45"], ["CC70","70"], ["CC90","90"]];?>
