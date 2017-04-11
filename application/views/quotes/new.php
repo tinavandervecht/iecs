@@ -127,31 +127,34 @@
                 <h3 class="sectionTitle">Slopes</h3>
               </div>
               <div class="columns small-12 medium-6 medium-push-6 large-6 large-pull-0">
-                <img src="<?php echo base_url('img/isometric_slope2.png');?>" class="calcDiagram" alt="">
+                <div class="calcDiagram" id="svg1">
+                  <?php echo file_get_contents(base_url('img/iso_slope.svg')); ?>
+                </div>
               </div>
             <div class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
               <div id="bedSlope"  class="clearfix">
-                  <h4 class="title">Channel Bed Slope</h4>
                   <label for="bedSlopePercent">
-                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in percentage form.</span>?</a><h5 class="unit">Percent (%)</h5>
+                    <h4 class="title">Channel Bed Slope</h4>
+                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in percentage or decimal form.</span>?</a><h5 class="unit">Percent (%)</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedSlopePercent" class="convert P" />
                   <label for="bedSlopeDecimal">
-                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in decimal form.</span>?</a><h5 class="unit">Decimal</h5>
+                    <h5 class="unit">Decimal</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedSlopeDecimal"  class="convert D" name="bedSlopeDecimal" placeholder=""/>
               </div>
               <div id="sideSlope"  class="clearfix">
-                  <h4 class="title">Channel Side Slope</h4>
+
                   <label for="sideSlopePercent">
+                    <h4 class="title">Channel Side Slope</h4>
                     <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                       <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a><h5 class="unit">Percent (%)</h5>
                   </label>
                   <input id="sideSlopePercent" class="convert P"  />
                   <label for="sideSlopeDecimal">
-                      <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a><h5 class="unit">Decimal</h5>
+                    <h5 class="unit">Decimal</h5>
                       <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" placeholder=""/>
@@ -184,25 +187,26 @@
                     <option value="7">Undulating Trans Critical</option>
                   </select>
               </div>
-              <div id="designComponent"  class="clearfix">
-                  <label>
+              <!-- <div id="designComponent"  class="clearfix">
                   <h4 class="title">Type of Block</h4>
+                  <label for="blockType">
                       <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
                   </label>
                   <select name="blockType">
-                    <option value="0" >Same Block for Both</option>
-                    <option value="1" >Different Block for each</option>
+                    <option value="0" <.?php if ($estimate['estimate_blockType'] == 0) {echo "selected";}?>>Same Block for Both</option>
+                    <option value="1" <.?php if ($estimate['estimate_blockType'] == 1) {echo "selected";}?>>Different Block for each</option>
                   </select>
-              </div>
+              </div> -->
 
-                <div id="designComponent"  class="clearfix">
-                  <label>
+                <div id="designComponentTwo"  class="clearfix">
                   <h4 class="title">Use block on...</h4>
+                  <label for="blockUse">
+                    <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
                   </label>
                   <select name="blockUse">
-                    <option value="0" >Both Bed and Side</option>
-                    <option value="1" >Bed Only</option>
-                    <option value="2" >Side Only</option>
+                    <option value="0"  <?php if ($estimate['estimate_blockUse'] == 0) {echo "selected";}?>>Both Bed and Side</option>
+                    <option value="1" <?php if ($estimate['estimate_blockUse'] == 1) {echo "selected";}?>>Bed Only</option>
+                    <option value="2" <?php if ($estimate['estimate_blockUse'] == 2) {echo "selected";}?>>Side Only</option>
                   </select>
               </div>
             </div>
@@ -230,6 +234,12 @@
                   <select id="alignType" name="alignType">
                     <option value="0">Straight</option>
                     <option value="1">Not Straight</option>
+<<<<<<< HEAD
+=======
+                    <!-- <option value="1">Moderate</option>
+                    <option value="2">Severe</option>
+                    <option value="3">Extreme</option> -->
+>>>>>>> refs/remotes/origin/master
                   </select>
               </div>
               <div id="crestRadius"  class="clearfix">
@@ -267,9 +277,9 @@
               <div class="columns small-12">
               <h3 class="sectionTitle">Channel Specifications</h3>
             </div>
-          <div class="columns small-12 medium-6 medium-push-6 large-pull-0">
+          <!-- <div class="columns small-12 medium-6 medium-push-6 large-pull-0">
             <img src="<?php echo base_url('img/channel_specifications.jpg');?>" class="calcDiagram"  alt="">
-          </div>
+          </div> -->
               <div class="columns small-12 medium-6 medium-pull-6 large-pull-0">
               <div id="channelLength"  class="clearfix">
               <h4 class="title">Chute/Channel Length</h4>

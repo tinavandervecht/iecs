@@ -127,31 +127,35 @@
                 <h3 class="sectionTitle">Slopes</h3>
               </div>
               <div class="columns small-12 medium-6">
-                <img src="<?php echo base_url('img/isometric_slope2.png');?>" class="calcDiagram" alt="">
+                <div class="calcDiagram" id="svg1">
+                  <?php echo file_get_contents(base_url('img/iso_slope2.svg')); ?>
+                </div>
               </div>
             <div class="columns small-12 medium-6">
               <div id="bedSlope"  class="clearfix">
-                  <h4 class="title">Channel Bed Slope</h4>
                   <label for="bedSlopePercent">
-                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in percentage form.</span>?</a><h5 class="unit">Percent (%)</h5>
+                      <h4 class="title">Channel Bed Slope</h4>
+                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in percentage or decimal form.</span>?</a><h5 class="unit">Percent (%)</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
+
                   </label>
                   <input id="bedSlopePercent" class="convert P" />
                   <label for="bedSlopeDecimal">
-                      <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in decimal form.</span>?</a><h5 class="unit">Decimal</h5>
+                      <h5 class="unit">Decimal</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="bedSlopeDecimal"  class="convert D" name="bedSlopeDecimal" value="<?php echo $estimate['estimate_bedSlope'];?>"/>
               </div>
               <div id="sideSlope"  class="clearfix">
-                  <h4 class="title">Channel Side Slope</h4>
+
                   <label for="sideSlopePercent">
+                    <h4 class="title">Channel Side Slope</h4>
                     <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                       <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”.</span>?</a><h5 class="unit">Percent (%)</h5>
                   </label>
                   <input id="sideSlopePercent" class="convert P"  />
                   <label for="sideSlopeDecimal">
-                      <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”.</span>?</a><h5 class="unit">Decimal</h5>
+                      <h5 class="unit">Decimal</h5>
                       <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
                   <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" value="<?php echo $estimate['estimate_sideSlope'];?>"/>
@@ -183,10 +187,11 @@
                     <option value="7" <?php if ($estimate['estimate_flowType'] == 7) {echo "selected";}?>>Undulating Trans Critical</option>
                   </select>
               </div>
-
-              <div id="designComponent"  class="clearfix">
-                  <label>
-                  <h4 class="title">Type of Block</h4>
+            <h3 class="sectionTitle">Block Usage</h3>
+              <div id="designComponentTwo"  class="clearfix hidden">
+                  <h4 class="title">Blocks for Bed and Side:</h4>
+                  <label for="blockType">
+                    <h5 class="unit">Where will you use our blocks?</h5>
                       <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
                   </label>
                   <select name="blockType">
@@ -196,10 +201,12 @@
               </div>
 
                 <div id="designComponent"  class="clearfix">
-                  <label>
-                  <h4 class="title">Use block on...</h4>
+                  <h4 class="title">Use blocks on...</h4>
+                  <label for="blockUse">
+                    <h5 class="unit">Where will you use our blocks?</h5>
+                    <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
                   </label>
-                  <select name="blockUse">
+                  <select id="blockUse" name="blockUse">
                     <option value="0"  <?php if ($estimate['estimate_blockUse'] == 0) {echo "selected";}?>>Both Bed and Side</option>
                     <option value="1" <?php if ($estimate['estimate_blockUse'] == 1) {echo "selected";}?>>Bed Only</option>
                     <option value="2" <?php if ($estimate['estimate_blockUse'] == 2) {echo "selected";}?>>Side Only</option>
@@ -229,9 +236,10 @@
                   </label>
                   <select id="alignType" name="alignType">
                     <option value="0" <?php if ($estimate['estimate_alignment'] == 0) {echo "selected";}?>>Straight</option>
-                    <option value="1" <?php if ($estimate['estimate_alignment'] == 1) {echo "selected";}?>>Moderate</option>
-                    <option value="2" <?php if ($estimate['estimate_alignment'] == 2) {echo "selected";}?>>Severe</option>
-                    <option value="3" <?php if ($estimate['estimate_alignment'] == 3) {echo "selected";}?>>Extreme</option>
+                    <option value="1" <?php if ($estimate['estimate_alignment'] == 1) {echo "selected";}?>>Not Straight</option>
+                    <!-- <option value="1" <.?php if ($estimate['estimate_alignment'] == 1) {echo "selected";}?>>Moderate</option>
+                    <option value="2" <.?php if ($estimate['estimate_alignment'] == 2) {echo "selected";}?>>Severe</option>
+                    <option value="3" <.?php if ($estimate['estimate_alignment'] == 3) {echo "selected";}?>>Extreme</option> -->
                   </select>
               </div>
               <div id="crestRadius"  class="clearfix">
@@ -270,36 +278,36 @@
               <h3 class="sectionTitle">Channel Specifications</h3>
             </div>
           <div class="columns small-12 medium-6">
-            <img src="<?php echo base_url('img/channel_specifications.jpg');?>" class="calcDiagram"  alt="">
+            <!-- <img src="<?php echo base_url('img/channel_specifications.jpg');?>" class="calcDiagram"  alt=""> -->
+            <div id="channelLength"  class="clearfix">
+            <h4 class="title">Chute/Channel Length</h4>
+            <label for="channelMeters">
+              <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in meters.</span>?</a><h5 class="unit">Meters</h5>
+              <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
+            </label>
+              <input id="channelMeters" class="convert metric" name="channelMeters" value="<?php echo $estimate['estimate_channelLength'];?>"/>
+            <label for="channelFeet">
+              <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in feet.</span>?</a><h5 class="unit">Feet</h5>
+              <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
+            </label>
+              <input id="channelFeet"  class="convert imperial" />
+            </div>
+
+            <div id="channelDepth"  class="clearfix">
+            <h4 class="title">Channel Depth</h4>
+            <label for="depthMeters">
+              <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in meters.</span>?</a><h5 class="unit">Meters</h5>
+              <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
+            </label>
+              <input id="depthMeters" class="convert metric" name="depthMeters" value="<?php echo $estimate['estimate_channelDepth'];?>"/>
+            <label for="depthFeet">
+              <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in feet.</span>?</a><h5 class="unit">Feet</h5>
+              <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
+            </label>
+              <input id="depthFeet"  class="convert imperial" />
+            </div>
           </div>
               <div class="columns small-12 medium-6">
-              <div id="channelLength"  class="clearfix">
-              <h4 class="title">Chute/Channel Length</h4>
-              <label for="channelMeters">
-                <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in meters.</span>?</a><h5 class="unit">Meters</h5>
-                <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
-              </label>
-                <input id="channelMeters" class="convert metric" name="channelMeters" value="<?php echo $estimate['estimate_channelLength'];?>"/>
-              <label for="channelFeet">
-                <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in feet.</span>?</a><h5 class="unit">Feet</h5>
-                <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
-              </label>
-                <input id="channelFeet"  class="convert imperial" />
-              </div>
-
-              <div id="channelDepth"  class="clearfix">
-              <h4 class="title">Channel Depth</h4>
-              <label for="depthMeters">
-                <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in meters.</span>?</a><h5 class="unit">Meters</h5>
-                <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
-              </label>
-                <input id="depthMeters" class="convert metric" name="depthMeters" value="<?php echo $estimate['estimate_channelDepth'];?>"/>
-              <label for="depthFeet">
-                <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in feet.</span>?</a><h5 class="unit">Feet</h5>
-                <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
-              </label>
-                <input id="depthFeet"  class="convert imperial" />
-              </div>
 
               <div id="topWidth"  class="clearfix">
               <h4 class="title">Top Width of Channel</h4>
@@ -399,6 +407,11 @@
               <!-- end of summaryEntry -->
               <div class="summaryEntry" id="sum_type">
                 <h4 class="entryTitle">Types of Flow<a href="#" class="edit" data-pag="2"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+                <p class="text"> Nothing here.</p>
+              </div>
+              <!-- end of summaryEntry -->
+              <div class="summaryEntry" id="sum_block">
+                <h4 class="entryTitle">Block Usage<a href="#" class="edit" data-pag="2"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
                 <p class="text"> Nothing here.</p>
               </div>
               <!-- end of summaryEntry -->
