@@ -1,4 +1,4 @@
-
+<!-- THE NAV BAR FOR THE ADMIN PAGES -->
     <header id="mainHeader">
         <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
     </header>

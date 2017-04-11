@@ -1,5 +1,6 @@
 <?php
 class Help extends CI_Controller {
+  //FAQs PAGE
 
         public function __construct()
         {

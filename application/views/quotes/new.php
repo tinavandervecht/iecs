@@ -164,7 +164,7 @@
                   <label for="frAngle">
                       <a href="#" class="tip"><span class="tooltip">Enter a custom Friction Angle, if it applies - defaults to 30.</span>?</a><h5 class="unit">Degrees</h5>
                   </label>
-                  <input id="frAngle" class=""  placeholder="30&deg;"/>
+                  <input id="frAngle" class="" name="friction" value="30"/>
               </div>
 
             </div>
@@ -234,9 +234,6 @@
                   <select id="alignType" name="alignType">
                     <option value="0">Straight</option>
                     <option value="1">Not Straight</option>
-                    <!-- <option value="1">Moderate</option>
-                    <option value="2">Severe</option>
-                    <option value="3">Extreme</option> -->
                   </select>
               </div>
               <div id="crestRadius"  class="clearfix">

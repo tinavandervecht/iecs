@@ -8,6 +8,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
                 parent::__construct();
                 $this->load->model('admin_model'); //THIS LOADS THE ADMIN MODEL, CONTAINING ALL QUERY FUNCTIONS FOR THE ADMIN CONTROLLER
                 $this->load->helper('url_helper');
+                $this->load->library('email');
         }
 
         public function index(){ //FUNCTION FOR site/admin/
@@ -156,6 +157,21 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
 
         redirect('/admin/estimates');
       }
+      $data['summary'] = $this->admin_model->get_summary($id);
+
+      if (isset($_POST)){
+      $body = $this->input->post('email_text');
+      $sub = $this->input->post('email_sub');
+      $this->email->from('IECS EMAIL', 'IECS CONTACT NAME');
+      $this->email->to($data['summary']['company_email']);
+
+      $this->email->subject($sub);
+      $this->email->message($body);
+
+      $this->email->send();
+
+      }
+
       $data['id'] = $id;
 
       //$data['summary'] = $this->admin_model->get_summary($id);

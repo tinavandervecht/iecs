@@ -1,5 +1,6 @@
 <?php
 class Profile extends CI_Controller {
+  //PROFILE CONTROLLER, CONTAINS ALL THE LOGIN PAGES AND THE PROFILE EDIT PAGE.
 
         public function __construct()
         {
@@ -9,6 +10,7 @@ class Profile extends CI_Controller {
         }
 
         public function index(){
+          //THEIR PROFILE PAGE, CONTAINS A FORM WHERE THEY CAN UPDATE THEIR PROFILE INFO.
 
           if (isset($_SESSION['company_id']) == FALSE)
         {
@@ -22,7 +24,8 @@ class Profile extends CI_Controller {
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|max_length[12]');
         $this->form_validation->set_rules('contactName', 'Phone Number', 'required|max_length[30]');
 
-        if ($this->form_validation->run() === FALSE){
+        if ($this->form_validation->run() === FALSE){ //IF THEY HAVEN'T ATTEMPTED TO EDIT THEIR INFO OR HAVE DONE SO INCORRECTLY
+          //SHOW THE NORMAL PAGE
 
           $data['userInfo'] = $this->profile_model->get_company($_SESSION['company_id']);
 
@@ -39,7 +42,7 @@ class Profile extends CI_Controller {
         }
 
         else{
-          $this->profile_model->alter_profile();
+          $this->profile_model->alter_profile(); //UPDATE THEIR PROFILE AND RELOAD THE PAGE
           $data['userInfo'] = $this->profile_model->get_company($_SESSION['company_id']);
 
           $data['title'] = "Profile | IECS";
@@ -58,23 +61,9 @@ class Profile extends CI_Controller {
 
 }
 
-        public function views($companyID = NULL){
-
-        $data['userInfo'] = $this->profile_model->get_company($companyID);
-
-        if (empty($data['userInfo']))
-        {
-                show_404();
-        }
-
-        $data['title'] = $data['userInfo']['company_contactName'];
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('profile/view', $data);
-        $this->load->view('templates/footer');
-}
 
         public function create(){
+          //FUNCTION FOR THE PROFILE CREATION PAGE
 
             $this->load->helper('form');
             $this->load->library('form_validation');
@@ -95,16 +84,16 @@ class Profile extends CI_Controller {
                 $this->load->view('templates/footer', $data);
 
             }
-            else
+            else //IF THE FORM VALIDATES (MEANING THEY FILLED IT OUT AND PRESSED THE LINK)
             {
-                $this->profile_model->set_profile();
+                $this->profile_model->set_profile(); //SET THE PROFILE INTO THE DATABASE
                 redirect('/profile/login');
             }
 }
 
-      public function login(){
+      public function login(){ //LOGIN PAGE FUNCTION
 
-      if (isset($_SESSION['company_id']) == TRUE){
+      if (isset($_SESSION['company_id']) == TRUE){ //IF THEY'RE LOGGED IN ALREADY REDIRECT
         redirect('/dashboard');
       }
 
@@ -126,9 +115,9 @@ class Profile extends CI_Controller {
 
     else{
 
-        $session = $this->profile_model->check_login();
+        $session = $this->profile_model->check_login(); //CHECK THE LOGIN INFO TO SEE IF THE PROFILE EXISTS AND RETURN IT IF IT DOES.
 
-        if($session === FALSE)
+        if($session === FALSE) //IF THERES NO ENTRY
         {
 
           $this->load->view('templates/header', $data);
@@ -136,13 +125,9 @@ class Profile extends CI_Controller {
           $this->load->view('templates/footer', $data);
         }
 
-        else{
+        else{ //IF THERE IS
 
-          //$this->load->view('templates/header', $data);
-          //$this->load->view('profile/view', $data);
-          //$this->load->view('templates/footer');
-          $this->session->set_userdata($session);
-          //$this->views($data['userInfo']['company_id']);
+          $this->session->set_userdata($session); //UPLOAD THE USER DATA TO THE SESSION AND REDIRECT
           redirect('/dashboard');
         }
 

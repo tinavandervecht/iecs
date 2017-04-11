@@ -1,5 +1,6 @@
 <?php
 class Tips extends CI_Controller {
+  //TIPS PAGE, NO LONGER USED IN THE SITE.
 
         public function __construct()
         {

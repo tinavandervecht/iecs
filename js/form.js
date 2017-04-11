@@ -142,22 +142,27 @@ function pagnation(event){
 
 //CONVERT METRIC TO IMPERIAL
   function metricToImperial(input,units,precision){
-    var output = null;
-    var factor = 3.28084;
-    input = parseFloat(input);
-    if(units === "ft"){
-      output = input*factor;
-    }else if(units === "in"){
-      output = input*factor*12;
-    }else if(units=== "yd"){
-      output = input*factor/3;
-    }else{
-      //console.log("parameter passed is invalid. ERROR");
+    if (input!=""){
+      var output = null;
+      var factor = 3.28084;
+      input = parseFloat(input);
+      if(units === "ft"){
+        output = input*factor;
+      }else if(units === "in"){
+        output = input*factor*12;
+      }else if(units=== "yd"){
+        output = input*factor/3;
+      }else{
+        //console.log("parameter passed is invalid. ERROR");
+      }
+      if(output.toString()!="NaN"){
+        return parseFloat(output.toFixed(2));
+      }else{
+        return "Unexpected Input.";
+      }
     }
-    if(output.toString()!="NaN"){
-      return parseFloat(output.toFixed(2));
-    }else{
-      return "Unexpected Input.";
+    else{
+      return "";
     }
   }
 

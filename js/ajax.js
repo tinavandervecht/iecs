@@ -1,4 +1,7 @@
 (function(){
+
+  //AJAX CMS FUNCTIONALITY
+
     var boxes = document.querySelectorAll('.estiimat'),
         rows = document.querySelectorAll('.new'),
         select = document.querySelector('#sort'),
@@ -36,16 +39,18 @@
         //console.log(json.length);
         //console.log(json[3].estimate_name);
         //console.log(json[4].estimate_name);
+
+        //DELETE WHATS CURRENTLY IN THE BOXES AND TABLES
         centerBox.innerHTML = "";
         table.innerHTML = "";
 
 
-        if (json.length<4) {
+        if (json.length<4) { //IF THERE ARE LESS THEN 5 ENTRIES YOU DON'T NEED TO RENDER THE TABLE.
           for (var i = 0; i < json.length; i++) {
             buildBoxes(json, i);
           }
         }
-        else if(json.length>=4 && json.length<12){
+        else if(json.length>=4 && json.length<12){ //IF THE TABLE WONT BE ENTIRELY RENDERED
           for (var i = 0; i < 4; i++) {
             buildBoxes(json, i);
           }
@@ -54,7 +59,7 @@
           }
 
         }
-        else{
+        else{ //THE TABLE WILL BE ENTIRELY RENDERED
           for (var i = 0; i < 4; i++) {
             buildBoxes(json, i);
           }
@@ -69,7 +74,7 @@
 		}
   }
 
-  function buildBoxes(json, i){
+  function buildBoxes(json, i){ //FUNCTION FOR RENDERING OUT THE HTML FOR THE NEW BOXES
     var div = document.createElement('div');
     div.classList.add("estiimat", "clearfix");
     var div2 = document.createElement('div');
@@ -109,7 +114,7 @@
     centerBox.appendChild(div);
   }
 
-  function buildTables(json, i){
+  function buildTables(json, i){ //FUNCTION FOR RENDERING OUT TABLE ENTRIES.
     var tr = document.createElement('tr');
     tr.className = "new";
     var td1 = document.createElement('td');

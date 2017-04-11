@@ -1,3 +1,5 @@
+<?php //THE HEADER TEMPLATE FOR THE FRONT END, CONTAINING STYLESHEETS FOR THE WHOLE SITE. THE TITLE IS DEFINED IN THE CONTROLLER ?>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>

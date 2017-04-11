@@ -27,8 +27,8 @@
                       <h4><?php echo $estimates[$i]['estimate_name'];?></h4>
                     </div>
                     <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
-                    <p><span class="block est">Recommended Block: CC35</span></p>
-                    <p><span class="factor">Safety Factor: 2.3</span></p>
+                    <p><span class="block est">Recommended Block: CC35<?php //THIS NO LONGER SEEMS POSSIBLE, PROBABLY SHOULD BE REMOVED ?></span></p>
+                    <p><span class="factor">Safety Factor: 2.3<?php //THIS NO LONGER SEEMS POSSIBLE, PROBABLY SHOULD BE REMOVED ?></span></p>
                     <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">Review</a></p>
                   </div>
 
@@ -64,8 +64,8 @@
                 <th>COMPANY</th>
                 <th>PROJECT</th>
                 <th>DATE EDITED</th>
-                <th>REC. BLOCK SIZE</th>
-                <th>SAFETY FACTOR</th>
+                <th>REC. BLOCK SIZE<?php //THIS NO LONGER SEEMS POSSIBLE, PROBABLY SHOULD BE REMOVED ?></th>
+                <th>SAFETY FACTOR<?php //THIS NO LONGER SEEMS POSSIBLE, PROBABLY SHOULD BE REMOVED ?></th>
                 <th>REVIEW</th>
               </tr>
             </thead>
@@ -73,7 +73,7 @@
               <?php if(count($estimates)>=12): ?>
               <?php for ($i=4; $i < 12; $i++): ?>
               <tr class="new">
-                <td><?php if(($_SESSION['admin_lastLogin']-18000)>(strtotime($estimates[0]['estimate_modifiedDate']))){echo "<span class='dot'></span>";}?></td>
+                <td><?php //THIS BLOCK IS CURRENTLY UNUSED BUT ACCEPTS "<span class='dot'></span>" TO GIVE IT A GREEN DOT. FUNCTIONALITY ASSOCIATED WITH GREEN DOT IS INTENDED TO BE IF IT IS NEW OR NOT BUT UP TO YOU. ?></td>
                 <td><?php echo $estimates[$i]['company_name'];?></td>
                 <td><?php echo $estimates[$i]['estimate_name'];?></td>
                 <td><?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></td>
@@ -87,7 +87,7 @@
           <?php elseif((count($estimates)<12)&&(count($estimates)>4)): ?>
               <?php for ($i=4; $i < count($estimates); $i++): ?>
               <tr class="new">
-                <td><?php if(($_SESSION['admin_lastLogin']-18000)>(strtotime($estimates[0]['estimate_modifiedDate']))){echo "<span class='dot'></span>";}?></td>
+                <td><?php //THIS BLOCK IS CURRENTLY UNUSED BUT ACCEPTS "<span class='dot'></span>" TO GIVE IT A GREEN DOT. FUNCTIONALITY ASSOCIATED WITH GREEN DOT IS INTENDED TO BE IF IT IS NEW OR NOT BUT UP TO YOU. ?></td>
                 <td><?php echo $estimates[$i]['company_name'];?></td>
                 <td><?php echo $estimates[$i]['estimate_name'];?></td>
                 <td><?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></td>
