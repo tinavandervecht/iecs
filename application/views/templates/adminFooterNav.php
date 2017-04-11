@@ -1,3 +1,4 @@
+<!-- THE MOBILE NAV FOR THE ADMIN PANEL -->
 <footer id="mobileMenu">
       <nav id="secondaryNav" class="five">
           <h3 class="hidden">Mobile Navigation</h3>

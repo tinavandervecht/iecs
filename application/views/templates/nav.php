@@ -1,4 +1,6 @@
 
+<?php //NAV FOR THE FRONT END. $current is defined in the controller and is used to add active styling to the current section. ?>
+
     <header id="mainHeader">
         <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
     </header>

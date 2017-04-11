@@ -1,3 +1,5 @@
+<!-- MOBILE NAV ON THE FRONT END, INCLUDING A DISCLAIMER FOOTER BAR AT THE BOTTOM -->
+
 <footer id="mobileMenu">
       <nav id="secondaryNav" class="four">
           <h3 class="hidden">Mobile Navigation</h3>

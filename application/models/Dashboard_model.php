@@ -1,5 +1,6 @@
 <?php
 class Dashboard_model extends CI_Model {
+  //MODEL FOR THE DASHBOARD. CONTAINS FUNCTIONS FOR GETTING THE COMPNAY INFO ASSOCIATED WITH THE LOGGED IN COMPANY AND THEIR ESTIMATE HISTORY.
 
         public function __construct()
         {

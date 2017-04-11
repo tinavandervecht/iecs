@@ -1,3 +1,4 @@
+<!-- MAIN FOOTER TEMPLATE WITH ALL THE NECESSITY SCRIPT TAGS. IT INCLUDES THE DYNAMIC $jsLink WHICH IS UNIQUE FOR EACH PAGE AND DEFINED IN THE CONTROLLER -->
 <script src="<?php echo base_url('js/ie.js');?>"></script>
 <script src="<?php echo base_url('js/vendor/jquery.js');?>"></script>
 <script src="<?php echo base_url('js/vendor/what-input.js');?>"></script>

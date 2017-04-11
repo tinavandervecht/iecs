@@ -234,12 +234,6 @@
                   <select id="alignType" name="alignType">
                     <option value="0">Straight</option>
                     <option value="1">Not Straight</option>
-<<<<<<< HEAD
-=======
-                    <!-- <option value="1">Moderate</option>
-                    <option value="2">Severe</option>
-                    <option value="3">Extreme</option> -->
->>>>>>> refs/remotes/origin/master
                   </select>
               </div>
               <div id="crestRadius"  class="clearfix">

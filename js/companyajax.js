@@ -1,4 +1,6 @@
 (function(){
+
+  //AJAX FUNCTIONALITY FOR THE CMS COMPANIES PAGE
     var boxes = document.querySelectorAll('.companii'),
         select = document.querySelector('#sort'),
         search = document.querySelector('#search'),
@@ -34,15 +36,15 @@
         //console.log(json.length);
         //console.log(json[3].estimate_name);
         //console.log(json[4].estimate_name);
-        centerBox.innerHTML = "";
+        centerBox.innerHTML = ""; //DELETE THE CURRENT BOXES.
 
-        if (json.length < 8){
+        if (json.length < 8){ //IF THERES LESS THEN 8 RETURNED ENTRIES ONLY BUILD AS MANY BOXES AS THERE ARE
           for (var i = 0; i < json.length; i++) {
             buildBoxes(json, i);
           }
         }
         else{
-          for (var i = 0; i < 8; i++) {
+          for (var i = 0; i < 8; i++) { //IF theres more then 8 just build 8.
             buildBoxes(json, i);
           }
         }
@@ -52,7 +54,7 @@
 		}
   }
 
-  function buildBoxes(json, i){
+  function buildBoxes(json, i){ //FUNCTION THAT RENDERS OUT THE HTML FOR THE BOXES
 
     var div = document.createElement('div');
     div.classList.add('companii', 'clearfix');

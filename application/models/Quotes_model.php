@@ -1,5 +1,6 @@
 <?php
 class Quotes_model extends CI_Model {
+  //MODEL FOR THE QUOTES PAGES AND FORM. CONTAINS THE ACTUAL ESTIMATE FORM QUERy FUNCTIONS
 
         public function __construct()
         {
@@ -19,13 +20,13 @@ class Quotes_model extends CI_Model {
         }
 
         public function get_estimate($estimateID, $companyID){
-
+          //GET A SPECIFIC ESTIMATE
 
           $this->db->select('*');
           $this->db->from('tbl_estimates');
           $this->db->where('tbl_estimates.company_id', $companyID);
           $this->db->where('tbl_estimates.estimate_id', $estimateID);
-          $this->db->where('tbl_estimates.estimate_status', 1);
+          $this->db->where('tbl_estimates.estimate_status', 1); //ONLY SHOW NOT-DELETED QUOTES
           $this->db->limit(1);
 
           $query = $this->db->get();
@@ -39,6 +40,7 @@ class Quotes_model extends CI_Model {
 
         public function get_estimateHistory($companyID = FALSE)
         {
+          //GET ALL ESTIMATES FOR A SPECIFIC COMPANY
 
                       if($companyID === FALSE){
                           return false;
@@ -48,7 +50,7 @@ class Quotes_model extends CI_Model {
                       $this->db->from('tbl_company');
                       $this->db->join('tbl_estimates', 'tbl_company.company_id = tbl_estimates.company_id');
                       $this->db->where('tbl_company.company_id', $companyID);
-                      $this->db->where('tbl_estimates.estimate_status', 1);
+                      $this->db->where('tbl_estimates.estimate_status', 1); //ONLY SHOW NOT-DELETED QUOTES
                       $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
 
                       $query = $this->db->get();
@@ -56,10 +58,11 @@ class Quotes_model extends CI_Model {
         }
 
         public function set_quote(){
+          //CREATE A NEW ENTRY IN TBL_ESTIMATES (DONE WHEN FINISHED FILLING OUT A NEW FORM)
           $this->load->helper('url');
           date_default_timezone_set('America/Toronto');
 
-          if ($this->input->post('alignType')!=0) {
+          if ($this->input->post('alignType')!=0) { //IF IT IS A STRAIGHT ALIGNMENT ENTER THE FOLLOWING INFO
             $data = array(
                 'company_id' => $_SESSION['company_id'],
                 'estimate_name' => $this->input->post('name'),
@@ -90,7 +93,7 @@ class Quotes_model extends CI_Model {
             );
           }
           else{
-            $data = array(
+            $data = array( //ELSE IF ITS NOT STRAIGHT
                 'company_id' => $_SESSION['company_id'],
                 'estimate_name' => $this->input->post('name'),
                 'estimate_date' => date('Y-m-d H:i:s'),
@@ -116,9 +119,9 @@ class Quotes_model extends CI_Model {
             );
           }
 
-          $this->db->insert('tbl_estimates', $data);
+          $this->db->insert('tbl_estimates', $data); //INSERT THE $DATA ARRAY INTO THE DB (contains all the values above)
 
-          $data = array(
+          $data = array( //ADD A NEW ENTRY INTO THE ACTIVITY TABLE
             'company_id' => $_SESSION['company_id'],
             'activity_desc' => "Finished form for: ".$this->input->post('name'),
             'activity_date' => date('Y-m-d H:i:s')
@@ -131,12 +134,13 @@ class Quotes_model extends CI_Model {
 }
 
           public function alter_quote($estimateID){
+            //FUNCTION FOR THE EDIT FORM QUERY, USED FOR UPDATING A GIVEN ESTIMATES INFO IN THE DATABASE. SIMILAR TO set_quote but it is now an update query.
             $this->load->helper('url');
             date_default_timezone_set('America/Toronto');
 
             if ($this->input->post('alignType')!=0) {
               $data = array(
-                'estimate_id' => $estimateID,
+                'estimate_id' => $estimateID, //THE PRIMARY KEY HAS TO BE THE FIRST ENTRY IN THIS ARRAY FOR THE QUERY TO WORK
                 'company_id' => $_SESSION['company_id'],
                 'estimate_name' => $this->input->post('name'),
                 'estimate_date' => $_SESSION['last_date'],
@@ -167,7 +171,7 @@ class Quotes_model extends CI_Model {
             }
             else{
               $data = array(
-                'estimate_id' => $estimateID,
+                'estimate_id' => $estimateID, //THE PRIMARY KEY HAS TO BE THE FIRST ENTRY IN THIS ARRAY FOR THE QUERY TO WORK
                 'company_id' => $_SESSION['company_id'],
                 'estimate_name' => $this->input->post('name'),
                 'estimate_date' => $_SESSION['last_date'],
@@ -194,9 +198,9 @@ class Quotes_model extends CI_Model {
             }
 
 
-            $this->db->replace('tbl_estimates', $data);
+            $this->db->replace('tbl_estimates', $data); //Replace the given entry with this data.
 
-            $data = array(
+            $data = array( //ADD THE FOLLOWING INFO TO THE ACTIVITY TABLE
               'company_id' => $_SESSION['company_id'],
               'activity_desc' => "Edited form for: ".$this->input->post('name'),
               'activity_date' => date('Y-m-d H:i:s')
@@ -213,6 +217,7 @@ class Quotes_model extends CI_Model {
           }
 
           public function delete_quote($estimateID){
+            //FUNCTION FOR DELETING A QUOTE. DOESN'T ACTUALLY DELETE BUT INSTEAD SETS THE ESTIMATE_STATUS TO 0 MEANING IT WONT APPEAR IN USER'S LISTS
             date_default_timezone_set('America/Toronto');
             $this->db->set('estimate_status', 0);
             $this->db->where('estimate_id', $estimateID);
@@ -229,6 +234,7 @@ class Quotes_model extends CI_Model {
           }
 
           public function get_last_quote($name){
+            //USED TO GET THE INFO FOR THE SUMMARY PAGE
             $this->db->select('estimate_id');
             $this->db->from('tbl_estimates');
             $this->db->where('estimate_name', $name);
@@ -244,6 +250,7 @@ class Quotes_model extends CI_Model {
 
           }
           public function get_summary_data($id){
+            //FUNCTION FOR GETTING ESTIMATE INFO TO THE AJAX FUNCTION ON THE SUMMARY PAGE
             $this->db->select('*');
             $this->db->from('tbl_estimates');
             $this->db->where('estimate_id', $id);
@@ -271,6 +278,7 @@ class Quotes_model extends CI_Model {
           }
 
           public function alter_sent_state($id){
+            //CHANGE THE CURRENT ESTIMATES STATUS TO SENT (FOR THE summary page "send to iecs")
             date_default_timezone_set('America/Toronto');
             $data = array(
             'estimate_sent' => 1,
@@ -289,6 +297,7 @@ class Quotes_model extends CI_Model {
           }
 
         public function get_blocks(){
+          //get all the product information from the database.
           $query = $this->db->get('tbl_products');
           return $query->result_array();
         }

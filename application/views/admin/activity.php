@@ -6,6 +6,7 @@
             <a href="<?php echo site_url('/admin');?>" class="tabTitle">&#10092; RECENT ACTIVITY</a>
         <!-- ================================ -->
         <?php foreach ($activity as $act): ?>
+           <!-- GET THE ACTIVITIES FROM THE DATABASE AND PRINT OUT AN APPROPRIATE NUMBER OF ENTRIES HERE -->
         <a href="<?php echo site_url('/admin/company/'.$act['company_id']);?>" class="companyEntry <?php if($act['activity_id'] == $activity[0]['activity_id']){echo "first";}?> clearfix">
           <div class="dateOfUpdate">
             <p class="dateup"><?php echo substr($act['activity_date'],0,11);?></p>

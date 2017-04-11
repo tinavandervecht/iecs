@@ -1,6 +1,8 @@
 <?php
 class Profile_model extends CI_Model {
 
+  //MODEL FOR THE PROFILE CONTROLLER, CONTAINS LOGIN AND ACCOUNT CREATION FUNCTIONALITY AND ACCOUNT ALTERING FUNCTIONALITY
+
         public function __construct()
         {
                 $this->load->database();
@@ -19,6 +21,7 @@ class Profile_model extends CI_Model {
         }
 
         public function check_login(){
+          //FUNCTION FOR CHECKING THE LOGIN ON THE FRONT END
 
                       $email = $this->input->post('company_email');
                       $password = $this->input->post('company_pw');
@@ -38,6 +41,7 @@ class Profile_model extends CI_Model {
         }
 
       public function set_profile(){
+        //FUNCTION FOR CREATING A NEW PROFILE
 
                       $this->load->helper('url');
                       date_default_timezone_set('America/Toronto');
@@ -56,6 +60,7 @@ class Profile_model extends CI_Model {
       }
 
       public function alter_profile(){
+        //FUNCTION FOR CHANGING THE PROFILE INFORMATIOn
         date_default_timezone_set('America/Toronto');
         $data = array(
         'company_name' => $this->input->post('name'),
