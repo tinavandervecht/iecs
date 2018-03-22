@@ -10,11 +10,11 @@ class Help extends CI_Controller {
         }
 
         public function index(){
-
-          if (isset($_SESSION['company_id']) == FALSE)
-        {
-          redirect('/profile/login');
-        }
+$_SESSION['company_id'] = 1;
+          //if (isset($_SESSION['company_id']) == FALSE)
+        //{
+         // redirect('/profile/login');
+        //}
         //$data['tbl_company'] = $this->profile_model->get_company();
         //$data['title'] = 'Companies';
         $data['userInfo'] = $this->profile_model->get_company($_SESSION['company_id']);

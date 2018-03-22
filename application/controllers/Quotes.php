@@ -1,4 +1,5 @@
 <?php
+$_SESSION['company_id'] = 1;
 class Quotes extends CI_Controller {
   //THIS IS THE CONTROLLER FOR THE QUOTES PAGE WHICH CONTAINS THE QUOTES OVERVIEW PAGE (index), THE NEW AND EDIT FORMS FOR ESTIMATES AND THE ESTIMATE SUMMARY PAGE ON THE FRONT END
 
@@ -12,10 +13,11 @@ class Quotes extends CI_Controller {
 
           public function index() //THE QUOTES OVERVIEW PAGE, PRINTS OUT ALL THE CURRENT ESTIMATES FOR THIS COMPANY
   {
-            if (isset($_SESSION['company_id']) == FALSE) //IF THEYRE NOT LOGGED IN REDIRECT THEM TO THE LOGIN SCREEN
-          {
-            redirect('/profile/login');
-          }
+    $_SESSION['company_id'] = 1;
+            //if (isset($_SESSION['company_id']) == FALSE) //IF THEYRE NOT LOGGED IN REDIRECT THEM TO THE LOGIN SCREEN
+          //{
+          //  redirect('/profile/login');
+          //}
           //$data['tbl_company'] = $this->profile_model->get_company();
           //$data['title'] = 'Companies';
           $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
@@ -33,6 +35,7 @@ class Quotes extends CI_Controller {
   }
 
       public function deleteQuote($estimateID, $location){
+        $_SESSION['company_id'] = 1;
         //FUNCTION FOR "deleting" ESTIMATES. CHANGES THE STATUS OF THE ESTIMATE WITH THE GIVEN ID AND REDIRECTS TO THE GIVEN LOCATION.
         $this->quotes_model->delete_quote($estimateID);
         redirect('/'.$location);
@@ -41,10 +44,10 @@ class Quotes extends CI_Controller {
       public function newQuote(){
         //THE FUNCTION FOR SHOWING THE NEW ESTIMATE FORM.
 
-      if (isset($_SESSION['company_id']) == FALSE){
-      redirect('/profile/login');
-    }
-
+     // if (isset($_SESSION['company_id']) == FALSE){
+     // redirect('/profile/login');
+   // }
+$_SESSION['company_id'] = 1;
     $this->load->helper('form');
     $this->load->library('form_validation');
 
@@ -94,11 +97,12 @@ class Quotes extends CI_Controller {
   }
 
   public function editQuote($estimateID){
+    $_SESSION['company_id'] = 1;
     //FUNCTION FOR THE EDIT FORM PAGE.
 
-  if (isset($_SESSION['company_id']) == FALSE){
-  redirect('/profile/login');
-  }
+  //if (isset($_SESSION['company_id']) == FALSE){
+  //redirect('/profile/login');
+ // }
 
   if ($estimateID == NULL){ //IF NOT PASSED A SPECIFIC ESTIMATE REDIRECT TO THE OVERVIEW PAGE (AS NOT TO BREAK THE PAGE)
     redirect('/quotes');
@@ -153,11 +157,11 @@ class Quotes extends CI_Controller {
   }
 
   public function summary($id){ //SUMMARY PAGE FUNCTION
-
-    if (isset($_SESSION['company_id']) == FALSE)
-  {
-    redirect('/profile/login');
-  }
+$_SESSION['company_id'] = 1;
+   // if (isset($_SESSION['company_id']) == FALSE)
+  //{
+  //  redirect('/profile/login');
+  //}
 
     if ($id==NULL) { //IF NO SUMMARY IS SPECIFIED
 
@@ -182,11 +186,11 @@ class Quotes extends CI_Controller {
 }
 
 public function sendQuote($id){ //FUNCTION INTENDED TO RUN WHEN THE "SEND TO IECS?" IS CLICKED IN THE SUMMARY PAGE
-  if (isset($_SESSION['company_id']) == FALSE)
-{
-  redirect('/profile/login');
-}
-
+ // if (isset($_SESSION['company_id']) == FALSE)
+//{
+ // redirect('/profile/login');
+//}
+$_SESSION['company_id'] = 1;
   if ($id==NULL) {
 
     redirect('/dashboard');
@@ -212,6 +216,7 @@ public function sendQuote($id){ //FUNCTION INTENDED TO RUN WHEN THE "SEND TO IEC
 
 
 public function ajaxSummary(){
+  $_SESSION['company_id'] = 1;
   //FUNCTION FOR PASSING SUMMARY DATA TO THE AJAX FUNCTION ON THE SUMMARY PAGE.
   if (isset($_GET['id'])){
     $data['estimate'] = $this->quotes_model->get_summary_data($_GET['id']);

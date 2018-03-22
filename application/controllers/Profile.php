@@ -10,12 +10,13 @@ class Profile extends CI_Controller {
         }
 
         public function index(){
+          $_SESSION['company_id'] = 1;
           //THEIR PROFILE PAGE, CONTAINS A FORM WHERE THEY CAN UPDATE THEIR PROFILE INFO.
 
-          if (isset($_SESSION['company_id']) == FALSE)
-        {
-          redirect('/profile/login');
-        }
+          //if (isset($_SESSION['company_id']) == FALSE)
+        //{
+         // redirect('/profile/login');
+        //}
 
         $this->load->helper('form');
         $this->load->library('form_validation');

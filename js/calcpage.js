@@ -1,23 +1,12 @@
 (function(){
 //THIS FILE IS WHERE THE CALCULATIONS TAKE PLACE.
-/*
-                n___n_
-              /       = =\             .--------------------------------------------------------------------------------------------------.
-            /         ._Y_)        <       I'M SORRY THIS ALSO IS A MAJOR CLUSTERCRAP OF A  DISASTER   |
-          /            "\                ' ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' '
-        (_/         (_,  \
-          \               ( \_,--""""""--.
-      ..-,-`._____,-` )-.________./
-
-      Here's what you need to know:
-      everything above
 
       //CALCULATIONS
 
-      is responsible for some form of page animation, feature, pop up etc.
+      //is responsible for some form of page animation, feature, pop up etc.
 
-      almost everything after //CALCULATIONS is where the formulas should go.
-*/
+      //almost everything after CALCULATIONS is where the formulas should go.
+
 //CONSTANTS
 var PRECISION = 2; //number of displayed decimals on block output.
 var MINIMUM = 1.5; //absolute minimum safe safety factor for a block

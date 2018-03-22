@@ -15,10 +15,11 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
 
         //THIS IS THE FUNCTION FOR PAGE THAT LOADS WHEN YOU ENTER THE CMS PANEL. IT GETS ACTIVITY HISTORY FROM THE DATABASE AND DISPLAYS IT VIA THE ADMIN/DASHBOARD VIEW.
 
-          if (isset($_SESSION['admin_id']) == FALSE) //IF THEY'RE NOT LOGGED IN
-        {
-          redirect('/admin/login');
-        }
+          //if (isset($_SESSION['admin_id']) == FALSE) //IF THEY'RE NOT LOGGED IN
+        //{
+         // redirect('/admin/login');
+        //}
+          $_SESSION['company_id'] = 1;
 
         //VARIABLES ARE PASSED TO THE VIEW THROUGH THE DATA VARIABLES
 
