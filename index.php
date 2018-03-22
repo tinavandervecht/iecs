@@ -283,6 +283,10 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder);
 
+    require_once BASEPATH . 'dotenv/autoloader.php';
+
+	$dotenv = new Dotenv\Dotenv(__DIR__);
+	$dotenv->load();
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
