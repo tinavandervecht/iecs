@@ -13,13 +13,13 @@
                       <a href="#" class="tip"><span class="tooltip">Required. Give Your Project a Name!</span>?</a>
                       <?php echo form_error('name', '<span class="error">', '</span>');?>
                   </label>
-                  <input type="text" id="name" name="name" placeholder="" />
+                  <input type="text" id="name" name="name" placeholder="" value="<?php if(isset($_POST['name'])){echo $_POST['name'] ;} ?>" />
               </div>
               <div id="date" class="columns small-12 medium-6">
                 <label for="d">
                   <h4 class="title">Projected Start Date for Project:</h4>
                   </label>
-                  <input type="date" id="d" name="projectedDate"/>
+                  <input type="date" id="d" name="projectedDate" value="<?php if(isset($_POST['projectedDate'])){echo $_POST['projectedDate'] ;} ?>"/>
               </div>
               <div id="projectLocation" class="columns small-12 medium-6">
                   <label for="cityProv">
@@ -27,7 +27,7 @@
                     <a href="#" class="tip"><span class="tooltip">The projected location of this project.</span>?</a>
 
                   </label>
-                  <input type="text" id="cityProv" name="cityProv" />
+                  <input type="text" id="cityProv" name="cityProv" value="<?php if(isset($_POST['cityProv'])){echo $_POST['cityProv'] ;} ?>" />
               </div>
 
 
@@ -37,7 +37,7 @@
                     <a href="#" class="tip"><span class="tooltip">The address of this job. Not Required.</span>?</a>
 
                   </label>
-                  <input type="text" id="addr" name="addr"/>
+                  <input type="text" id="addr" name="addr" value="<?php if(isset($_POST['addr'])){echo $_POST['addr'] ;} ?>"/>
               </div>
 
               <div id="engineer" class="columns small-12 medium-6">
@@ -46,7 +46,7 @@
                     <a href="#" class="tip"><span class="tooltip">Name of the Engineer undertaking this project.</span>?</a>
 
                   </label>
-                  <input type="text" id="engineerName" name="engineerName"/>
+                  <input type="text" id="engineerName" name="engineerName" value="<?php if(isset($_POST['engineerName'])){echo $_POST['engineerName'] ;} ?>"/>
               </div>
               <div class="columns small-12 medium-6">
                 <label for="measurement">
@@ -57,7 +57,7 @@
               <div id="hideTheMetric">
                 <h4 class="label">Metric</h4>
                 <div class="checkbox">
-                  <input id="hideMetric" type="checkbox" checked>
+                  <input id="hideMetric" name="hideMetric" type="checkbox" <?php if (isset($_POST['hideMetric']) || empty($_POST)) { echo 'checked'; } ?>>
                   <label for="hideMetric"></label>
                 </div>
               </div>
@@ -65,7 +65,7 @@
               <div id="hideTheImperial">
                 <h4 class="label">Imperial</h4>
                 <div class="checkbox">
-                <input id="hideImperial" type="checkbox" checked>
+                <input id="hideImperial" name="hideImperial" type="checkbox" <?php if (isset($_POST['hideImperial']) || empty($_POST)) { echo 'checked'; } ?>>
                 <label for="hideImperial"></label>
               </div>
               </div>
@@ -84,12 +84,12 @@
                       <h5 class="unit">Cubic m/s</h5>
                       <?php echo form_error('flowMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="flowMeters" class="convert metric" name="flowMeters" placeholder=""/>
+                  <input id="flowMeters" class="convert metric" name="flowMeters" placeholder="" value="<?php if(isset($_POST['flowMeters'])){echo $_POST['flowMeters'] ;} ?>"/>
                   <label for="flowFeet">
                       <a href="#" class="tip"><span class="tooltip">Ensure the highest design flows are entered in cubic feet per second.</span>?</a><h5 class="unit">Cubic ft/s</h5>
                       <?php echo form_error('flowMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="flowFeet"  class="convert imperial" />
+                  <input id="flowFeet" name="flowFeet" class="convert imperial" value="<?php if(isset($_POST['flowFeet'])){echo $_POST['flowFeet'] ;} ?>" />
               </div>
 
               <div id="velocity"  class="clearfix columns small-12 medium-6">
@@ -98,12 +98,12 @@
                       <a href="#" class="tip"><span class="tooltip">Input the pre-determined max velocity in m/s</span>?</a><h5 class="unit">Meters per Second</h5>
                       <?php echo form_error('velocityMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="velocityMeters" class="convert metric"  name="velocityMeters" placeholder=""/>
+                  <input id="velocityMeters" class="convert metric"  name="velocityMeters" placeholder="" value="<?php if(isset($_POST['velocityMeters'])){echo $_POST['velocityMeters'] ;} ?>"/>
                   <label for="velocityFeet">
                       <a href="#" class="tip"><span class="tooltip">Input the pre-determined max velocity in f/s</span>?</a><h5 class="unit">Feet per Second</h5>
                       <?php echo form_error('velocityMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="velocityFeet"  class="convert imperial" />
+                  <input id="velocityFeet" name="velocityFeet" class="convert imperial" value="<?php if(isset($_POST['velocityFeet'])){echo $_POST['velocityFeet'] ;} ?>" />
               </div>
                 </div>
           </section>
@@ -143,7 +143,7 @@
                     <h5 class="unit">Decimal</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="bedSlopeDecimal"  class="convert D" name="bedSlopeDecimal" placeholder=""/>
+                  <input id="bedSlopeDecimal"  class="convert D" name="bedSlopeDecimal" placeholder="" value="<?php if(isset($_POST['bedSlopeDecimal'])){echo $_POST['bedSlopeDecimal'] ;} ?>"/>
               </div>
               <div id="sideSlope"  class="clearfix">
 
@@ -157,14 +157,14 @@
                     <h5 class="unit">Decimal</h5>
                       <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" placeholder=""/>
+                  <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" placeholder="" value="<?php if(isset($_POST['sideSlopeDecimal'])){echo $_POST['sideSlopeDecimal'] ;} ?>"/>
               </div>
               <div id="frictionAngle"  class="clearfix">
                   <h4 class="title">Friction Angle in Degrees</h4>
                   <label for="frAngle">
                       <a href="#" class="tip"><span class="tooltip">Enter a custom Friction Angle, if it applies - defaults to 30.</span>?</a><h5 class="unit">Degrees</h5>
                   </label>
-                  <input id="frAngle" class="" name="friction" value="30"/>
+                  <input id="frAngle" class="" name="friction" value="30" value="<?php if(isset($_POST['friction'])){echo $_POST['friction'] ;} ?>"/>
               </div>
 
             </div>
@@ -177,14 +177,14 @@
                       <?php echo form_error('flowType', '<span class="error">', '</span>');?>
                   </label>
                   <select id="flowType" name="flowType">
-                    <option value="0">Normal</option>
-                    <option value="1">Overtopping</option>
-                    <option value="2">Sub Critical</option>
-                    <option value="3">Hydraulic</option>
-                    <option value="4">Jump</option>
-                    <option value="5">Impinging</option>
-                    <option value="6">Bridge/Culvert</option>
-                    <option value="7">Undulating Trans Critical</option>
+                    <option value="0" <?php if (isset($_POST['flowType']) && $_POST['flowType'] == 0) { echo 'selected="true"';} ?>>Normal</option>
+                    <option value="1" <?php if (isset($_POST['flowType']) && $_POST['flowType'] == 1) { echo 'selected="true"';} ?>>Overtopping</option>
+                    <option value="2" <?php if (isset($_POST['flowType']) && $_POST['flowType'] == 2) { echo 'selected="true"';} ?>>Sub Critical</option>
+                    <option value="3" <?php if (isset($_POST['flowType']) && $_POST['flowType'] == 3) { echo 'selected="true"';} ?>>Hydraulic</option>
+                    <option value="4" <?php if (isset($_POST['flowType']) && $_POST['flowType'] == 4) { echo 'selected="true"';} ?>>Jump</option>
+                    <option value="5" <?php if (isset($_POST['flowType']) && $_POST['flowType'] == 5) { echo 'selected="true"';} ?>>Impinging</option>
+                    <option value="6" <?php if (isset($_POST['flowType']) && $_POST['flowType'] == 6) { echo 'selected="true"';} ?>>Bridge/Culvert</option>
+                    <option value="7" <?php if (isset($_POST['flowType']) && $_POST['flowType'] == 7) { echo 'selected="true"';} ?>>Undulating Trans Critical</option>
                   </select>
               </div>
               <!-- <div id="designComponent"  class="clearfix">
@@ -204,9 +204,9 @@
                     <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
                   </label>
                   <select name="blockUse">
-                    <option value="0"  <?php if ($estimate['estimate_blockUse'] == 0) {echo "selected";}?>>Both Bed and Side</option>
-                    <option value="1" <?php if ($estimate['estimate_blockUse'] == 1) {echo "selected";}?>>Bed Only</option>
-                    <option value="2" <?php if ($estimate['estimate_blockUse'] == 2) {echo "selected";}?>>Side Only</option>
+                    <option value="0"  <?php if ($estimate['estimate_blockUse'] == 0) {echo 'selected="true"';}?>>Both Bed and Side</option>
+                    <option value="1" <?php if ($estimate['estimate_blockUse'] == 1) {echo 'selected="true"';}?>>Bed Only</option>
+                    <option value="2" <?php if ($estimate['estimate_blockUse'] == 2) {echo 'selected="true"';}?>>Side Only</option>
                   </select>
               </div>
             </div>
@@ -218,12 +218,12 @@
                       <a href="#" class="tip"><span class="tooltip">Enter least bed width in meters (m).</span>?</a><h5 class="unit">Meters</h5>
                       <?php echo form_error('bedMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="bedMeters" class="convert metric" name="bedMeters" placeholder=""/>
+                  <input id="bedMeters" class="convert metric" name="bedMeters" placeholder="" value="<?php if(isset($_POST['bedMeters'])){echo $_POST['bedMeters'] ;} ?>"/>
                   <label for="bedFeet">
                       <a href="#" class="tip"><span class="tooltip">Enter least bed width in feet (f).</span>?</a><h5 class="unit">Feet</h5>
                       <?php echo form_error('bedMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="bedFeet"  class="convert imperial" />
+                  <input id="bedFeet" name="bedFeet" class="convert imperial" value="<?php if(isset($_POST['bedFeet'])){echo $_POST['bedFeet'] ;} ?>" />
               </div>
               <div id="alignment"  class="clearfix">
                   <h4 class="title">Alignment</h4>
@@ -232,8 +232,8 @@
                       <?php echo form_error('alignType', '<span class="error">', '</span>');?>
                   </label>
                   <select id="alignType" name="alignType">
-                    <option value="0">Straight</option>
-                    <option value="1">Not Straight</option>
+                    <option value="0" <?php if (isset($_POST['alignType']) && $_POST['alignType'] == 0) { echo 'selected="true"';} ?>>Straight</option>
+                    <option value="1" <?php if (isset($_POST['alignType']) && $_POST['alignType'] == 1) { echo 'selected="true"';} ?>>Not Straight</option>
                   </select>
               </div>
               <div id="crestRadius"  class="clearfix">
@@ -242,12 +242,12 @@
                       <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity.</span>?</a><h5 class="unit">Meters</h5>
                       <?php echo form_error('crestMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="crestMeters" class="convert metric" name="crestMeters" placeholder=""/>
+                  <input id="crestMeters" class="convert metric" name="crestMeters" placeholder="" value="<?php if(isset($_POST['crestMeters'])){echo $_POST['crestMeters'] ;} ?>" />
                   <label for="crestFeet">
                       <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity.</span>?</a><h5 class="unit">Feet</h5>
                       <?php echo form_error('crestMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="crestFeet"  class="convert imperial" />
+                  <input id="crestFeet" name="crestFeet" class="convert imperial" value="<?php if(isset($_POST['crestFeet'])){echo $_POST['crestFeet'] ;} ?>" />
               </div>
             </div>
           </div>
@@ -281,12 +281,12 @@
                 <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
               </label>
-                <input id="channelMeters" class="convert metric" name="channelMeters" placeholder=""/>
+                <input id="channelMeters" class="convert metric" name="channelMeters" placeholder="" value="<?php if(isset($_POST['channelMeters'])){echo $_POST['channelMeters'] ;} ?>"/>
               <label for="channelFeet">
                 <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in feet.</span>?</a><h5 class="unit">Feet</h5>
                 <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
               </label>
-                <input id="channelFeet"  class="convert imperial" />
+                <input id="channelFeet" name="channelFeet" class="convert imperial" value="<?php if(isset($_POST['channelFeet'])){echo $_POST['channelFeet'] ;} ?>"/>
               </div>
 
               <div id="channelDepth"  class="clearfix">
@@ -295,12 +295,12 @@
                 <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
               </label>
-                <input id="depthMeters" class="convert metric" name="depthMeters" placeholder=""/>
+                <input id="depthMeters" class="convert metric" name="depthMeters" placeholder="" value="<?php if(isset($_POST['depthMeters'])){echo $_POST['depthMeters'] ;} ?>"/>
               <label for="depthFeet">
                 <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in feet.</span>?</a><h5 class="unit">Feet</h5>
                 <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
               </label>
-                <input id="depthFeet"  class="convert imperial" />
+                <input id="depthFeet" name="depthFeet" class="convert imperial" value="<?php if(isset($_POST['depthFeet'])){echo $_POST['depthFeet'] ;} ?>" />
               </div>
 
               <div id="topWidth"  class="clearfix">
@@ -309,11 +309,11 @@
                 <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('topMeters', '<span class="error">', '</span>');?>
               </label>
-                <input id="topMeters" class="convert metric" name="topMeters" placeholder=""/>
+                <input id="topMeters" class="convert metric" name="topMeters" placeholder="" value="<?php if(isset($_POST['topMeters'])){echo $_POST['topMeters'] ;} ?>"/>
               <label for="topFeet">
                 <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in feet.</span>?</a><h5 class="unit">Feet</h5>
               </label>
-                <input id="topFeet"  class="convert imperial" />
+                <input id="topFeet" name="topFeet" class="convert imperial" value="<?php if(isset($_POST['topFeet'])){echo $_POST['topFeet'] ;} ?>" />
               </div>
             </div>
           </div>
@@ -329,11 +329,11 @@
                 <?php echo form_error('sourceType', '<span class="error">', '</span>');?>
               </label>
                 <select id="sourceType" name="sourceType">
-                  <option value="0">River</option>
-                  <option value="1">Manhole</option>
-                  <option value="2">Pond</option>
-                  <option value="3">Weir</option>
-                  <option value="3">Other</option>
+                  <option value="0" <?php if (isset($_POST['sourceType']) && $_POST['sourceType'] == 0) { echo 'selected="true"';} ?>>River</option>
+                  <option value="1" <?php if (isset($_POST['sourceType']) && $_POST['sourceType'] == 1) { echo 'selected="true"';} ?>>Manhole</option>
+                  <option value="2" <?php if (isset($_POST['sourceType']) && $_POST['sourceType'] == 2) { echo 'selected="true"';} ?>>Pond</option>
+                  <option value="3" <?php if (isset($_POST['sourceType']) && $_POST['sourceType'] == 3) { echo 'selected="true"';} ?>>Weir</option>
+                  <option value="4" <?php if (isset($_POST['sourceType']) && $_POST['sourceType'] == 4) { echo 'selected="true"';} ?>>Other</option>
                 </select>
               </div>
               <img src="<?php echo base_url('img/outlet_source.jpg');?>" class="calcDiagram hide-for-medium"  alt="">
@@ -343,11 +343,11 @@
                 <?php echo form_error('soilType', '<span class="error">', '</span>');?>
               </label>
                 <select id="soilType" name="soilType">
-                  <option value="0">Top Soil</option>
-                  <option value="1">Clay</option>
-                  <option value="2">Sand</option>
-                  <option value="3">Silt</option>
-                  <option value="3">Other</option>
+                  <option value="0" <?php if (isset($_POST['soilType']) && $_POST['soilType'] == 0) { echo 'selected="true"';} ?>>Top Soil</option>
+                  <option value="1" <?php if (isset($_POST['soilType']) && $_POST['soilType'] == 1) { echo 'selected="true"';} ?>>Clay</option>
+                  <option value="2" <?php if (isset($_POST['soilType']) && $_POST['soilType'] == 2) { echo 'selected="true"';} ?>>Sand</option>
+                  <option value="3" <?php if (isset($_POST['soilType']) && $_POST['soilType'] == 3) { echo 'selected="true"';} ?>>Silt</option>
+                  <option value="4" <?php if (isset($_POST['soilType']) && $_POST['soilType'] == 4) { echo 'selected="true"';} ?>>Other</option>
                 </select>
               </div>
             </div>
@@ -357,7 +357,7 @@
                 <h4 class="title">Comments</h4>
                 <label for="commentsBox">
                 </label>
-                <textarea id="commentsBox" name="commentsBox"></textarea>
+                <textarea id="commentsBox" name="commentsBox"><?php if(isset($_POST['commentsBox'])){echo $_POST['commentsBox'] ;} ?></textarea>
               </div>
 
             </div>
