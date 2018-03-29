@@ -187,16 +187,16 @@
                   </select>
                   <?php echo form_error('flowType', '<p class="error">', '</p>');?>
               </div>
-              <!-- <div id="designComponent"  class="clearfix">
+              <div id="designComponent"  class="clearfix">
                   <h4 class="title">Type of Block</h4>
                   <label for="blockType">
-                      <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a>
+                      <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
                   </label>
                   <select name="blockType">
-                    <option value="0" <.?php if ($estimate['estimate_blockType'] == 0) {echo "selected";}?>>Same Block for Both</option>
-                    <option value="1" <.?php if ($estimate['estimate_blockType'] == 1) {echo "selected";}?>>Different Block for each</option>
+                    <option value="0" <?php if (isset($_POST['blockType']) && $_POST['blockType'] == 0) { echo 'selected="true"';} ?>>Same Block for Both</option>
+                    <option value="1" <?php if (isset($_POST['blockType']) && $_POST['blockType'] == 1) { echo 'selected="true"';} ?>>Different Block for each</option>
                   </select>
-              </div> -->
+              </div>
 
                 <div id="designComponentTwo"  class="clearfix">
                   <h4 class="title">Use block on...</h4>
@@ -204,9 +204,9 @@
                     <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
                   </label>
                   <select name="blockUse">
-                    <option value="0"  <?php if ($estimate['estimate_blockUse'] == 0) {echo 'selected="true"';}?>>Both Bed and Side</option>
-                    <option value="1" <?php if ($estimate['estimate_blockUse'] == 1) {echo 'selected="true"';}?>>Bed Only</option>
-                    <option value="2" <?php if ($estimate['estimate_blockUse'] == 2) {echo 'selected="true"';}?>>Side Only</option>
+                    <option value="0" <?php if (isset($_POST['blockUse']) && $_POST['blockUse'] == 0) { echo 'selected="true"';} ?>>Both Bed and Side</option>
+                    <option value="1" <?php if (isset($_POST['blockUse']) && $_POST['blockUse'] == 1) { echo 'selected="true"';} ?>>Bed Only</option>
+                    <option value="2" <?php if (isset($_POST['blockUse']) && $_POST['blockUse'] == 2) { echo 'selected="true"';} ?>>Side Only</option>
                   </select>
               </div>
             </div>
