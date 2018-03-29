@@ -7,6 +7,9 @@ $(document).foundation();
 */
 
 (function(){
+    toastr.options = {
+      "positionClass": "toast-bottom-right"
+    }
 
   //SELECTING THE FORM
   var calcSubmit = document.querySelector('#calculator');
@@ -266,7 +269,7 @@ function toggleUnits(){
     showI=false;
     setTimeout(function(){
       lastChecked.checked=true;
-      alert("Can't show no inputs!")
+      toastr.error('A measurement must be selected');
       toggleUnits();
     },100);
   }

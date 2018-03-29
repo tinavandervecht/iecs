@@ -1,4 +1,8 @@
 (function(){
+    toastr.options = {
+      "positionClass": "toast-bottom-right"
+    }
+
 //THIS FILE IS WHERE THE CALCULATIONS TAKE PLACE.
 
       //CALCULATIONS
@@ -97,7 +101,7 @@ function toggleSubmit(button){
     modal.querySelector("#sendit").addEventListener('click',function(e){
       e.preventDefault();
       // SEND EMAIL TO CLIENT HERE
-      alert("Your Email has NOT been sent!");
+      toastr.error('Your email has NOT been sent.');
       closeEl(modal);
     },false);
     window.addEventListener('click',function(){
@@ -116,7 +120,7 @@ function toggleSubmit(button){
     shwn = !shwn;
   }else if(button.id === "yes"){
     //EMAIL RESULTS TO IECS HERE
-    alert("Your Email has NOT been sent!");
+    toastr.error('Your Email has NOT been sent.');
     closeEl(subpopup);
   }else if(button.id === "no"){
     closeEl(subpopup);
@@ -350,7 +354,7 @@ function performCalcs(data){
     }
     }
   }else{
-    alert("An error has occurred! Please try again later.")
+      toastr.error('An error has occurred! Please try again later.');
 }
 }
 
