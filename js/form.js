@@ -204,7 +204,7 @@ function imperialToMetric(input,units,precision){
 
 //CONVERT PERCENT TO DECIMAL
 function percentToDecimal(input){
-    var output = parseFloat((parseFloat(input.replace("%",""))*0.01).toFixed(6));
+    var output = parseFloat((parseFloat(input)*0.01).toFixed(6));
     if(output.toString()!="NaN"){
         return output.toFixed(2);
     }else if(output.toString()!=""){
@@ -214,8 +214,8 @@ function percentToDecimal(input){
 
 //CONVERT DECIMAL TO PERCENT
 function decimalToPercent(input){
-    var output = (input*100).toFixed(2) + "%";
-    if(output.toString()!="NaN%"){
+    var output = (input*100).toFixed(2);
+    if(output.toString()!="NaN"){
         return output;
     }else if(output.toString()!=""){
         return "Unexpected Input.";
@@ -239,7 +239,7 @@ function autoUpdate(event){
       if(it===decimal){
         percent.value = decimalToPercent(decimal.value);
       }else if(it===percent){
-        decimal.value = percentToDecimal(percent.value + "%");
+        decimal.value = percentToDecimal(percent.value);
       }
     }
 }
