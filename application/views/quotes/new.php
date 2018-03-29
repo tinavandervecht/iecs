@@ -13,7 +13,7 @@
                       <a href="#" class="tip"><span class="tooltip">Required. Give Your Project a Name!</span>?</a>
                       <?php echo form_error('name', '<span class="error">', '</span>');?>
                   </label>
-                  <input type="text" id="name" name="name" placeholder="" value="<?php if(isset($_POST['name'])){echo $_POST['name'] ;} ?>" />
+                  <input type="text" id="name" name="name" value="<?php if(isset($_POST['name'])){echo $_POST['name'] ;} ?>" />
               </div>
               <div id="date" class="columns small-12 medium-6">
                 <label for="d">
@@ -84,7 +84,7 @@
                       <h5 class="unit">Cubic m/s</h5>
                       <?php echo form_error('flowMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="flowMeters" class="convert metric" name="flowMeters" placeholder="" value="<?php if(isset($_POST['flowMeters'])){echo $_POST['flowMeters'] ;} ?>"/>
+                  <input id="flowMeters" class="convert metric" name="flowMeters" value="<?php if(isset($_POST['flowMeters'])){echo $_POST['flowMeters'] ;} ?>"/>
                   <label for="flowFeet">
                       <a href="#" class="tip"><span class="tooltip">Ensure the highest design flows are entered in cubic feet per second.</span>?</a><h5 class="unit">Cubic ft/s</h5>
                       <?php echo form_error('flowMeters', '<span class="error">', '</span>');?>
@@ -98,7 +98,7 @@
                       <a href="#" class="tip"><span class="tooltip">Input the pre-determined max velocity in m/s</span>?</a><h5 class="unit">Meters per Second</h5>
                       <?php echo form_error('velocityMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="velocityMeters" class="convert metric"  name="velocityMeters" placeholder="" value="<?php if(isset($_POST['velocityMeters'])){echo $_POST['velocityMeters'] ;} ?>"/>
+                  <input id="velocityMeters" class="convert metric"  name="velocityMeters" value="<?php if(isset($_POST['velocityMeters'])){echo $_POST['velocityMeters'] ;} ?>"/>
                   <label for="velocityFeet">
                       <a href="#" class="tip"><span class="tooltip">Input the pre-determined max velocity in f/s</span>?</a><h5 class="unit">Feet per Second</h5>
                       <?php echo form_error('velocityMeters', '<span class="error">', '</span>');?>
@@ -143,7 +143,7 @@
                     <h5 class="unit">Decimal</h5>
                       <?php echo form_error('bedSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="bedSlopeDecimal"  class="convert D" name="bedSlopeDecimal" placeholder="" value="<?php if(isset($_POST['bedSlopeDecimal'])){echo $_POST['bedSlopeDecimal'] ;} ?>"/>
+                  <input id="bedSlopeDecimal"  class="convert D" name="bedSlopeDecimal" value="<?php if(isset($_POST['bedSlopeDecimal'])){echo $_POST['bedSlopeDecimal'] ;} ?>"/>
               </div>
               <div id="sideSlope"  class="clearfix">
 
@@ -157,7 +157,7 @@
                     <h5 class="unit">Decimal</h5>
                       <?php echo form_error('sideSlopeDecimal', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" placeholder="" value="<?php if(isset($_POST['sideSlopeDecimal'])){echo $_POST['sideSlopeDecimal'] ;} ?>"/>
+                  <input id="sideSlopeDecimal"  class="convert D" name="sideSlopeDecimal" value="<?php if(isset($_POST['sideSlopeDecimal'])){echo $_POST['sideSlopeDecimal'] ;} ?>"/>
               </div>
               <div id="frictionAngle"  class="clearfix">
                   <h4 class="title">Friction Angle in Degrees</h4>
@@ -218,7 +218,7 @@
                       <a href="#" class="tip"><span class="tooltip">Enter least bed width in meters (m).</span>?</a><h5 class="unit">Meters</h5>
                       <?php echo form_error('bedMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="bedMeters" class="convert metric" name="bedMeters" placeholder="" value="<?php if(isset($_POST['bedMeters'])){echo $_POST['bedMeters'] ;} ?>"/>
+                  <input id="bedMeters" class="convert metric" name="bedMeters" value="<?php if(isset($_POST['bedMeters'])){echo $_POST['bedMeters'] ;} ?>"/>
                   <label for="bedFeet">
                       <a href="#" class="tip"><span class="tooltip">Enter least bed width in feet (f).</span>?</a><h5 class="unit">Feet</h5>
                       <?php echo form_error('bedMeters', '<span class="error">', '</span>');?>
@@ -242,7 +242,7 @@
                       <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity.</span>?</a><h5 class="unit">Meters</h5>
                       <?php echo form_error('crestMeters', '<span class="error">', '</span>');?>
                   </label>
-                  <input id="crestMeters" class="convert metric" name="crestMeters" placeholder="" value="<?php if(isset($_POST['crestMeters'])){echo $_POST['crestMeters'] ;} ?>" />
+                  <input id="crestMeters" class="convert metric" name="crestMeters" value="<?php if(isset($_POST['crestMeters'])){echo $_POST['crestMeters'] ;} ?>" />
                   <label for="crestFeet">
                       <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity.</span>?</a><h5 class="unit">Feet</h5>
                       <?php echo form_error('crestMeters', '<span class="error">', '</span>');?>
@@ -281,7 +281,7 @@
                 <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
               </label>
-                <input id="channelMeters" class="convert metric" name="channelMeters" placeholder="" value="<?php if(isset($_POST['channelMeters'])){echo $_POST['channelMeters'] ;} ?>"/>
+                <input id="channelMeters" class="convert metric" name="channelMeters" value="<?php if(isset($_POST['channelMeters'])){echo $_POST['channelMeters'] ;} ?>"/>
               <label for="channelFeet">
                 <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in feet.</span>?</a><h5 class="unit">Feet</h5>
                 <?php echo form_error('channelMeters', '<span class="error">', '</span>');?>
@@ -295,7 +295,7 @@
                 <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
               </label>
-                <input id="depthMeters" class="convert metric" name="depthMeters" placeholder="" value="<?php if(isset($_POST['depthMeters'])){echo $_POST['depthMeters'] ;} ?>"/>
+                <input id="depthMeters" class="convert metric" name="depthMeters" value="<?php if(isset($_POST['depthMeters'])){echo $_POST['depthMeters'] ;} ?>"/>
               <label for="depthFeet">
                 <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in feet.</span>?</a><h5 class="unit">Feet</h5>
                 <?php echo form_error('depthMeters', '<span class="error">', '</span>');?>
@@ -309,7 +309,7 @@
                 <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in meters.</span>?</a><h5 class="unit">Meters</h5>
                 <?php echo form_error('topMeters', '<span class="error">', '</span>');?>
               </label>
-                <input id="topMeters" class="convert metric" name="topMeters" placeholder="" value="<?php if(isset($_POST['topMeters'])){echo $_POST['topMeters'] ;} ?>"/>
+                <input id="topMeters" class="convert metric" name="topMeters" value="<?php if(isset($_POST['topMeters'])){echo $_POST['topMeters'] ;} ?>"/>
               <label for="topFeet">
                 <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in feet.</span>?</a><h5 class="unit">Feet</h5>
               </label>
