@@ -12,11 +12,11 @@ $(document).foundation();
   var calcSubmit = document.querySelector('#calculator');
 
 
-// for pagination pages.
-  var paginationPageTrackerPages = document.querySelectorAll(".pagination-page-tracker .pageNo");
-  var pageNo = document.querySelector('.pagination-page-tracker .current');
-  var pages =   document.querySelectorAll('.pagination-page');
-  var currentPage = document.querySelector('.pagination-page.current');
+// for pagnation pages.
+  var pagnationPageTrackerPages = document.querySelectorAll(".pagnation-page-tracker .pageNo");
+  var pageNo = document.querySelector('.pagnation-page-tracker .current');
+  var pages =   document.querySelectorAll('.pagnation-page');
+  var currentPage = document.querySelector('.pagnation-page.current');
   var pageNumber;
   var contButton = document.querySelector('.continueButton');
   var goBack = document.querySelector("#goBack");
@@ -32,7 +32,7 @@ $(document).foundation();
 //TOOLTIPS on form fields
   var tooltips = document.querySelectorAll('.tip');
 
-  var calc = false;//for pagination
+  var calc = false;//for pagnation
 //for the ONLY degrees in the form:
 
 var frAngle = document.querySelector('#frAngle');
@@ -58,10 +58,10 @@ function goingBack(event){
   if(it.dataset.pag !=null){
       pageNumber = parseInt(it.dataset.pag)-1;
       var newPage = pages[pageNumber];
-      for(var i=0;i<paginationPageTrackerPages.length;i++){
-        if(paginationPageTrackerPages[i].id == pageNumber+1){
-          paginationPageTrackerPages[i].classList.add('current');
-          pageNo = paginationPageTrackerPages[i];
+      for(var i=0;i<pagnationPageTrackerPages.length;i++){
+        if(pagnationPageTrackerPages[i].id == pageNumber+1){
+          pagnationPageTrackerPages[i].classList.add('current');
+          pageNo = pagnationPageTrackerPages[i];
         }
       }
       if(calc){
@@ -73,7 +73,7 @@ function goingBack(event){
   }
 }//END goingBack
 
-function pagination(event){
+function pagnation(event){
     event.preventDefault();
     var it = event.currentTarget;
     var pageNumber;
@@ -408,8 +408,8 @@ function summarize(){
 
 //EVENT LISTENERS
 ////PAGNATION
-for(var i=0; i< paginationPageTrackerPages.length;i++){
-  paginationPageTrackerPages[i].addEventListener('click', pagination, false);
+for(var i=0; i< pagnationPageTrackerPages.length;i++){
+  pagnationPageTrackerPages[i].addEventListener('click', pagnation, false);
 }
 goBack.addEventListener("click",goingBack,false);
 for(var i=0;i<edits.length;i++){
@@ -431,7 +431,7 @@ for(var i=0;i<fields.length;i++){
 }
 toggleUnits(); //initial activation of unit toggle functionality.
 checkAlign(); //initalize the hiding of the alignment conditional
-contButton.addEventListener('click', pagination,false);
+contButton.addEventListener('click', pagnation,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);
 // calcSubmit.addEventListener('submit',calculate,false);
