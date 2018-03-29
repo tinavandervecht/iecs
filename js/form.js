@@ -144,12 +144,6 @@ function pagnation(event){
     }
 }
 
-function validateStep() {
-    
-
-    return hasError;
-}
-
 function setNextStep(pageNumber) {
     for(var i=0;i<pages.length;i++){
         if(parseInt(pages[i].id) == parseInt(pageNumber)){
