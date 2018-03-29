@@ -547,9 +547,6 @@ form.testing input {
     display: block;
     padding: 1em 1em !important;
 }
-#calculator input:not([type="submit"]) {
-    float: left;
-}
 #calculator label,
 #calculator .label {
     padding-right: 2em;

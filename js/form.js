@@ -92,21 +92,45 @@ function pagnation(event){
             document.querySelector('#calc').classList.remove('hidden');
             calc = true;
         }
+
+        var newPage = setNextStep(pageNumber);
+        moveToNextStep(currentPage, newPage);
     }else if(pageNo.nextElementSibling!=null && parseInt(pageNumber)!=3){
-        pageNo.classList.remove('current');
-        pageNo.nextElementSibling.classList.add('current');
-        pageNo = pageNo.nextElementSibling;
-        pageNumber = pageNo.innerHTML;
+        var currentStep = document.getElementsByClassName('pagnation-page current');
+        var inputs = currentStep[0].getElementsByClassName('required');
+        var inputList = Array.prototype.slice.call(inputs);
+
+        var errors = currentStep[0].getElementsByClassName('error');
+        var errorList = Array.prototype.slice.call(errors);
+        errorList.forEach(function(error) {
+            error.parentNode.removeChild(error);
+        })
+
+        var hasError = false;
+        inputList.some(function(input) {
+            if (input.value == '') {
+                var newNode = document.createElement('div');
+                newNode.innerHTML = '<p class="error">This field is required.</p>';
+                input.after(newNode);
+                hasError = true;
+                return;
+            }
+        })
+        if (! hasError) {
+            pageNo.classList.remove('current');
+            pageNo.nextElementSibling.classList.add('current');
+            pageNo = pageNo.nextElementSibling;
+            pageNumber = pageNo.innerHTML;
+            var newPage = setNextStep(pageNumber);
+            moveToNextStep(currentPage, newPage);
+        }
     }else{
         pageNumber = pageNo.innerHTML;
+
+        var newPage = setNextStep(pageNumber);
+        moveToNextStep(currentPage, newPage);
     }
 
-    for(var i=0;i<pages.length;i++){
-        if(parseInt(pages[i].id) == parseInt(pageNumber)){
-            var newPage = pages[i];
-        }
-    }
-    TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
     if(parseInt(pageNumber) == 4){
         contButton.classList.add('hidden');
         document.querySelector('#calc').classList.remove('hidden');
@@ -118,6 +142,24 @@ function pagnation(event){
             calc = false;
         }
     }
+}
+
+function validateStep() {
+    
+
+    return hasError;
+}
+
+function setNextStep(pageNumber) {
+    for(var i=0;i<pages.length;i++){
+        if(parseInt(pages[i].id) == parseInt(pageNumber)){
+            return pages[i];
+        }
+    }
+}
+
+function moveToNextStep(currentPage, newPage) {
+    TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
 }
 
 
@@ -259,9 +301,26 @@ function checkAlign(){
   if(align.value == 0){
     calcSubmit.querySelector('#crestRadius').classList.add('hidden');
     calcSubmit.querySelector('#channelSpecs').classList.add('hidden');
+    var crestInputs = calcSubmit.querySelector('#crestRadius').getElementsByTagName('input');
+    var crestInputList = Array.prototype.slice.call(crestInputs);
+    var channelSpecInputs = calcSubmit.querySelector('#channelSpecs').getElementsByTagName('input');
+    var channelSpecInputList = Array.prototype.slice.call(channelSpecInputs);
+    var inputs = crestInputList.concat(channelSpecInputList);
+    inputs.forEach(function(input) {
+        input.classList.remove("required");
+    });
   }else{
     calcSubmit.querySelector('#crestRadius').classList.remove('hidden');
     calcSubmit.querySelector('#channelSpecs').classList.remove('hidden');
+    var crestInputs = calcSubmit.querySelector('#crestRadius').getElementsByTagName('input');
+    var crestInputList = Array.prototype.slice.call(crestInputs);
+    var channelSpecInputs = calcSubmit.querySelector('#channelSpecs').getElementsByTagName('input');
+    var channelSpecInputList = Array.prototype.slice.call(channelSpecInputs);
+    var inputs = crestInputList.concat(channelSpecInputList);
+    var inputList = Array.prototype.slice.call(inputs);
+    inputs.forEach(function(input) {
+        input.classList.add("required");
+    });
   }
 }
 align.addEventListener('input',checkAlign,false);
