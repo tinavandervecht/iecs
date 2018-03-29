@@ -1,14 +1,4 @@
 $(document).foundation();
-/*
-                         n___n_
-                       /       = =\             .------------------------------------------------.
-                     /         ._Y_)        <       I'M SORRY THIS IS A DISASTER   |
-                   /            "\                ' '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' '
-                 (_/         (_,  \
-                   \               ( \_,--""""""--.
-              ..-,-`._____,-` )-.________./
-
-*/
 /* CONVERSION FORMULAS FROM www.disabled-world.com/artman/publish/metric-imperial.shtml
   * m to ft : m*3.28
   * % to decimal : %*0.01
@@ -22,11 +12,11 @@ $(document).foundation();
   var calcSubmit = document.querySelector('#calculator');
 
 
-// for pagnation pages.
-  var pagnationPageTrackerPages = document.querySelectorAll(".pagnation-page-tracker .pageNo");
-  var pageNo = document.querySelector('.pagnation-page-tracker .current');
-  var pages =   document.querySelectorAll('.pagnation-page');
-  var currentPage = document.querySelector('.pagnation-page.current');
+// for pagination pages.
+  var paginationPageTrackerPages = document.querySelectorAll(".pagination-page-tracker .pageNo");
+  var pageNo = document.querySelector('.pagination-page-tracker .current');
+  var pages =   document.querySelectorAll('.pagination-page');
+  var currentPage = document.querySelector('.pagination-page.current');
   var pageNumber;
   var contButton = document.querySelector('.continueButton');
   var goBack = document.querySelector("#goBack");
@@ -42,7 +32,7 @@ $(document).foundation();
 //TOOLTIPS on form fields
   var tooltips = document.querySelectorAll('.tip');
 
-  var calc = false;//for pagnation
+  var calc = false;//for pagination
 //for the ONLY degrees in the form:
 
 var frAngle = document.querySelector('#frAngle');
@@ -53,13 +43,12 @@ frAngle.addEventListener('change',function(){
 
 //PAGE SWAP
 function swapPage(page){
-  function change(){
-    currentPage = page;
-
-  }
-currentPage.classList.remove('current');
-page.classList.add('current');
-TweenLite.to(page, 0.2, {opacity:1.0,onComplete:change});
+    function change(){
+        currentPage = page;
+    }
+    currentPage.classList.remove('current');
+    page.classList.add('current');
+    TweenLite.to(page, 0.2, {opacity:1.0,onComplete:change});
 }//END swapPage
 
 //PAGNATION FUNCTIONALITY
@@ -67,142 +56,132 @@ function goingBack(event){
   event.preventDefault();
   var it = event.currentTarget;
   if(it.dataset.pag !=null){
-  pageNumber = parseInt(it.dataset.pag)-1;
-  var newPage = pages[pageNumber];
-  for(var i=0;i<pagnationPageTrackerPages.length;i++){
-    if(pagnationPageTrackerPages[i].id == pageNumber+1){
-      pagnationPageTrackerPages[i].classList.add('current');
-      pageNo = pagnationPageTrackerPages[i];
-    }
-  }
-  if(calc){
-    contButton.classList.remove('hidden');
-    document.querySelector('#calc').classList.add('hidden');
-    calc = false;
-  }
-  TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
+      pageNumber = parseInt(it.dataset.pag)-1;
+      var newPage = pages[pageNumber];
+      for(var i=0;i<paginationPageTrackerPages.length;i++){
+        if(paginationPageTrackerPages[i].id == pageNumber+1){
+          paginationPageTrackerPages[i].classList.add('current');
+          pageNo = paginationPageTrackerPages[i];
+        }
+      }
+      if(calc){
+        contButton.classList.remove('hidden');
+        document.querySelector('#calc').classList.add('hidden');
+        calc = false;
+      }
+      TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
   }
 }//END goingBack
 
-function pagnation(event){
-  event.preventDefault();
-  var it = event.currentTarget;
-  var pageNumber;
-  if(it.classList.contains('pageNo')){
-    if(calc){
-      contButton.classList.remove('hidden');
-      document.querySelector('#calc').classList.add('hidden');
-      calc = false;
+function pagination(event){
+    event.preventDefault();
+    var it = event.currentTarget;
+    var pageNumber;
+    if(it.classList.contains('pageNo')){
+        if(calc){
+            contButton.classList.remove('hidden');
+            document.querySelector('#calc').classList.add('hidden');
+            calc = false;
+        }
+        it.classList.add('current');
+        pageNo.classList.remove('current');
+        pageNo = it;
+        pageNumber = pageNo.innerHTML;
+        if(parseInt(pageNumber)==4){
+            contButton.classList.add('hidden');
+            document.querySelector('#calc').classList.remove('hidden');
+            calc = true;
+        }
+    }else if(pageNo.nextElementSibling!=null && parseInt(pageNumber)!=3){
+        pageNo.classList.remove('current');
+        pageNo.nextElementSibling.classList.add('current');
+        pageNo = pageNo.nextElementSibling;
+        pageNumber = pageNo.innerHTML;
+    }else{
+        pageNumber = pageNo.innerHTML;
     }
-  it.classList.add('current');
-  pageNo.classList.remove('current');
-  pageNo = it;
-  pageNumber = pageNo.innerHTML;
-  if(parseInt(pageNumber)==4){
-      contButton.classList.add('hidden');
-      document.querySelector('#calc').classList.remove('hidden');
-      calc = true;
-  }
-}else if(pageNo.nextElementSibling!=null && parseInt(pageNumber)!=3){
-    pageNo.classList.remove('current');
-    pageNo.nextElementSibling.classList.add('current');
-    pageNo = pageNo.nextElementSibling;
-    pageNumber = pageNo.innerHTML;
-  }else{
-    pageNumber = pageNo.innerHTML;
-  }
-  // else{
-  //   it.classList.add('current');
-  //   pageNo.classList.remove('current');
-  //   pageNumber =  4;
-  //   summarize();
-  //   contButton.classList.add('hidden');
-  //   document.querySelector('#calc').classList.remove('hidden');
-  //   calc = true;
-  // }
-  for(var i=0;i<pages.length;i++){
-    if(parseInt(pages[i].id) == parseInt(pageNumber)){
-      var newPage = pages[i];
+
+    for(var i=0;i<pages.length;i++){
+        if(parseInt(pages[i].id) == parseInt(pageNumber)){
+            var newPage = pages[i];
+        }
     }
+    TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
+    if(parseInt(pageNumber) == 4){
+        contButton.classList.add('hidden');
+        document.querySelector('#calc').classList.remove('hidden');
+        calc = true;
+    }else{
+        if(contButton.classList.contains('hidden')){
+            contButton.classList.remove('hidden');
+            document.querySelector('#calc').classList.add('hidden');
+            calc = false;
+        }
     }
-  TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
-  if(parseInt(pageNumber) == 4){
-    contButton.classList.add('hidden');
-    document.querySelector('#calc').classList.remove('hidden');
-    calc = true;
-  }else{
-    if(contButton.classList.contains('hidden')){
-      contButton.classList.remove('hidden');
-      document.querySelector('#calc').classList.add('hidden');
-      calc = false;
-    }
-  }
 }
 
 
 //CONVERT METRIC TO IMPERIAL
-  function metricToImperial(input,units,precision){
+function metricToImperial(input,units,precision){
     if (input!=""){
-      var output = null;
-      var factor = 3.28084;
-      input = parseFloat(input);
-      if(units === "ft"){
-        output = input*factor;
-      }else if(units === "in"){
-        output = input*factor*12;
-      }else if(units=== "yd"){
-        output = input*factor/3;
-      }else{
-        //console.log("parameter passed is invalid. ERROR");
-      }
-      if(output.toString()!="NaN"){
-        return parseFloat(output.toFixed(2));
-      }else{
-        return "Unexpected Input.";
-      }
+        var output = null;
+        var factor = 3.28084;
+        input = parseFloat(input);
+        if(units === "ft"){
+            output = input*factor;
+        }else if(units === "in"){
+            output = input*factor*12;
+        }else if(units=== "yd"){
+            output = input*factor/3;
+        }else{
+            //console.log("parameter passed is invalid. ERROR");
+        }
+        if(output.toString()!="NaN"){
+            return parseFloat(output.toFixed(2));
+        }else{
+            return "Unexpected Input.";
+        }
+    }else{
+        return "";
     }
-    else{
-      return "";
-    }
-  }
+}
 
 //CONVERT INPERIAL TO METRIC
-  function imperialToMetric(input,units,precision){
+function imperialToMetric(input,units,precision){
     var output = null;
     var factor = 3.28084;
     input = parseFloat(input);
     if(units === "m"){
-      output = input/factor;
+        output = input/factor;
     }else{
-      //console.log("parameter passed is invalid. ERROR");
+        //console.log("parameter passed is invalid. ERROR");
     }
     if(output.toString()!="NaN"){
-      return parseFloat(output.toFixed(2));
-      ////console.log("returned.");
+        return parseFloat(output.toFixed(2));
     }else if(output.toString()!=""){
-      return "Unexpected Input.";
+        return "Unexpected Input.";
     }
-  }
+}
 
 //CONVERT PERCENT TO DECIMAL
-  function percentToDecimal(input){
+function percentToDecimal(input){
     var output = parseFloat((parseFloat(input.replace("%",""))*0.01).toFixed(6));
     if(output.toString()!="NaN"){
-      return output.toFixed(2);
+        return output.toFixed(2);
     }else if(output.toString()!=""){
-      return "Unexpected Input.";
+        return "Unexpected Input.";
     }
-  }
+}
 
 //CONVERT DECIMAL TO PERCENT
-  function decimalToPercent(input){
+function decimalToPercent(input){
     var output = (input*100).toFixed(2) + "%";
     if(output.toString()!="NaN%"){
-      return output;
+        return output;
     }else if(output.toString()!=""){
-      return "Unexpected Input.";
+        return "Unexpected Input.";
     }
-  }
+}
 
 //UPDATE FIELDS
 function autoUpdate(event){
@@ -213,10 +192,8 @@ function autoUpdate(event){
   var decimal = it.parentNode.querySelector('.D');
     if(metric != null){
       if(it===metric){
-        ////console.log("metric!");
         imperial.value = metricToImperial(metric.value,"ft",4);
       }else if(it===imperial){
-        ////console.log("imperial!");
         metric.value = imperialToMetric(imperial.value,"m",4);
       }
     }else if(percent != null){
@@ -238,7 +215,6 @@ var showM;
 var showI;
 //TOGGLE THE DISPLAY OF METRIC OR IMPERIAL UNITS - ALSO ENSURES ONE UNIT IS ALWAYS SHOWN
 function toggleUnits(){
-  console.log("TOGGLE UNITS ACTIVATED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
   showM = false;
   showI = false;
   if(showMetricBox.checked){
@@ -250,7 +226,6 @@ function toggleUnits(){
     lastChecked = showImperialBox;
   }
   if(!showMetricBox.checked&&!showImperialBox.checked){
-    console.log("nothing's checked!");
     showM=false;
     showI=false;
     setTimeout(function(){
@@ -260,31 +235,28 @@ function toggleUnits(){
     },100);
   }
 
-  for(var i=0;i<fields.length;i++){
-    if(showI && fields[i].classList.contains('imperial')){
-      console.log("THIS THAR IS IMPERIAL!");
-        fields[i].classList.add('shown');
-        fields[i].previousElementSibling.classList.remove('hidden');
-      }
-      if(!showI && fields[i].classList.contains('imperial')){
-          fields[i].classList.remove('shown');
-          console.log(fields[i].classList);
-          fields[i].previousElementSibling.classList.add('hidden');
+    for(var i=0;i<fields.length;i++){
+        if(showI && fields[i].classList.contains('imperial')){
+            fields[i].classList.add('shown');
+            fields[i].previousElementSibling.classList.remove('hidden');
         }
-      if(showM && fields[i].classList.contains('metric')){
-          fields[i].classList.add('shown');
-          fields[i].previousElementSibling.classList.remove('hidden');
+        if(!showI && fields[i].classList.contains('imperial')){
+            fields[i].classList.remove('shown');
+            fields[i].previousElementSibling.classList.add('hidden');
+        }
+        if(showM && fields[i].classList.contains('metric')){
+            fields[i].classList.add('shown');
+            fields[i].previousElementSibling.classList.remove('hidden');
         }
         if(!showM && fields[i].classList.contains('metric')){
             fields[i].classList.remove('shown');
             fields[i].previousElementSibling.classList.add('hidden');
-          }
         }
+    }
 }
 var align = calcSubmit.querySelector('#alignType');
 function checkAlign(){
   if(align.value == 0){
-    // console.log("STRAIGHT");
     calcSubmit.querySelector('#crestRadius').classList.add('hidden');
     calcSubmit.querySelector('#channelSpecs').classList.add('hidden');
   }else{
@@ -292,7 +264,7 @@ function checkAlign(){
     calcSubmit.querySelector('#channelSpecs').classList.remove('hidden');
   }
 }
-  align.addEventListener('input',checkAlign,false);
+align.addEventListener('input',checkAlign,false);
 
 //FILL CONTAINERS WITH RESPECTIVE INPUT'S VALUES
 function getInputs(){
@@ -369,7 +341,7 @@ function getInputs(){
           return "Topsoil";
       }
     }
-    //DO YOU LOVE MY CODE YET
+
   return/*s  a js object containing all the values, formatted with title and value, for outputting via object iterator*/ {
     //I need to remove the iterator; I don't think iterators are spec in IE. works fine in edge tho
     sum_details : {
@@ -417,7 +389,6 @@ function getInputs(){
 function summarize(){
   function stringify(json){
     var s = "";
-    // console.log(json);
     for(i of Object.keys(json)){
       s += json[i].title + ": " + json[i].value + " " + "<br>";
     }
@@ -437,8 +408,8 @@ function summarize(){
 
 //EVENT LISTENERS
 ////PAGNATION
-for(var i=0; i< pagnationPageTrackerPages.length;i++){
-  pagnationPageTrackerPages[i].addEventListener('click', pagnation, false);
+for(var i=0; i< paginationPageTrackerPages.length;i++){
+  paginationPageTrackerPages[i].addEventListener('click', pagination, false);
 }
 goBack.addEventListener("click",goingBack,false);
 for(var i=0;i<edits.length;i++){
@@ -460,7 +431,7 @@ for(var i=0;i<fields.length;i++){
 }
 toggleUnits(); //initial activation of unit toggle functionality.
 checkAlign(); //initalize the hiding of the alignment conditional
-contButton.addEventListener('click', pagnation,false);
+contButton.addEventListener('click', pagination,false);
 showMetricBox.addEventListener('click', toggleUnits, false);
 showImperialBox.addEventListener('click', toggleUnits, false);
 // calcSubmit.addEventListener('submit',calculate,false);
@@ -479,7 +450,6 @@ var svg = true;
 //CHANGING THE SVG VALUES
 if(svg){
     var svg1 = document.querySelector("#svg1 svg");
-    console.log(svg1);
     //BED SLOPE
     var bedD = document.querySelector("#bedSlopeDecimal");
     bedD.addEventListener('input',function(){
@@ -515,7 +485,6 @@ if(svg){
     for(var i=0;i<opts.length;i++){
       flows.push(opts[i].innerHTML);
     }
-    console.log(flows);
     flow.addEventListener('change',function(){
       val = flows[parseInt(flow.value)].toUpperCase();
       svg1.querySelector('#flowwy text').innerHTML = "FLOW TYPE: " + val;
@@ -526,15 +495,11 @@ if(svg){
 
 //THIS UPDATES THE FIELDS WHEN THEY LOAD
 window.addEventListener('load', function(){
-  //console.log("running");
-  //console.log(convertFields.length);
   for(var i=0;i<convertFields.length;i++){
-    //console.log(i);
     var met = convertFields[i].parentNode.querySelector('.metric');
     var imp = convertFields[i].parentNode.querySelector('.imperial');
     var dec = convertFields[i].parentNode.querySelector('.D');
     var per = convertFields[i].parentNode.querySelector('.P');
-    //console.log(met);
     if(met!==null){
       imp.value = metricToImperial(met.value,"ft",4);
     }
