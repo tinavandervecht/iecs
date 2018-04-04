@@ -247,7 +247,10 @@ function autoUpdate(event){
 //CLEAR THE FIELD THIS IS EFFECTED ON
 function clearField(){
   var it = event.currentTarget;
-  it.value="";
+
+  if (it.value == 'Not Specified') {
+      it.value="";
+  }
 }
 
 var showM;
