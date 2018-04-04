@@ -56,6 +56,7 @@ function swapPage(page){
 
 //PAGNATION FUNCTIONALITY
 function goingBack(event){
+  pageNo.classList.remove('current');
   event.preventDefault();
   var it = event.currentTarget;
   if(it.dataset.pag !=null){
