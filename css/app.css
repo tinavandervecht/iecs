@@ -956,18 +956,19 @@ a.sectionTitle{
     display: none;
 }
 .statusbox {
-    width: 10em;
+    width: 50%;
     display: block;
     float: right;
+    text-align:right;
 }
 .statusbox .icon {
-    float: left;
-    margin-top: 0.5em;
+    margin-top: -5px;
     max-width: 2em;
-    display: block;
+    display: inline;
 }
 .statusbox .status {
     display: inline;
+    white-space: nowrap;
 }
 .statusbox .status p {
     display: inline;
@@ -975,11 +976,10 @@ a.sectionTitle{
     padding: 0;
     margin-left: 1em;
 }
-.statusbox .status span {
+.statusbox .status p span {
     margin: 0;
     padding: 0;
     display: inline;
-    margin-left: 1em;
 }
 .buttons .leftButton {
     float: left;

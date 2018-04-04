@@ -71,14 +71,18 @@
                   <?php if($estimate['estimate_sent'] == 1):?>
                   <img class="icon" src="<?php echo base_url('img/complete_icon.svg');?>"/>
                   <div class="status">
-                    <p>STATUS:</p>
-                    <span>SUBMITTED</span>
+                    <p>
+                        STATUS:
+                        <span>SUBMITTED</span>
+                    </p>
                   </div>
               <?php else: ?>
                 <img class="icon" src="<?php echo base_url('img/not_complete.svg');?>"/>
                 <div class="status">
-                  <p>STATUS:</p>
-                  <span>UNSENT</span>
+                    <p>
+                        STATUS:
+                        <span>UNSENT</span>
+                    </p>
                 </div>
                 <?php endif; ?>
                 </div>
