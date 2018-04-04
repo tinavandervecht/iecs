@@ -247,82 +247,83 @@ function autoUpdate(event){
 
 //CLEAR THE FIELD THIS IS EFFECTED ON
 function clearField(){
-  var it = event.currentTarget;
+    var it = event.currentTarget;
 
-  if (it.value == 'Not Specified') {
-      it.value="";
-  }
+    if (it.value == 'Not Specified') {
+        it.value="";
+    }
 }
 
 var showM;
 var showI;
 //TOGGLE THE DISPLAY OF METRIC OR IMPERIAL UNITS - ALSO ENSURES ONE UNIT IS ALWAYS SHOWN
 function toggleUnits(){
-  showM = false;
-  showI = false;
-  if(showMetricBox.checked){
-    showM = true;
-    lastChecked = showMetricBox;
-  }
-  if(showImperialBox.checked){
-    showI = true;
-    lastChecked = showImperialBox;
-  }
-  if(!showMetricBox.checked&&!showImperialBox.checked){
-    showM=false;
-    showI=false;
-    setTimeout(function(){
-      lastChecked.checked=true;
-      toastr.error('A measurement must be selected');
-      toggleUnits();
-    },100);
-  }
+showM = false;
+    showI = false;
+    if (showMetricBox.checked) {
+        showM = true;
+        lastChecked = showMetricBox;
+    }
+    if (showImperialBox.checked) {
+        showI = true;
+        lastChecked = showImperialBox;
+    }
+    if (!showMetricBox.checked&&!showImperialBox.checked) {
+        showM=false;
+        showI=false;
+        setTimeout(function(){
+            lastChecked.checked=true;
+            toastr.error('A measurement must be selected');
+            toggleUnits();
+        }, 100);
+    }
 
     for(var i=0;i<fields.length;i++){
-        if(showI && fields[i].classList.contains('imperial')){
+        if (showI && fields[i].classList.contains('imperial')) {
             fields[i].classList.add('shown');
             fields[i].previousElementSibling.classList.remove('hidden');
         }
-        if(!showI && fields[i].classList.contains('imperial')){
+        if (!showI && fields[i].classList.contains('imperial')) {
             fields[i].classList.remove('shown');
             fields[i].previousElementSibling.classList.add('hidden');
         }
-        if(showM && fields[i].classList.contains('metric')){
+        if (showM && fields[i].classList.contains('metric')) {
             fields[i].classList.add('shown');
             fields[i].previousElementSibling.classList.remove('hidden');
         }
-        if(!showM && fields[i].classList.contains('metric')){
+        if (!showM && fields[i].classList.contains('metric')) {
             fields[i].classList.remove('shown');
             fields[i].previousElementSibling.classList.add('hidden');
         }
     }
 }
+
 var align = calcSubmit.querySelector('#alignType');
 function checkAlign(){
-  if(align.value == 0){
-    calcSubmit.querySelector('#crestRadius').classList.add('hidden');
-    calcSubmit.querySelector('#channelSpecs').classList.add('hidden');
-    var crestInputs = calcSubmit.querySelector('#crestRadius').getElementsByTagName('input');
-    var crestInputList = Array.prototype.slice.call(crestInputs);
-    var channelSpecInputs = calcSubmit.querySelector('#channelSpecs').getElementsByTagName('input');
-    var channelSpecInputList = Array.prototype.slice.call(channelSpecInputs);
-    var inputs = crestInputList.concat(channelSpecInputList);
-    inputs.forEach(function(input) {
-        input.classList.remove("required");
-    });
-  }else{
-    calcSubmit.querySelector('#crestRadius').classList.remove('hidden');
-    calcSubmit.querySelector('#channelSpecs').classList.remove('hidden');
-    var crestInputs = calcSubmit.querySelector('#crestRadius').getElementsByTagName('input');
-    var crestInputList = Array.prototype.slice.call(crestInputs);
-    var channelSpecInputs = calcSubmit.querySelector('#channelSpecs').getElementsByTagName('input');
-    var channelSpecInputList = Array.prototype.slice.call(channelSpecInputs);
-    var inputs = crestInputList.concat(channelSpecInputList);
-    var inputList = Array.prototype.slice.call(inputs);
-    inputs.forEach(function(input) {
-        input.classList.add("required");
-    });
-  }
+    if(align.value == 0){
+        calcSubmit.querySelector('#crestRadius').classList.add('hidden');
+        calcSubmit.querySelector('#channelSpecs').classList.add('hidden');
+        var crestInputs = calcSubmit.querySelector('#crestRadius').getElementsByTagName('input');
+        var crestInputList = Array.prototype.slice.call(crestInputs);
+        var channelSpecInputs = calcSubmit.querySelector('#channelSpecs').getElementsByTagName('input');
+        var channelSpecInputList = Array.prototype.slice.call(channelSpecInputs);
+        var inputs = crestInputList.concat(channelSpecInputList);
+        inputs.forEach(function(input) {
+            input.classList.remove("required");
+        });
+    }else{
+        calcSubmit.querySelector('#crestRadius').classList.remove('hidden');
+        calcSubmit.querySelector('#channelSpecs').classList.remove('hidden');
+        var crestInputs = calcSubmit.querySelector('#crestRadius').getElementsByTagName('input');
+        var crestInputList = Array.prototype.slice.call(crestInputs);
+        var channelSpecInputs = calcSubmit.querySelector('#channelSpecs').getElementsByTagName('input');
+        var channelSpecInputList = Array.prototype.slice.call(channelSpecInputs);
+        var inputs = crestInputList.concat(channelSpecInputList);
+        var inputList = Array.prototype.slice.call(inputs);
+        inputs.forEach(function(input) {
+            input.classList.add("required");
+        });
+    }
 }
 align.addEventListener('input',checkAlign,false);
 
