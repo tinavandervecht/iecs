@@ -8,7 +8,7 @@
             <img src="<?php echo base_url('img/channel_specifications.jpg');?>" class="calcDiagram"  alt="">
         </div> -->
 
-        <div class="columns small-12 medium-6 medium-pull-6 large-pull-0">
+        <div class="columns small-12 medium-6 medium-pull-6 large-pull-0" id="channel_inputs">
             <div id="channelLength"  class="clearfix">
                 <h4 class="title">Chute/Channel Length</h4>
                 <label for="channelMeters">

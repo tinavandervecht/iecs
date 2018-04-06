@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row" id="project_information_inputs">
     <h3 class="hidden">Project Information</h3>
-    <div id="projectName" class="columns small-12 medium-6">
+    <div id="projectName" class="input columns small-12 medium-6">
         <label for="name">
-            <h4 class="title">Project Name:</h4>
+            <h4 class="title">Project Name</h4>
             <a href="#" class="tip"><span class="tooltip">Required. Give Your Project a Name!</span>?</a>
         </label>
         <input type="text" id="name" name="name" class="required"
@@ -15,9 +15,9 @@
         <?php echo form_error('name', '<p class="error">', '</p>');?>
     </div>
 
-    <div id="date" class="columns small-12 medium-6">
+    <div id="date" class="input columns small-12 medium-6">
         <label for="d">
-            <h4 class="title">Projected Start Date for Project:</h4>
+            <h4 class="title">Projected Start Date for Project</h4>
         </label>
         <input type="date" id="d" name="projectedDate"
             value="<?php if (isset($_POST['projectedDate'])) :
@@ -28,9 +28,9 @@
         />
     </div>
 
-    <div id="projectLocation" class="columns small-12 medium-6">
+    <div id="projectLocation" class="input columns small-12 medium-6">
         <label for="cityProv">
-            <h4 class="title">City  &amp; State/Province:</h4>
+            <h4 class="title">City  &amp; State/Province</h4>
             <a href="#" class="tip"><span class="tooltip">The projected location of this project.</span>?</a>
         </label>
         <input type="text" id="cityProv" name="cityProv"
@@ -42,9 +42,9 @@
         />
     </div>
 
-    <div id="projectAddress" class="columns small-12 medium-6">
+    <div id="projectAddress" class="input columns small-12 medium-6">
         <label for="addr">
-            <h4 class="title">Address:</h4>
+            <h4 class="title">Address</h4>
             <a href="#" class="tip"><span class="tooltip">The address of this job. Not Required.</span>?</a>
         </label>
         <input type="text" id="addr" name="addr"
@@ -56,9 +56,9 @@
         />
     </div>
 
-    <div id="engineer" class="columns small-12 medium-6">
+    <div id="engineer" class="input columns small-12 medium-6">
         <label for="engineerName">
-            <h4 class="title">Engineer Name:</h4>
+            <h4 class="title">Engineer Name</h4>
             <a href="#" class="tip"><span class="tooltip">Name of the Engineer undertaking this project.</span>?</a>
         </label>
         <input type="text" id="engineerName" name="engineerName"
@@ -72,7 +72,7 @@
 
     <div class="columns small-12 medium-6">
         <label for="measurement">
-            <h4 class="title">Measurement:</h4>
+            <h4 class="title">Measurement</h4>
             <a href="#" class="tip"><span class="tooltip">Will you be filling out this form in Metric or Imperial?</span>?</a>
         </label>
 

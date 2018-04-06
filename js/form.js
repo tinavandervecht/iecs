@@ -76,6 +76,7 @@ function goingBack(event){
 function pagnation(event){
     event.preventDefault();
     var it = event.currentTarget;
+    updateReviewData();
     var pageNumber;
     if(it.classList.contains('pageNo')){
         if(calc){
@@ -460,6 +461,99 @@ function summarize(){
   for(box of summaryEntries){
     box.querySelector('.text').innerHTML =  stringify(inputs[box.id]);
   }
+}
+
+function updateReviewData() {
+        // Step 1 Inputs
+        setDetailsReview();
+        setFlowVelocityReview();
+        // Step 2 Inputs
+        setSlopesReview();
+        setFlowTypeReview();
+        setBedTypeAndAlignmentReview();
+        // Step 3 Inputs
+        setChannelReview();
+        setEnvironmentReview();
+        setCommentReview();
+}
+
+function setDetailsReview() {
+    document.querySelector('#project_information_inputs').querySelector('.input');
+    var projectInformationInputs = calcSubmit.querySelector('#project_information_inputs').getElementsByClassName('input');
+    var projectInformationInputList = Array.prototype.slice.call(projectInformationInputs);
+    var projectInformationHTML = getAreaInputValues(projectInformationInputList);
+    document.querySelector('#sum_details').querySelector('.details').innerHTML = projectInformationHTML;
+}
+
+function setFlowVelocityReview() {
+    var sumFlowInputs = calcSubmit.querySelector('#flow_velocity_inputs').getElementsByClassName('input');
+    var sumFlowInputList = Array.prototype.slice.call(sumFlowInputs);
+    var sumFlowHTML = getAreaInputValues(sumFlowInputList);
+    document.querySelector('#sum_flow').querySelector('.details').innerHTML = sumFlowHTML;
+}
+
+function setSlopesReview() {
+    var slopeInputs = calcSubmit.querySelector('#slope_inputs').getElementsByClassName('input');
+    var slopeInputList = Array.prototype.slice.call(slopeInputs);
+    var slopeHTML = getAreaInputValues(slopeInputList);
+    document.querySelector('#sum_slopes').querySelector('.details').innerHTML = slopeHTML;
+}
+
+function setFlowTypeReview() {
+    var flowTypeInputs = calcSubmit.querySelector('#flow_type_inputs').getElementsByClassName('input');
+    var flowTypeInputList = Array.prototype.slice.call(flowTypeInputs);
+    var flowTypeHTML = getAreaSelectValues(flowTypeInputList);
+    document.querySelector('#sum_type').querySelector('.details').innerHTML = flowTypeHTML;
+}
+
+function setBedTypeAndAlignmentReview() {
+    var bedTypeAlignmentInputs = calcSubmit.querySelector('#bed_type_alignment_inputs').getElementsByClassName('input');
+    var bedTypeAlignmentInputList = Array.prototype.slice.call(bedTypeAlignmentInputs);
+    var bedTypeAlignmentHTML = getAreaSelectValues(bedTypeAlignmentInputList);
+    document.querySelector('#sum_bed').querySelector('.details').innerHTML = bedTypeAlignmentHTML;
+}
+
+function setChannelReview() {
+    var channelInputs = calcSubmit.querySelector('#channel_inputs').getElementsByClassName('input');
+    var channelInputList = Array.prototype.slice.call(channelInputs);
+    var channelHTML = getAreaInputValues(channelInputList);
+    document.querySelector('#sum_channel').querySelector('.details').innerHTML = channelHTML;
+}
+
+function setEnvironmentReview() {
+    var environmentInputs = calcSubmit.querySelector('#environment_inputs').getElementsByClassName('input');
+    var environmentInputList = Array.prototype.slice.call(environmentInputs);
+    var environmentHTML = getAreaSelectValues(environmentInputList);
+    document.querySelector('#sum_environment').querySelector('.details').innerHTML = environmentHTML;
+}
+
+function setCommentReview() {
+    var commentInputs = calcSubmit.querySelector('#comment_inputs').getElementsByClassName('input');
+    var commentInputList = Array.prototype.slice.call(commentInputs);
+    var commentHTML = getAreaInputValues(commentInputList, 'textarea');
+    document.querySelector('#sum_comments').querySelector('.details').innerHTML = commentHTML;
+}
+
+function getAreaInputValues(array, inputType = 'input') {
+    var string = '';
+    array.forEach(function(input) {
+        var label = input.querySelector('.title').textContent;
+        var value = input.querySelector(inputType).value ? input.querySelector(inputType).value : 'N/A';
+        string += '<p><strong>' + label + ':</strong> ' + value + '</p>';
+    });
+
+    return string;
+}
+
+function getAreaSelectValues(array) {
+    var string = '';
+    array.forEach(function(input) {
+        var label = input.querySelector('.title').textContent;
+        var value = input.querySelector('select').options[input.querySelector('select').selectedIndex].text;
+        string += '<p><strong>' + label + ':</strong> ' + value + '</p>';
+    });
+
+    return string;
 }
 
 

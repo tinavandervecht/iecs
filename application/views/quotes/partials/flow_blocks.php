@@ -1,7 +1,7 @@
 <div class="row">
-    <div class="columns small-12 medium-6 medium-clear">
+    <div class="columns small-12 medium-6 medium-clear" id="flow_type_inputs">
         <h3 class="sectionTitle">Types of Flow</h3>
-        <div id="type"  class="clearfix">
+        <div id="type"  class="input clearfix">
             <h4 class="title">Choose Type of Flow:</h4>
             <label for="flowType">
                 <h5 class="unit">(normal, overtopping, etc.)</h5>
@@ -75,7 +75,7 @@
             <?php echo form_error('flowType', '<p class="error">', '</p>');?>
         </div>
 
-        <div id="designComponent"  class="clearfix">
+        <div id="designComponent"  class="input clearfix">
             <h4 class="title">Type of Block</h4>
             <label for="blockType">
                 <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
@@ -100,7 +100,7 @@
             </select>
         </div>
 
-        <div id="designComponentTwo"  class="clearfix">
+        <div id="designComponentTwo"  class="input clearfix">
             <h4 class="title">Use block on...</h4>
             <label for="blockUse">
                 <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
@@ -134,7 +134,7 @@
         </div>
     </div>
 
-    <div class="columns small-12 medium-6 end">
+    <div class="columns small-12 medium-6 end" id="bed_type_alignment_inputs">
         <h3 class="sectionTitle">Bed Width and Alignment</h3>
         <div id="bedWidth"  class="clearfix">
             <h4 class="title">Bed Width</h4>
@@ -161,7 +161,7 @@
             <?php echo form_error('bedMeters', '<p class="error">', '</p>');?>
         </div>
 
-        <div id="alignment"  class="clearfix">
+        <div id="alignment"  class="input clearfix">
             <h4 class="title">Alignment</h4>
             <label for="alignType">
                 <a href="#" class="tip hidden"><span class="tooltip">insert tip here</span>?</a>

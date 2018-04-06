@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
+    <div id="slope_inputs" class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
         <div id="bedSlope"  class="clearfix">
             <label for="bedSlopePercent">
                 <h4 class="title">Channel Bed Slope</h4>
@@ -62,7 +62,7 @@
             <?php echo form_error('sideSlopeDecimal', '<p class="error">', '</p>');?>
         </div>
 
-        <div id="frictionAngle"  class="clearfix">
+        <div id="frictionAngle"  class="input clearfix">
             <h4 class="title">Friction Angle in Degrees</h4>
             <label for="frAngle">
                 <a href="#" class="tip"><span class="tooltip">Enter a custom Friction Angle, if it applies - defaults to 30.</span>?</a>

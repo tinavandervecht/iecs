@@ -3,8 +3,8 @@
         <h3 class="sectionTitle">Environment</h3>
     </div>
 
-    <div class="columns small-12 medium-6">
-        <div id="source"  class="clearfix">
+    <div class="columns small-12 medium-6" id="environment_inputs">
+        <div id="source"  class="input clearfix">
             <h4 class="title">Outlet Source</h4>
             <label for="sourceType">
                 <h5 class="unit">(river, manhole, etc.)</h5>
@@ -56,7 +56,7 @@
 
         <img src="<?php echo base_url('img/outlet_source.jpg');?>" class="calcDiagram hide-for-medium"  alt="">
 
-        <div id="soil"  class="clearfix">
+        <div id="soil"  class="input clearfix">
             <h4 class="title">Soil Type and Related Conditions</h4>
             <label for="soilType"></label>
             <select id="soilType" name="soilType">
@@ -105,8 +105,8 @@
         </div>
     </div>
 
-    <div class="columns small-12 medium-6">
-        <div id="comments"  class="clearfix">
+    <div class="columns small-12 medium-6" id="comment_inputs">
+        <div id="comments"  class="input clearfix">
             <h4 class="title">Comments</h4>
             <label for="commentsBox"></label>
             <textarea id="commentsBox" name="commentsBox">
