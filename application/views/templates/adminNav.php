@@ -8,7 +8,7 @@
         <img class="logo" src="<?php echo base_url('img/iecslogo.png');?>">
         <section id="profile" class="clearfix">
           <img src="<?php echo base_url('img/default_dude_img.png');?>" class="profilepic"/>
-          <h3 class="name">Admin</h3>
+          <h3 class="name"><?php echo $_SESSION['userdata']['admin_name']; ?></h3>
           <h4 class="title">IECS</h4>
         </section>
         <nav id="mainNav">

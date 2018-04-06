@@ -1,5 +1,4 @@
 <?php
-$_SESSION['company_id'] = 1;
 /**
  * CodeIgniter
  *
