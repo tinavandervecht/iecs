@@ -1131,8 +1131,8 @@ scrollWrapper.quotesPage .quote .dateModified span{
   /*margin-left:2em;*/
 }
 
-#mainProfile input.value{
-  background:#f5f5f5;
+#mainProfile input.value:focus{
+  outline:none;
 }
 
 #mainProfile .value{
@@ -1148,6 +1148,7 @@ scrollWrapper.quotesPage .quote .dateModified span{
   max-width: 20em;
   margin: 2em auto;
   box-sizing: border-box;
+  min-height:31px;
 }
 #mainProfile div:last-child div:last-child .value{
   margin-bottom: 10em;
@@ -1166,6 +1167,11 @@ scrollWrapper.quotesPage .quote .dateModified span{
   border: thin solid #aaa;
   display: block;
   border-radius: 50%;
+}
+#mainProfile .error {
+    margin:0 auto 1em auto;
+    display:block;
+    max-width:24em;
 }
 #mainDashboard, #cmsActivity, #cmsDashboard, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
     margin-bottom: 6rem;

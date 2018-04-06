@@ -49,6 +49,7 @@ class Profile extends CI_Controller {
           $data['title'] = "Profile | IECS";
           $data['jsLink'] = 'js/profile.js';
           $data['current'] = "profile";
+          $_SESSION['profile_edited'] = true;
 
           $this->load->view('templates/header', $data);
           $this->load->view('templates/nav', $data);

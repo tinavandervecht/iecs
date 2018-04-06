@@ -7,10 +7,6 @@ $(document).foundation();
 */
 
 (function(){
-    toastr.options = {
-      "positionClass": "toast-bottom-right"
-    }
-
   //SELECTING THE FORM
   var calcSubmit = document.querySelector('#calculator');
 

@@ -1,8 +1,4 @@
 (function(){
-    toastr.options = {
-      "positionClass": "toast-bottom-right"
-    }
-
 //THIS FILE IS WHERE THE CALCULATIONS TAKE PLACE.
 
       //CALCULATIONS
