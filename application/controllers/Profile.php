@@ -77,8 +77,8 @@ class Profile extends CI_Controller {
             $this->load->view('profile/create');
             $this->load->view('templates/footer', $data);
         } else { //IF THE FORM VALIDATES (MEANING THEY FILLED IT OUT AND PRESSED THE LINK)
-            $this->profile_model->set_profile(); //SET THE PROFILE INTO THE DATABASE
-            redirect('/profile/login');
+            $_SESSION['company_id'] = $this->profile_model->set_profile(); //SET THE PROFILE INTO THE DATABASE
+            redirect('/dashboard');
         }
     }
 

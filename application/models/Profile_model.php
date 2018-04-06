@@ -55,8 +55,9 @@ class Profile_model extends CI_Model {
 
                           'company_status' => 1
                       );
+                      $this->db->insert('tbl_company', $data);
 
-                      return $this->db->insert('tbl_company', $data);
+                      return $this->db->insert_id();
       }
 
       public function alter_profile(){

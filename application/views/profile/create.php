@@ -19,18 +19,38 @@
     echo form_open('profile/create', $attributes);?>
         <label for="company_email">Your Email:</label>
         <img src="<?php echo base_url('img/user_icon_edit.svg');?>" class="icon">
-        <input name="company_email" type="email" placeholder="Enter your email." title="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="true">
+        <input name="company_email" type="email" placeholder="Enter your email." title="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="true"
+            value="<?php echo isset($_POST['company_email']) ? $_POST['company_email'] : ''; ?>"
+        />
+        <?php echo form_error('company_email', '<p class="error">', '</p>');?>
+        
         <label for="company_pw">Password:</label>
+        <small>Password must contain no spaces and be between 6 &amp; 30 characters.</small>
         <img src="<?php echo base_url('img/lock_edit.svg" class="icon');?>">
-        <input name="company_pw" type="password" placeholder="Enter your Password"  title="Password with no spaces and between 6 &amp; 30 characters." pattern="[A-Za-z0-9\S]{6,30}" required="true">
+        <input name="company_pw" type="password" placeholder="Enter your Password"  title="Password with no spaces and between 6 &amp; 30 characters." pattern="[A-Za-z0-9\S]{6,30}" required="true"
+            value="<?php echo isset($_POST['company_pw']) ? $_POST['company_pw'] : ''; ?>"
+        />
+        <?php echo form_error('company_pw', '<p class="error">', '</p>');?>
+
         <img src="<?php echo base_url('img/lock_edit.svg');?>" class="icon">
-        <input id="signUpPassConfirm" type="password" name="passwordconf" placeholder="Re-Enter your Password"  title="Re-enter password with no spaces and between 6 &amp; 30 characters." required="true">
+        <input id="signUpPassConfirm" type="password" name="passwordconf" placeholder="Re-Enter your Password"  title="Re-enter password with no spaces and between 6 &amp; 30 characters." required="true"
+            value="<?php echo isset($_POST['passwordconf']) ? $_POST['passwordconf'] : ''; ?>"
+        />
+        <?php echo form_error('passwordconf', '<p class="error">', '</p>');?>
+
         <label for="company_name">Company Name:</label>
         <img src="<?php echo base_url('img/user_icon_edit.svg');?>" class="icon">
-        <input name="company_name" type="input" placeholder="Enter your Company name." required="true">
+        <input name="company_name" type="input" placeholder="Enter your Company name." required="true"
+            value="<?php echo isset($_POST['company_name']) ? $_POST['company_name'] : ''; ?>"
+        />
+        <?php echo form_error('company_name', '<p class="error">', '</p>');?>
+
         <label for="company_contactName">Your Name:</label>
         <img src="<?php echo base_url('img/user_icon_edit.svg');?>" class="icon">
-        <input name="company_contactName" type="input" placeholder="Enter your name." required="true">
+        <input name="company_contactName" type="input" placeholder="Enter your name." required="true"
+            value="<?php echo isset($_POST['company_contactName']) ? $_POST['company_contactName'] : ''; ?>"
+        />
+        <?php echo form_error('company_contactName', '<p class="error">', '</p>');?>
 
         <input type="submit" name="submit" value="Sign Up" id="register">
     </form>
