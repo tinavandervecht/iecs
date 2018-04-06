@@ -174,7 +174,7 @@ class Quotes_model extends CI_Model {
                 'estimate_id' => $estimateID, //THE PRIMARY KEY HAS TO BE THE FIRST ENTRY IN THIS ARRAY FOR THE QUERY TO WORK
                 'company_id' => $_SESSION['company_id'],
                 'estimate_name' => $this->input->post('name'),
-                'estimate_date' => $_SESSION['last_date'],
+                'estimate_date' => $this->input->post('projectedDate'),
                 'estimate_projectedDate' => $this->input->post('projectedDate'),
                 'estimate_address' => $this->input->post('addr'),
                 'estimate_engineer' => $this->input->post('engineerName'),
