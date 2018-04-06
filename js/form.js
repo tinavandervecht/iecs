@@ -478,7 +478,7 @@ function updateReviewData() {
 }
 
 function setDetailsReview() {
-    document.querySelector('#project_information_inputs').querySelector('.input');
+    document.querySelector('#sum_details').querySelector('.details').innerHTML = '';
     var projectInformationInputs = calcSubmit.querySelector('#project_information_inputs').getElementsByClassName('input');
     var projectInformationInputList = Array.prototype.slice.call(projectInformationInputs);
     var projectInformationHTML = getAreaInputValues(projectInformationInputList);
@@ -486,20 +486,31 @@ function setDetailsReview() {
 }
 
 function setFlowVelocityReview() {
+    document.querySelector('#sum_flow').querySelector('.details').innerHTML = '';
     var sumFlowInputs = calcSubmit.querySelector('#flow_velocity_inputs').getElementsByClassName('input');
     var sumFlowInputList = Array.prototype.slice.call(sumFlowInputs);
     var sumFlowHTML = getAreaInputValues(sumFlowInputList);
-    document.querySelector('#sum_flow').querySelector('.details').innerHTML = sumFlowHTML;
+
+    var sumFlowMultiInputs = calcSubmit.querySelector('#flow_velocity_inputs').getElementsByClassName('multi_input');
+    var sumFlowMultiInputList = Array.prototype.slice.call(sumFlowMultiInputs);
+    var sumFlowMultiHTML = getAreaMultiInputValues(sumFlowMultiInputList);
+    document.querySelector('#sum_flow').querySelector('.details').innerHTML = sumFlowHTML + sumFlowMultiHTML;
 }
 
 function setSlopesReview() {
+    document.querySelector('#sum_slopes').querySelector('.details').innerHTML = '';
     var slopeInputs = calcSubmit.querySelector('#slope_inputs').getElementsByClassName('input');
     var slopeInputList = Array.prototype.slice.call(slopeInputs);
     var slopeHTML = getAreaInputValues(slopeInputList);
-    document.querySelector('#sum_slopes').querySelector('.details').innerHTML = slopeHTML;
+
+    var slopeMultiInputs = calcSubmit.querySelector('#slope_inputs').getElementsByClassName('multi_input');
+    var slopeMultiInputList = Array.prototype.slice.call(slopeMultiInputs);
+    var slopeMultiHTML = getAreaMultiInputValues(slopeMultiInputList);
+    document.querySelector('#sum_slopes').querySelector('.details').innerHTML = slopeHTML + slopeMultiHTML;
 }
 
 function setFlowTypeReview() {
+    document.querySelector('#sum_type').querySelector('.details').innerHTML = '';
     var flowTypeInputs = calcSubmit.querySelector('#flow_type_inputs').getElementsByClassName('input');
     var flowTypeInputList = Array.prototype.slice.call(flowTypeInputs);
     var flowTypeHTML = getAreaSelectValues(flowTypeInputList);
@@ -507,20 +518,31 @@ function setFlowTypeReview() {
 }
 
 function setBedTypeAndAlignmentReview() {
+    document.querySelector('#sum_bed').querySelector('.details').innerHTML = '';
     var bedTypeAlignmentInputs = calcSubmit.querySelector('#bed_type_alignment_inputs').getElementsByClassName('input');
     var bedTypeAlignmentInputList = Array.prototype.slice.call(bedTypeAlignmentInputs);
     var bedTypeAlignmentHTML = getAreaSelectValues(bedTypeAlignmentInputList);
-    document.querySelector('#sum_bed').querySelector('.details').innerHTML = bedTypeAlignmentHTML;
+
+    var bedTypeAlignmentMultiInputs = calcSubmit.querySelector('#bed_type_alignment_inputs').getElementsByClassName('multi_input');
+    var bedTypeAlignmentMultiInputList = Array.prototype.slice.call(bedTypeAlignmentMultiInputs);
+    var bedTypeAlignmentMultiHTML = getAreaMultiInputValues(bedTypeAlignmentMultiInputList);
+    document.querySelector('#sum_bed').querySelector('.details').innerHTML = bedTypeAlignmentHTML + bedTypeAlignmentMultiHTML;
 }
 
 function setChannelReview() {
+    document.querySelector('#sum_channel').querySelector('.details').innerHTML = '';
     var channelInputs = calcSubmit.querySelector('#channel_inputs').getElementsByClassName('input');
     var channelInputList = Array.prototype.slice.call(channelInputs);
     var channelHTML = getAreaInputValues(channelInputList);
-    document.querySelector('#sum_channel').querySelector('.details').innerHTML = channelHTML;
+
+    var channelMultiInputs = calcSubmit.querySelector('#channel_inputs').getElementsByClassName('multi_input');
+    var channelMultiInputList = Array.prototype.slice.call(channelMultiInputs);
+    var channelMultiHTML = getAreaMultiInputValues(channelMultiInputList);
+    document.querySelector('#sum_channel').querySelector('.details').innerHTML = channelHTML + channelMultiHTML;
 }
 
 function setEnvironmentReview() {
+    document.querySelector('#sum_environment').querySelector('.details').innerHTML = '';
     var environmentInputs = calcSubmit.querySelector('#environment_inputs').getElementsByClassName('input');
     var environmentInputList = Array.prototype.slice.call(environmentInputs);
     var environmentHTML = getAreaSelectValues(environmentInputList);
@@ -528,6 +550,7 @@ function setEnvironmentReview() {
 }
 
 function setCommentReview() {
+    document.querySelector('#sum_comments').querySelector('.details').innerHTML = '';
     var commentInputs = calcSubmit.querySelector('#comment_inputs').getElementsByClassName('input');
     var commentInputList = Array.prototype.slice.call(commentInputs);
     var commentHTML = getAreaInputValues(commentInputList, 'textarea');
@@ -538,7 +561,7 @@ function getAreaInputValues(array, inputType = 'input') {
     var string = '';
     array.forEach(function(input) {
         var label = input.querySelector('.title').textContent;
-        var value = input.querySelector(inputType).value ? input.querySelector(inputType).value : 'N/A';
+        var value = input.querySelector(inputType).value && input.querySelector(inputType).value.replace(/\s/g,'') != '' ? input.querySelector(inputType).value : 'N/A';
         string += '<p><strong>' + label + ':</strong> ' + value + '</p>';
     });
 
@@ -551,6 +574,27 @@ function getAreaSelectValues(array) {
         var label = input.querySelector('.title').textContent;
         var value = input.querySelector('select').options[input.querySelector('select').selectedIndex].text;
         string += '<p><strong>' + label + ':</strong> ' + value + '</p>';
+    });
+
+    return string;
+}
+
+function getAreaMultiInputValues(array) {
+    var string = '';
+    array.forEach(function(input) {
+        var mainLabel = input.querySelector('.title').textContent;
+        string += '<p><strong>' + mainLabel + ':</strong><br/>';
+
+        var inputs = input.getElementsByTagName('input');
+        var inputList = Array.prototype.slice.call(inputs);
+
+        inputList.forEach(function(subInput) {
+            var label = document.querySelector("label[for=" + subInput.id + "]").querySelector('.unit').textContent;
+            var value = subInput.value ? subInput.value : 'N/A';
+            string += '(' + label + ') - ' + value + '<br/>';
+        })
+
+        string += '</p>';
     });
 
     return string;

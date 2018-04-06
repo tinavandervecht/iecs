@@ -3,7 +3,7 @@
         <h3 class="sectionTitle">Flow and Velocity</h3>
     </div>
 
-    <div id="flow"  class="clearfix columns small-12 medium-6">
+    <div id="flow"  class="multi_input clearfix columns small-12 medium-6">
         <h4 class="title">Maximum Expected Flow</h4>
         <label for="flowMeters">
             <a href="#" class="tip"><span class="tooltip">Ensure the highest design flows are entered in cubic metres per second.</span>?</a>
@@ -27,7 +27,7 @@
         <?php echo form_error('flowMeters', '<p class="error">', '</p>');?>
     </div>
 
-    <div id="velocity"  class="clearfix columns small-12 medium-6">
+    <div id="velocity" class="multi_input clearfix columns small-12 medium-6">
         <h4 class="title">Maximum Expected Velocity</h4>
         <label for="velocityMeters">
             <a href="#" class="tip"><span class="tooltip">Input the pre-determined max velocity in m/s</span>?</a><h5 class="unit">Meters per Second</h5>

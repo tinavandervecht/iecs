@@ -9,7 +9,7 @@
         </div> -->
 
         <div class="columns small-12 medium-6 medium-pull-6 large-pull-0" id="channel_inputs">
-            <div id="channelLength"  class="clearfix">
+            <div id="channelLength"  class="multi_input clearfix">
                 <h4 class="title">Chute/Channel Length</h4>
                 <label for="channelMeters">
                         <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in meters.</span>?</a>
@@ -34,7 +34,7 @@
                 <?php echo form_error('channelMeters', '<p class="error">', '</p>');?>
             </div>
 
-            <div id="channelDepth"  class="clearfix">
+            <div id="channelDepth"  class="multi_input clearfix">
                 <h4 class="title">Channel Depth</h4>
                 <label for="depthMeters">
                     <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in meters.</span>?</a>
@@ -59,7 +59,7 @@
                 <?php echo form_error('depthMeters', '<p class="error">', '</p>');?>
             </div>
 
-            <div id="topWidth"  class="clearfix">
+            <div id="topWidth"  class="multi_input clearfix">
                 <h4 class="title">Top Width of Channel</h4>
                 <label for="topMeters">
                     <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in meters.</span>?</a>

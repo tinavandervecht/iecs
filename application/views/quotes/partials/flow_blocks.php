@@ -136,7 +136,7 @@
 
     <div class="columns small-12 medium-6 end" id="bed_type_alignment_inputs">
         <h3 class="sectionTitle">Bed Width and Alignment</h3>
-        <div id="bedWidth"  class="clearfix">
+        <div id="bedWidth"  class="multi_input clearfix">
             <h4 class="title">Bed Width</h4>
             <label for="bedMeters">
                 <a href="#" class="tip"><span class="tooltip">Enter least bed width in meters (m).</span>?</a>
@@ -191,7 +191,7 @@
             <?php echo form_error('alignType', '<p class="error">', '</p>');?>
         </div>
 
-        <div id="crestRadius"  class="clearfix">
+        <div id="crestRadius"  class="multi_input clearfix">
             <h4 class="title">Radius at the Crest</h4>
             <label for="crestMeters">
                 <a href="#" class="tip"><span class="tooltip">Enter value of Radius of curvature / Top width of channel (R/B). * “R” can be obtained from topographic maps or aerial photographs. “B” should be an actual field measurement or known quantity.</span>?</a>
