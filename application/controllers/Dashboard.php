@@ -31,4 +31,10 @@ class Dashboard extends CI_Controller {
         $this->load->view('templates/footer', $data);
     }
 
+    public function logout() {
+        unset($_SESSION['company_id']);
+
+        redirect('/profile/login');
+    }
+
 }

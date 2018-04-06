@@ -768,6 +768,10 @@ a.sectionTitle{
     padding: 1em;
     margin-top: 1.9em;
 }
+
+#sideBar a {
+    color:#ffffff;
+}
 #profile .profilepic {
     float: none;
     display: block;

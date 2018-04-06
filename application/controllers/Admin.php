@@ -266,6 +266,13 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $this->load->view('templates/footer', $data);
     }
 
+    public function logout() {
+        unset($_SESSION['userdata']['admin_id']);
+        unset($_SESSION['userdata']['admin_name']);
+
+        redirect('/admin/login');
+    }
+
     //AJAX FUNCTIONS, THESE FUNCTIONS RETURN JSON FOR AJAX FUNCTIONALIY. THEY ARE CALLED BY THE AJAX JAVASCRIPT FUNCTIONS ON THE ESTIMATES AND COMPANIES PAGES.
     public function ajaxCompanies()
     {

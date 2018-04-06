@@ -10,6 +10,7 @@
           <img src="<?php echo base_url('img/default_dude_img.png');?>" class="profilepic"/>
           <h3 class="name"><?php echo $_SESSION['userdata']['admin_name']; ?></h3>
           <h4 class="title">IECS</h4>
+          <a href="/admin/logout"><small>Logout</small></a>
         </section>
         <nav id="mainNav">
             <h3 id="navTitle">Navigation</h3>
