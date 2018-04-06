@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?php echo base_url('fonts/fonts.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('css/foundation.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('css/toastr.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('css/pikaday.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('css/app.css');?>">
   </head>
   <body>

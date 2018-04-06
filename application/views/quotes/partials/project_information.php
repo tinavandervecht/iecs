@@ -19,7 +19,7 @@
         <label for="d">
             <h4 class="title">Projected Start Date for Project</h4>
         </label>
-        <input type="date" id="d" name="projectedDate"
+        <input type="text" id="d" name="projectedDate"
             value="<?php if (isset($_POST['projectedDate'])) :
                 echo $_POST['projectedDate'];
             elseif (isset($estimate)) :

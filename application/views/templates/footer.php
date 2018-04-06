@@ -6,6 +6,8 @@
 <script src="<?php echo base_url('js\vendor\greensock\TweenLite.min.js');?>"></script>
 <script src="<?php echo base_url('js\vendor\greensock\CSSPlugin.min.js');?>"></script>
 <script src="<?php echo base_url('js\vendor\toastr.min.js');?>"></script>
+<script src="<?php echo base_url('js\vendor\moment.js');?>"></script>
+<script src="<?php echo base_url('js\vendor\pikaday.js');?>"></script>
 <script>
     toastr.options = {
         "positionClass": "toast-bottom-right"

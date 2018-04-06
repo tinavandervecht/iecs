@@ -7,6 +7,11 @@ $(document).foundation();
 */
 
 (function(){
+  var picker = new Pikaday({
+        field: document.getElementById('d'),
+        format: 'YYYY-MM-DD'
+    })
+
   //SELECTING THE FORM
   var calcSubmit = document.querySelector('#calculator');
 
