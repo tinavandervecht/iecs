@@ -133,8 +133,13 @@ changeLeftBox(document.querySelector('.block.highlight'));
 
 try{
   submittoIECS.addEventListener('click',tog,false);
-  yeahSave.addEventListener('click',tog,false);
-  noSave.addEventListener('click',tog,false);
+  if (yeahSave) {
+      yeahSave.addEventListener('click',tog,false);
+  }
+
+  if (noSave) {
+      noSave.addEventListener('click',tog,false);
+  }
 }
 catch(e){
   console.log(e);
@@ -143,45 +148,7 @@ catch(e){
 
 // CALCULATIONS
 
-
-
 var jsonData;
-
-/*VARIABLE DECLARATIONS*/
-/*
-let's make a bunch of vars, a whole shelf of jars, to hold the inputs from the form that are pulled from the DB
-*/
-var name;
-var city;
-var engineer;
-var startDate;
-var address;
-/*FLOW AND VELOCITY*/
-var maxFlow; //Cubic meters per second
-var maxVelocity; //Meters per seconds
-
-/*SLOPES*/
-var bedSlope; //Percent
-var sideSlope; //Ratio
-var frictionAngle; //Degrees,  note: Defaults to 30 degrees
-
-/*TYPES OF FLOW*/
-var flowType; //0 : normal, 1 : overtopping, 2 : sub-critical, 3 : hydraulic, 4 : jump, 5 : impinging, 6 : bridge/culvert, 7 : undulating trans critical
-var concreteDensity; //Defaults to 2.4 gravity, cannot be changed by user
-
-/*BED WIDTH AND ALIGNMENT*/
-var bedWidth; //Meters
-var alignment; //Defaults to Straight, opens more options if !straight
-var radiusAtCrest; //Meters, ONLY AVAILABLE IF alignment != straight
-
-/*CHANNEL SPECIFICATIONS*/
-var chuteLength; // Meters, ONLY AVAILABLE IF alignment != straight
-var channelDepth;// Meters, ONLY AVAILABLE IF alignment != straight
-var topWidth; // Meters, ONLY AVAILABLE IF alignment != straight
-
-/*ENVIRONMENT*/
-var outletSource; //River, manhole, etc.
-var soilType; //Soil type and related conditions
 
 //BLOCK SPECIFIC FACTORS;
 //to be pulled from the server with AJAX :D
@@ -192,6 +159,20 @@ var specs = {
   "CC70": 2.8,
   "CC90": 3.45
 }
+
+// Custom Variables to store math
+var angleBedSlope;
+var angleBedSlopeTan;
+var angleBedSlopeSin;
+var angleBedSlopeCos;
+
+var angleSideSlope;
+var angleSideSlopeTan;
+var angleSideSlopeSin;
+var angleSideSlopeCos;
+
+var angleFriction;
+var angleFrictionTan;
 
 /*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
 CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
@@ -205,6 +186,10 @@ return (a*b*c)/d + e -f; //RANDOM CALC
 */
 function Calculations(data){
   var numSides = 3;
+  setBedSlopeAngleVariables(data.estimate_bedSlope);
+  setSideSlopeAngleVariables(data.estimate_sideSlope);
+  setFrictionAngleVariables(data.estimate_friction);
+
   this.slopeValue = function(){
     return parseFloat(data.estimate_channelDepth)*parseFloat(data.estimate_bedSlope)*0.001;
   }
@@ -354,6 +339,24 @@ function performCalcs(data){
 }
 }
 
+function setBedSlopeAngleVariables(estimateBedSlope) {
+    angleBedSlopeTan = Math.atan(estimateBedSlope).toFixed(3);
+    angleBedSlope = Number(angleBedSlopeTan * (180 / Math.PI)).toFixed(2);
+    angleBedSlopeSin = Math.sin(angleBedSlopeTan).toFixed(3);
+    angleBedSlopeCos = Math.cos(angleBedSlopeTan).toFixed(3);
+}
+
+function setSideSlopeAngleVariables(estimateSideSlope) {
+    angleSideSlopeTan = Math.atan(estimateSideSlope).toFixed(3);
+    angleSideSlope = Number(angleSideSlopeTan * (180 / Math.PI)).toFixed(2);
+    angleSideSlopeSin = Math.sin(angleSideSlopeTan).toFixed(3);
+    angleSideSlopeCos = Math.cos(angleSideSlopeTan).toFixed(3);
+}
+
+function setFrictionAngleVariables(estimateFriction) {
+      angleFriction = Number(estimateFriction * Math.PI / 180).toFixed(3);
+      angleFrictionTan = Number(Math.tan(angleFriction) * 0.9).toFixed(3);
+}
 
 function quoteJax(){
   var url = base_url+"/quotes/ajaxSummary?id=" + id;
