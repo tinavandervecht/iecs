@@ -16,20 +16,20 @@ class Admin_model extends CI_Model {
               $this -> db -> select('*');
               $this -> db -> from('tbl_admin');
               $this -> db -> where('admin_username', $admin);
-              $this -> db -> where('admin_pw', $password);
-              $this -> db -> limit(1);
               $query = $this -> db -> get();
 
-              if($query -> num_rows() == 1){ //IF A USER IS FOUND
-                $data = array(
-                  'admin_lastLogin' => time()
-                );
-                $this->db->update('tbl_admin', $data, "admin_id = 1"); //update the last login time.
-                return $query->row_array(); //Return the user info in a row_array (single dimensional associative array).
+              foreach ($query->result() as $possibleAdmin) {
+                  if (password_verify($password, $possibleAdmin->admin_pw)) {
+                      $data = array(
+                        'admin_lastLogin' => time()
+                      );
+                      $this->db->update('tbl_admin', $data, "admin_id = 1"); //update the last login time.
+                      return $query->row_array(); //Return the user info in a row_array (single dimensional associative array).
+                      break;
+                  }
               }
-              else{
+
                 return false; //IF FALSE IS PASSED, THE CONTROLLER WILL REALIZE THE INFO IS WRONG AND WILL RELOAD THE ADMIN LOGIN SCREEN.
-              }
             }
 
             public function get_allEstimates($limit){

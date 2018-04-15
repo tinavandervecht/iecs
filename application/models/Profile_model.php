@@ -25,19 +25,19 @@ class Profile_model extends CI_Model {
 
                       $email = $this->input->post('company_email');
                       $password = $this->input->post('company_pw');
-                      $this -> db -> select('*');
-                      $this -> db -> from('tbl_company');
-                      $this -> db -> where('company_email', $email);
-                      $this -> db -> where('company_pw', $password);
-                      $this -> db -> limit(1);
-                      $query = $this -> db -> get();
+                      $this->db->select('*');
+                      $this->db->from('tbl_company');
+                      $this->db->where('company_email', $email);
+                      $query = $this->db->get();
 
-                      if($query -> num_rows() == 1){
-                        return $query->row_array();
+                      foreach($query->result() as $possibleCompany) {
+                          if (password_verify($password, $possibleCompany->company_pw)) {
+                              return $query->row_array();
+                              break;
+                          }
                       }
-                      else{
-                        return false;
-                      }
+
+                      return false;
         }
 
       public function set_profile(){
@@ -48,7 +48,7 @@ class Profile_model extends CI_Model {
 
                       $data = array(
                           'company_email' => $this->input->post('company_email'),
-                          'company_pw' => $this->input->post('company_pw'),
+                          'company_pw' => password_hash($this->input->post('company_pw'), PASSWORD_DEFAULT),
                           'company_date' => date('Y-m-d H:i:s'),
                           'company_name' => $this->input->post('company_name'),
                           'company_contactName' => $this->input->post('company_contactName'),
