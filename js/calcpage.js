@@ -174,6 +174,65 @@ var angleSideSlopeCos;
 var angleFriction;
 var angleFrictionTan;
 
+var blockDesignParamL1;
+var blockDesignParamL2;
+var blockDesignParamL3;
+var blockDesignParamL4;
+var blockDesignParamLT;
+
+var blockNormalForceBed;
+var blockNormalForceSide;
+
+var sideSlope;
+var sideSlopeTan;
+
+var bedSlope;
+var bedSlopeTan;
+
+var flowSectionArea;
+
+var bedWidthY;
+
+var mannings;
+
+var shearStressBed;
+var shearStressBedKg;
+
+var shearStressSide;
+
+var shearDragBedForce;
+var shearDragSideForce;
+
+var liftForceBed;
+var liftForceSide;
+
+var offsetN;
+var offsetWhere;
+var offsetWhere2;
+var offsetNormalVelocity;
+
+var netBedDrag;
+var netSideDrag;
+var netBedLift;
+var netSideLift;
+var netBedNormalForces;
+var netSideNormalForces;
+
+// Block Variables (WILL be set dynamically through AJAX later)
+var blockSize = 393.7;
+var blockTop = 292.1;
+var blockTopBase = 135.7;
+var blockWeight = 371.8;
+var blockSubmergedWeight = 209.6;
+
+// CONSTANTS
+var waterDensity = 1000;
+var shearStressBedC = 1;
+var shearStressSideC = 0.76;
+var shearDragWhereForce = Math.pow((16 * 25.4 / 1000), 2);
+var liftForceWhere = Math.pow((15.5 * 25.4 / 1000), 2);
+var liftForceFup = 0.37;
+
 /*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
 CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
 
@@ -189,6 +248,18 @@ function Calculations(data){
   setBedSlopeAngleVariables(data.estimate_bedSlope);
   setSideSlopeAngleVariables(data.estimate_sideSlope);
   setFrictionAngleVariables(data.estimate_friction);
+  setBlockVariables();
+  setSlopeVariables(data.estimate_sideSlope, data.estimate_bedSlope);
+
+  flowSectionArea = Number(data.estimate_expectedFlow / data.estimate_expectedVelocity).toFixed(3);
+  bedWidthY = (Math.pow((Math.pow(data.estimate_bedWidth, 2)+4*(1/data.estimate_sideSlope)*flowSectionArea), 0.5)-data.estimate_bedWidth)/(2/data.estimate_sideSlope);
+
+  setShearStressVariables();
+  setShearDragForceVariables();
+  setLiftForceVariables();
+
+  setOffsetVariables(data.estimate_expectedVelocity, data.estimate_offset);
+  setNetVariables();
 
   this.slopeValue = function(){
     return parseFloat(data.estimate_channelDepth)*parseFloat(data.estimate_bedSlope)*0.001;
@@ -356,6 +427,57 @@ function setSideSlopeAngleVariables(estimateSideSlope) {
 function setFrictionAngleVariables(estimateFriction) {
       angleFriction = Number(estimateFriction * Math.PI / 180).toFixed(3);
       angleFrictionTan = Number(Math.tan(angleFriction) * 0.9).toFixed(3);
+}
+
+function setBlockVariables() {
+    blockDesignParamL1 = Number(blockTopBase / 2).toFixed(1);
+    blockDesignParamL2 = Number(blockSize / 2).toFixed(1);
+    blockDesignParamL3 = Number(blockTopBase * 0.85).toFixed(1);
+    blockDesignParamL4 = blockDesignParamL2;
+    blockDesignParamLT =  Number(blockDesignParamL2 * Math.sqrt(2)).toFixed(1);
+
+    blockNormalForceBed = Number(blockSubmergedWeight * angleBedSlopeCos).toFixed(2);
+    blockNormalForceSide = Number(blockSubmergedWeight * angleSideSlopeCos).toFixed(2);
+}
+
+function setSlopeVariables(estimateSideSlope, estimateBedSlope) {
+    sideSlopeTan = Number(Math.tan(estimateSideSlope)).toFixed(3);
+    sideSlope = Number(sideSlopeTan * 180 / Math.PI).toFixed(2);
+
+    bedSlopeTan = Number(Math.tan(estimateBedSlope)).toFixed(3);
+    bedSlope = Number(bedSlopeTan * 180 / Math.PI).toFixed(2);
+}
+
+function setShearStressVariables() {
+    shearStressBedKg = waterDensity * 9.81;
+    shearStressBed = Number(shearStressBedC * shearStressBedKg * bedWidthY * Math.sin(bedSlopeTan)).toFixed(2);
+    shearStressSide = Number(shearStressSideC * shearStressBedKg * bedWidthY * Math.sin(bedSlopeTan)).toFixed(2);
+}
+
+function setShearDragForceVariables() {
+    shearDragBedForce = Number(shearStressBed * shearDragWhereForce).toFixed(2);
+    shearDragSideForce = Number(shearStressSide * shearDragWhereForce).toFixed(2);
+}
+
+function setLiftForceVariables() {
+    liftForceBed = Number(liftForceFup * shearStressBed * liftForceWhere).toFixed(2);
+    liftForceSide = Number(liftForceFup * shearStressSide * liftForceWhere).toFixed(2);
+}
+
+function setOffsetVariables(estimateVelocity, estimateOffset) {
+    offsetWhere2 = Number(7 / 6 * estimateVelocity).toFixed(2);
+    offsetNormalVelocity = Number(bedWidthY * Math.cos(angleFriction)).toFixed(2);
+    offsetWhere = Number(offsetWhere2 * Math.pow((estimateOffset / 1000 / offsetNormalVelocity), (1 / 7))).toFixed(2);
+    offsetN = Number(0.5 * waterDensity * Math.pow(offsetWhere, 2) * (blockTop / 1000) * (estimateOffset / 1000)).toFixed(2);
+}
+
+function setNetVariables() {
+    netBedDrag =  Number(Number(shearDragBedForce) + Number(offsetN)).toFixed(2);
+    netSideDrag = Number(Number(shearDragSideForce) + Number(offsetN)).toFixed(2);
+    netBedLift = Number(Number(liftForceBed) + Number(offsetN)).toFixed(2);
+    netSideLift = Number(Number(liftForceSide) + Number(offsetN)).toFixed(2);
+    netBedNormalForces = Number(Number(blockNormalForceBed) - Number(netBedLift)).toFixed(2);
+    netSideNormalForces = Number(Number(blockNormalForceSide) - Number(netSideLift)).toFixed(2);
 }
 
 function quoteJax(){

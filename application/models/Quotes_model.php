@@ -74,6 +74,7 @@ class Quotes_model extends CI_Model {
                 'estimate_location' => $this->input->post('cityProv'),
                 'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
                 'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+                'estimate_offset' => number_format($this->input->post('offsetMeters'),2),
                 'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
                 'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
                 'estimate_friction' => number_format($this->input->post('friction'),2),
@@ -87,7 +88,6 @@ class Quotes_model extends CI_Model {
                 'estimate_channelDepth' => number_format($this->input->post('depthMeters'),2),
                 'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
                 'estimate_outLetSource' => number_format($this->input->post('sourceType')),
-                'estimate_soilType' => number_format($this->input->post('soilType')),
                 'estimate_modifiedDate' => date('Y-m-d H:i:s'),
                 'estimate_comments' => $this->input->post('commentsBox')
             );
@@ -104,6 +104,7 @@ class Quotes_model extends CI_Model {
                 'estimate_location' => $this->input->post('cityProv'),
                 'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
                 'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+                'estimate_offset' => number_format($this->input->post('offsetMeters'),2),
                 'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
                 'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
                 'estimate_friction' => number_format($this->input->post('friction'),2),
@@ -113,7 +114,6 @@ class Quotes_model extends CI_Model {
                 'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
                 'estimate_alignment' => number_format($this->input->post('alignType')),
                 'estimate_outLetSource' => number_format($this->input->post('sourceType')),
-                'estimate_soilType' => number_format($this->input->post('soilType')),
                 'estimate_modifiedDate' => date('Y-m-d H:i:s'),
                 'estimate_comments' => $this->input->post('commentsBox')
             );
@@ -151,6 +151,7 @@ class Quotes_model extends CI_Model {
                 'estimate_location' => $this->input->post('cityProv'),
                 'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
                 'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+                'estimate_offset' => number_format($this->input->post('offsetMeters'),2),
                 'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
                 'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
                 'estimate_friction' => number_format($this->input->post('friction'),2),
@@ -164,7 +165,6 @@ class Quotes_model extends CI_Model {
                 'estimate_channelDepth' => number_format($this->input->post('depthMeters'),2),
                 'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
                 'estimate_outLetSource' => number_format($this->input->post('sourceType')),
-                'estimate_soilType' => number_format($this->input->post('soilType')),
                 'estimate_modifiedDate' => date('Y-m-d H:i:s'),
                 'estimate_comments' => $this->input->post('commentsBox')
               );
@@ -182,6 +182,7 @@ class Quotes_model extends CI_Model {
                 'estimate_location' => $this->input->post('cityProv'),
                 'estimate_expectedFlow' => number_format($this->input->post('flowMeters'),2),
                 'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),2),
+                'estimate_offset' => number_format($this->input->post('offsetMeters'),2),
                 'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),2),
                 'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),2),
                 'estimate_friction' => number_format($this->input->post('friction'),2),
@@ -191,7 +192,6 @@ class Quotes_model extends CI_Model {
                 'estimate_bedWidth' => number_format($this->input->post('bedMeters'),2),
                 'estimate_alignment' => number_format($this->input->post('alignType')),
                 'estimate_outLetSource' => number_format($this->input->post('sourceType')),
-                'estimate_soilType' => number_format($this->input->post('soilType')),
                 'estimate_modifiedDate' => date('Y-m-d H:i:s'),
                 'estimate_comments' => $this->input->post('commentsBox')
               );

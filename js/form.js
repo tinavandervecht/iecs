@@ -42,7 +42,7 @@ $(document).foundation();
 var frAngle = document.querySelector('#frAngle');
 frAngle.addEventListener('change',function(){
   var numb = parseInt(frAngle.value);
-  frAngle.value = numb + "°";
+  frAngle.value = numb;
 },false);
 
 //PAGE SWAP
