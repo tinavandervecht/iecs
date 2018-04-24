@@ -149,16 +149,7 @@ catch(e){
 // CALCULATIONS
 
 var jsonData;
-
-//BLOCK SPECIFIC FACTORS;
-//to be pulled from the server with AJAX :D
-var specs = {
-  "CCG2": 1.15,
-  "CC35": 1.65,
-  "CC45": 2.2,
-  "CC70": 2.8,
-  "CC90": 3.45
-}
+var blockData;
 
 // Custom Variables to store math
 var angleBedSlope;
@@ -218,13 +209,6 @@ var netSideLift;
 var netBedNormalForces;
 var netSideNormalForces;
 
-// Block Variables (WILL be set dynamically through AJAX later)
-var blockSize = 393.7;
-var blockTop = 292.1;
-var blockTopBase = 135.7;
-var blockWeight = 371.8;
-var blockSubmergedWeight = 209.6;
-
 // CONSTANTS
 var waterDensity = 1000;
 var shearStressBedC = 1;
@@ -243,12 +227,12 @@ return (a*b*c)/d + e -f; //RANDOM CALC
 }
 
 */
-function Calculations(data){
+function Calculations(data, blockData){
   var numSides = 3;
   setBedSlopeAngleVariables(data.estimate_bedSlope);
   setSideSlopeAngleVariables(data.estimate_sideSlope);
   setFrictionAngleVariables(data.estimate_friction);
-  setBlockVariables();
+  setBlockVariables(blockData.product_size_bB, blockData.product_size_hB, blockData.product_submerged_weight);
   setSlopeVariables(data.estimate_sideSlope, data.estimate_bedSlope);
 
   flowSectionArea = Number(data.estimate_expectedFlow / data.estimate_expectedVelocity).toFixed(3);
@@ -258,32 +242,28 @@ function Calculations(data){
   setShearDragForceVariables();
   setLiftForceVariables();
 
-  setOffsetVariables(data.estimate_expectedVelocity, data.estimate_offset);
+  setOffsetVariables(data.estimate_expectedVelocity, data.estimate_offset, blockData.product_size_bT);
   setNetVariables();
-
-  this.slopeValue = function(){
-    return parseFloat(data.estimate_channelDepth)*parseFloat(data.estimate_bedSlope)*0.001;
-  }
-  this.topWidth = function(){
-    return parseFloat(data.estimate_bedWidth) + (this.slopeValue() * numSides);
-  }
-  this.curvatureValue = function(){
-    return parseFloat(data.estimate_crestRadius)/this.topWidth();
-  }
-
 
   //GENERIC OVERTURNING AND SLIDING CALCULATIONS
   this.overturningBed= function(){
-    return 1/parseFloat(data.estimate_crestRadius);
+      return blockDesignParamL3 * blockData.product_submerged_weight * angleBedSlopeCos / ((blockDesignParamL1 * blockData.product_submerged_weight * angleBedSlopeSin) + (blockDesignParamL3 * netBedDrag) + (blockDesignParamL4 * netBedLift));
   }
   this.overturningSide = function(){
-    return 1/parseFloat(data.estimate_channelLength)*3.4;
+      var side1Check = (blockDesignParamL2 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeCos) / ((blockDesignParamL1 * blockData.product_submerged_weight * angleBedSlopeSin) + (blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift));
+      var side2Check = (blockDesignParamL2 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeCos) / (blockDesignParamL2 * netSideLift + blockDesignParamL1 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeSin);
+      var side3Check = (blockDesignParamL4 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeCos) / Math.pow((Math.pow(((blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift)), 2) + Math.pow((blockDesignParamL1 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeSin), 2)), 0.5);
+      return Math.min(side1Check, side2Check, side3Check);
   }
   this.slidingBed = function(){
-    return this.curvatureValue()*1.4;
+      return (netBedNormalForces * angleFrictionTan) / (Number(netBedDrag) + blockData.product_submerged_weight * angleBedSlopeSin);
   }
   this.slidingSide = function(){
-    return this.slopeValue()*20;
+      var side1Check = netSideNormalForces * angleFrictionTan / (Number(netSideDrag) + blockData.product_submerged_weight * angleBedSlopeSin);
+      var side2Check = netSideNormalForces * angleFrictionTan / (blockData.product_submerged_weight * angleSideSlopeSin * angleBedSlopeCos);
+      var side3Check = netSideNormalForces * angleFrictionTan / Math.pow((Math.pow((Number(netSideDrag) + blockData.product_submerged_weight * angleBedSlopeSin), 2) + Math.pow((blockData.product_submerged_weight * angleBedSlopeSin * angleBedSlopeCos), 2)), 0.5);
+
+      return Math.min(side1Check, side2Check, side3Check);
   }
 
   // INPUT BLOCK-SPEC VALUES, RETURNS JSON OF THE SAFETY FACTORS
@@ -301,113 +281,71 @@ s.side = the side sliding safety factor;
   this.blockSon = function(block){
     return {
       o : { //overturning
-        bed: (this.overturningBed() * specs[block]).toFixed(PRECISION),
-        side: (this.overturningSide() * specs[block]).toFixed(PRECISION)
+        bed: isNaN(this.overturningBed()) ? 0 : Number(this.overturningBed()).toFixed(PRECISION),
+        side: isNaN(this.overturningSide()) ? 0 : Number(this.overturningSide()).toFixed(PRECISION)
       },
       s: { //sliding
-        bed: (this.slidingBed() * specs[block]).toFixed(PRECISION),
-        side: (this.slidingSide() * specs[block]).toFixed(PRECISION)
+        bed: isNaN(this.slidingBed()) ? 0 : Number(this.slidingBed()).toFixed(PRECISION),
+        side: isNaN(this.slidingSide()) ? 0 : Number(this.slidingSide()).toFixed(PRECISION)
       }
       };
   }
 }
 
-function performCalcs(data){
-  if(data){/*IF DATA IS NOT NULL*/
-    console.log(data);
-    var calc = new Calculations(data);
-    // console.log(calc.curvatureValue());
-    var blocks = document.querySelectorAll(".block");
-    var firstHighlight = false; //value displaying if one of the blocks has been highlighted
-    // for(block of blocks){ // <---------------------------  ITERATORS DO NOT WORK IN IE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    for(var f=0;f<blocks.length;f++){
-      var block = blocks[f]; // LAZY WAY TO POLYFILL MY MISTAKE USING ITERATORS
-      //NUMBERS FOR DROPDOWN BASED OFF ESTIMATE ID AND BLOCK FACTORS
-      var numbers = block.querySelectorAll('.more .num');
-      for(var i =0; i< numbers.length;i++){
-        var n = parseInt(data.estimate_channelDepth) * ( i%4 + 1.1) * specs[block.id];
-        numbers[i].innerHTML = n.toFixed(2);
-      }
-      var blockDisable = 0; //count the number of BAD safety factors
-      var blockOkay = 0; //count the number of OKAY safety factors
-      // console.log(block.id);
-      var useBlock = parseInt(data.estimate_blockUse); // 0:both, 1:bed, 2:side
-      var numSafety = (useBlock == 0)  ? 4 : 2;
+function performCalcs() {
+    if (jsonData && blockData) {
+        for (var i = 0; i < blockData.length; i++) {
+            var blockElement = document.getElementById(i + '-' + blockData[i]['product_name']);
+            var calc = new Calculations(jsonData, blockData[i]);
 
-      var blocky = calc.blockSon(block.id);
+            blockElement.querySelector('.overturning .bed').innerHTML = calc.blockSon().o.bed;
+            if(calc.blockSon().o.bed < UPSELL){
+                if (calc.blockSon().o.bed < MINIMUM) {
+                    blockElement.querySelector('.overturning .bed').parentNode.classList.add('bignono');
+                } else {
+                    blockElement.querySelector('.overturning .bed').parentNode.classList.add('nono');
+                }
+            }
 
-      if(useBlock == 0 || useBlock == 1){
-      block.querySelector('.overturning .bed').innerHTML = blocky.o.bed;
-      if(blocky.o.bed < UPSELL){
-        if(blocky.o.bed < MINIMUM){
-          block.querySelector('.overturning .bed').parentNode.classList.add('bignono');
-          blockDisable++;
-          // blockOkay++;
-        }else{
-          block.querySelector('.overturning .bed').parentNode.classList.add('nono');
-          blockOkay++;
-        }
-      }
-      block.querySelector('.sliding .bed').innerHTML = blocky.s.bed;
-      if(blocky.s.bed < UPSELL){
-        if(blocky.s.bed < MINIMUM){
-          block.querySelector('.sliding .bed').parentNode.classList.add('bignono');
-          blockDisable++;
-          // blockOkay++;
-        }else{
-          block.querySelector('.sliding .bed').parentNode.classList.add('nono');
-          blockOkay++;
-        }
-      }
-    }else{
-      block.querySelector('.sliding .bed').parentNode.classList.add('hidden');
-      block.querySelector('.overturning .bed').parentNode.classList.add('hidden');
-      block.querySelector('.factor').classList.add('one');
-    }
-    if(useBlock == 0 || useBlock == 2){
-      block.querySelector('.overturning .side').innerHTML = blocky.o.side;
-      if(blocky.o.side < UPSELL){
-        if(blocky.o.side < MINIMUM){
-          block.querySelector('.overturning .side').parentNode.classList.add('bignono');
-          blockDisable++;
-          // blockOkay++;
-        }else{
-          block.querySelector('.overturning .side').parentNode.classList.add('nono');
-          blockOkay++;
-        }
-      }
+            blockElement.querySelector('.sliding .bed').innerHTML = calc.blockSon().s.bed;
+            if(calc.blockSon().s.bed < UPSELL){
+                if(calc.blockSon().s.bed < MINIMUM){
+                    blockElement.querySelector('.sliding .bed').parentNode.classList.add('bignono');
+                }else{
+                    blockElement.querySelector('.sliding .bed').parentNode.classList.add('nono');
+                }
+            }
 
-      block.querySelector('.sliding .side').innerHTML = blocky.s.side;
-      if(blocky.s.side < UPSELL){
-        if(blocky.s.side < MINIMUM){
-          block.querySelector('.sliding .side').parentNode.classList.add('bignono');
-          blockDisable++;
-          // blockOkay++;
-        }else{
-          block.querySelector('.sliding .side').parentNode.classList.add('nono');
-          blockOkay++;
+            blockElement.querySelector('.overturning .side').innerHTML = calc.blockSon().o.side;
+            if(calc.blockSon().o.side < UPSELL){
+                if(calc.blockSon().o.side < MINIMUM){
+                    blockElement.querySelector('.overturning .side').parentNode.classList.add('bignono');
+                }else{
+                    blockElement.querySelector('.overturning .side').parentNode.classList.add('nono');
+                }
+            }
+
+            blockElement.querySelector('.sliding .side').innerHTML = calc.blockSon().s.side;
+            if(calc.blockSon().s.side < UPSELL){
+                if(calc.blockSon().s.side < MINIMUM){
+                    blockElement.querySelector('.sliding .side').parentNode.classList.add('bignono');
+                }else{
+                    blockElement.querySelector('.sliding .side').parentNode.classList.add('nono');
+                }
+            }
         }
-      }
-    }else{
-      block.querySelector('.sliding .side').parentNode.classList.add('hidden');
-      block.querySelector('.overturning .side').parentNode.classList.add('hidden');
-      if(!block.querySelector('.factor').classList.contains('one')){
-        block.querySelector('.factor').classList.add('one');
-      }
+
+        /***** this sets the numbers inside the accordion??? but sets it all to channelDepth??? ******/
+        // //NUMBERS FOR DROPDOWN BASED OFF ESTIMATE ID AND BLOCK FACTORS
+        // var numbers = block.querySelectorAll('.more .num');
+        // for(var i =0; i< numbers.length;i++){
+        // // var n = parseInt(data.estimate_channelDepth) * ( i%4 + 1.1) * specs[block.id];
+        // numbers[i].innerHTML = n.toFixed(2);
+        // }
+
+    } else {
+        toastr.error('An error has occurred! Please try again later.');
     }
-      if(blockDisable >= (numSafety/2)){
-          block.classList.add('disabled');
-      }
-    if(blockOkay==0 && !block.classList.contains('disabled') && !firstHighlight){
-      // console.log("highlighter");
-      block.classList.add('highlight');
-      firstHighlight = !firstHighlight;
-      toggleBlockOpen(block)
-    }
-    }
-  }else{
-      toastr.error('An error has occurred! Please try again later.');
-}
 }
 
 function setBedSlopeAngleVariables(estimateBedSlope) {
@@ -429,10 +367,10 @@ function setFrictionAngleVariables(estimateFriction) {
       angleFrictionTan = Number(Math.tan(angleFriction) * 0.9).toFixed(3);
 }
 
-function setBlockVariables() {
-    blockDesignParamL1 = Number(blockTopBase / 2).toFixed(1);
-    blockDesignParamL2 = Number(blockSize / 2).toFixed(1);
-    blockDesignParamL3 = Number(blockTopBase * 0.85).toFixed(1);
+function setBlockVariables(blockSizeBB, blockSizeHB, blockSubmergedWeight) {
+    blockDesignParamL1 = Number(blockSizeHB / 2).toFixed(1);
+    blockDesignParamL2 = Number(blockSizeBB / 2).toFixed(1);
+    blockDesignParamL3 = Number(blockSizeHB * 0.85).toFixed(1);
     blockDesignParamL4 = blockDesignParamL2;
     blockDesignParamLT =  Number(blockDesignParamL2 * Math.sqrt(2)).toFixed(1);
 
@@ -464,11 +402,11 @@ function setLiftForceVariables() {
     liftForceSide = Number(liftForceFup * shearStressSide * liftForceWhere).toFixed(2);
 }
 
-function setOffsetVariables(estimateVelocity, estimateOffset) {
+function setOffsetVariables(estimateVelocity, estimateOffset, blockSizeBT) {
     offsetWhere2 = Number(7 / 6 * estimateVelocity).toFixed(2);
     offsetNormalVelocity = Number(bedWidthY * Math.cos(angleFriction)).toFixed(2);
     offsetWhere = Number(offsetWhere2 * Math.pow((estimateOffset / 1000 / offsetNormalVelocity), (1 / 7))).toFixed(2);
-    offsetN = Number(0.5 * waterDensity * Math.pow(offsetWhere, 2) * (blockTop / 1000) * (estimateOffset / 1000)).toFixed(2);
+    offsetN = Number(0.5 * waterDensity * Math.pow(offsetWhere, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000)).toFixed(2);
 }
 
 function setNetVariables() {
@@ -480,9 +418,8 @@ function setNetVariables() {
     netSideNormalForces = Number(Number(blockNormalForceSide) - Number(netSideLift)).toFixed(2);
 }
 
-function quoteJax(){
-  var url = base_url+"/quotes/ajaxSummary?id=" + id;
-  // console.log(base_url);
+function getBlockData() {
+  var url = base_url+"/blocks/get";
   var httpReq = new XMLHttpRequest();
   if(httpReq===null){
 		alert("Whoa there! Your browser is not updated enough to use this site. Maybe it's time for and <a href='http://browsehappy.com'>upgrade</a>?");
@@ -491,11 +428,34 @@ function quoteJax(){
 	  httpReq.onreadystatechange = function(){
       if(httpReq.readyState===4 || httpReq.readyState==="complete"){
         if (!(httpReq.responseText)){
-          console.log(httpReq.responseText);
+            toastr.error(httpReq.responseText);
+          return;
+        }else{
+          blockData = JSON.parse(httpReq.responseText);
+          performCalcs();
+          return;
+        }
+      }
+    }
+		httpReq.open("get", url);
+		httpReq.send();
+}
+
+function quoteJax(){
+  var url = base_url+"/quotes/ajaxSummary?id=" + id;
+  var httpReq = new XMLHttpRequest();
+  if(httpReq===null){
+		alert("Whoa there! Your browser is not updated enough to use this site. Maybe it's time for and <a href='http://browsehappy.com'>upgrade</a>?");
+		return;
+	}
+	  httpReq.onreadystatechange = function(){
+      if(httpReq.readyState===4 || httpReq.readyState==="complete"){
+        if (!(httpReq.responseText)){
+            toastr.error(httpReq.responseText);
           return;
         }else{
           jsonData = JSON.parse(httpReq.responseText);
-          performCalcs(jsonData);
+          getBlockData();
           return;
         }
       }
