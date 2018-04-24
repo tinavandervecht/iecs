@@ -295,10 +295,4 @@ class Quotes_model extends CI_Model {
 
             return $this->db->insert('tbl_activity', $data);
           }
-
-        public function get_blocks(){
-          //get all the product information from the database.
-          $query = $this->db->get('tbl_products');
-          return $query->result_array();
-        }
 }

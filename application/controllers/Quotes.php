@@ -7,6 +7,7 @@ class Quotes extends CI_Controller {
         parent::__construct();
         session_start();
         $this->load->model('quotes_model');
+        $this->load->model('blocks_model');
         $this->load->helper('url_helper');
         $this->load->library('email');
     }
@@ -152,7 +153,7 @@ class Quotes extends CI_Controller {
         //$data['summary'] = $this->admin_model->get_summary($id);
         $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
         $data['summaryInfo'] = $this->quotes_model->get_summary($id);
-        $data['blocks'] = $this->quotes_model->get_blocks();
+        $data['blocks'] = $this->blocks_model->get_all_blocks();
         $data['title'] = "Estimate Summary";
         $data['jsLink'] = 'js/calcpage.js';
         $data['current'] = "quotes";

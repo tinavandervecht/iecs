@@ -11,8 +11,8 @@
 
                     <!-- the below will most likely be queried from the database, no? so we can pull down the individual # associated with each block -->
                     <div class="columns small-12 large-12 card">
-                    <?php foreach($blocks as $block):?>
-                      <div class="block" id=<?php echo $block['product_name'];?>>
+                    <?php foreach($blocks as $key => $block):?>
+                      <div class="block" id=<?php echo $key . '-' . $block['product_name']; ?>>
                         <!--start block-->
                           <a href="#" class="blockbox clearfix">
                               <div class="blocktype small-4 medium-2">
@@ -24,13 +24,13 @@
                                   <div class="slimshady-wrapper small-8 medium-10">
                                       <div class="columns small-12 medium-6 overturning">
                                           <h3 class="small-6 medium-12 columns">Overturning <span class="hide-for-small show-for-medium">Safety Factors</span></h3>
-                                          <p class="safety">Bed: <span class="num bed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-                                          <p class="safety">Side: <span class="num side">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                                          <p class="safety">Bed: <span class="num bed"></span></p>
+                                          <p class="safety">Side: <span class="num side"></span></p>
                                       </div>
                                       <div class="column small-12 medium-6 sliding">
                                           <h3 class="small-6 medium-12 columns">Sliding <span class="hide-for-small show-for-medium">Safety Factors</span></h3>
-                                          <p class="safety">Bed: <span class="num bed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-                                          <p class="safety">Side: <span class="num side">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                                          <p class="safety">Bed: <span class="num bed"></span></p>
+                                          <p class="safety">Side: <span class="num side"></span></p>
                                       </div>
                                       <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
                                   </div>
