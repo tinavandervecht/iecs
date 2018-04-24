@@ -8,6 +8,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         parent::__construct();
         session_start();
         $this->load->model('admin_model'); //THIS LOADS THE ADMIN MODEL, CONTAINING ALL QUERY FUNCTIONS FOR THE ADMIN CONTROLLER
+        $this->load->model('blocks_model');
         $this->load->helper('url_helper');
         $this->load->library('email');
     }
@@ -166,7 +167,8 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $data['title'] = "Estimate Summary";
         $data['jsLink'] = 'js/calcpage.js';
         $data['current'] = "estimates";
-
+        $data['blocks'] = $this->blocks_model->get_all_blocks();
+        
         $this->load->view('templates/header', $data);
         $this->load->view('templates/adminNav', $data);
         $this->load->view('admin/summary', $data);
