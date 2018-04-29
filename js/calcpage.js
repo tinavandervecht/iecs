@@ -157,6 +157,9 @@ var angleBedSlopeTan;
 var angleBedSlopeSin;
 var angleBedSlopeCos;
 
+var channelSideSlope;
+var channelSideSlopeZn;
+
 var angleSideSlope;
 var angleSideSlopeTan;
 var angleSideSlopeSin;
@@ -174,17 +177,18 @@ var blockDesignParamLT;
 var blockNormalForceBed;
 var blockNormalForceSide;
 
-var sideSlope;
-var sideSlopeTan;
+var section;
 
-var bedSlope;
-var bedSlopeTan;
+var bedWidth;
+var doubleCheckAn;
+var doubleCheck;
 
 var flowSectionArea;
 
 var bedWidthY;
 
 var mannings;
+var manningsCos;
 
 var shearStressBed;
 var shearStressBedKg;
@@ -209,14 +213,6 @@ var netSideLift;
 var netBedNormalForces;
 var netSideNormalForces;
 
-// CONSTANTS
-var waterDensity = 1000;
-var shearStressBedC = 1;
-var shearStressSideC = 0.76;
-var shearDragWhereForce = Math.pow((16 * 25.4 / 1000), 2);
-var liftForceWhere = Math.pow((15.5 * 25.4 / 1000), 2);
-var liftForceFup = 0.37;
-
 /*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
 CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
 
@@ -230,10 +226,13 @@ return (a*b*c)/d + e -f; //RANDOM CALC
 function Calculations(data, blockData){
   var numSides = 3;
   setBedSlopeAngleVariables(data.estimate_bedSlope);
-  setSideSlopeAngleVariables(data.estimate_sideSlope);
+  setChannelSideSlopeVariables(data.estimate_sideSlope);
+  setSideSlopeAngleVariables();
   setFrictionAngleVariables(data.estimate_friction);
   setBlockVariables(blockData.product_size_bB, blockData.product_size_hB, blockData.product_submerged_weight);
-  setSlopeVariables(data.estimate_sideSlope, data.estimate_bedSlope);
+  setSectionVariable(data.estimate_expectedFlow, data.estimate_expectedVelocity);
+  setBedWidthVariables(data.estimate_bedWidth);
+  setManningsVariables(data.estimate_expectedFlow, data.estimate_bedSlope);
 
   flowSectionArea = Number(data.estimate_expectedFlow / data.estimate_expectedVelocity).toFixed(3);
   bedWidthY = (Math.pow((Math.pow(data.estimate_bedWidth, 2)+4*(1/data.estimate_sideSlope)*flowSectionArea), 0.5)-data.estimate_bedWidth)/(2/data.estimate_sideSlope);
@@ -355,8 +354,13 @@ function setBedSlopeAngleVariables(estimateBedSlope) {
     angleBedSlopeCos = Math.cos(angleBedSlopeTan).toFixed(3);
 }
 
-function setSideSlopeAngleVariables(estimateSideSlope) {
-    angleSideSlopeTan = Math.atan(estimateSideSlope).toFixed(3);
+function setChannelSideSlopeVariables(estimateSideSlope) {
+    channelSideSlope = estimateSideSlope / angleBedSlopeCos;
+    channelSideSlopeZn = 1 / channelSideSlope;
+}
+
+function setSideSlopeAngleVariables() {
+    angleSideSlopeTan = Number(Math.atan(channelSideSlopeZn)).toFixed(3);
     angleSideSlope = Number(angleSideSlopeTan * (180 / Math.PI)).toFixed(2);
     angleSideSlopeSin = Math.sin(angleSideSlopeTan).toFixed(3);
     angleSideSlopeCos = Math.cos(angleSideSlopeTan).toFixed(3);
@@ -378,18 +382,25 @@ function setBlockVariables(blockSizeBB, blockSizeHB, blockSubmergedWeight) {
     blockNormalForceSide = Number(blockSubmergedWeight * angleSideSlopeCos).toFixed(2);
 }
 
-function setSlopeVariables(estimateSideSlope, estimateBedSlope) {
-    sideSlopeTan = Number(Math.tan(estimateSideSlope)).toFixed(3);
-    sideSlope = Number(sideSlopeTan * 180 / Math.PI).toFixed(2);
+function setSectionVariable(estimateFlow, estimateVelocity) {
+    section = estimateFlow / estimateVelocity;
+}
 
-    bedSlopeTan = Number(Math.tan(estimateBedSlope)).toFixed(3);
-    bedSlope = Number(bedSlopeTan * 180 / Math.PI).toFixed(2);
+function setBedWidthVariables(estimateBedWidth) {
+    bedWidth = (Math.pow((Math.pow(estimateBedWidth, 2) + 4 * channelSideSlope * section), 0.5) - estimateBedWidth) / (2 * channelSideSlope);
+    doubleCheckAn = bedWidth * (bedWidth * channelSideSlope + estimateBedWidth);
+    doubleCheck = doubleCheckAn / (2 * bedWidth * Math.pow((1 + Math.pow(channelSideSlope, 2)), 0.5) + estimateBedWidth);
+}
+
+function setManningsVariables(estimateFlow, estimateBedSlope) {
+    mannings = (doubleCheckAn * Math.pow((doubleCheck), (2/3)) * Math.pow(estimateBedSlope, (1/2))) / estimateFlow;
+    manningsCos = bedWidth / angleBedSlopeCos;
 }
 
 function setShearStressVariables() {
     shearStressBedKg = waterDensity * 9.81;
-    shearStressBed = Number(shearStressBedC * shearStressBedKg * bedWidthY * Math.sin(bedSlopeTan)).toFixed(2);
-    shearStressSide = Number(shearStressSideC * shearStressBedKg * bedWidthY * Math.sin(bedSlopeTan)).toFixed(2);
+    shearStressBed = shearStressBedC * shearStressBedKg * manningsCos * angleBedSlopeSin;
+    shearStressSide = shearStressSideC * shearStressBedKg * manningsCos * angleBedSlopeSin;
 }
 
 function setShearDragForceVariables() {

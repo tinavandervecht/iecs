@@ -31,6 +31,26 @@
                 <p class="text"> Nothing here.</p>
             </div>
         </div>
+
+        <div class="summaryEntry" id="sum_type">
+            <h4 class="entryTitle">Additional Information</h4>
+            <div class="details">
+                <p class="text">This is static information we use to help calculate the best product for you.</p>
+                <p>
+                    <strong>Water Density: </strong> <script>document.write(waterDensity);</script>
+                    <br />
+                    <strong>shearStressBedC: </strong> <script>document.write(shearStressBedC);</script>
+                    <br />
+                    <strong>shearStressSideC: </strong> <script>document.write(shearStressSideC);</script>
+                    <br />
+                    <strong>shearDragWhereForce: </strong> <script>document.write(shearDragWhereForce);</script>
+                    <br />
+                    <strong>liftForceWhere: </strong>: <script>document.write(liftForceWhere);</script>
+                    <br />
+                    <strong>liftForceFup: </strong> <script>document.write(liftForceFup);</script>
+                </p>
+            </div>
+        </div>
     </div>
 
     <div class="columns small-12 medium-6">
