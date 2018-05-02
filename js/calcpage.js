@@ -229,7 +229,7 @@ function Calculations(data, blockData){
   setChannelSideSlopeVariables(data.estimate_sideSlope);
   setSideSlopeAngleVariables();
   setFrictionAngleVariables(data.estimate_friction);
-  setBlockVariables(blockData.product_size_bB, blockData.product_size_hB, blockData.product_submerged_weight);
+  setBlockVariables(blockData.product_b, blockData.product_hB, blockData.product_Ws);
   setSectionVariable(data.estimate_expectedFlow, data.estimate_expectedVelocity);
   setBedWidthVariables(data.estimate_bedWidth);
   setManningsVariables(data.estimate_expectedFlow, data.estimate_bedSlope);
@@ -241,26 +241,26 @@ function Calculations(data, blockData){
   setShearDragForceVariables();
   setLiftForceVariables();
 
-  setOffsetVariables(data.estimate_expectedVelocity, data.estimate_offset, blockData.product_size_bT);
+  setOffsetVariables(data.estimate_expectedVelocity, data.estimate_offset, blockData.product_bT);
   setNetVariables();
 
   //GENERIC OVERTURNING AND SLIDING CALCULATIONS
   this.overturningBed= function(){
-      return blockDesignParamL3 * blockData.product_submerged_weight * angleBedSlopeCos / ((blockDesignParamL1 * blockData.product_submerged_weight * angleBedSlopeSin) + (blockDesignParamL3 * netBedDrag) + (blockDesignParamL4 * netBedLift));
+      return blockDesignParamL3 * blockData.product_Ws * angleBedSlopeCos / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netBedDrag) + (blockDesignParamL4 * netBedLift));
   }
   this.overturningSide = function(){
-      var side1Check = (blockDesignParamL2 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeCos) / ((blockDesignParamL1 * blockData.product_submerged_weight * angleBedSlopeSin) + (blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift));
-      var side2Check = (blockDesignParamL2 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeCos) / (blockDesignParamL2 * netSideLift + blockDesignParamL1 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeSin);
-      var side3Check = (blockDesignParamL4 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeCos) / Math.pow((Math.pow(((blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift)), 2) + Math.pow((blockDesignParamL1 * blockData.product_submerged_weight * angleBedSlopeCos * angleSideSlopeSin), 2)), 0.5);
+      var side1Check = (blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift));
+      var side2Check = (blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / (blockDesignParamL2 * netSideLift + blockDesignParamL1 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeSin);
+      var side3Check = (blockDesignParamL4 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / Math.pow((Math.pow(((blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift)), 2) + Math.pow((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeSin), 2)), 0.5);
       return Math.min(side1Check, side2Check, side3Check);
   }
   this.slidingBed = function(){
-      return (netBedNormalForces * angleFrictionTan) / (Number(netBedDrag) + blockData.product_submerged_weight * angleBedSlopeSin);
+      return (netBedNormalForces * angleFrictionTan) / (Number(netBedDrag) + blockData.product_Ws * angleBedSlopeSin);
   }
   this.slidingSide = function(){
-      var side1Check = netSideNormalForces * angleFrictionTan / (Number(netSideDrag) + blockData.product_submerged_weight * angleBedSlopeSin);
-      var side2Check = netSideNormalForces * angleFrictionTan / (blockData.product_submerged_weight * angleSideSlopeSin * angleBedSlopeCos);
-      var side3Check = netSideNormalForces * angleFrictionTan / Math.pow((Math.pow((Number(netSideDrag) + blockData.product_submerged_weight * angleBedSlopeSin), 2) + Math.pow((blockData.product_submerged_weight * angleBedSlopeSin * angleBedSlopeCos), 2)), 0.5);
+      var side1Check = netSideNormalForces * angleFrictionTan / (Number(netSideDrag) + blockData.product_Ws * angleBedSlopeSin);
+      var side2Check = netSideNormalForces * angleFrictionTan / (blockData.product_Ws * angleSideSlopeSin * angleBedSlopeCos);
+      var side3Check = netSideNormalForces * angleFrictionTan / Math.pow((Math.pow((Number(netSideDrag) + blockData.product_Ws * angleBedSlopeSin), 2) + Math.pow((blockData.product_Ws * angleBedSlopeSin * angleBedSlopeCos), 2)), 0.5);
 
       return Math.min(side1Check, side2Check, side3Check);
   }
