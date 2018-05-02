@@ -1,4 +1,9 @@
 <div class="columns small-12 large-12 card">
+    <p>
+        Mimimum safety factor: <strong>1.5</strong>.
+        <br />
+        Optimum safety factor: <strong>2</strong>
+    </p>
 <?php foreach($blocks as $key => $block):?>
   <div class="block" id=<?php echo $key . '-' . $block['product_name']; ?>>
     <!--start block-->
@@ -7,7 +12,6 @@
               <p><?php echo $block['product_name']; ?></p>
               <p class="smaller">(<?php echo $block['product_number']; ?> LB/SF)</p>
           </div>
-          <!-- <img src="img/cc45-block.svg" alt="Block Size" class="blockdiagram"> -->
           <div class="factor row">
               <div class="slimshady-wrapper small-8 medium-10">
                   <div class="columns small-12 medium-6 overturning">

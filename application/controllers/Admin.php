@@ -275,6 +275,76 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         redirect('/admin/login');
     }
 
+    public function products() {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        $data['title'] = 'Products';
+        $data['jsLink'] = 'js/dash.js';
+        $data['current'] = "products";
+        $data['blocks'] = $this->blocks_model->get_all_blocks();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/adminNav', $data);
+        $this->load->view('admin/products', $data);
+        $this->load->view('templates/adminFooterNav', $data);
+        $this->load->view('templates/footer', $data);
+    }
+
+    public function product($id)
+    {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        if ($id==NULL) {
+            redirect('/admin/products');
+        }
+
+        try {
+            $this->blocks_model->delete_block($id);
+        } catch(Exception $e) {
+            redirect('/admin/products?delete_error=true');
+        }
+
+        redirect('/admin/products?delete_success=true');
+    }
+
+    public function create_product() {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['title'] = 'Create Product';
+        $data['jsLink'] = 'js/dash.js';
+        $data['current'] = "products";
+
+        $this->form_validation->set_rules('product_name', 'Name', 'required');
+        $this->form_validation->set_rules('product_number', 'Product Number', 'required|numeric|max_length[4]');
+        $this->form_validation->set_rules('product_b', 'b', 'required|numeric|max_length[8]');
+        $this->form_validation->set_rules('product_bT', 'bT', 'required|numeric|max_length[8]');
+        $this->form_validation->set_rules('product_hB', 'hB', 'required|numeric|max_length[8]');
+        $this->form_validation->set_rules('product_W', 'W', 'required|numeric|max_length[8]');
+        $this->form_validation->set_rules('product_Ws', 'Ws', 'required|numeric|max_length[8]');
+        $this->form_validation->set_message('required', 'Please fill out the %s.');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/adminNav', $data);
+            $this->load->view('admin/create_product', $data);
+            $this->load->view('templates/adminFooterNav', $data);
+            $this->load->view('templates/footer', $data);
+        } else {
+            $this->blocks_model->create_block();
+
+            redirect('/admin/products?created=true');
+        }
+    }
+
     //AJAX FUNCTIONS, THESE FUNCTIONS RETURN JSON FOR AJAX FUNCTIONALIY. THEY ARE CALLED BY THE AJAX JAVASCRIPT FUNCTIONS ON THE ESTIMATES AND COMPANIES PAGES.
     public function ajaxCompanies()
     {
