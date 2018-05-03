@@ -21,11 +21,6 @@ var TIME = 1; //seconds for expansion of dropdown/collapse
 var BOXHEIGHT = "auto";
 var BLOCKSMALL = "7.9em";
 var selectedblock = document.querySelector("#selectedblock");
-function changeLeftBox(blockbox){
-  // selectedblock.dataset.blockId = blockbox.querySelector('.blocktype p').innerHTML;
-  // selectedblock.querySelector('.blockname').innerHTML = blockbox.querySelector('.blocktype').innerHTML;
-  // selectedblock.querySelector('img').src = blockbox.querySelector('.blockdiagram').src;
-}
 function openClose(event,block){
   var it;
   try{
@@ -33,7 +28,7 @@ function openClose(event,block){
     it = event.currentTarget;
   }
   catch(e){
-    console.log(e);
+      toastr.error(e);
   }
   if(!(it.classList.contains('disabled'))){
   toggleBlockOpen(it);
@@ -59,7 +54,6 @@ function toggleBlockOpen(block){
     selected.classList.remove('selected');
     selected = null;
   }
-  // changeLeftBox(it);
 }
 
 for(var i=0;i<blocks.length;i++){
@@ -106,7 +100,6 @@ function toggleSubmit(button){
       }
     },false);
   }else if(button.classList.contains('save')){
-    console.log("save");
     if(!shwn){
       subpopup.classList.add('shown');
       TweenLite.to(subpopup,0.2,{opacity:1,onComplete:function(){TweenLite.to(subpopup.querySelector('.box'),0.1,{opacity:1});}});
@@ -120,8 +113,6 @@ function toggleSubmit(button){
     closeEl(subpopup);
   }else if(button.id === "no"){
     closeEl(subpopup);
-  }else{
-    console.log("NOPE");
   }
 }
 function tog(event){
@@ -129,7 +120,6 @@ function tog(event){
   var it = event.currentTarget;
   toggleSubmit(it);
 }
-changeLeftBox(document.querySelector('.block.highlight'));
 
 try{
   submittoIECS.addEventListener('click',tog,false);
@@ -142,7 +132,7 @@ try{
   }
 }
 catch(e){
-  console.log(e);
+    toastr.error(e);
 }
 
 

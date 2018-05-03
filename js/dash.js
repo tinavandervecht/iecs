@@ -17,7 +17,6 @@ function toggleState(event){
   }
 
  $('.productEntry').on('click', function() {
-     console.log($(this).data('block-name'));
      $('#delete_product_modal .block_name').text($(this).data('block-name'));
      $('#delete_product_modal .delete_button').attr('href', '/admin/product/' + $(this).data('block-id'));
      $('#overlay').addClass('active');
