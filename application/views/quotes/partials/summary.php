@@ -34,168 +34,168 @@
           </div>
           <!--===========================-->
           <section class="column small-12 large-6">
+              <!-- Block Variables -->
               <div class="other clearfix">
                   <div>
-                      <p class="factor">Centroid Depth (mm)</p>
-                      <div class="num">1.02</div>
+                      <p class="factor">Block b</p>
+                      <div class="num"><?php echo $block['product_b']; ?></div>
                   </div>
               </div>
-              <!--===========================-->
               <div class="other clearfix">
                   <div>
-                      <p class="factor"> bB/2 (mm)</p>
-                      <div class="num">1.02</div>
+                      <p class="factor">Block bT</p>
+                      <div class="num"><?php echo $block['product_bT']; ?></div>
                   </div>
               </div>
-              <!--===========================-->
               <div class="other clearfix">
                   <div>
-                      <p class="factor">Half Diagonal Distance (mm)</p>
-                      <div class="num">1.02</div>
+                      <p class="factor">Block hB</p>
+                      <div class="num"><?php echo $block['product_hB']; ?></div>
                   </div>
               </div>
-              <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">Verical Position of Drag (mm)</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">dZ Vertical Offset (mm)</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
               <div class="other clearfix">
                   <div>
                       <p class="factor">Block Weight (N)</p>
-                      <div class="num">1.02</div>
+                      <div class="num"><?php echo $block['product_W']; ?></div>
                   </div>
               </div>
-              <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">Block Mass (kg)</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
               <div class="other clearfix">
                   <div>
                       <p class="factor">Submerged Block Weight (N)</p>
-                      <div class="num">1.02</div>
+                      <div class="num"><?php echo $block['product_Ws']; ?></div>
                   </div>
               </div>
               <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">Submerged Mass (kg)</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix">
+              <div class="other clearfix" id="netBedDrag">
                   <div>
                       <p class="factor">Drag on Block [Bed] (N)</p>
-                      <div class="num">1.02</div>
+                      <div class="num">--</div>
                   </div>
               </div>
-              <!--===========================-->
-              <div class="other clearfix">
+              <div class="other clearfix" id="netSideDrag">
                   <div>
                       <p class="factor">Drag on Block [Side] (N)</p>
-                      <div class="num">1.02</div>
+                      <div class="num">--</div>
                   </div>
               </div>
               <!--===========================-->
-
-              <div class="other clearfix">
+              <div class="other clearfix" id="netBedLift">
                   <div>
                       <p class="factor">Lift on Block [Bed] (N)</p>
-                      <div class="num">1.02</div>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="netSideLift">
+                  <div>
+                      <p class="factor">Lift on Block [Side] (N)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <!--===========================-->
+              <div class="other clearfix" id="bedWidth">
+                  <div>
+                      <p class="factor">Bed Width (m)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <!--===========================-->
+              <div class="other clearfix" id="bedSlope">
+                  <div>
+                      <p class="factor">Bed Slope (Degree)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="sideSlope">
+                  <div>
+                      <p class="factor">Side Slope (Degree)</p>
+                      <div class="num">--</div>
                   </div>
               </div>
               <!--===========================-->
           </section>
           <section class="columns small-12 large-6">
               <!--===========================-->
-              <div class="other clearfix">
+              <div class="other clearfix" id="shearStressBed">
                   <div>
-                      <p class="factor">Lift on Block [Side] (N)</p>
-                      <div class="num">1.02</div>
+                      <p class="factor">Shear Bed Stress</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="shearStressSide">
+                  <div>
+                      <p class="factor">Shear Side Stress</p>
+                      <div class="num">--</div>
                   </div>
               </div>
               <!--===========================-->
-              <div class="other clearfix">
+              <div class="other clearfix" id="shearDragBedForce">
                   <div>
-                      <p class="factor">Cotangent of Side Slope</p>
-                      <div class="num">1.02</div>
+                      <p class="factor">Shear Drag Bed Force</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="shearDragSideForce">
+                  <div>
+                      <p class="factor">Shear Drag Side Force</p>
+                      <div class="num">--</div>
                   </div>
               </div>
               <!--===========================-->
-              <div class="other clearfix">
+              <div class="other clearfix" id="blockNormalForceBed">
                   <div>
-                      <p class="factor">Angle of Side Slope (Degrees)</p>
-                      <div class="num">1.02</div>
+                      <p class="factor">Normal Bed Force</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="blockNormalForceSide">
+                  <div>
+                      <p class="factor">Normal Side Force</p>
+                      <div class="num">--</div>
                   </div>
               </div>
               <!--===========================-->
-              <div class="other clearfix">
+              <div class="other clearfix" id="liftForceBed">
                   <div>
-                      <p class="factor">Angle of Side Slope (Theta)</p>
-                      <div class="num">1.02</div>
+                      <p class="factor">Lift Bed Force</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="liftForceSide">
+                  <div>
+                      <p class="factor">Lift Side Force</p>
+                      <div class="num">--</div>
                   </div>
               </div>
               <!--===========================-->
-              <div class="other clearfix">
+              <div class="other clearfix" id="offsetN">
                   <div>
-                      <p class="factor">Bed Slope (ft/ft)</p>
-                      <div class="num">1.02</div>
+                      <p class="factor">Offset (n)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="offsetWhere">
+                  <div>
+                      <p class="factor">Offset (where,)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="offsetWhere2">
+                  <div>
+                      <p class="factor">Offset (where, #2)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="offsetNormalVelocity">
+                  <div>
+                      <p class="factor">Offset Normal Velocity</p>
+                      <div class="num">--</div>
                   </div>
               </div>
               <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">Angle of Side Slope (Degrees)</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">Lambda Degrees</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">Beta Degrees</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">Delta Degrees</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix">
-                  <div>
-                      <p class="factor">Froude Number</p>
-                      <div class="num">1.02</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix">
+              <div class="other clearfix" id="manningsN">
                   <div>
                       <p class="factor">Manning's N</p>
-                      <div class="num">1.02</div>
+                      <div class="num">--</div>
                   </div>
               </div>
           </section>

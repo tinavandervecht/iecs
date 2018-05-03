@@ -332,15 +332,28 @@ function performCalcs() {
                     blockElement.querySelector('.sliding .side').parentNode.classList.add('nono');
                 }
             }
-        }
 
-        /***** this sets the numbers inside the accordion??? but sets it all to channelDepth??? ******/
-        // //NUMBERS FOR DROPDOWN BASED OFF ESTIMATE ID AND BLOCK FACTORS
-        // var numbers = block.querySelectorAll('.more .num');
-        // for(var i =0; i< numbers.length;i++){
-        // // var n = parseInt(data.estimate_channelDepth) * ( i%4 + 1.1) * specs[block.id];
-        // numbers[i].innerHTML = n.toFixed(2);
-        // }
+            blockElement.querySelector('#netBedDrag .num').innerHTML = netBedDrag;
+            blockElement.querySelector('#netSideDrag .num').innerHTML = netSideDrag;
+            blockElement.querySelector('#netBedLift .num').innerHTML = netBedLift;
+            blockElement.querySelector('#netSideLift .num').innerHTML = netSideLift;
+            blockElement.querySelector('#bedSlope .num').innerHTML = angleBedSlope;
+            blockElement.querySelector('#sideSlope .num').innerHTML = angleSideSlope;
+            blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(3);
+            blockElement.querySelector('#shearStressBed .num').innerHTML = Number(shearStressBed).toFixed(2);
+            blockElement.querySelector('#shearStressSide .num').innerHTML = Number(shearStressSide).toFixed(2);
+            blockElement.querySelector('#shearDragBedForce .num').innerHTML = shearDragBedForce;
+            blockElement.querySelector('#shearDragSideForce .num').innerHTML = shearDragSideForce;
+            blockElement.querySelector('#bedWidth .num').innerHTML = Number(bedWidth).toFixed(2);
+            blockElement.querySelector('#blockNormalForceBed .num').innerHTML = Number(blockNormalForceBed).toFixed(2);
+            blockElement.querySelector('#blockNormalForceSide .num').innerHTML = Number(blockNormalForceSide).toFixed(2);
+            blockElement.querySelector('#liftForceBed .num').innerHTML = Number(liftForceBed).toFixed(2);
+            blockElement.querySelector('#liftForceSide .num').innerHTML = Number(liftForceSide).toFixed(2);
+            blockElement.querySelector('#offsetN .num').innerHTML = Number(offsetN).toFixed(2);
+            blockElement.querySelector('#offsetWhere .num').innerHTML = Number(offsetWhere).toFixed(2);
+            blockElement.querySelector('#offsetWhere2 .num').innerHTML = Number(offsetWhere2).toFixed(2);
+            blockElement.querySelector('#offsetNormalVelocity .num').innerHTML = Number(offsetNormalVelocity).toFixed(2);
+        }
 
     } else {
         toastr.error('An error has occurred! Please try again later.');
@@ -388,8 +401,8 @@ function setSectionVariable(estimateFlow, estimateVelocity) {
 
 function setBedWidthVariables(estimateBedWidth) {
     bedWidth = (Math.pow((Math.pow(estimateBedWidth, 2) + 4 * channelSideSlope * section), 0.5) - estimateBedWidth) / (2 * channelSideSlope);
-    doubleCheckAn = bedWidth * (bedWidth * channelSideSlope + estimateBedWidth);
-    doubleCheck = doubleCheckAn / (2 * bedWidth * Math.pow((1 + Math.pow(channelSideSlope, 2)), 0.5) + estimateBedWidth);
+    doubleCheckAn = Number(bedWidth) * (Number(bedWidth) * Number(channelSideSlope) + Number(estimateBedWidth));
+    doubleCheck = doubleCheckAn / (2 * Number(bedWidth) * Math.pow((1 + Math.pow(Number(channelSideSlope), 2)), 0.5) + Number(estimateBedWidth));
 }
 
 function setManningsVariables(estimateFlow, estimateBedSlope) {
