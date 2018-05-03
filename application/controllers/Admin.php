@@ -148,9 +148,17 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         if ($id==NULL) { //IF NO SUMMARY IS SELECTED
             redirect('/admin/estimates');
         }
+
         $data['summary'] = $this->admin_model->get_summary($id);
 
-        if (isset($_POST)) {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('email_sub', 'Subject', 'required');
+        $this->form_validation->set_rules('email_text', 'Message', 'required');
+        $this->form_validation->set_message('required', 'Please fill out the %s.');
+
+        if ($this->form_validation->run() === TRUE) {
             $body = $this->input->post('email_text');
             $sub = $this->input->post('email_sub');
             $this->email->from('IECS EMAIL', 'IECS CONTACT NAME');
@@ -160,15 +168,16 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
             $this->email->message($body);
 
             $this->email->send();
+
+            $data['sentEmail'] = true;
         }
 
         $data['id'] = $id;
-        //$data['summary'] = $this->admin_model->get_summary($id);
         $data['title'] = "Estimate Summary";
         $data['jsLink'] = 'js/calcpage.js';
         $data['current'] = "estimates";
         $data['blocks'] = $this->blocks_model->get_all_blocks();
-        
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/adminNav', $data);
         $this->load->view('admin/summary', $data);

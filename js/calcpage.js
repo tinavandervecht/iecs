@@ -88,12 +88,6 @@ function toggleSubmit(button){
     modal.querySelector(".close").addEventListener('click',function(){
       closeEl(modal);
     },false);
-    modal.querySelector("#sendit").addEventListener('click',function(e){
-      e.preventDefault();
-      // SEND EMAIL TO CLIENT HERE
-      toastr.error('Your email has NOT been sent.');
-      closeEl(modal);
-    },false);
     window.addEventListener('click',function(){
       if (event.target == modal){
         closeEl(modal);
@@ -130,6 +124,21 @@ try{
   if (noSave) {
       noSave.addEventListener('click',tog,false);
   }
+
+  document.querySelector('#myModal').querySelector(".close").addEventListener('click',function(){
+    closeEl(document.querySelector('#myModal'));
+  });
+  // modal.querySelector("#sendit").addEventListener('click',function(e){
+    // e.preventDefault();
+    // SEND EMAIL TO CLIENT HERE
+    // toastr.error('Your email has NOT been sent.');
+    // closeEl(modal);
+  // });
+  window.addEventListener('click',function(){
+    if (event.target == document.querySelector('#myModal')){
+      closeEl(document.querySelector('#myModal'));
+    }
+  });
 }
 catch(e){
     toastr.error(e);

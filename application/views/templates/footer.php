@@ -21,5 +21,12 @@
     <script>toastr.success('Profile successfully saved.');</script>
     <?php unset($_SESSION['profile_edited']); ?>
 <?php endif; ?>
+
+<script>
+var emailSent = <?php echo isset($sentEmail) && $sentEmail == true ? 'true' : 'false';?>;
+if (emailSent) {
+    toastr.success('Email successfully sent.');
+}
+</script>
 </body>
 </html>

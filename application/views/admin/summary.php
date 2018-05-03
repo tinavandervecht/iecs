@@ -10,25 +10,38 @@
 
                     <!-- the below will most likely me queried from the database, no? so we can pull down the individual # associated with each block -->
                     <?php include 'application/views/quotes/partials/summary.php'; ?>
-                  
+
                 <a href="#" class="greenButton email" id="saveit">EMAIL</a>
-                <div id="myModal" class="modal">
+                <div id="myModal" class="modal"
+                    style="<?php echo form_error('email_text', '<p class="error">', '</p>') != ''
+                        || form_error('email_sub', '<p class="error">', '</p>') != ''
+                        ? 'display:block;opacity:1'
+                        : ''; ?>"
+                >
                 <div class="modal-content clearfix">
                   <span class="close">&times;</span>
-                  <h2 style="font-family: opensans-bold;">EMAIL CLIENT: <?php echo "DUMMY CLIENT" ;?></h2>
-                  <label>Subject:</label><br>
-                  <input id="subject" name="subject">
-                  <br><br>
-                  <label>Message:</label><br>
-                  <textarea id="textarea" name="message"></textarea>
+                  <?php $attributes = array('novalidate' => 'novalidate');
+                      echo form_open('/admin/summary/' . $summary['estimate_id'], $attributes);
+                  ?>
+                      <h2>EMAIL CLIENT: <?php echo $summary['company_name'] ;?></h2>
+                      <label>Subject:</label><br>
+                      <input id="subject" name="email_sub" value="<?php echo $_POST['email_sub']; ?>">
+                      <?php echo form_error('email_sub', '<p class="error">', '</p>');?>
+                      <br><br>
+                      <label>Message:</label><br>
+                      <textarea id="textarea" name="email_text"><?php echo $_POST['email_text']; ?></textarea>
+                      <?php echo form_error('email_text', '<p class="error">', '</p>');?>
 
-                  <a href="#" class="greenButton email" id="sendit">SEND</a>
+                      <button type="submit" class="greenButton email" id="sendit">SEND</a>
+                  </form>
 
                 </div>
               </div>
             </div>
         </section>
 </main>
+
+
 <script>
   var id = <?php echo $id; ?>;
   var base_url = "<?php echo site_url();?>";
