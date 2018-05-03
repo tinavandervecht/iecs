@@ -2,8 +2,6 @@
         <h2 class="hidden">Main Content</h2>
 
         <section class="row expanded" id="cmsEstimates">
-          <?php //echo $estimates[0]['estimate_modifiedDate'];?>
-           <?php //echo strtotime($estimates[0]['estimate_modifiedDate']);?>
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
                   <a href="<?php echo site_url('/admin');?>" class="tabTitle">&#10092; ESTIMATES</a>
                   <div id="cardsbox">
@@ -73,7 +71,7 @@
               <?php if(count($estimates)>=12): ?>
               <?php for ($i=4; $i < 12; $i++): ?>
               <tr class="new">
-                <td><?php //THIS BLOCK IS CURRENTLY UNUSED BUT ACCEPTS "<span class='dot'></span>" TO GIVE IT A GREEN DOT. FUNCTIONALITY ASSOCIATED WITH GREEN DOT IS INTENDED TO BE IF IT IS NEW OR NOT BUT UP TO YOU. ?></td>
+                <td><?php echo !isset($_SESSION['estimate_' . $estimates[$i]['estimate_id'] . '_seen']) ? "<span class='dot'></span>" : ''; ?></td>
                 <td><?php echo $estimates[$i]['company_name'];?></td>
                 <td><?php echo $estimates[$i]['estimate_name'];?></td>
                 <td><?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></td>
@@ -87,7 +85,7 @@
           <?php elseif((count($estimates)<12)&&(count($estimates)>4)): ?>
               <?php for ($i=4; $i < count($estimates); $i++): ?>
               <tr class="new">
-                <td><?php //THIS BLOCK IS CURRENTLY UNUSED BUT ACCEPTS "<span class='dot'></span>" TO GIVE IT A GREEN DOT. FUNCTIONALITY ASSOCIATED WITH GREEN DOT IS INTENDED TO BE IF IT IS NEW OR NOT BUT UP TO YOU. ?></td>
+                <td><?php echo !isset($_SESSION['estimate_' . $estimates[$i]['estimate_id'] . '_seen']) ? "<span class='dot'></span>" : ''; ?></td>
                 <td><?php echo $estimates[$i]['company_name'];?></td>
                 <td><?php echo $estimates[$i]['estimate_name'];?></td>
                 <td><?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></td>
@@ -103,5 +101,9 @@
           </table>
         </div>
       </section>
+
+      <?php foreach($estimates as $estimate):
+          $_SESSION['estimate_' . $estimate['estimate_id'] . '_seen'] = true;
+      endforeach; ?>
 
 </main>
