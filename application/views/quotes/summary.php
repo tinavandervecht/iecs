@@ -10,7 +10,6 @@
                     <?php echo file_get_contents(base_url('img/legend.svg')); ?>
 
                     <?php include 'application/views/quotes/partials/summary.php'; ?>
-                    
                 <a href="#" class="greenButton save" id="saveit">SAVE</a>
                 <div class="popup clearfix" id="subforreview">
                     <div class="box clearfix">

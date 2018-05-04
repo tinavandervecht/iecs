@@ -101,10 +101,6 @@ function toggleSubmit(button){
       TweenLite.to(subpopup,0.2,{opacity:0,onComplete:function(){subpopup.classList.remove('shown');}});
     }
     shwn = !shwn;
-  }else if(button.id === "yes"){
-    //EMAIL RESULTS TO IECS HERE
-    toastr.error('Your Email has NOT been sent.');
-    closeEl(subpopup);
   }else if(button.id === "no"){
     closeEl(subpopup);
   }
@@ -117,10 +113,6 @@ function tog(event){
 
 try{
   submittoIECS.addEventListener('click',tog,false);
-  if (yeahSave) {
-      yeahSave.addEventListener('click',tog,false);
-  }
-
   if (noSave) {
       noSave.addEventListener('click',tog,false);
   }
