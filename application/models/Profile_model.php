@@ -68,6 +68,11 @@ class Profile_model extends CI_Model {
         'company_contactName' => $this->input->post('contactName'),
         'company_phone' => $this->input->post('phone'),
         );
+
+        if ($this->input->post('new_password')) {
+            $data['company_pw'] = password_hash($this->input->post('new_password'), PASSWORD_DEFAULT);
+        }
+
         $this->db->set($data);
         $this->db->where('company_id', $_SESSION['company_id']);
         $this->db->update('tbl_company');

@@ -15,7 +15,9 @@ class Profile extends CI_Controller {
         if (isset($_SESSION['company_id']) == FALSE) {
             redirect('/profile/login');
         }
+        $company = $this->profile_model->get_company($_SESSION['company_id']);
 
+        $this->load->helper('security');
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -23,9 +25,21 @@ class Profile extends CI_Controller {
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|max_length[12]');
         $this->form_validation->set_rules('contactName', 'Phone Number', 'required|max_length[30]');
 
-        if ($this->form_validation->run() === FALSE) { //IF THEY HAVEN'T ATTEMPTED TO EDIT THEIR INFO OR HAVE DONE SO INCORRECTLY
+        if (isset($_POST) && isset($_POST['new_password']) && $_POST['new_password'] != '')
+        {
+            $this->form_validation->set_rules('new_password', 'New Password', 'required|min_length[6]|max_length[30]|alpha_numeric');
+            $this->form_validation->set_rules('confirm_new_password', 'Confirm New Password', 'required|matches[new_password]');
+        }
+
+        if ($this->form_validation->run() === FALSE
+            || (! password_verify($_POST['current_password'], $company['company_pw']) && isset($_POST['new_password']) && $_POST['new_password'] != '')
+        ){ //IF THEY HAVEN'T ATTEMPTED TO EDIT THEIR INFO OR HAVE DONE SO INCORRECTLY
             //SHOW THE NORMAL PAGE
-            $data['userInfo'] = $this->profile_model->get_company($_SESSION['company_id']);
+            $data['userInfo'] = $company;
+
+            if (isset($_POST['current_password']) && ! password_verify($_POST['current_password'], $company['company_pw']) && isset($_POST['new_password']) && $_POST['new_password'] != '') {
+                $data['passwordError'] = true;
+            }
 
             $data['title'] = "Profile | IECS";
             $data['jsLink'] = 'js/profile.js';
@@ -51,9 +65,19 @@ class Profile extends CI_Controller {
             $this->load->view('templates/footerNav', $data);
             $this->load->view('templates/footer', $data);
         }
-        //$data['tbl_company'] = $this->profile_model->get_company();
-        //$data['title'] = 'Companies';
     }
+
+    // private function password_validation($password)
+    // {
+    //     $company = $this->profile_model->get_company($_SESSION['company_id']);
+    // 
+    //     if (! password_verify($password, $company['company_pw'])) {
+    //         $this->form_validation->set_message('current_password', 'The %s field is not correct.');
+    //         return FALSE;
+    //     } else {
+    //         return TRUE;
+    //     }
+    // }
 
 
     public function create()
