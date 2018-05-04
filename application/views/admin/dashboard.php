@@ -5,6 +5,15 @@
       <div class="columns small-12 medium-11 medium-centered large-11 large-centered" id="recentContent">
         <a href="<?php echo site_url('/admin/activity');?>" class="tabTitle">RECENT ACTIVITY</a>
     <!-- ================================ -->
+    <?php if (empty($activity)) : ?>
+        <a href="#" class="companyEntry first clearfix">
+          <div class="dateOfUpdate">
+            <p class="dateup"></p>
+            <p class="time"></p>
+          </div>
+          <p class="companyUpdate">No activity to show.</p>
+        </a>
+    <?php endif; ?>
     <?php foreach ($activity as $act): ?>
     <a href="<?php echo site_url('/admin/company/'.$act['company_id']);?>" class="companyEntry <?php if($act['activity_id'] == $activity[0]['activity_id']){echo "first";}?> clearfix">
       <div class="dateOfUpdate">
@@ -16,7 +25,9 @@
     </a>
   <?php endforeach; ?>
 
-    <div class="more"><a href="<?php echo site_url('/admin/activity');?>">Show More <span class="rotate-90">&#187;</span></a></div>
+    <?php if(! empty($activity)): ?>
+        <div class="more"><a href="<?php echo site_url('/admin/activity');?>">Show More <span class="rotate-90">&#187;</span></a></div>
+    <?php endif; ?>
     </div>
     </div>
 

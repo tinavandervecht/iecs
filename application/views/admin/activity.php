@@ -5,6 +5,15 @@
       <div class="columns small-12 medium-11 medium-centered large-11 large-centered" id="recentContent">
             <a href="<?php echo site_url('/admin');?>" class="tabTitle">&#10092; RECENT ACTIVITY</a>
         <!-- ================================ -->
+        <?php if (empty($activity)) : ?>
+            <a href="#" class="companyEntry first clearfix">
+              <div class="dateOfUpdate">
+                <p class="dateup"></p>
+                <p class="time"></p>
+              </div>
+              <p class="companyUpdate">No activity to show.</p>
+            </a>
+        <?php endif; ?>
         <?php foreach ($activity as $act): ?>
            <!-- GET THE ACTIVITIES FROM THE DATABASE AND PRINT OUT AN APPROPRIATE NUMBER OF ENTRIES HERE -->
         <a href="<?php echo site_url('/admin/company/'.$act['company_id']);?>" class="companyEntry <?php if($act['activity_id'] == $activity[0]['activity_id']){echo "first";}?> clearfix">

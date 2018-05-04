@@ -4,8 +4,11 @@
         <div class="row">
           <div class="columns small-12 card" id="quotes">
             <h3>Current Quotes</h3><img class="icon" src="<?php echo base_url('img/history_icon_black.svg');?>">
-            <div id="scrollWrapper" class="quotesPage">
+            <div id="scrollWrapper" class="quotesPage <?php echo empty($estimatesInfo) ? 'noScroll' : ''; ?>">
               <!-- ========================================================================= -->
+              <?php if (empty($estimatesInfo)): ?>
+                  <h4 class="title">No quotes to show.</h4>
+              <?php endif; ?>
               <?php foreach ($estimatesInfo as $estimate): ?>
               <div class="quote closed clearfix">
 

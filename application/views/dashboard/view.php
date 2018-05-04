@@ -58,6 +58,10 @@
                   </div>
                 </div>
             </div>
+            <?php else: ?>
+                <div class="quote">
+                  <h4 class="title">No quotes to show.</h4>
+                </div>
             <?php endif ?>
           </div>
           <div class="columns small-12 medium-12 large-6 card right" id="quotes">
@@ -110,6 +114,10 @@
                   </div>
               </div>
             <?php endforeach; ?>
+            <?php else: ?>
+                <div class="quote closed">
+                  <h4 class="title">No quotes to show.</h4>
+                </div>
           <?php endif ?>
           </div>          <!-- end scrollWrapper -->
         </div>

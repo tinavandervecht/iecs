@@ -16,6 +16,11 @@
                   <input type="search" placeholder="Search" name="search" id="search">
                 </form>
                   <div class="centerIt" id="centerIt">
+                <?php if(count($estimates) == 0): ?>
+                    <p>
+                        No estimates to show.
+                    </p>
+                <?php else: ?>
                 <?php if(count($estimates)>=4): ?>
                 <?php for ($i=0; $i < 4; $i++): ?>
 
@@ -47,12 +52,14 @@
 
                     <?php endfor; ?>
                   <?php endif; ?>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
 
         </section>
 
+        <?php if (count($estimates) > 4): ?>
         <section id="comp" class="row expanded">
           <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
           <table class="fluidTable">
@@ -101,6 +108,7 @@
           </table>
         </div>
       </section>
+      <?php endif; ?>
 
       <?php foreach($estimates as $estimate):
           $_SESSION['estimate_' . $estimate['estimate_id'] . '_seen'] = true;

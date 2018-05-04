@@ -1029,6 +1029,9 @@ a.sectionTitle{
 #quotes #scrollWrapper.quotesPage {
     height: 26em;
 }
+#quotes #scrollWrapper.quotesPage.noScroll {
+    height: auto !important;
+}
 #mainQuotes #scrollWrapper .quotesPage .desc{
   margin-top: 1em;
   margin: 0;
