@@ -354,6 +354,60 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         }
     }
 
+    public function profile()
+    {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        $adminUser = $this->admin_model->get_profile($_SESSION['userdata']['admin_id']);
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('username', 'Username', 'required|max_length[12]');
+        $this->form_validation->set_rules('name', 'Name', 'required|max_length[140]');
+
+        if (isset($_POST) && isset($_POST['new_password']) && $_POST['new_password'] != '')
+        {
+            $this->form_validation->set_rules('new_password', 'New Password', 'required|min_length[6]|max_length[30]|alpha_numeric');
+            $this->form_validation->set_rules('confirm_new_password', 'Confirm New Password', 'required|matches[new_password]');
+        }
+
+        if ($this->form_validation->run() === FALSE
+            || (! password_verify($_POST['current_password'], $adminUser['admin_pw']) && isset($_POST['new_password']) && $_POST['new_password'] != '')
+        ){
+            $data['userInfo'] = $adminUser;
+
+            if (isset($_POST['current_password']) && ! password_verify($_POST['current_password'], $adminUser['admin_pw']) && isset($_POST['new_password']) && $_POST['new_password'] != '') {
+                $data['passwordError'] = true;
+            }
+
+            $data['title'] = "Profile | IECS";
+            $data['jsLink'] = 'js/profile.js';
+            $data['current'] = "profile";
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/adminNav', $data);
+            $this->load->view('admin/profile', $data);
+            $this->load->view('templates/adminFooterNav', $data);
+            $this->load->view('templates/footer', $data);
+        } else {
+            $this->admin_model->alter_profile(); //UPDATE THEIR PROFILE AND RELOAD THE PAGE
+            $data['userInfo'] = $this->admin_model->get_profile($_SESSION['userdata']['admin_id']);
+
+            $data['title'] = "Profile | IECS";
+            $data['jsLink'] = 'js/profile.js';
+            $data['current'] = "profile";
+            $_SESSION['profile_edited'] = true;
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/adminNav', $data);
+            $this->load->view('admin/profile', $data);
+            $this->load->view('templates/adminFooterNav', $data);
+            $this->load->view('templates/footer', $data);
+        }
+    }
+
     //AJAX FUNCTIONS, THESE FUNCTIONS RETURN JSON FOR AJAX FUNCTIONALIY. THEY ARE CALLED BY THE AJAX JAVASCRIPT FUNCTIONS ON THE ESTIMATES AND COMPANIES PAGES.
     public function ajaxCompanies()
     {

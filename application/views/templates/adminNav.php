@@ -21,6 +21,7 @@
               <li><a href="<?php echo site_url('/admin/statistics');?>" <?php if($current == "statistics"){echo "class='current'";}?>><img src="<?php echo base_url('img/stats_icon.svg');?>" class="navIcon"/><span class="navText">Statistics</span></a></li>
               <li><a href="<?php echo site_url('/admin/companies');?>" <?php if($current == "companies"){echo "class='current'";}?>><img src="<?php echo base_url('img/company_icon.svg');?>" class="navIcon"/><span class="navText">Companies</span></a></li>
               <li><a href="<?php echo site_url('/admin/products');?>" <?php if($current == "products"){echo "class='current'";}?>><img src="<?php echo base_url('img/paper_icon.svg');?>" class="navIcon"/><span class="navText">Products</span></a></li>
+              <li><a href="<?php echo site_url('/admin/profile');?>" <?php if($current == "profile"){echo "class='current'";}?>><img src="<?php echo base_url('img/profile_icon.svg');?>" class="navIcon"/><span class="navText">Profile</span></a></li>
 
             </ul>
         </nav>

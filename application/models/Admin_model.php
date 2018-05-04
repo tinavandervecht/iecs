@@ -297,5 +297,27 @@ class Admin_model extends CI_Model {
               }
             }
 
+            public function get_profile($ID)
+            {
+              $query = $this->db->get_where('tbl_admin', array('admin_id' => $ID));
+              return $query->row_array();
+            }
+
+            public function alter_profile(){
+              date_default_timezone_set('America/Toronto');
+              $data = array(
+              'admin_username' => $this->input->post('username'),
+              'admin_name' => $this->input->post('name'),
+              );
+
+              if ($this->input->post('new_password')) {
+                  $data['admin_pw'] = password_hash($this->input->post('new_password'), PASSWORD_DEFAULT);
+              }
+
+              $this->db->set($data);
+              $this->db->where('admin_id', $_SESSION['userdata']['admin_id']);
+              $this->db->update('tbl_admin');
+            }
+
 
 }
