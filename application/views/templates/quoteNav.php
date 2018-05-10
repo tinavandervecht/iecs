@@ -17,7 +17,7 @@
                   <img src="<?php echo base_url('img/default_dude_img.png');?>" class="profilepic"/>
                   <h3 class="name"><?php echo $userInfo['company_contactName'];?></h3>
                   <h4 class="title"><?php echo $userInfo['company_name'];?></h4>
-                  <a href="/dashboard/logout"><small>Logout</small></a>
+                  <a href="<?php echo base_url('dashboard/logout'); ?>"><small>Logout</small></a>
                 </section>
                 <nav id="mainNav">
                     <h3 id="navTitle">Navigation</h3>
