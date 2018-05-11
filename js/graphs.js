@@ -47,10 +47,10 @@ $(document).foundation();
       y.domain([0, d3.max(value_data, function(d) { return d.y_axis; })]);
 
       var svg = d3.select("#user-graph-svg").append("svg")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.top + margin.bottom)
+          .attr("width", width)
+          .attr("height", height + margin.top)
           .append("g")
-          .attr("transform", "translate(0," + margin.top + ")");
+          .attr("transform", "translate(0,40)");
 
       var detailBox = svg.append("svg:text")
           .attr("dx", "20px")
@@ -61,7 +61,7 @@ $(document).foundation();
 
       var title = svg.append("text")
           .attr("x", 0)
-          .attr("y", -50)
+          .attr("y", -20)
           .attr("class","chart-title")
           .text(bar_data.chart_title);
 
@@ -70,15 +70,15 @@ $(document).foundation();
           .attr("transform", "translate(0," + height + ")")
           .call(xAxis)
 
-          svg.selectAll(".bar")
-              .data(value_data)
-              .enter()
-              .append("rect")
-              .style("fill", "#EBEEF1")
-              .attr("x", function(d) { return x(d.x_axis); })
-              .attr("width", x.rangeBand())
-              .attr("y", 0)
-              .attr("height", height)
+      svg.selectAll(".bar")
+          .data(value_data)
+          .enter()
+          .append("rect")
+          .style("fill", "#EBEEF1")
+          .attr("x", function(d) { return x(d.x_axis); })
+          .attr("width", x.rangeBand())
+          .attr("y", 0)
+          .attr("height", height)
 
       svg.selectAll(".bar")
           .data(value_data)

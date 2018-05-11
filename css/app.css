@@ -1887,6 +1887,41 @@ border-bottom: thick solid #4b8709;
   margin-bottom: 2em;
 }
 
+.graph-list #user-graph-svg {
+    float:left;
+}
+
+.graph-list #user-graph-data {
+    float:left;
+    text-align:center;
+    text-transform:uppercase;
+    font-size:15px;
+    color:#949FA0;
+    font-weight:bold;
+    margin-top:43px;
+    margin-left:16px;
+}
+
+.graph-list #user-graph-data .count {
+    color:#497F1F;
+    font-family:"Arial", sans-serif;
+    font-size:29px;
+}
+.graph-list #user-graph-svg .chart-title {
+    font-weight:bold;
+    fill:#949FA0;
+    font-size:15px;
+    letter-spacing:.03em;
+}
+
+.graph-list #user-graph-svg .tick text {
+    font-weight:bold;
+    fill:#949FA0;
+    text-transform:uppercase;
+    font-size:11px;
+    letter-spacing:.03em;
+}
+
 .graph-list #user-graph-svg .x .domain {
     fill: #FFFFFF !important;
 }

@@ -342,9 +342,6 @@ class Admin_model extends CI_Model {
                 $activity['prev_month_count'] = count($lastMonthUsers->result_array());
                 $activity['current_month_name'] = date('M');
                 $activity['current_month_count'] = count($currentMonthUsers->result_array());
-                $activity['difference'] = $activity['current_month_count'] - $activity['prev_month_count'] > 0
-                    ? $activity['current_month_count'] - $activity['prev_month_count']
-                    : 0;
 
                 return $activity;
             }
