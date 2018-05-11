@@ -35,6 +35,20 @@
       <div class="columns small-12 medium-11 medium-centered large-11 large-centered" id="recentContent">
         <a href="#" class="tabTitle">STATISTICS</a>
             <div class="tabDiv">
+                <div class="graph-list">
+                    <div id="user-graph-svg"
+                        data-prev-month-name="<?php echo $user_activity['prev_month_name']; ?>"
+                        data-prev-month-count="<?php echo $user_activity['prev_month_count'] ;?>"
+                        data-current-month-name="<?php echo $user_activity['current_month_name']; ?>"
+                        data-current-month-count="<?php echo $user_activity['current_month_count'] ;?>"
+                    >
+                    </div>
+                    <p>
+                        + <?php echo $user_activity['difference']; ?>
+                        <br />
+                        LAST MONTH
+                    </p>
+                </div>
               <img id="graph" src="<?php echo base_url('img/fake_graph.png');?>">
             </div>
   </section>

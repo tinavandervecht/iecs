@@ -1881,10 +1881,14 @@ border-bottom: thick solid #4b8709;
   background:#f8f8f8;
 }
 
-#graph{
-  padding:4em;
+.graph-list{
+  padding:2em;
   border:thin solid #ddd;
   margin-bottom: 2em;
+}
+
+.graph-list #user-graph-svg .x .domain {
+    fill: #FFFFFF !important;
 }
 
 #cmsCompanies .companii{

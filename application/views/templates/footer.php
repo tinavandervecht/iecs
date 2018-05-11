@@ -8,6 +8,8 @@
 <script src="<?php echo base_url('js\vendor\toastr.min.js');?>"></script>
 <script src="<?php echo base_url('js\vendor\moment.js');?>"></script>
 <script src="<?php echo base_url('js\vendor\pikaday.js');?>"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
 <script>
     toastr.options = {
         "positionClass": "toast-bottom-right"
@@ -16,6 +18,7 @@
 <script src="<?php echo base_url('js/classList.js');?>"></script><!--Polyfill for IE-->
 <script src="<?php echo base_url('js/app.js');?>"></script>
 <script src="<?php echo base_url($jsLink);?>"></script>
+<script src="<?php echo base_url('js/graphs.js');?>"></script>
 
 <?php if (!empty($_SESSION['profile_edited'])) : ?>
     <script>toastr.success('Profile successfully saved.');</script>

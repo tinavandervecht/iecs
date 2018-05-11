@@ -319,5 +319,35 @@ class Admin_model extends CI_Model {
               $this->db->update('tbl_admin');
             }
 
+            public function get_users_created_activity()
+            {
+                $activity = [];
+                $currentYear = (int) date('Y', strtotime('-1 months'));
+
+                $lastMonthNum = (int) date('n', strtotime('-1 months'));
+                $lastMonthUsers = $this->db->select('*')
+                    ->from('tbl_company')
+                    ->where('MONTH(company_createdAt)', $lastMonthNum)
+                    ->where('YEAR(company_createdAt)', $currentYear)
+                    ->get();
+
+                $currentMonthNum = (int) date('n');
+                $currentMonthUsers = $this->db->select('*')
+                    ->from('tbl_company')
+                    ->where('MONTH(company_createdAt)', $currentMonthNum)
+                    ->where('YEAR(company_createdAt)', $currentYear)
+                    ->get();
+
+                $activity['prev_month_name'] = date('M', strtotime('-1 months'));
+                $activity['prev_month_count'] = count($lastMonthUsers->result_array());
+                $activity['current_month_name'] = date('M');
+                $activity['current_month_count'] = count($currentMonthUsers->result_array());
+                $activity['difference'] = $activity['current_month_count'] - $activity['prev_month_count'] > 0
+                    ? $activity['current_month_count'] - $activity['prev_month_count']
+                    : 0;
+
+                return $activity;
+            }
+
 
 }
