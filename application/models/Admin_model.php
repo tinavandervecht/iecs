@@ -346,5 +346,23 @@ class Admin_model extends CI_Model {
                 return $activity;
             }
 
+            public function get_current_year_user_activity()
+            {
+                $activity = [];
+
+                for ($i = 1; $i <= 12; $i++) {
+                    $monthUsers = $this->db->select('*')
+                        ->from('tbl_company')
+                        ->where('MONTH(company_createdAt)', $i)
+                        ->where('YEAR(company_createdAt)', (int) date('Y'))
+                        ->get();
+
+                    $activity[$i]['x'] = $i;
+                    $activity[$i]['y'] = count($monthUsers->result_array());
+                }
+
+                return $activity;
+            }
+
 
 }

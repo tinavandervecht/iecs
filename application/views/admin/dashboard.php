@@ -48,6 +48,16 @@
                         <br />
                         LAST MONTH
                     </p>
+
+                    <script>
+                        var yearUserGraphData = <?php echo json_encode($year_user_activity);?>;
+                    </script>
+                    Number of Users per Month
+                    <svg id="year-user-graph-svg" width="550" height="150"></svg>
+                    <!-- <div id="year-user-graph-svg"
+                        data-data="<?php echo json_encode($year_user_activity); ?>"
+                    >
+                    </div> -->
                 </div>
               <img id="graph" src="<?php echo base_url('img/fake_graph.png');?>">
             </div>

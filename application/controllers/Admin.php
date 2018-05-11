@@ -26,6 +26,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
 
         $data['activity'] = $this->admin_model->get_activity(4);
         $data['user_activity'] = $this->admin_model->get_users_created_activity();
+        $data['year_user_activity'] = $this->admin_model->get_current_year_user_activity();
 
         $data['title'] = "Admin Panel | IECS"; //THE TITLE VARIABLE DEFINES THE WEBPAGE TITLE IN THE HEADER TEMPLATE VIEW
         $data['jsLink'] = 'js/dash.js'; //THE JSLINK VARIABLE DEFINES WHICH JAVASCRIPT FILE IS LINKED ON A PAGE IN THE FOOTER TEMPLATE VIEW

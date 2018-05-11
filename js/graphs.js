@@ -1,6 +1,16 @@
 $(document).foundation();
 
 (function() {
+    if ($('#user-graph-svg').length) {
+        this.generateMonthlyUserGraph();
+    }
+
+    if ($('#year-user-graph-svg').length && yearUserGraphData) {
+        this.generateYearlyUserGraph();
+    }
+})();
+
+function generateMonthlyUserGraph() {
     var graphID = '#user-graph-svg';
     var graphElement = $('#user-graph-svg');
 
@@ -101,4 +111,87 @@ $(document).foundation();
     for (i = 0; i < data.length; i++) {
       makeBar(width, height, data[i]);
     }
-})();
+}
+
+function generateYearlyUserGraph() {
+    var lineData = Object.keys(yearUserGraphData).map(function (key) { return yearUserGraphData[key]; });
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    var vis = d3.select('#year-user-graph-svg'),
+        WIDTH = 550,
+        HEIGHT = 150,
+        MARGINS = {
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 50
+        };
+
+    var xRange = d3.scale.linear()
+        .range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(lineData, function(d) {
+            return d.x;
+        }), d3.max(lineData, function(d) {
+            return d.x;
+        })]);
+
+    var yRange = d3.scale.linear()
+        .range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([d3.min(lineData, function(d) {
+            return d.y;
+        }), d3.max(lineData, function(d) {
+            return d.y;
+        })]);
+
+    var xAxis = d3.svg.axis()
+        .scale(xRange)
+        .tickSize(0);
+
+    var yAxis = d3.svg.axis()
+        .scale(yRange)
+        .tickSize(0)
+        .tickFormat(d3.format("d"))
+        .orient('left');
+
+    vis.append('svg:rect')
+        .style("fill", '#EBEEF1')
+        .attr("x", MARGINS.left)
+        .attr("width", WIDTH - MARGINS.left - MARGINS.right)
+        .attr("y", MARGINS.top - 10)
+        .attr("height", 30);
+        
+    vis.append('svg:rect')
+        .style("fill", '#EBEEF1')
+        .attr("x", MARGINS.left)
+        .attr("width", WIDTH - MARGINS.left - MARGINS.right)
+        .attr("y", (MARGINS.top - 10) + 60)
+        .attr("height", 30);
+
+    vis.append('svg:g')
+        .attr('class', 'x axis')
+        .attr('transform', 'translate(0,' + (HEIGHT - (MARGINS.bottom / 1.5)) + ')')
+        .call(xAxis);
+
+    vis.append('svg:g')
+        .attr('class', 'y axis')
+        .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+        .call(yAxis);
+
+    var lineFunc = d3.svg.line()
+        .x(function(d) {
+            return xRange(d.x);
+        })
+        .y(function(d) {
+            return yRange(d.y);
+        })
+        .interpolate('linear');
+
+      vis.append('svg:path')
+        .attr('d', lineFunc(lineData))
+        .attr('stroke', '#497F1F')
+        .attr('stroke-width', 5)
+        .attr('fill', 'none');
+
+        $('.x.axis g').each(function() {
+            var monthNum = $('text', this).text();
+            $('text', this).text(months[monthNum - 1]);
+        })
+}
