@@ -271,6 +271,8 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $data['title'] = 'Statistics Page';
         $data['jsLink'] = 'js/dash.js';
         $data['current'] = "statistics";
+        $data['user_activity'] = $this->admin_model->get_users_created_activity();
+        $data['year_user_activity'] = $this->admin_model->get_current_year_user_activity();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/adminNav', $data);

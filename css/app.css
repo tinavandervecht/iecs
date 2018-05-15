@@ -165,6 +165,7 @@ main:not(.no-top-margin){
 }
 #mainNav .navIcon {
     max-width: 2.6em;
+    max-height:20px;
     margin-bottom: 0.5em;
 }
 #mainNav .navText {
@@ -749,6 +750,7 @@ a.sectionTitle{
     display: none;
     width: 23%;
     height: 100%;
+    overflow:scroll;
     position: fixed;
     left: 0;
     top: 0;
@@ -838,6 +840,7 @@ a.sectionTitle{
     max-width: 2.2em;
     margin-left: 1em;
     opacity: 0.8;
+    max-height:20px;
     /*background: #222;*/
 }
 .card > p.welcomeText {
@@ -1907,11 +1910,16 @@ border-bottom: thick solid #4b8709;
     font-family:"Arial", sans-serif;
     font-size:29px;
 }
-.graph-list #user-graph-svg .chart-title {
+.graph-list #user-graph-svg .chart-title, .graph-list .year-user-graph-wrapper p {
     font-weight:bold;
     fill:#949FA0;
+    color:#949FA0;
     font-size:15px;
     letter-spacing:.03em;
+}
+
+.graph-list .year-user-graph-wrapper p {
+    margin-left:37px;
 }
 
 .graph-list #user-graph-svg .tick text {
@@ -1924,6 +1932,12 @@ border-bottom: thick solid #4b8709;
 
 .graph-list #user-graph-svg .x .domain {
     fill: #FFFFFF !important;
+}
+
+.graph-list .user-graph-wrapper, .graph-list .year-user-graph-wrapper {
+    float:left;
+    width:100%;
+    display:block;
 }
 
 #cmsCompanies .companii{
@@ -2445,5 +2459,17 @@ background: #313131;
 
     #sendit.greenButton.email{
       margin:2em auto;
+    }
+
+    .graph-list .user-graph-wrapper {
+        float:left;
+        border-bottom:1px solid rgb(235, 238, 241);
+        width:40%;
+    }
+
+    .graph-list .year-user-graph-wrapper {
+        float:left;
+        width:60%;
+        border-left:1px solid rgb(235, 238, 241);
     }
 }
