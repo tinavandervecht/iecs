@@ -115,7 +115,7 @@ function pagnation(event){
         var hasError = false;
         inputList.forEach(function(input) {
             if (input.value == '') {
-                $(input).after('<div><p class="error=">This field is required.</p></div>');
+                $(input).after('<div><p class="error">This field is required.</p></div>');
                 hasError = true;
                 return;
             }

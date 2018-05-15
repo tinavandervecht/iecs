@@ -15,7 +15,8 @@
                         <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in meters.</span>?</a>
                         <h5 class="unit">Meters</h5>
                 </label>
-                <input id="channelMeters" class="convert metric" name="channelMeters"
+                <input id="channelMeters" type="number" class="convert metric" name="channelMeters"
+                    min="0"
                     value="<?php if (isset($_POST['channelMeters'])) :
                         echo $_POST['channelMeters'];
                     elseif (isset($estimate)) :
@@ -28,7 +29,8 @@
                     <a href="#" class="tip"><span class="tooltip">Enter the total length of the protected area in feet.</span>?</a>
                     <h5 class="unit">Feet</h5>
                 </label>
-                <input id="channelFeet" name="channelFeet" class="convert imperial"
+                <input id="channelFeet" type="number" name="channelFeet" class="convert imperial"
+                    min="0"
                     value="<?php if(isset($_POST['channelFeet'])){echo $_POST['channelFeet'] ;} ?>"
                 />
                 <?php echo form_error('channelMeters', '<p class="error">', '</p>');?>
@@ -40,7 +42,8 @@
                     <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in meters.</span>?</a>
                     <h5 class="unit">Meters</h5>
                 </label>
-                <input id="depthMeters" class="convert metric" name="depthMeters"
+                <input id="depthMeters" type="number" class="convert metric" name="depthMeters"
+                    min="0"
                     value="<?php if (isset($_POST['depthMeters'])) :
                         echo $_POST['depthMeters'];
                     elseif (isset($estimate)) :
@@ -53,7 +56,8 @@
                     <a href="#" class="tip"><span class="tooltip">Enter the channel water depth at design capacity in feet.</span>?</a>
                     <h5 class="unit">Feet</h5>
                 </label>
-                <input id="depthFeet" name="depthFeet" class="convert imperial"
+                <input id="depthFeet" type="number" name="depthFeet" class="convert imperial"
+                    min="0"
                     value="<?php if(isset($_POST['depthFeet'])){echo $_POST['depthFeet'] ;} ?>"
                 />
                 <?php echo form_error('depthMeters', '<p class="error">', '</p>');?>
@@ -65,7 +69,8 @@
                     <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in meters.</span>?</a>
                     <h5 class="unit">Meters</h5>
                 </label>
-                <input id="topMeters" class="convert metric" name="topMeters"
+                <input id="topMeters" type="number" class="convert metric" name="topMeters"
+                    min="0"
                     value="<?php if (isset($_POST['topMeters'])) :
                         echo $_POST['topMeters'];
                     elseif (isset($estimate)) :
@@ -78,7 +83,8 @@
                     <a href="#" class="tip"><span class="tooltip">Enter the top width of the channel in feet.</span>?</a>
                     <h5 class="unit">Feet</h5>
                 </label>
-                <input id="topFeet" name="topFeet" class="convert imperial"
+                <input id="topFeet" type="number" name="topFeet" class="convert imperial"
+                    min="0"
                     value="<?php if(isset($_POST['topFeet'])){echo $_POST['topFeet'] ;} ?>"
                 />
             </div>
