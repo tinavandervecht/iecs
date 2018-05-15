@@ -24,7 +24,6 @@
             <label for="company_pw">Password:</label>
             <img src="<?php echo base_url('img/lock_edit.svg');?>" class="icon">
             <input name="company_pw" type="password" placeholder="Enter your Password">
-            <a id="forgot" href="#">Forgot Password</a>
             <input type="submit" name="submit" value="Log-In">
         </form>
 
