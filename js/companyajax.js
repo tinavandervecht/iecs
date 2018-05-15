@@ -83,7 +83,7 @@
 
   }
 
-  sort.addEventListener('change', ajaxCall, false);
+  select.addEventListener('change', ajaxCall, false);
   search.addEventListener('input', ajaxCall, false);
 
 

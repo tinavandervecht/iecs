@@ -60,8 +60,8 @@ function goingBack(event){
   pageNo.classList.remove('current');
   event.preventDefault();
   var it = event.currentTarget;
-  if(it.dataset.pag !=null){
-      pageNumber = parseInt(it.dataset.pag)-1;
+  if($(it).data('pag') != null){
+      pageNumber = parseInt($(it).data('pag'))-1;
       var newPage = pages[pageNumber];
       for(var i=0;i<pagnationPageTrackerPages.length;i++){
         if(pagnationPageTrackerPages[i].id == pageNumber+1){
@@ -113,11 +113,9 @@ function pagnation(event){
         })
 
         var hasError = false;
-        inputList.some(function(input) {
+        inputList.forEach(function(input) {
             if (input.value == '') {
-                var newNode = document.createElement('div');
-                newNode.innerHTML = '<p class="error">This field is required.</p>';
-                input.after(newNode);
+                $(input).after('<div><p class="error=">This field is required.</p></div>');
                 hasError = true;
                 return;
             }
@@ -452,7 +450,7 @@ function getInputs(){
 function summarize(){
   function stringify(json){
     var s = "";
-    for(i of Object.keys(json)){
+    for(i = 0; i <= Object.keys(json); i++){
       s += json[i].title + ": " + json[i].value + " " + "<br>";
     }
    return s;
@@ -463,9 +461,10 @@ function summarize(){
   // for(json of Object.keys(inputs)){
   //   stringify(inputs[json]);
   // }
-  for(box of summaryEntries){
-    box.querySelector('.text').innerHTML =  stringify(inputs[box.id]);
-  }
+  // for(box = 0; box <= summaryEntries; box++){
+  summerEntries.forEach(function(box)  {
+      box.querySelector('.text').innerHTML =  stringify(inputs[box.id]);
+  })
 }
 
 function updateReviewData() {
@@ -486,7 +485,7 @@ function setDetailsReview() {
     document.querySelector('#sum_details').querySelector('.details').innerHTML = '';
     var projectInformationInputs = calcSubmit.querySelector('#project_information_inputs').getElementsByClassName('input');
     var projectInformationInputList = Array.prototype.slice.call(projectInformationInputs);
-    var projectInformationHTML = getAreaInputValues(projectInformationInputList);
+    var projectInformationHTML = getAreaInputValues(projectInformationInputList, 'input');
     document.querySelector('#sum_details').querySelector('.details').innerHTML = projectInformationHTML;
 }
 
@@ -494,7 +493,7 @@ function setFlowVelocityReview() {
     document.querySelector('#sum_flow').querySelector('.details').innerHTML = '';
     var sumFlowInputs = calcSubmit.querySelector('#flow_velocity_inputs').getElementsByClassName('input');
     var sumFlowInputList = Array.prototype.slice.call(sumFlowInputs);
-    var sumFlowHTML = getAreaInputValues(sumFlowInputList);
+    var sumFlowHTML = getAreaInputValues(sumFlowInputList, 'input');
 
     var sumFlowMultiInputs = calcSubmit.querySelector('#flow_velocity_inputs').getElementsByClassName('multi_input');
     var sumFlowMultiInputList = Array.prototype.slice.call(sumFlowMultiInputs);
@@ -506,7 +505,7 @@ function setSlopesReview() {
     document.querySelector('#sum_slopes').querySelector('.details').innerHTML = '';
     var slopeInputs = calcSubmit.querySelector('#slope_inputs').getElementsByClassName('input');
     var slopeInputList = Array.prototype.slice.call(slopeInputs);
-    var slopeHTML = getAreaInputValues(slopeInputList);
+    var slopeHTML = getAreaInputValues(slopeInputList, 'input');
 
     var slopeMultiInputs = calcSubmit.querySelector('#slope_inputs').getElementsByClassName('multi_input');
     var slopeMultiInputList = Array.prototype.slice.call(slopeMultiInputs);
@@ -538,7 +537,7 @@ function setChannelReview() {
     document.querySelector('#sum_channel').querySelector('.details').innerHTML = '';
     var channelInputs = calcSubmit.querySelector('#channel_inputs').getElementsByClassName('input');
     var channelInputList = Array.prototype.slice.call(channelInputs);
-    var channelHTML = getAreaInputValues(channelInputList);
+    var channelHTML = getAreaInputValues(channelInputList, 'input');
 
     var channelMultiInputs = calcSubmit.querySelector('#channel_inputs').getElementsByClassName('multi_input');
     var channelMultiInputList = Array.prototype.slice.call(channelMultiInputs);
@@ -562,7 +561,7 @@ function setCommentReview() {
     document.querySelector('#sum_comments').querySelector('.details').innerHTML = commentHTML;
 }
 
-function getAreaInputValues(array, inputType = 'input') {
+function getAreaInputValues(array, inputType) {
     var string = '';
     array.forEach(function(input) {
         var label = input.querySelector('.title').textContent;
@@ -642,7 +641,9 @@ function updateSvg(parent,val,elToFill){
   if(val == "NaN"){
     val = "";
   }
-  parent.querySelector(elToFill).innerHTML = parent.querySelector(elToFill).innerHTML.replace(/\d/g,'').replace('.','') + val;
+  if (parent.querySelector(elToFill).innerHTML) {
+      parent.querySelector(elToFill).innerHTML = parent.querySelector(elToFill).innerHTML.replace(/\d/g,'').replace('.','') + val;
+  }
 }
 
 
@@ -742,9 +743,11 @@ function loadSvg(){
 
   var flow = document.querySelector("#flowType");
   var flows = new Array();
-  for(opt of flow.querySelectorAll('option')){
-    flows.push(opt.innerHTML);
-  }
+  var inputs = flow.querySelectorAll('option');
+  var inputList = Array.prototype.slice.call(inputs);
+  inputList.forEach(function(opt) {
+      flows.push(opt.innerHTML);
+  })
   val = flows[parseInt(flow.value)].toUpperCase();
   svg1.querySelector('#flowwy text').innerHTML = "FLOW TYPE: " + val;
 }

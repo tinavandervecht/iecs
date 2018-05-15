@@ -31,7 +31,9 @@
 			//console.log(httpRequest.responseText);
       if (httpRequest.responseText==='false'){
         centerBox.innerHTML = "";
-        table.innerHTML = "";
+        if (table) {
+            table.innerHTML = "";
+        }
         return;
       }
       else{
@@ -146,7 +148,7 @@
   }
 
 
-  sort.addEventListener('change', ajaxCall, false);
+  select.addEventListener('change', ajaxCall, false);
   search.addEventListener('input', ajaxCall, false);
 
 
