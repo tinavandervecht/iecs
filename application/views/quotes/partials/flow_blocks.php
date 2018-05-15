@@ -143,6 +143,7 @@
                 <h5 class="unit">Meters</h5>
             </label>
             <input type="number" id="bedMeters" class="convert metric required" name="bedMeters"
+                min="0"
                 value="<?php if (isset($_POST['bedMeters'])) :
                     echo $_POST['bedMeters'];
                 elseif (isset($estimate)) :
@@ -156,6 +157,7 @@
                 <h5 class="unit">Feet</h5>
             </label>
             <input type="number" id="bedFeet" name="bedFeet" class="convert imperial required"
+                min="0"
                 value="<?php if(isset($_POST['bedFeet'])){echo $_POST['bedFeet'] ;} ?>"
             />
             <?php echo form_error('bedMeters', '<p class="error">', '</p>');?>
@@ -198,6 +200,7 @@
                 <h5 class="unit">Meters</h5>
             </label>
             <input type="number" id="crestMeters" class="convert metric" name="crestMeters"
+                min="0"
                 value="<<?php if (isset($_POST['crestMeters'])) :
                     echo $_POST['crestMeters'];
                 elseif (isset($estimate)) :
@@ -211,6 +214,7 @@
                 <h5 class="unit">Feet</h5>
             </label>
             <input type="number" id="crestFeet" name="crestFeet" class="convert imperial"
+                min="0"
                 value="<?php if(isset($_POST['crestFeet'])){echo $_POST['crestFeet'] ;} ?>"
             />
             <?php echo form_error('crestMeters', '<p class="error">', '</p>');?>

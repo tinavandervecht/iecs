@@ -10,6 +10,7 @@
             <h5 class="unit">m<sup>3</sup>/s</h5>
         </label>
         <input type="number" id="flowMeters" class="convert metric required" name="flowMeters"
+            min="0"
             value="<?php if (isset($_POST['flowMeters'])) :
                 echo $_POST['flowMeters'];
             elseif (isset($estimate)) :
@@ -23,6 +24,7 @@
             <h5 class="unit">ft<sup>3</sup>/s</h5>
         </label>
         <input type="number" id="flowFeet" name="flowFeet" class="convert imperial required"
+            min="0"
             value="<?php if(isset($_POST['flowFeet'])){echo $_POST['flowFeet'] ;} ?>"
         />
         <?php echo form_error('flowMeters', '<p class="error">', '</p>');?>
@@ -35,6 +37,7 @@
             <h5 class="unit">m/s</h5>
         </label>
         <input type="number" id="velocityMeters" class="convert metric required"  name="velocityMeters"
+            min="0"
             value="<?php if (isset($_POST['velocityMeters'])) :
                 echo $_POST['velocityMeters'];
             elseif (isset($estimate)) :
@@ -48,6 +51,7 @@
             <h5 class="unit">ft/s</h5>
         </label>
         <input type="number" id="velocityFeet" name="velocityFeet" class="convert imperial required"
+            min="0"
             value="<?php if(isset($_POST['velocityFeet'])){echo $_POST['velocityFeet'] ;} ?>"
         />
         <?php echo form_error('velocityMeters', '<p class="error">', '</p>');?>

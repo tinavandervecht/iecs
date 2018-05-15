@@ -9,6 +9,7 @@
             <h5 class="unit">mm</h5>
         </label>
         <input type="number" id="offsetMeters" class="convert metric required" name="offsetMeters"
+            min="0"
             value="<?php if (isset($_POST['offsetMeters'])) :
                 echo $_POST['offsetMeters'];
             elseif (isset($estimate)) :
@@ -23,6 +24,7 @@
             <h5 class="unit">in.</h5>
         </label>
         <input type="number" id="offsetFeet" name="offsetFeet" class="convert imperial required"
+            min="0"
             value="<?php if(isset($_POST['offsetFeet'])){echo $_POST['offsetFeet'] ;} ?>"
         />
         <?php echo form_error('offsetMeters', '<p class="error">', '</p>');?>

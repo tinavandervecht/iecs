@@ -17,6 +17,7 @@
                 <h5 class="unit">Percent (%)</h5>
             </label>
             <input type="number" id="bedSlopePercent" name="bedSlopePercent" class="convert P required"
+                min="0"
                 value="<?php echo isset($_POST['bedSlopePercent']) ? $_POST['bedSlopePercent'] : '0.00'; ?>"
             />
             <?php echo form_error('bedSlopeDecimal', '<p class="error">', '</p>');?>
@@ -25,6 +26,7 @@
                 <h5 class="unit">Decimal</h5>
             </label>
             <input type="number" id="bedSlopeDecimal"  class="convert D required" name="bedSlopeDecimal"
+                min="0"
                 value="<?php if (isset($_POST['bedSlopeDecimal'])) :
                     echo $_POST['bedSlopeDecimal'];
                 elseif (isset($estimate)) :
@@ -43,6 +45,7 @@
                 <h5 class="unit">Percent (%)</h5>
             </label>
             <input type="number" id="sideSlopePercent" class="convert P required" name="sideSlopePercent"
+                min="0"
                 value="<?php echo isset($_POST['sideSlopePercent']) ? $_POST['sideSlopePercent'] : '0.00'; ?>"
             />
             <?php echo form_error('sideSlopeDecimal', '<p class="error">', '</p>');?>
@@ -51,6 +54,7 @@
                 <h5 class="unit">Decimal</h5>
             </label>
             <input type="number" id="sideSlopeDecimal"  class="convert D required" name="sideSlopeDecimal"
+                min="0"
                 value="<?php if (isset($_POST['sideSlopeDecimal'])) :
                     echo $_POST['sideSlopeDecimal'];
                 elseif (isset($estimate)) :
@@ -69,6 +73,7 @@
                 <h5 class="unit">Degrees</h5>
             </label>
             <input type="number" id="frAngle" class="" name="friction" value="30"
+                min="0"
                 value="<?php if (isset($_POST['friction'])) :
                     echo $_POST['friction'];
                 elseif (isset($estimate)) :
