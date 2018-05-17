@@ -10,19 +10,10 @@
     </div>
 
     <div id="slope_inputs" class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
-        <div id="bedSlope"  class="multi_input clearfix">
+        <div id="bedSlope"  class="clearfix">
             <label for="bedSlopePercent">
                 <h4 class="title">Channel Bed Slope</h4>
-                <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in percentage or decimal form.</span>?</a>
-                <h5 class="unit">Percent (%)</h5>
-            </label>
-            <input type="number" id="bedSlopePercent" name="bedSlopePercent" class="convert P required"
-                min="0"
-                value="<?php echo isset($_POST['bedSlopePercent']) ? $_POST['bedSlopePercent'] : '0.00'; ?>"
-            />
-            <?php echo form_error('bedSlopeDecimal', '<p class="error">', '</p>');?>
-
-            <label for="bedSlopeDecimal">
+                <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in decimal form.</span>?</a>
                 <h5 class="unit">Decimal</h5>
             </label>
             <input type="number" id="bedSlopeDecimal"  class="convert D required" name="bedSlopeDecimal"
@@ -38,19 +29,10 @@
             <?php echo form_error('bedSlopeDecimal', '<p class="error">', '</p>');?>
         </div>
 
-        <div id="sideSlope"  class="multi_input clearfix">
+        <div id="sideSlope"  class="clearfix">
             <label for="sideSlopePercent">
                 <h4 class="title">Channel Side Slope</h4>
                 <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a>
-                <h5 class="unit">Percent (%)</h5>
-            </label>
-            <input type="number" id="sideSlopePercent" class="convert P required" name="sideSlopePercent"
-                min="0"
-                value="<?php echo isset($_POST['sideSlopePercent']) ? $_POST['sideSlopePercent'] : '0.00'; ?>"
-            />
-            <?php echo form_error('sideSlopeDecimal', '<p class="error">', '</p>');?>
-
-            <label for="sideSlopeDecimal">
                 <h5 class="unit">Decimal</h5>
             </label>
             <input type="number" id="sideSlopeDecimal"  class="convert D required" name="sideSlopeDecimal"

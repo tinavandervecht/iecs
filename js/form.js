@@ -658,23 +658,11 @@ if(svg){
       val = parseFloat(val).toFixed(2);
       updateSvg(svg1,val,'#bedSlope text');
     },false);
-    var bedP = document.querySelector("#bedSlopePercent");
-    bedP.addEventListener('input',function(){
-      val = percentToDecimal(bedP.value);
-      val = parseFloat(val).toFixed(2);
-      updateSvg(svg1,val,'#bedSlope text');
-    },false);
 
     //SIDE SLOPE
     var sideD = document.querySelector("#sideSlopeDecimal");
     sideD.addEventListener('input',function(){
       val = sideD.value;
-      val = parseFloat(val).toFixed(2);
-      updateSvg(svg1,val,'#sideSlope text');
-    },false);
-    var sideP = document.querySelector("#sideSlopePercent");
-    sideP.addEventListener('input',function(){
-      val = percentToDecimal(sideP.value);
       val = parseFloat(val).toFixed(2);
       updateSvg(svg1,val,'#sideSlope text');
     },false);
@@ -699,13 +687,8 @@ window.addEventListener('load', function(){
   for(var i=0;i<convertFields.length;i++){
     var met = convertFields[i].parentNode.querySelector('.metric');
     var imp = convertFields[i].parentNode.querySelector('.imperial');
-    var dec = convertFields[i].parentNode.querySelector('.D');
-    var per = convertFields[i].parentNode.querySelector('.P');
     if(met!==null){
       imp.value = metricToImperial(met.value,"ft",4);
-    }
-    else if (dec!==null){
-      per.value = decimalToPercent(dec.value);
     }
   }
 
@@ -721,23 +704,10 @@ function loadSvg(){
     val = parseFloat(val).toFixed(2);
     updateSvg(svg1,val,'#bedSlope text');
 
-  var bedP = document.querySelector("#bedSlopePercent");
-
-    val = percentToDecimal(bedP.value);
-    val = parseFloat(val).toFixed(2);
-    updateSvg(svg1,val,'#bedSlope text');
-
-
   //SIDE SLOPE
   var sideD = document.querySelector("#sideSlopeDecimal");
 
     val = sideD.value;
-    val = parseFloat(val).toFixed(2);
-    updateSvg(svg1,val,'#sideSlope text');
-
-  var sideP = document.querySelector("#sideSlopePercent");
-
-    val = percentToDecimal(sideP.value);
     val = parseFloat(val).toFixed(2);
     updateSvg(svg1,val,'#sideSlope text');
 

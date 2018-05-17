@@ -166,7 +166,7 @@ var blockNormalForceSide;
 
 var section;
 
-var bedWidth;
+var bedWidthDN;
 var doubleCheckAn;
 var doubleCheck;
 
@@ -199,7 +199,6 @@ var netBedLift;
 var netSideLift;
 var netBedNormalForces;
 var netSideNormalForces;
-
 /*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
 CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
 
@@ -233,21 +232,22 @@ function Calculations(data, blockData){
 
   //GENERIC OVERTURNING AND SLIDING CALCULATIONS
   this.overturningBed= function(){
-      return blockDesignParamL3 * blockData.product_Ws * angleBedSlopeCos / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netBedDrag) + (blockDesignParamL4 * netBedLift));
+      return blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netBedDrag) + (blockDesignParamL4 * netBedLift));
   }
   this.overturningSide = function(){
-      var side1Check = (blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift));
-      var side2Check = (blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / (blockDesignParamL2 * netSideLift + blockDesignParamL1 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeSin);
-      var side3Check = (blockDesignParamL4 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / Math.pow((Math.pow(((blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift)), 2) + Math.pow((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeSin), 2)), 0.5);
+      var side1Check = Number((blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift))).toFixed(2);
+      var side2Check = Number((blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / (blockDesignParamL2 * netSideLift + blockDesignParamL1 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeSin)).toFixed(2);
+      var side3Check = Number((blockDesignParamLT * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / Math.pow((Math.pow(((blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift)), 2) + Math.pow((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeSin), 2)), 0.5)).toFixed(2);
+
       return Math.min(side1Check, side2Check, side3Check);
   }
   this.slidingBed = function(){
       return (netBedNormalForces * angleFrictionTan) / (Number(netBedDrag) + blockData.product_Ws * angleBedSlopeSin);
   }
   this.slidingSide = function(){
-      var side1Check = netSideNormalForces * angleFrictionTan / (Number(netSideDrag) + blockData.product_Ws * angleBedSlopeSin);
-      var side2Check = netSideNormalForces * angleFrictionTan / (blockData.product_Ws * angleSideSlopeSin * angleBedSlopeCos);
-      var side3Check = netSideNormalForces * angleFrictionTan / Math.pow((Math.pow((Number(netSideDrag) + blockData.product_Ws * angleBedSlopeSin), 2) + Math.pow((blockData.product_Ws * angleBedSlopeSin * angleBedSlopeCos), 2)), 0.5);
+      var side1Check = Number(netSideNormalForces * angleFrictionTan / (Number(netSideDrag) + blockData.product_Ws * angleBedSlopeSin)).toFixed(2);
+      var side2Check = Number(netSideNormalForces * angleFrictionTan / (blockData.product_Ws * angleSideSlopeSin * angleBedSlopeCos)).toFixed(2);
+      var side3Check = netSideNormalForces * angleFrictionTan / (Math.pow((Math.pow((Number(netSideDrag)+blockData.product_Ws*angleBedSlopeSin),2) + Math.pow((blockData.product_Ws*angleSideSlopeSin*angleBedSlopeCos),2)),0.5));
 
       return Math.min(side1Check, side2Check, side3Check);
   }
@@ -324,22 +324,25 @@ function performCalcs() {
             blockElement.querySelector('#netSideDrag .num').innerHTML = netSideDrag;
             blockElement.querySelector('#netBedLift .num').innerHTML = netBedLift;
             blockElement.querySelector('#netSideLift .num').innerHTML = netSideLift;
+            blockElement.querySelector('#blockNormalForceBed .num').innerHTML = Number(blockNormalForceBed).toFixed(2);
+            blockElement.querySelector('#blockNormalForceSide .num').innerHTML = Number(blockNormalForceSide).toFixed(2);
             blockElement.querySelector('#bedSlope .num').innerHTML = angleBedSlope;
             blockElement.querySelector('#sideSlope .num').innerHTML = angleSideSlope;
             blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(3);
+            blockElement.querySelector('#manningsCos .num').innerHTML = Number(manningsCos).toFixed(3);
             blockElement.querySelector('#shearStressBed .num').innerHTML = Number(shearStressBed).toFixed(2);
             blockElement.querySelector('#shearStressSide .num').innerHTML = Number(shearStressSide).toFixed(2);
             blockElement.querySelector('#shearDragBedForce .num').innerHTML = shearDragBedForce;
             blockElement.querySelector('#shearDragSideForce .num').innerHTML = shearDragSideForce;
-            blockElement.querySelector('#bedWidth .num').innerHTML = Number(bedWidth).toFixed(2);
-            blockElement.querySelector('#blockNormalForceBed .num').innerHTML = Number(blockNormalForceBed).toFixed(2);
-            blockElement.querySelector('#blockNormalForceSide .num').innerHTML = Number(blockNormalForceSide).toFixed(2);
+            blockElement.querySelector('#bedWidth .num').innerHTML = Number(jsonData.estimate_bedWidth).toFixed(2);
             blockElement.querySelector('#liftForceBed .num').innerHTML = Number(liftForceBed).toFixed(2);
             blockElement.querySelector('#liftForceSide .num').innerHTML = Number(liftForceSide).toFixed(2);
             blockElement.querySelector('#offsetN .num').innerHTML = Number(offsetN).toFixed(2);
             blockElement.querySelector('#offsetWhere .num').innerHTML = Number(offsetWhere).toFixed(2);
             blockElement.querySelector('#offsetWhere2 .num').innerHTML = Number(offsetWhere2).toFixed(2);
             blockElement.querySelector('#offsetNormalVelocity .num').innerHTML = Number(offsetNormalVelocity).toFixed(2);
+            blockElement.querySelector('#netBedNormalForces .num').innerHTML = Number(netBedNormalForces).toFixed(2);
+            blockElement.querySelector('#netSideNormalForces .num').innerHTML = Number(netSideNormalForces).toFixed(2);
         }
 
     } else {
@@ -387,14 +390,14 @@ function setSectionVariable(estimateFlow, estimateVelocity) {
 }
 
 function setBedWidthVariables(estimateBedWidth) {
-    bedWidth = (Math.pow((Math.pow(estimateBedWidth, 2) + 4 * channelSideSlope * section), 0.5) - estimateBedWidth) / (2 * channelSideSlope);
-    doubleCheckAn = Number(bedWidth) * (Number(bedWidth) * Number(channelSideSlope) + Number(estimateBedWidth));
-    doubleCheck = doubleCheckAn / (2 * Number(bedWidth) * Math.pow((1 + Math.pow(Number(channelSideSlope), 2)), 0.5) + Number(estimateBedWidth));
+    bedWidthDN = (Math.pow((Math.pow(estimateBedWidth, 2) + 4 * channelSideSlope * section), 0.5) - estimateBedWidth) / (2 * channelSideSlope);
+    doubleCheckAn = Number(bedWidthDN) * (Number(bedWidthDN) * Number(channelSideSlope) + Number(estimateBedWidth));
+    doubleCheck = doubleCheckAn / (2 * Number(bedWidthDN) * Math.pow((1 + Math.pow(Number(channelSideSlope), 2)), 0.5) + Number(estimateBedWidth));
 }
 
 function setManningsVariables(estimateFlow, estimateBedSlope) {
     mannings = (doubleCheckAn * Math.pow((doubleCheck), (2/3)) * Math.pow(estimateBedSlope, (1/2))) / estimateFlow;
-    manningsCos = bedWidth / angleBedSlopeCos;
+    manningsCos = bedWidthDN / angleBedSlopeCos;
 }
 
 function setShearStressVariables() {
@@ -415,8 +418,8 @@ function setLiftForceVariables() {
 
 function setOffsetVariables(estimateVelocity, estimateOffset, blockSizeBT) {
     offsetWhere2 = Number(7 / 6 * estimateVelocity).toFixed(2);
-    offsetNormalVelocity = Number(bedWidthY * Math.cos(angleFriction)).toFixed(2);
-    offsetWhere = Number(offsetWhere2 * Math.pow((estimateOffset / 1000 / offsetNormalVelocity), (1 / 7))).toFixed(2);
+    offsetNormalVelocity = estimateVelocity;
+    offsetWhere = Number(offsetWhere2 * Math.pow((estimateOffset / 1000 / bedWidthDN), (1 / 7))).toFixed(2);
     offsetN = Number(0.5 * waterDensity * Math.pow(offsetWhere, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000)).toFixed(2);
 }
 

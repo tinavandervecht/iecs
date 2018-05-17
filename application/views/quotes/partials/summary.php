@@ -65,6 +65,18 @@
                       <div class="num"><?php echo $block['product_Ws']; ?></div>
                   </div>
               </div>
+              <div class="other clearfix" id="blockNormalForceBed">
+                  <div>
+                      <p class="factor">Normal Bed Force</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="blockNormalForceSide">
+                  <div>
+                      <p class="factor">Normal Side Force</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
               <!--===========================-->
               <div class="other clearfix" id="netBedDrag">
                   <div>
@@ -141,13 +153,13 @@
                   </div>
               </div>
               <!--===========================-->
-              <div class="other clearfix" id="blockNormalForceBed">
+              <div class="other clearfix" id="netSideNormalForces">
                   <div>
                       <p class="factor">Normal Bed Force</p>
                       <div class="num">--</div>
                   </div>
               </div>
-              <div class="other clearfix" id="blockNormalForceSide">
+              <div class="other clearfix" id="netBedNormalForces">
                   <div>
                       <p class="factor">Normal Side Force</p>
                       <div class="num">--</div>
@@ -195,6 +207,13 @@
               <div class="other clearfix" id="manningsN">
                   <div>
                       <p class="factor">Manning's N</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+
+              <div class="other clearfix" id="manningsCos">
+                  <div>
+                      <p class="factor">Manning's Cos</p>
                       <div class="num">--</div>
                   </div>
               </div>
