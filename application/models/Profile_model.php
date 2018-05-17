@@ -1,72 +1,68 @@
 <?php
 class Profile_model extends CI_Model {
+    public function __construct()
+    {
+        $this->load->database();
+    }
 
-  //MODEL FOR THE PROFILE CONTROLLER, CONTAINS LOGIN AND ACCOUNT CREATION FUNCTIONALITY AND ACCOUNT ALTERING FUNCTIONALITY
-
-        public function __construct()
-        {
-                $this->load->database();
+    public function get_company($companyID = FALSE)
+    {
+        if($companyID === FALSE){
+            $query = $this->db->get('tbl_company');
+            return $query->result_array();
         }
 
-        public function get_company($companyID = FALSE)
-        {
+        $query = $this->db->get_where('tbl_company', array('company_id' => $companyID));
+        return $query->row_array();
+    }
 
-                      if($companyID === FALSE){
-                        $query = $this->db->get('tbl_company');
-                          return $query->result_array();
-                      }
+    public function check_login()
+    {
+        //FUNCTION FOR CHECKING THE LOGIN ON THE FRONT END
+        $email = $this->input->post('company_email');
+        $password = $this->input->post('company_pw');
+        $this->db->select('*');
+        $this->db->from('tbl_company');
+        $this->db->where('company_email', $email);
+        $query = $this->db->get();
 
-                      $query = $this->db->get_where('tbl_company', array('company_id' => $companyID));
-                      return $query->row_array();
+        foreach($query->result() as $possibleCompany) {
+            if (password_verify($password, $possibleCompany->company_pw)) {
+                return $query->row_array();
+                break;
+            }
         }
 
-        public function check_login(){
-          //FUNCTION FOR CHECKING THE LOGIN ON THE FRONT END
+        return false;
+    }
 
-                      $email = $this->input->post('company_email');
-                      $password = $this->input->post('company_pw');
-                      $this->db->select('*');
-                      $this->db->from('tbl_company');
-                      $this->db->where('company_email', $email);
-                      $query = $this->db->get();
-
-                      foreach($query->result() as $possibleCompany) {
-                          if (password_verify($password, $possibleCompany->company_pw)) {
-                              return $query->row_array();
-                              break;
-                          }
-                      }
-
-                      return false;
-        }
-
-      public function set_profile(){
+    public function set_profile()
+    {
         //FUNCTION FOR CREATING A NEW PROFILE
+        $this->load->helper('url');
+        date_default_timezone_set('America/Toronto');
 
-                      $this->load->helper('url');
-                      date_default_timezone_set('America/Toronto');
+        $data = array(
+            'company_email' => $this->input->post('company_email'),
+            'company_pw' => password_hash($this->input->post('company_pw'), PASSWORD_DEFAULT),
+            'company_date' => date('Y-m-d H:i:s'),
+            'company_name' => $this->input->post('company_name'),
+            'company_contactName' => $this->input->post('company_contactName'),
+            'company_status' => 1
+        );
 
-                      $data = array(
-                          'company_email' => $this->input->post('company_email'),
-                          'company_pw' => password_hash($this->input->post('company_pw'), PASSWORD_DEFAULT),
-                          'company_date' => date('Y-m-d H:i:s'),
-                          'company_name' => $this->input->post('company_name'),
-                          'company_contactName' => $this->input->post('company_contactName'),
+        $this->db->insert('tbl_company', $data);
 
-                          'company_status' => 1
-                      );
-                      $this->db->insert('tbl_company', $data);
+        return $this->db->insert_id();
+    }
 
-                      return $this->db->insert_id();
-      }
-
-      public function alter_profile(){
-        //FUNCTION FOR CHANGING THE PROFILE INFORMATIOn
+    public function alter_profile(){
+        //FUNCTION FOR CHANGING THE PROFILE INFORMATION
         date_default_timezone_set('America/Toronto');
         $data = array(
-        'company_name' => $this->input->post('name'),
-        'company_contactName' => $this->input->post('contactName'),
-        'company_phone' => $this->input->post('phone'),
+            'company_name' => $this->input->post('name'),
+            'company_contactName' => $this->input->post('contactName'),
+            'company_phone' => $this->input->post('phone'),
         );
 
         if ($this->input->post('new_password')) {
@@ -78,11 +74,11 @@ class Profile_model extends CI_Model {
         $this->db->update('tbl_company');
 
         $data = array(
-          'company_id' => $_SESSION['company_id'],
-          'activity_desc' => "Updated their company profile.",
-          'activity_date' => date('Y-m-d H:i:s')
+            'company_id' => $_SESSION['company_id'],
+            'activity_desc' => "Updated their company profile.",
+            'activity_date' => date('Y-m-d H:i:s')
         );
 
         return $this->db->insert('tbl_activity', $data);
-      }
+    }
 }

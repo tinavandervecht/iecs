@@ -15,8 +15,6 @@ class Tips extends CI_Controller {
         {
          redirect('/profile/login');
         }
-        //$data['tbl_company'] = $this->profile_model->get_company();
-        //$data['title'] = 'Companies';
         $data['userInfo'] = $this->profile_model->get_company($_SESSION['company_id']);
 
         $data['title'] = "Tips | IECS";

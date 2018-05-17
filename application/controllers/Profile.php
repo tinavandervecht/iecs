@@ -67,19 +67,6 @@ class Profile extends CI_Controller {
         }
     }
 
-    // private function password_validation($password)
-    // {
-    //     $company = $this->profile_model->get_company($_SESSION['company_id']);
-    // 
-    //     if (! password_verify($password, $company['company_pw'])) {
-    //         $this->form_validation->set_message('current_password', 'The %s field is not correct.');
-    //         return FALSE;
-    //     } else {
-    //         return TRUE;
-    //     }
-    // }
-
-
     public function create()
     {
         //FUNCTION FOR THE PROFILE CREATION PAGE

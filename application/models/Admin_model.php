@@ -1,368 +1,349 @@
 <?php
 class Admin_model extends CI_Model {
-  //THIS IS THE MODEL FOR THE ADMIN CONTROLLER, WHICH MAKES ANY DB CALLING FUNCTIONS FOR THE CONTROLLER.
+    public function __construct()
+    {
+        $this->load->database();
+    }
 
-        public function __construct()
-        {
-                $this->load->database(); //loads the db helper, necessary in every model.
+    public function check_adminlogin()
+    {
+        $admin = $this->input->post('admin_user');
+        $password = $this->input->post('admin_pw');
+        $this -> db -> select('*');
+        $this -> db -> from('tbl_admin');
+        $this -> db -> where('admin_username', $admin);
+        $query = $this -> db -> get();
+
+        foreach ($query->result() as $possibleAdmin) {
+            if (password_verify($password, $possibleAdmin->admin_pw)) {
+                $data = array(
+                    'admin_lastLogin' => time()
+                );
+                $this->db->update('tbl_admin', $data, "admin_id = 1"); //update the last login time.
+                return $query->row_array(); //Return the user info in a row_array (single dimensional associative array).
+                break;
+            }
         }
 
-        public function check_adminlogin(){
+        return false; //IF FALSE IS PASSED, THE CONTROLLER WILL REALIZE THE INFO IS WRONG AND WILL RELOAD THE ADMIN LOGIN SCREEN.
+    }
 
-            //THIS IS THE FUNCTION USED TO VERIFY LOGIN INFORMATION AND LOG IN A USER TO THE ADMIN PANEL.
+    public function get_allEstimates($limit)
+    {
+        //Function for getting all the estimates for the estimates cms page.
 
-              $admin = $this->input->post('admin_user');
-              $password = $this->input->post('admin_pw');
-              $this -> db -> select('*');
-              $this -> db -> from('tbl_admin');
-              $this -> db -> where('admin_username', $admin);
-              $query = $this -> db -> get();
+        $this->db->select('*');
+        $this->db->from('tbl_estimates');
+        $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
 
-              foreach ($query->result() as $possibleAdmin) {
-                  if (password_verify($password, $possibleAdmin->admin_pw)) {
-                      $data = array(
-                        'admin_lastLogin' => time()
-                      );
-                      $this->db->update('tbl_admin', $data, "admin_id = 1"); //update the last login time.
-                      return $query->row_array(); //Return the user info in a row_array (single dimensional associative array).
-                      break;
-                  }
-              }
+        if (isset($limit)){
+            $this->db->limit($limit);
+        }
 
-                return false; //IF FALSE IS PASSED, THE CONTROLLER WILL REALIZE THE INFO IS WRONG AND WILL RELOAD THE ADMIN LOGIN SCREEN.
-            }
+        $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
 
-            public function get_allEstimates($limit){
-              //Function for getting all the estimates for the estimates cms page.
+        $query = $this->db->get();
+        return $query->result_array(); //RESULT_ARRAY() RETURNS A TWO DIMENSION ASSOCIATIVE ARRAY (you would have the syntax be like array[i]['name'])
+    }
 
-              $this->db->select('*');
-              $this->db->from('tbl_estimates');
-              $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
-              if (isset($limit)){
-                $this->db->limit($limit);
-              }
-              $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
+    public function search_estimates($limit)
+    {
+        //A FUNCTION FOR SEARCHING FOR SPECIFIC ENTRIES IN THE ESTIMATES
+        $search = $this->input->post('search');
+        $sort = $this->input->post('sort');
 
-              $query = $this->db->get();
-              return $query->result_array(); //RESULT_ARRAY() RETURNS A TWO DIMENSION ASSOCIATIVE ARRAY (you would have the syntax be like array[i]['name'])
-            }
+        $this->db->select('*');
+        $this->db->from('tbl_estimates');
+        $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
 
-            public function search_estimates($limit){
-              //A FUNCTION FOR SEARCHING FOR SPECIFIC ENTRIES IN THE ESTIMATES
+        if (isset($search)) {
+            $this->db->like('tbl_estimates.estimate_name', $search);
+            $this->db->or_like('tbl_company.company_name', $search);
+        }
 
-              $search = $this->input->post('search');
-              $sort = $this->input->post('sort');
-
-              $this->db->select('*');
-              $this->db->from('tbl_estimates');
-              $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
-              if (isset($search)) {
-                $this->db->like('tbl_estimates.estimate_name', $search);
-                $this->db->or_like('tbl_company.company_name', $search);
-              }
-
-              if (isset($sort)) { //CHANGES THE ORDERING DEPENDING ON WHICH SELECTOR IS SELECTED
-                if ($sort=="1"){
-                  $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
-                }
-                elseif ($sort=="3") {
-                    $this->db->order_by('tbl_estimates.estimate_name', 'ASC');
-                }
-                elseif ($sort=="4") {
-                    $this->db->order_by('tbl_estimates.estimate_name', 'DESC');
-                }
-                else{
-                    $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'ASC');
-                }
-              }
-              else{
+        if (isset($sort)) { //CHANGES THE ORDERING DEPENDING ON WHICH SELECTOR IS SELECTED
+            if ($sort=="1"){
                 $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
-              }
-
-              if (isset($limit)){
-                $this->db->limit($limit);
-              }
-
-              $query = $this->db->get();
-
-              if($query -> num_rows() == 0){
-                return false;
-              }
-              else{
-                return $query->result_array();
-              }
-
-
+            } elseif ($sort=="3") {
+                $this->db->order_by('tbl_estimates.estimate_name', 'ASC');
+            } elseif ($sort=="4") {
+                $this->db->order_by('tbl_estimates.estimate_name', 'DESC');
+            } else {
+                $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'ASC');
             }
+        } else {
+            $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
+        }
 
-            public function ajax_estimate($sort, $search){ //FUNCTION FOR THE AJAX SEARCH FUNCTIONALITY. DOES THE SAME AS THE ABOVE FUNCTION.
+        if (isset($limit)){
+            $this->db->limit($limit);
+        }
 
-              $this->db->select('*');
-              $this->db->from('tbl_estimates');
-              $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
-              if (isset($search)) {
-                $this->db->like('tbl_estimates.estimate_name', $search);
-                $this->db->or_like('tbl_company.company_name', $search);
-              }
+        $query = $this->db->get();
 
-                if ($sort=="1"){ //CHANGING THE ORDERING BASED ON THE DESIGNATED SORTING INPUT ON THE FORM
-                  $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
-                }
-                elseif ($sort=="3") {
-                    $this->db->order_by('tbl_estimates.estimate_name', 'ASC');
-                }
-                elseif ($sort=="4") {
-                    $this->db->order_by('tbl_estimates.estimate_name', 'DESC');
-                }
-                else{
-                    $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'ASC');
-                }
+        return $query->num_rows() == 0
+            ? false
+            : $query->result_array();
+    }
 
-              $this->db->limit(12);
+    public function ajax_estimate($sort, $search)
+    {
+         //FUNCTION FOR THE AJAX SEARCH FUNCTIONALITY. DOES THE SAME AS THE ABOVE FUNCTION.
+        $this->db->select('*');
+        $this->db->from('tbl_estimates');
+        $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
 
-              $query = $this->db->get();
+        if (isset($search)) {
+            $this->db->like('tbl_estimates.estimate_name', $search);
+            $this->db->or_like('tbl_company.company_name', $search);
+        }
 
-              if($query -> num_rows() == 0){
-                return false;
-              }
-              else{
-                return $query->result_array();
-              }
+        //CHANGING THE ORDERING BASED ON THE DESIGNATED SORTING INPUT ON THE FORM
+        if ($sort=="1") {
+            $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
+        } elseif ($sort=="3") {
+            $this->db->order_by('tbl_estimates.estimate_name', 'ASC');
+        } elseif ($sort=="4") {
+            $this->db->order_by('tbl_estimates.estimate_name', 'DESC');
+        } else {
+            $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'ASC');
+        }
 
-            }
+        $this->db->limit(12);
+
+        $query = $this->db->get();
+
+        return $query->num_rows() == 0
+            ? false
+            : $query->result_array();
+    }
 
 
-            public function search_companies($limit){
-              //SIMILAR AS ABOVE, SEARCH FUNCTION FOR THE COMPANIES
+    public function search_companies($limit)
+    {
+        //SIMILAR AS ABOVE, SEARCH FUNCTION FOR THE COMPANIES
+        $search = $this->input->post('search');
+        $sort = $this->input->post('sort');
 
-              $search = $this->input->post('search');
-              $sort = $this->input->post('sort');
+        $this->db->select('*');
+        $this->db->from('tbl_company');
 
-              $this->db->select('*');
-              $this->db->from('tbl_company');
-              if (isset($search)) {
-                $this->db->like('company_name', $search);
-                $this->db->or_like('company_contactName', $search);
-                $this->db->or_like('company_email', $search);
-              }
+        if (isset($search)) {
+            $this->db->like('company_name', $search);
+            $this->db->or_like('company_contactName', $search);
+            $this->db->or_like('company_email', $search);
+        }
 
-              if (isset($sort)) {
-                if ($sort=="1"){
-                  $this->db->order_by('company_date', 'DESC');
-                }
-                elseif ($sort=="3") {
-                    $this->db->order_by('company_name', 'ASC');
-                }
-                elseif ($sort=="4") {
-                    $this->db->order_by('company_name', 'DESC');
-                }
-                else{
-                    $this->db->order_by('company_date', 'ASC');
-                }
-              }
-              else{
+        if (isset($sort)) {
+            if ($sort=="1"){
                 $this->db->order_by('company_date', 'DESC');
-              }
-
-              if (isset($limit)){
-                $this->db->limit($limit);
-              }
-
-              $query = $this->db->get();
-
-              if($query -> num_rows() == 0){
-                return false;
-              }
-              else{
-                return $query->result_array();
-              }
+            } elseif ($sort=="3") {
+                $this->db->order_by('company_name', 'ASC');
+            } elseif ($sort=="4") {
+                $this->db->order_by('company_name', 'DESC');
+            } else {
+                $this->db->order_by('company_date', 'ASC');
             }
+        } else {
+            $this->db->order_by('company_date', 'DESC');
+        }
 
-            public function ajax_companies($sort, $search){
-              //AJAX FUNCTION USED FOR SEARCHING FOR COMPANIES
+        if (isset($limit)){
+            $this->db->limit($limit);
+        }
 
-              $this->db->select('*');
-              $this->db->from('tbl_company');
-              if (isset($search)) {
-                $this->db->like('company_name', $search);
-                $this->db->or_like('company_contactName', $search);
-                $this->db->or_like('company_email', $search);
-              }
+        $query = $this->db->get();
 
-              if ($sort=="1"){
-                $this->db->order_by('company_date', 'DESC');
-              }
-              elseif ($sort=="3") {
-                  $this->db->order_by('company_name', 'ASC');
-              }
-              elseif ($sort=="4") {
-                  $this->db->order_by('company_name', 'DESC');
-              }
-              else{
-                  $this->db->order_by('company_date', 'ASC');
-              }
+        return $query->num_rows() == 0
+            ? false
+            : $query->result_array();
+    }
 
-              $this->db->limit(8);
+    public function ajax_companies($sort, $search)
+    {
+        //AJAX FUNCTION USED FOR SEARCHING FOR COMPANIES
+        $this->db->select('*');
+        $this->db->from('tbl_company');
 
-              $query = $this->db->get();
+        if (isset($search)) {
+            $this->db->like('company_name', $search);
+            $this->db->or_like('company_contactName', $search);
+            $this->db->or_like('company_email', $search);
+        }
 
-              if($query -> num_rows() == 0){
-                return false;
-              }
-              else{
-                return $query->result_array();
-              }
-            }
+        if ($sort=="1"){
+            $this->db->order_by('company_date', 'DESC');
+        } elseif ($sort=="3") {
+            $this->db->order_by('company_name', 'ASC');
+        } elseif ($sort=="4") {
+            $this->db->order_by('company_name', 'DESC');
+        } else {
+            $this->db->order_by('company_date', 'ASC');
+        }
 
-            public function get_activity($limit){
-              //GETS ALL ACTIVITY FOR THE ACTIVITY PAGE AND ATTACHED COMPANY INFO TO EACH ENTRY
+        $this->db->limit(8);
 
-              $this->db->select('*');
-              $this->db->from('tbl_activity');
-              $this->db->join('tbl_company', 'tbl_activity.company_id = tbl_company.company_id');
-              if (isset($limit)){
-                $this->db->limit($limit);
-              }
-              $this->db->order_by('tbl_activity.activity_date', 'DESC');
+        $query = $this->db->get();
 
-              $query = $this->db->get();
-              return $query->result_array();
-            }
+        return $query->num_rows() == 0
+            ? false
+            : $query->result_array();
+    }
 
-            public function get_allCompanies($limit){
-              //FUNCTION FOR GETTING ALL THE COMPANIES FOR THE CMS COMPANIES PAGE
+    public function get_activity($limit)
+    {
+        //GETS ALL ACTIVITY FOR THE ACTIVITY PAGE AND ATTACHED COMPANY INFO TO EACH ENTRY
+        $this->db->select('*');
+        $this->db->from('tbl_activity');
+        $this->db->join('tbl_company', 'tbl_activity.company_id = tbl_company.company_id');
 
-              $this->db->select('*');
-              $this->db->from('tbl_company');
-              if (isset($limit)){
-                $this->db->limit($limit);
-              }
-              $this->db->order_by('tbl_company.company_date', 'DESC');
+        if (isset($limit)){
+            $this->db->limit($limit);
+        }
 
-              $query = $this->db->get();
-              return $query->result_array();
-            }
-            public function get_companyEstimates($id, $limit){
-              //FOR POPULATING THE INDIVIDUAL COMPANY PAGES, GETS ALL ESTIMATES ASSOCIATED WITH A COMPANY.
+        $this->db->order_by('tbl_activity.activity_date', 'DESC');
 
-              $this->db->select('*');
-              $this->db->from('tbl_estimates');
-              $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
-              $this->db->where('tbl_estimates.company_id', $id);
-              if (isset($limit)){
-                $this->db->limit($limit);
-              }
-              $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
-              $query = $this->db->get();
-              return $query->result_array();
-            }
-            public function get_companyInfo($id){
-              //GETS THE INFO FOR A GIVEN COMPANY.
+    public function get_allCompanies($limit)
+    {
+        //FUNCTION FOR GETTING ALL THE COMPANIES FOR THE CMS COMPANIES PAGE
+        $this->db->select('*');
+        $this->db->from('tbl_company');
 
-              $this->db->select('*');
-              $this->db->from('tbl_company');
-              $this->db->where('tbl_company.company_id', $id);
+        if (isset($limit)){
+            $this->db->limit($limit);
+        }
 
-              $query = $this->db->get();
-              return $query->row_array();
-            }
+        $this->db->order_by('tbl_company.company_date', 'DESC');
 
-            public function get_summary($id){
-              //For the summary page.
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
-              $this->db->select('*');
-              $this->db->from('tbl_estimates');
-              //$this->db->join('tbl_results', 'tbl_estimates.estimate_id = tbl_results.results_id');
-              $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
-              $this->db->where('tbl_estimates.estimate_id', $id);
+    public function get_companyEstimates($id, $limit)
+    {
+        //FOR POPULATING THE INDIVIDUAL COMPANY PAGES, GETS ALL ESTIMATES ASSOCIATED WITH A COMPANY.
+        $this->db->select('*');
+        $this->db->from('tbl_estimates');
+        $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
+        $this->db->where('tbl_estimates.company_id', $id);
 
-              $query = $this->db->get();
-              return $query->row_array();
-            }
+        if (isset($limit)){
+            $this->db->limit($limit);
+        }
 
-            public function get_summary_data($id){
-              $this->db->select('*');
-              $this->db->from('tbl_estimates');
-              $this->db->join('tbl_company', 'tbl_estimates.company_id = tbl_company.company_id');
-              $this->db->where('estimate_id', $id);
-              $this->db->order_by('estimate_id', 'DESC');
-              $this->db->limit(1);
-              $query = $this->db->get();
-              if($query -> num_rows() == 1){
-                return $query->row_array();
-              }
-              else{
-                return false;
-              }
-            }
+        $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'DESC');
 
-            public function get_profile($ID)
-            {
-              $query = $this->db->get_where('tbl_admin', array('admin_id' => $ID));
-              return $query->row_array();
-            }
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
-            public function alter_profile(){
-              date_default_timezone_set('America/Toronto');
-              $data = array(
-              'admin_username' => $this->input->post('username'),
-              'admin_name' => $this->input->post('name'),
-              );
+    public function get_companyInfo($id)
+    {
+        //GETS THE INFO FOR A GIVEN COMPANY.
+        $this->db->select('*');
+        $this->db->from('tbl_company');
+        $this->db->where('tbl_company.company_id', $id);
 
-              if ($this->input->post('new_password')) {
-                  $data['admin_pw'] = password_hash($this->input->post('new_password'), PASSWORD_DEFAULT);
-              }
+        $query = $this->db->get();
+        return $query->row_array();
+    }
 
-              $this->db->set($data);
-              $this->db->where('admin_id', $_SESSION['userdata']['admin_id']);
-              $this->db->update('tbl_admin');
-            }
+    public function get_summary($id)
+    {
+        //For the summary page.
+        $this->db->select('*');
+        $this->db->from('tbl_estimates');
+        $this->db->join('tbl_company', 'tbl_company.company_id = tbl_estimates.company_id');
+        $this->db->where('tbl_estimates.estimate_id', $id);
 
-            public function get_users_created_activity()
-            {
-                $activity = [];
-                $currentYear = (int) date('Y', strtotime('-1 months'));
+        $query = $this->db->get();
+        return $query->row_array();
+    }
 
-                $lastMonthNum = (int) date('n', strtotime('-1 months'));
-                $lastMonthUsers = $this->db->select('*')
-                    ->from('tbl_company')
-                    ->where('MONTH(company_createdAt)', $lastMonthNum)
-                    ->where('YEAR(company_createdAt)', $currentYear)
-                    ->get();
+    public function get_summary_data($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_estimates');
+        $this->db->join('tbl_company', 'tbl_estimates.company_id = tbl_company.company_id');
+        $this->db->where('estimate_id', $id);
+        $this->db->order_by('estimate_id', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get();
 
-                $currentMonthNum = (int) date('n');
-                $currentMonthUsers = $this->db->select('*')
-                    ->from('tbl_company')
-                    ->where('MONTH(company_createdAt)', $currentMonthNum)
-                    ->where('YEAR(company_createdAt)', $currentYear)
-                    ->get();
+        return $query->num_rows() == 1
+            ? $query->row_array()
+            : false;
+    }
 
-                $activity['prev_month_name'] = date('M', strtotime('-1 months'));
-                $activity['prev_month_count'] = count($lastMonthUsers->result_array());
-                $activity['current_month_name'] = date('M');
-                $activity['current_month_count'] = count($currentMonthUsers->result_array());
+    public function get_profile($ID)
+    {
+        $query = $this->db->get_where('tbl_admin', array('admin_id' => $ID));
+        return $query->row_array();
+    }
 
-                return $activity;
-            }
+    public function alter_profile()
+    {
+        date_default_timezone_set('America/Toronto');
+        $data = array(
+            'admin_username' => $this->input->post('username'),
+            'admin_name' => $this->input->post('name'),
+        );
 
-            public function get_current_year_user_activity()
-            {
-                $activity = [];
+        if ($this->input->post('new_password')) {
+            $data['admin_pw'] = password_hash($this->input->post('new_password'), PASSWORD_DEFAULT);
+        }
 
-                for ($i = 1; $i <= 12; $i++) {
-                    $monthUsers = $this->db->select('*')
-                        ->from('tbl_company')
-                        ->where('MONTH(company_createdAt)', $i)
-                        ->where('YEAR(company_createdAt)', (int) date('Y'))
-                        ->get();
+        $this->db->set($data);
+        $this->db->where('admin_id', $_SESSION['userdata']['admin_id']);
+        $this->db->update('tbl_admin');
+    }
 
-                    $activity[$i]['x'] = $i;
-                    $activity[$i]['y'] = count($monthUsers->result_array());
-                }
+    public function get_users_created_activity()
+    {
+        $activity = [];
+        $currentYear = (int) date('Y', strtotime('-1 months'));
 
-                return $activity;
-            }
+        $lastMonthNum = (int) date('n', strtotime('-1 months'));
+        $lastMonthUsers = $this->db->select('*')
+            ->from('tbl_company')
+            ->where('MONTH(company_createdAt)', $lastMonthNum)
+            ->where('YEAR(company_createdAt)', $currentYear)
+            ->get();
 
+        $currentMonthNum = (int) date('n');
+        $currentMonthUsers = $this->db->select('*')
+            ->from('tbl_company')
+            ->where('MONTH(company_createdAt)', $currentMonthNum)
+            ->where('YEAR(company_createdAt)', $currentYear)
+            ->get();
 
+        $activity['prev_month_name'] = date('M', strtotime('-1 months'));
+        $activity['prev_month_count'] = count($lastMonthUsers->result_array());
+        $activity['current_month_name'] = date('M');
+        $activity['current_month_count'] = count($currentMonthUsers->result_array());
+
+        return $activity;
+    }
+
+    public function get_current_year_user_activity()
+    {
+        $activity = [];
+
+        for ($i = 1; $i <= 12; $i++) {
+            $monthUsers = $this->db->select('*')
+                ->from('tbl_company')
+                ->where('MONTH(company_createdAt)', $i)
+                ->where('YEAR(company_createdAt)', (int) date('Y'))
+                ->get();
+
+            $activity[$i]['x'] = $i;
+            $activity[$i]['y'] = count($monthUsers->result_array());
+        }
+
+        return $activity;
+    }
 }

@@ -17,8 +17,7 @@ class Quotes extends CI_Controller {
         if (isset($_SESSION['company_id']) == FALSE) {
             redirect('/profile/login');
         }
-        //$data['tbl_company'] = $this->profile_model->get_company();
-        //$data['title'] = 'Companies';
+
         $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
         $data['estimatesInfo'] = $this->quotes_model->get_estimateHistory($_SESSION['company_id']);
 
@@ -43,9 +42,8 @@ class Quotes extends CI_Controller {
     public function newQuote()
     {
         //THE FUNCTION FOR SHOWING THE NEW ESTIMATE FORM.
-
         if (isset($_SESSION['company_id']) == FALSE) {
-        redirect('/profile/login');
+            redirect('/profile/login');
         }
         $this->load->helper('form');
         $this->load->library('form_validation');
