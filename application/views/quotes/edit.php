@@ -7,6 +7,7 @@
             <section class="pagnation-page current" id="1">
                 <?php include 'application/views/quotes/partials/project_information.php'; ?>
                 <?php include 'application/views/quotes/partials/flow_velocity.php'; ?>
+                <?php include 'application/views/quotes/partials/offset.php'; ?>
             </section>
 
             <section class="pagnation-page" id="2">

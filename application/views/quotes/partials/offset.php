@@ -8,7 +8,7 @@
         <label for="offsetMeters">
             <h5 class="unit">mm</h5>
         </label>
-        <input type="number" id="offsetMeters" class="convert metric required" name="offsetMeters"
+        <input type="number" id="offsetMeters" class="convert metric required convert_to_in" name="offsetMeters"
             min="0"
             value="<?php if (isset($_POST['offsetMeters'])) :
                 echo $_POST['offsetMeters'];
@@ -23,7 +23,7 @@
         <label for="offsetFeet">
             <h5 class="unit">in.</h5>
         </label>
-        <input type="number" id="offsetFeet" name="offsetFeet" class="convert imperial required"
+        <input type="number" id="offsetFeet" name="offsetFeet" class="convert imperial required convert_to_mm"
             min="0"
             value="<?php if(isset($_POST['offsetFeet'])){echo $_POST['offsetFeet'] ;} ?>"
         />

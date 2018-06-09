@@ -39,8 +39,6 @@
                 <p>
                     <strong>Water Density: </strong> <script>document.write(waterDensity);</script>
                     <br />
-                    <strong>shearStressBedC: </strong> <script>document.write(shearStressBedC);</script>
-                    <br />
                     <strong>shearStressSideC: </strong> <script>document.write(shearStressSideC);</script>
                     <br />
                     <strong>shearDragWhereForce: </strong> <script>document.write(shearDragWhereForce);</script>

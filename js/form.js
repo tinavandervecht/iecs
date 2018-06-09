@@ -170,7 +170,7 @@ function metricToImperial(input,units,precision){
         if(units === "ft"){
             output = input*factor;
         }else if(units === "in"){
-            output = input*factor*12;
+            output = input / 25.4;
         }else if(units=== "yd"){
             output = input*factor/3;
         }else{
@@ -193,6 +193,8 @@ function imperialToMetric(input,units,precision){
     input = parseFloat(input);
     if(units === "m"){
         output = input/factor;
+    }else if(units === "mm"){
+        output = input * 25.4;
     }else{
         //console.log("parameter passed is invalid. ERROR");
     }
@@ -232,9 +234,17 @@ function autoUpdate(event){
   var decimal = it.parentNode.querySelector('.D');
     if(metric != null){
       if(it===metric){
-        imperial.value = metricToImperial(metric.value,"ft",4);
+          if (it.classList.contains('convert_to_in')) {
+              imperial.value = metricToImperial(metric.value,"in",4);
+          } else {
+              imperial.value = metricToImperial(metric.value,"ft",4);
+          }
       }else if(it===imperial){
-        metric.value = imperialToMetric(imperial.value,"m",4);
+          if (it.classList.contains('convert_to_mm')) {
+              metric.value = imperialToMetric(imperial.value,"mm",4);
+          } else {
+            metric.value = imperialToMetric(imperial.value,"m",4);
+        }
       }
     }else if(percent != null){
       if(it===decimal){
@@ -688,7 +698,11 @@ window.addEventListener('load', function(){
     var met = convertFields[i].parentNode.querySelector('.metric');
     var imp = convertFields[i].parentNode.querySelector('.imperial');
     if(met!==null){
-      imp.value = metricToImperial(met.value,"ft",4);
+        if (met.classList.contains('convert_to_in')) {
+            imp.value = metricToImperial(met.value,"in",4);
+        } else {
+            imp.value = metricToImperial(met.value,"ft",4);
+        }
     }
   }
 

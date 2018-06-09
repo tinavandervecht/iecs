@@ -10,9 +10,9 @@
     </div>
 
     <div id="slope_inputs" class="columns small-12 medium-6 medium-pull-6 large-6 large-pull-0">
-        <div id="bedSlope"  class="clearfix">
+        <div id="bedSlope" class="clearfix input">
+            <h4 class="title">Channel Bed Slope</h4>
             <label for="bedSlopePercent">
-                <h4 class="title">Channel Bed Slope</h4>
                 <a href="#" class="tip"><span class="tooltip">Enter the bed slope of the spillway/channel in decimal form.</span>?</a>
                 <h5 class="unit">Decimal</h5>
             </label>
@@ -23,15 +23,15 @@
                 elseif (isset($estimate)) :
                     echo $estimate['estimate_bedSlope'];
                 else:
-                    echo '0.00';
+                    echo '0.000';
                 endif; ?>"
             />
             <?php echo form_error('bedSlopeDecimal', '<p class="error">', '</p>');?>
         </div>
 
-        <div id="sideSlope"  class="clearfix">
+        <div id="sideSlope" class="clearfix input">
+            <h4 class="title">Channel Side Slope</h4>
             <label for="sideSlopePercent">
-                <h4 class="title">Channel Side Slope</h4>
                 <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a>
                 <h5 class="unit">Decimal</h5>
             </label>
@@ -42,7 +42,7 @@
                 elseif (isset($estimate)) :
                     echo $estimate['estimate_sideSlope'];
                 else:
-                    echo '0.00';
+                    echo '0.000';
                 endif; ?>"
             />
             <?php echo form_error('sideSlopeDecimal', '<p class="error">', '</p>');?>

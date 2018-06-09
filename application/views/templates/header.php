@@ -16,7 +16,6 @@
         // Constant variables used for calculating product information.
         // Stored here so we can echo these on the front end as well
         var waterDensity = 1000;
-        var shearStressBedC = 1;
         var shearStressSideC = 0.76;
         var shearDragWhereForce = Math.pow((16 * 25.4 / 1000), 2);
         var liftForceWhere = Math.pow((15.5 * 25.4 / 1000), 2);

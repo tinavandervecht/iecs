@@ -199,6 +199,8 @@ var netBedLift;
 var netSideLift;
 var netBedNormalForces;
 var netSideNormalForces;
+
+var shearStressBedC = 1;
 /*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
 CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
 
@@ -223,6 +225,9 @@ function Calculations(data, blockData){
   flowSectionArea = Number(data.estimate_expectedFlow / data.estimate_expectedVelocity).toFixed(3);
   bedWidthY = (Math.pow((Math.pow(data.estimate_bedWidth, 2)+4*(1/data.estimate_sideSlope)*flowSectionArea), 0.5)-data.estimate_bedWidth)/(2/data.estimate_sideSlope);
 
+  if(data.estimate_alignment) {
+      setShearStressBedC(data.estimate_crestRadius, data.estimate_topWidth);
+  }
   setShearStressVariables();
   setShearDragForceVariables();
   setLiftForceVariables();
@@ -398,6 +403,18 @@ function setBedWidthVariables(estimateBedWidth) {
 function setManningsVariables(estimateFlow, estimateBedSlope) {
     mannings = (doubleCheckAn * Math.pow((doubleCheck), (2/3)) * Math.pow(estimateBedSlope, (1/2))) / estimateFlow;
     manningsCos = bedWidthDN / angleBedSlopeCos;
+}
+
+function setShearStressBedC(estimateCrestRadius, estimateTopWidth) {
+    var argument = estimateCrestRadius / estimateTopWidth;
+
+    if (argument <= 2) {
+        shearStressBedC = 2.0;
+    } else if (argument < 10 && argument > 2) {
+        shearStressBedC = 2.38 - (0.206 * argument) + Math.pow((0.0073 * argument), 2);
+    } else if (argument >= 10) {
+        shearStressBedC = 1.05;
+    }
 }
 
 function setShearStressVariables() {
