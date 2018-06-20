@@ -32,8 +32,8 @@
         <div id="sideSlope" class="clearfix input">
             <h4 class="title">Channel Side Slope</h4>
             <label for="sideSlopePercent">
-                <a href="#" class="tip"><span class="tooltip">Enter channel side slope in H:V ‘ratio’ format – “Cot side slope”</span>?</a>
-                <h5 class="unit">Decimal</h5>
+                <a href="#" class="tip"><span class="tooltip">Enter channel side slope in "1:Z" format - entering "Z" below</span>?</a>
+                <h5 class="unit">Ratio 1:Z</h5>
             </label>
             <input type="number" id="sideSlopeDecimal"  class="convert D required" name="sideSlopeDecimal"
                 min="0"

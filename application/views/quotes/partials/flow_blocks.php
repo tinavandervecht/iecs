@@ -201,7 +201,7 @@
             </label>
             <input type="number" id="crestMeters" class="convert metric" name="crestMeters"
                 min="0"
-                value="<<?php if (isset($_POST['crestMeters'])) :
+                value="<?php if (isset($_POST['crestMeters'])) :
                     echo $_POST['crestMeters'];
                 elseif (isset($estimate)) :
                     echo $estimate['estimate_crestRadius'];
