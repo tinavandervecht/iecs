@@ -228,6 +228,7 @@ function Calculations(data, blockData){
   if(data.estimate_alignment) {
       setShearStressBedC(data.estimate_crestRadius, data.estimate_topWidth);
   }
+
   setShearStressVariables();
   setShearDragForceVariables();
   setLiftForceVariables();
@@ -406,14 +407,15 @@ function setManningsVariables(estimateFlow, estimateBedSlope) {
 }
 
 function setShearStressBedC(estimateCrestRadius, estimateTopWidth) {
-    var argument = estimateCrestRadius / estimateTopWidth;
+    var rcur = Number(Number(estimateCrestRadius) + (Number(estimateTopWidth) / 2)).toFixed(2);
+    var argument = Number(rcur / estimateTopWidth).toFixed(2);
 
-    if (argument <= 2) {
-        shearStressBedC = 2.0;
-    } else if (argument < 10 && argument > 2) {
-        shearStressBedC = 2.38 - (0.206 * argument) + Math.pow((0.0073 * argument), 2);
-    } else if (argument >= 10) {
+    if (argument >= 10) {
         shearStressBedC = 1.05;
+    } else if (argument > 2) {
+        shearStressBedC = 2.38 - 0.206 * (argument) + 0.0073 * Math.pow(argument, 2);
+    } else {
+        shearStressBedC = 2;
     }
 }
 
