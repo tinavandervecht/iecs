@@ -200,7 +200,7 @@ var netSideLift;
 var netBedNormalForces;
 var netSideNormalForces;
 
-var shearStressBedC = 1;
+var shearStressBedC = 1.00;
 /*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
 CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
 
@@ -212,7 +212,6 @@ return (a*b*c)/d + e -f; //RANDOM CALC
 
 */
 function Calculations(data, blockData){
-  var numSides = 3;
   setBedSlopeAngleVariables(data.estimate_bedSlope);
   setChannelSideSlopeVariables(data.estimate_sideSlope);
   setSideSlopeAngleVariables();
@@ -225,7 +224,7 @@ function Calculations(data, blockData){
   flowSectionArea = Number(data.estimate_expectedFlow / data.estimate_expectedVelocity).toFixed(3);
   bedWidthY = (Math.pow((Math.pow(data.estimate_bedWidth, 2)+4*(1/data.estimate_sideSlope)*flowSectionArea), 0.5)-data.estimate_bedWidth)/(2/data.estimate_sideSlope);
 
-  if(data.estimate_alignment) {
+  if(Boolean(Number(data.estimate_alignment))) {
       setShearStressBedC(data.estimate_crestRadius, data.estimate_topWidth);
   }
 
@@ -337,6 +336,7 @@ function performCalcs() {
             blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(3);
             blockElement.querySelector('#manningsCos .num').innerHTML = Number(manningsCos).toFixed(3);
             blockElement.querySelector('#shearStressBed .num').innerHTML = Number(shearStressBed).toFixed(2);
+            blockElement.querySelector('#shearStressBedC .num').innerHTML = Number(shearStressBedC).toFixed(2);
             blockElement.querySelector('#shearStressSide .num').innerHTML = Number(shearStressSide).toFixed(2);
             blockElement.querySelector('#shearDragBedForce .num').innerHTML = shearDragBedForce;
             blockElement.querySelector('#shearDragSideForce .num').innerHTML = shearDragSideForce;

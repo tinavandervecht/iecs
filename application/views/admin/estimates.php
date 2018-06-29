@@ -30,8 +30,6 @@
                       <h4><?php echo $estimates[$i]['estimate_name'];?></h4>
                     </div>
                     <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
-                    <p><span class="block est">Recommended Block: CC35<?php //THIS NO LONGER SEEMS POSSIBLE, PROBABLY SHOULD BE REMOVED ?></span></p>
-                    <p><span class="factor">Safety Factor: 2.3<?php //THIS NO LONGER SEEMS POSSIBLE, PROBABLY SHOULD BE REMOVED ?></span></p>
                     <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">Review</a></p>
                   </div>
 
@@ -45,8 +43,6 @@
                         <h4><?php echo $estimates[$i]['estimate_name'];?></h4>
                       </div>
                       <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
-                      <p><span class="block est">Recommended Block: CC35</span></p>
-                      <p><span class="factor">Safety Factor: 2.3</span></p>
                       <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton greyButton">Review</a></p>
                     </div>
 
@@ -69,8 +65,6 @@
                 <th>COMPANY</th>
                 <th>PROJECT</th>
                 <th>DATE EDITED</th>
-                <th>REC. BLOCK SIZE<?php //THIS NO LONGER SEEMS POSSIBLE, PROBABLY SHOULD BE REMOVED ?></th>
-                <th>SAFETY FACTOR<?php //THIS NO LONGER SEEMS POSSIBLE, PROBABLY SHOULD BE REMOVED ?></th>
                 <th>REVIEW</th>
               </tr>
             </thead>
@@ -82,8 +76,6 @@
                 <td><?php echo $estimates[$i]['company_name'];?></td>
                 <td><?php echo $estimates[$i]['estimate_name'];?></td>
                 <td><?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></td>
-                <td>BLOCK SIZE</td>
-                <td>Factoids</td>
                 <td>
                   <a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">REVIEW</a>
                 </td>
@@ -96,8 +88,6 @@
                 <td><?php echo $estimates[$i]['company_name'];?></td>
                 <td><?php echo $estimates[$i]['estimate_name'];?></td>
                 <td><?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></td>
-                <td>BLOCK SIZE</td>
-                <td>Factoids</td>
                 <td>
                   <a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">REVIEW</a>
                 </td>

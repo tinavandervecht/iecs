@@ -133,6 +133,12 @@
                       <div class="num">--</div>
                   </div>
               </div>
+              <div class="other clearfix" id="shearStressBedC">
+                  <div>
+                      <p class="factor">Shear Bed Stress Where Cb</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
               <div class="other clearfix" id="shearStressSide">
                   <div>
                       <p class="factor">Shear Side Stress</p>
