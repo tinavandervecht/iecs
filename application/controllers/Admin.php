@@ -163,7 +163,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         if ($this->form_validation->run() === TRUE) {
             $body = $this->input->post('email_text');
             $sub = $this->input->post('email_sub');
-            $this->email->from('tvandervecht@gmail.com', 'IECS'); //IECS EMAIL GOES HERE
+            $this->email->from('garvai@iecs.com', 'IECS');
             $this->email->to($data['summary']['company_email']);
 
             $this->email->subject($sub);

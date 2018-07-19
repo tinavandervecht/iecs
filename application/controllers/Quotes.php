@@ -182,11 +182,11 @@ class Quotes extends CI_Controller {
         $data['id'] = $id;
 
         //EMAIL INFORMATION
-        $body = '<h3>' . $data['summaryInfo']['company_name'] . "has submitted a new quote!</h3>"
+        $body = '<h3>' . $data['summaryInfo']['company_name'] . " has submitted a new quote!</h3>"
             . '<a href="' . site_url('/quotes/summary/'.$id) . '">Click here log in and view the quote.</a>';
         $sub = "New Quote Sent from ".$data['summaryInfo']['company_name'];
         $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']); //NOT SURE IF THIS FROM FUNCTIONALITY WORKS, NEEDS TESTING
-        $this->email->to('tvandervecht@gmail.com'); //IECS EMAIL GOES HERE
+        $this->email->to('garvai@iecs.com');
 
         $this->email->set_mailtype("html");
         $this->email->subject($sub);
