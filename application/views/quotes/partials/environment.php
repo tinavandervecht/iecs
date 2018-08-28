@@ -48,6 +48,14 @@
                         echo 'selected="true"';
                     endif; ?>
                 >
+                    Headwall
+                </option>
+                <option value="5"
+                    <?php if ((isset($_POST['sourceType']) && $_POST['sourceType'] == 5)
+                        || (isset($estimate) && $estimate['estimate_outLetSource'] == 5)) :
+                        echo 'selected="true"';
+                    endif; ?>
+                >
                     Other
                 </option>
             </select>

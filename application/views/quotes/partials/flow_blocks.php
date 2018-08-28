@@ -2,7 +2,17 @@
     <div class="columns small-12 medium-6 medium-clear" id="flow_type_inputs">
         <h3 class="sectionTitle">Types of Flow</h3>
         <div id="type"  class="input clearfix">
-            <h4 class="title">Choose Type of Flow:</h4>
+            <h4 class="title">
+                Choose Type of Flow:
+                <br />
+                <a href="#"
+                    disabled="disabled"
+                    class="modalButton"
+                    data-reveal-id="flowTypesModal"
+                >
+                    What does this mean?
+                </a>
+            </h4>
             <label for="flowType">
                 <h5 class="unit">(normal, overtopping, etc.)</h5>
             </label>
@@ -37,7 +47,7 @@
                         echo 'selected="true"';
                     endif; ?>
                 >
-                    Hydraulic
+                    Hydraulic Jump
                 </option>
                 <option value="4"
                     <?php if ((isset($_POST['flowType']) && $_POST['flowType'] == 4)
@@ -45,7 +55,7 @@
                         echo 'selected="true"';
                     endif; ?>
                 >
-                    Jump
+                    Super Critical
                 </option>
                 <option value="5"
                     <?php if ((isset($_POST['flowType']) && $_POST['flowType'] == 5)
@@ -221,3 +231,40 @@
         </div>
     </div>
 </div>
+
+<div id="flowTypesModal" class="custom-modal">
+    <h2 id="modalTitle" class="text-center">What do all the flow types mean?</h2>
+    <ul>
+        <li>
+            <p>
+                <strong>Normal</strong> - Normal depth is the depth of flow in a channel or culvert when the slope of the water surface and channel bottom is the same and the water depth remains constant. Normal depth occurs when gravitational force of the water is equal to the friction drag along the culvert and there is no acceleration of flow.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Overtopping</strong> - Overtopping flow occurs when a water confinement structure's capability is surpassed and flow passes over the structure.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Super Critical</strong> - A supercritical flow is a flow whose velocity is larger than the wave velocity. The analogous condition in gas dynamics is supersonic.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Sub Critical</strong> - sub critical flow is flow that is slower than the wave propagation speed.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Hydraulic Jump</strong> - A hydraulic jump is a phenomenon in the science of hydraulics which is frequently observed in open channel flow such as rivers and spillways. When liquid at high velocity discharges into a zone of lower velocity, a rather abrupt rise occurs in the liquid surface. The rapidly flowing liquid is abruptly slowed and increases in height, converting some of the flow's initial kinetic energy into an increase in potential energy, with some energy irreversibly lost through turbulence to heat. In an open channel flow, this manifests as the fast flow rapidly slowing and piling up on top of itself similar to how a shockwave forms.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Impinging</strong> - which occurs when approach channels direct flow into a bank line at large acute angles, results in flow concentration along bank lines, which creates large forces on bank material or bank protection.
+            </p>
+        </li>
+    </ul>
+</div>
+<div id="overlay"></div>

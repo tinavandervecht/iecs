@@ -49,7 +49,17 @@
         </div>
 
         <div id="frictionAngle"  class="input clearfix">
-            <h4 class="title">Friction Angle in Degrees</h4>
+            <h4 class="title">
+                Friction Angle in Degrees
+                <br />
+                <a href="#"
+                    disabled="disabled"
+                    class="modalButton"
+                    data-reveal-id="frictionAngleModal"
+                >
+                    What does this mean?
+                </a>
+            </h4>
             <label for="frAngle">
                 <a href="#" class="tip"><span class="tooltip">Enter a custom Friction Angle, if it applies - defaults to 30.</span>?</a>
                 <h5 class="unit">Degrees</h5>
@@ -65,3 +75,10 @@
         </div>
     </div>
 </div>
+
+<div id="frictionAngleModal" class="custom-modal text-center">
+    <h2 id="modalTitle">What Does Friction Angle Mean?</h2>
+    <img src="<?php echo base_url('img/friction-angle.png'); ?>" />
+    <p>When a block placed on the surface is just on the point of sliding then in that condition the angle between applied force and normal force is called the angle of friction. If phi is angle of friction, tan (phi)= mu, the coefficient of friction. Angle of friction is defined in the context of motion on inclined plane.</p>
+</div>
+<div id="overlay"></div>

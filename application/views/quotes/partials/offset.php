@@ -7,6 +7,7 @@
         <h4 class="title">Offset</h4>
         <label for="offsetMeters">
             <h5 class="unit">mm</h5>
+            <a href="#" class="tip"><span class="tooltip">Maximum vertical offset is the difference from block to block to block throughout the system in relation to the tops of the block and will impact flows when water is forced to flow up and over an increased vertical offset.</span>?</a>
         </label>
         <input type="number" id="offsetMeters" class="convert metric required convert_to_in" name="offsetMeters"
             min="0"

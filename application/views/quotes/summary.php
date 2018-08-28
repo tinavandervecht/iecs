@@ -5,6 +5,11 @@
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
                   <a href="<?php echo site_url('/dashboard');?>" class="tabTitle">&#10092; DESIGN SUMMARY</a>
                   <a href="#" class="tabTitle">STANDARDS</a>
+
+                  <form id="pdf-data" class="tablTitleForm" method="POST" action="<?php echo '/quotes/pdf/'.$id; ?>">
+                      <button type="submit" class="tabTitle">PDF</button>
+                  </form>
+
                   <div id="cardsbox" class="clearfix row">
                     <p id="sumInfo">CC-TM = Cable Concrete Technical Memorandum<span style="margin-lefT: 30px;">HEC = U.S, DOT HEC-23 Circular</span></p>
                     <?php echo file_get_contents(base_url('img/legend.svg')); ?>

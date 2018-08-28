@@ -19,6 +19,17 @@ try {
 catch(err){
     toastr.err(err);
 }
+
+$('.modalButton').on('click', function() {
+    let modalId = $(this).data('reveal-id');
+    $('#overlay').addClass('active');
+    $('#' + modalId).addClass('open');
+})
+
+$('#overlay').on('click', function() {
+    $('#overlay').removeClass('active');
+    $('.custom-modal').removeClass('open');
+})
 //THIS TRY{}CATCH{} IS MY LAZY ATTEMPT TO ASSSIGN THE DELETE FUNCTION TO ANY AND ALL ELEMENTS ON THE PAGE WITH A CLASS OF .rightButton a
 // THIS CODE ALLOWS THE DELETE FUNCTIONALITY TO WORK THE SAME WAY FOR MULTIPLE PAGES, USING THE SAME FILE AND THE SAME CODE
 })();

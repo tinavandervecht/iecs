@@ -167,6 +167,33 @@ class Quotes extends CI_Controller {
         $this->load->view('templates/footer', $data);
     }
 
+    public function pdf($id)
+    {
+        if (isset($_SESSION['company_id']) == FALSE) {
+            redirect('/profile/login');
+        }
+
+        if ($id==NULL) { //IF NO SUMMARY IS SPECIFIED
+            redirect('/dashboard');
+        }
+
+        $_SESSION['block_data'] = json_decode($this->input->post('pdfContent'));
+
+        $this->load->library('mpdf_library');
+
+        $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
+        $data['summaryInfo'] = $this->quotes_model->get_summary($id);
+        $data['blocks'] = $this->blocks_model->get_all_blocks();
+        $data['blocks_math'] = $this->input->post();
+        $data['title'] = "Estimate Summary";
+        $data['jsLink'] = 'js/calcpage.js';
+        $data['id'] = $id;
+
+        $html = $this->load->view('quotes/pdf', $data, true);
+
+        $this->mpdf_library->load($html);
+    }
+
     public function sendQuote($id)
     { //FUNCTION INTENDED TO RUN WHEN THE "SEND TO IECS?" IS CLICKED IN THE SUMMARY PAGE
         if (isset($_SESSION['company_id']) == FALSE) {

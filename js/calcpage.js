@@ -285,6 +285,8 @@ s.side = the side sliding safety factor;
 
 function performCalcs() {
     if (jsonData && blockData) {
+        var pdfContentForm = document.getElementById('pdf-data');
+
         for (var i = 0; i < blockData.length; i++) {
             var blockElement = document.getElementById(i + '-' + blockData[i]['product_name']);
             var calc = new Calculations(jsonData, blockData[i]);
@@ -324,6 +326,34 @@ function performCalcs() {
                     blockElement.querySelector('.sliding .side').parentNode.classList.add('nono');
                 }
             }
+
+            // blockOverview = {};
+            // blockOverview[i + '-' + blockData[i]['product_name']] = calc.blockSon();
+            // $(pdfContentTextInput).html(pdfContentTextInput.innerHTML + JSON.stringify(blockOverview));
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[o][b]";
+                input.value = calc.blockSon().o.bed;
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[s][b]";
+                input.value = calc.blockSon().s.bed;
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[o][s]";
+                input.value = calc.blockSon().o.side;
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[s][s]";
+                input.value = calc.blockSon().s.side;
+                pdfContentForm.appendChild(input);
 
             blockElement.querySelector('#netBedDrag .num').innerHTML = netBedDrag;
             blockElement.querySelector('#netSideDrag .num').innerHTML = netSideDrag;
