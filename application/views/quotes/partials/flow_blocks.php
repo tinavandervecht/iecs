@@ -142,6 +142,54 @@
                 </option>
             </select>
         </div>
+
+        <div id="type"  class="input clearfix">
+            <h4 class="title">
+                Channel Section
+                <br />
+                <a href="#"
+                    disabled="disabled"
+                    class="modalButton"
+                    data-reveal-id="channelSectionModal"
+                >
+                    What does this mean?
+                </a>
+            </h4>
+            <select id="channelSection" name="channelSection">
+                <option value="0"
+                    <?php if ((isset($_POST['channelSection']) && $_POST['channelSection'] == 0)
+                        || (isset($estimate) && $estimate['estimate_channelSection'] == 0)) :
+                        echo 'selected="true"';
+                    endif; ?>
+                >
+                    Trapezoidal
+                </option>
+                <option value="0"
+                    <?php if ((isset($_POST['channelSection']) && $_POST['channelSection'] == 1)
+                        || (isset($estimate) && $estimate['estimate_channelSection'] == 1)) :
+                        echo 'selected="true"';
+                    endif; ?>
+                >
+                    Parabolic
+                </option>
+                <option value="0"
+                    <?php if ((isset($_POST['channelSection']) && $_POST['channelSection'] == 2)
+                        || (isset($estimate) && $estimate['estimate_channelSection'] == 2)) :
+                        echo 'selected="true"';
+                    endif; ?>
+                >
+                    Rectangular
+                </option>
+                <option value="0"
+                    <?php if ((isset($_POST['channelSection']) && $_POST['channelSection'] == 3)
+                        || (isset($estimate) && $estimate['estimate_channelSection'] == 3)) :
+                        echo 'selected="true"';
+                    endif; ?>
+                >
+                    Irregular
+                </option>
+            </select>
+        </div>
     </div>
 
     <div class="columns small-12 medium-6 end" id="bed_type_alignment_inputs">
@@ -263,6 +311,32 @@
         <li>
             <p>
                 <strong>Impinging</strong> - which occurs when approach channels direct flow into a bank line at large acute angles, results in flow concentration along bank lines, which creates large forces on bank material or bank protection.
+            </p>
+        </li>
+    </ul>
+</div>
+
+<div id="channelSectionModal" class="custom-modal">
+    <h2 id="modalTitle" class="text-center">What do all the channel sections mean?</h2>
+    <ul>
+        <li>
+            <p>
+                <strong>Trapezoidal</strong> - Trapezoidal Channel is an open channel with a trapezoidal cross section where both sides have the same slope.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Parabolic</strong> -  is a plane curve which is mirror-symmetrical and is approximately U-shaped. It fits any of several superficially different mathematical descriptions, which can all be proved to define exactly the same curves.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Rectangular</strong> - is an open channel with a rectangular cross section with varying width, and where both sides have the same height.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Irregular</strong> - is an open channel with an irregular cross section with varying width and irregular height on the sides. Can also have sloped and or vertical side walls containing the channel.
             </p>
         </li>
     </ul>

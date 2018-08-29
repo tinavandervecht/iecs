@@ -1261,7 +1261,7 @@ div.more a{
   color:#fbfbfb;
   height:100%;
   text-align: center;
-  padding:2em 0.1em;
+  padding:.6em .1em;
   box-sizing: border-box;
   position: absolute;
   left:0;
@@ -1683,6 +1683,11 @@ width: 100%;
   color:#5c5b5b;
   border-radius:0;
   line-height:normal;
+  background:white;
+  margin-bottom:-1px;
+}
+.tabTitle:not(.active) {
+    background:#f1f1f1;
 }
 .companyEntry{
   color:inherit;
@@ -1759,7 +1764,7 @@ display:none
 #delete_product_modal, .custom-modal {
     background:white;
     padding:20px;
-    position:absolute;
+    position:fixed;
     top:-100%;
     left:0;
     width:100%;

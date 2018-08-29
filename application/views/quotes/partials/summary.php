@@ -11,6 +11,8 @@
           <div class="blocktype small-4 medium-2">
               <p><?php echo $block['product_name']; ?></p>
               <p class="smaller">(<?php echo $block['product_number']; ?> LB/SF)</p>
+              <span class="modalButton"
+              data-reveal-id="<?php echo $block['product_number']; ?>-blockInformation">Block Details</span>
           </div>
           <div class="factor row">
               <div class="slimshady-wrapper small-8 medium-10">
@@ -229,3 +231,10 @@
   <!-- end block-->
 <?php endforeach;?>
 </div><!-- END CARDSBOX -->
+
+<?php foreach($blocks as $key => $block):?>
+    <div id="<?php echo $block['product_number']; ?>-blockInformation" class="custom-modal text-enter">
+        <img src="<?php echo base_url('img/' . $block['product_name'] . '-block.svg') ?>" alt="<?php echo $block['product_name']; ?>" />
+    </div>
+<?php endforeach;?>
+<div id="overlay"></div>

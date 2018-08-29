@@ -4,9 +4,9 @@
         <section class="row expanded" id="cmsEstimateSummary">
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
                   <a href="<?php echo site_url('/dashboard');?>" class="tabTitle">&#10092; DESIGN SUMMARY</a>
-                  <a href="#" class="tabTitle">STANDARDS</a>
+                  <a href="#" class="tabTitle active">STANDARDS</a>
 
-                  <form id="pdf-data" class="tablTitleForm" method="POST" action="<?php echo '/quotes/pdf/'.$id; ?>">
+                  <form id="pdf-data" class="tablTitleForm" method="POST" action="<?php echo '/quotes/pdf/'.$id; ?>" target="_blank">
                       <button type="submit" class="tabTitle">PDF</button>
                   </form>
 
