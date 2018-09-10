@@ -21,7 +21,7 @@ class Quotes extends CI_Controller {
         $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
         $data['estimatesInfo'] = $this->quotes_model->get_estimateHistory($_SESSION['company_id']);
 
-        $data['title'] = "Quotes | IECS";
+        $data['title'] = "Designs | IECS";
         $data['jsLink'] = 'js/quotes.js';
         $data['current'] = "quotes";
 
@@ -66,7 +66,7 @@ class Quotes extends CI_Controller {
         if ($this->form_validation->run() === FALSE) { //IF THE FORM HAS UNSUCCESSFULLY VALIDATED (MEANING ITS A FRESH FORM OR AN INCORRECT FROM)
             //SHOW THE PAGE
             $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
-            $data['title'] = "New Quote | IECS";
+            $data['title'] = "New Design | IECS";
             $data['jsLink'] = 'js/form.js';
             $data['current'] = "quotes";
 
@@ -209,9 +209,9 @@ class Quotes extends CI_Controller {
         $data['id'] = $id;
 
         //EMAIL INFORMATION
-        $body = '<h3>' . $data['summaryInfo']['company_name'] . " has submitted a new quote!</h3>"
-            . '<a href="' . site_url('/quotes/summary/'.$id) . '">Click here log in and view the quote.</a>';
-        $sub = "New Quote Sent from ".$data['summaryInfo']['company_name'];
+        $body = '<h3>' . $data['summaryInfo']['company_name'] . " has submitted a new design!</h3>"
+            . '<a href="' . site_url('/quotes/summary/'.$id) . '">Click here log in and view the design.</a>';
+        $sub = "New Design Sent from ".$data['summaryInfo']['company_name'];
         $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']); //NOT SURE IF THIS FROM FUNCTIONALITY WORKS, NEEDS TESTING
         $this->email->to('garvai@iecs.com');
 

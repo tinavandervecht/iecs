@@ -559,7 +559,7 @@ form.testing input {
     float: left;
     margin-right: 1em;
 }
-.tip {
+.tip:not(.arrow-wrapper) {
     color: inherit;
     text-decoration: none;
     border: thin solid  #FFBF00;
@@ -574,6 +574,9 @@ form.testing input {
     top: 0;
     cursor: pointer;
     margin-top:-2px;
+}
+.tip.arrow-wrapper {
+    position:relative;
 }
 .tip .tooltip{
   display: none;
@@ -603,6 +606,14 @@ form.testing input {
   z-index: 12;
 }
 
+.tip.arrow-wrapper .tooltip {
+    max-width: 80px !important;
+    min-width: 80px !important;
+    top: 33px;
+    left: -27px;
+    font-size: 9px;
+    line-height: 10px;
+}
 
 
 #calculator label + input:not([type="checkbox"]), #calculator label + input:not([type="submit"]), #calculator label + select{
@@ -868,6 +879,13 @@ a.sectionTitle{
     max-width: 8em;
     border: thin solid #777;
     border-radius: 50%;
+}
+.right-person._bg {
+    width:100px;
+    height:100px;
+    background-size:cover !important;
+    background-repeat:no-repeat !important;
+    background-position:center !important;
 }
 .buttons {
     border-top: thin solid #ccc;
@@ -1181,6 +1199,26 @@ scrollWrapper.quotesPage .quote .dateModified span{
   border: thin solid #aaa;
   display: block;
   border-radius: 50%;
+  margin-bottom:15px;
+}
+#mainProfile .profilePicLarge._bg {
+    height:150px;
+    width:150px;
+    background-size:cover !important;
+    background-position:center !important;
+    background-repeat:no-repeat!important;
+    position:relative;
+}
+#mainProfile .profilePicLarge._bg .clearProfilePic {
+    position: absolute;
+    right: 0px;
+    background: #ccc;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#mainProfile .profilePicLarge._bg .clearProfilePic img {
+    width:20px;
 }
 #mainProfile .error {
     margin:0 auto 1em auto;
@@ -1330,17 +1368,24 @@ div.more a{
   line-height: 3em;
   max-height: none;
 }
+.blockbox .blocktype img.arrow {
+    width: .8em;
+    height: .8em;
+    transform: rotate(180deg);
+    transition: all ease 1s;
+    margin-left: 10px;
+    margin-top: -4px;
+}
 .blockbox .factor img.arrow{
-  display: none;
   position: absolute;
-  top:1.8em;
+  top:.6em;
   right:1em;
   width:1.5em;
   height:1.5em;
   transform: rotate(180deg);
   transition: all ease 1s;
 }
-.block.selected .blockbox .factor img.arrow{
+.block.selected .blockbox .factor img.arrow, .block.selected .blockbox .blocktype img.arrow{
   transform: rotate(0deg);
 }
 .blockbox .factor .overturning, .blockbox .factor .sliding{
@@ -1554,6 +1599,13 @@ width: 100%;
 .greyButton:hover{
   background:#656565;
   color:#fff;
+}
+
+.greyButton.avatar {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    padding: 13px;
 }
 
 .redButton{
@@ -2445,6 +2497,13 @@ background: #313131;
         float: left;
         max-width: 4rem;
         margin-right: 1em;
+    }
+    #profile .profilepic._bg {
+        background-size:cover !important;
+        background-repeat:no-repeat !important;
+        background-position:center !important;
+        height:65px;
+        width:65px;
     }
     #profile .name {
         margin-top: 0.6em;

@@ -1,13 +1,18 @@
 <main class="clearfix">
       <h2 class="hidden">Main Content</h2>
       <section class="row expanded" id="mainQuotes">
+          <div class="columns small-12 card">
+            <h3 class="display-block">New Design</h3>
+            <p class="halfsies">To begin a new analysis, click the green button to the right. The process will ask you to input information relating to your project, and will return the recommended Cable Concrete block as well as a number of safety factors to suit your project.</p>
+            <a id="newQuoteButton" class="greenButton" href="<?php echo site_url('/quotes/newQuote');?>">Start New Design</a>
+        </div>
         <div class="row">
           <div class="columns small-12 card" id="quotes">
-            <h3>Current Quotes</h3><img class="icon" src="<?php echo base_url('img/history_icon_black.svg');?>">
+            <h3>Current Designs</h3><img class="icon" src="<?php echo base_url('img/history_icon_black.svg');?>">
             <div id="scrollWrapper" class="quotesPage <?php echo empty($estimatesInfo) ? 'noScroll' : ''; ?>">
               <!-- ========================================================================= -->
               <?php if (empty($estimatesInfo)): ?>
-                  <h4 class="title">No quotes to show.</h4>
+                  <h4 class="title">No designs to show.</h4>
               <?php endif; ?>
               <?php foreach ($estimatesInfo as $estimate): ?>
               <div class="quote closed clearfix">
@@ -51,11 +56,6 @@
 
               <!-- ========================================================================= -->
           </div>          <!-- end scrollWrapper -->
-        </div>
-          <div class="columns small-12 card">
-            <h3 class="display-block">New Quote</h3>
-            <p class="halfsies">To begin a new analysis, click the green button to the right. The process will ask you to input information relating to your project, and will return the recommended Cable Concrete block as well as a number of safety factors to suit your project.</p>
-            <a id="newQuoteButton" class="greenButton" href="<?php echo site_url('/quotes/newQuote');?>">Start New quote</a>
         </div>
         </div>
       </section>

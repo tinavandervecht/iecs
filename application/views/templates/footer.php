@@ -8,7 +8,7 @@
 <script src="<?php echo base_url('js\vendor\toastr.min.js');?>"></script>
 <script src="<?php echo base_url('js\vendor\moment.js');?>"></script>
 <script src="<?php echo base_url('js\vendor\pikaday.js');?>"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
 
 <script>
     toastr.options = {

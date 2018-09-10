@@ -113,7 +113,13 @@
         <div id="designComponentTwo"  class="input clearfix">
             <h4 class="title">Use block on...</h4>
             <label for="blockUse">
-                <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
+                <a href="#"
+                    disabled="disabled"
+                    class="modalButton"
+                    data-reveal-id="useBlockOnModal"
+                >
+                    What does this mean?
+                </a>
             </label>
             <select name="blockUse">
                 <option value="0"
@@ -337,6 +343,26 @@
         <li>
             <p>
                 <strong>Irregular</strong> - is an open channel with an irregular cross section with varying width and irregular height on the sides. Can also have sloped and or vertical side walls containing the channel.
+            </p>
+        </li>
+    </ul>
+</div>
+
+<div id="useBlockOnModal" class="custom-modal">
+    <ul>
+        <li>
+            <p>
+                <strong>Bed & Side</strong> - utilize Cable Concrete on the bed (slope) and side slope of the channel/out to protect from erosive forces.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Bed Only</strong> - utilize Cable Concrete on the bed (slope) only of the channel/outlet. No armouring is required on the side slopes in this design.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Side Only</strong> - utilize Cable Concrete on the side slopes of the channel/outlet.  No Cable Concrete is required on the bed (slope) in the design.
             </p>
         </li>
     </ul>

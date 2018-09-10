@@ -9,7 +9,11 @@
         <h2 class="hidden">Sidebar</h2>
         <img class="logo" src="<?php echo base_url('img/iecslogo_copy.png');?>">
         <section id="profile" class="clearfix">
-          <img src="<?php echo base_url('img/default_dude_img.png');?>" class="profilepic"/>
+        <?php if($userInfo['company_avatar']): ?>
+            <div class="profilepic _bg" style="background:url(<?php echo base_url($userInfo['company_avatar'])?>)"></div>
+        <?php else: ?>
+            <img src="<?php echo base_url('img/default_dude_img.png');?>" class="profilepic"/>
+        <?php endif; ?>
           <h3 class="name"><?php echo $userInfo['company_contactName'];?></h3>
           <h4 class="title"><?php echo $userInfo['company_name'];?></h4>
           <a href="/dashboard/logout"><small>Logout</small></a>

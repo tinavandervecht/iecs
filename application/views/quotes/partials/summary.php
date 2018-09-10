@@ -9,7 +9,13 @@
     <!--start block-->
       <a href="#" class="blockbox clearfix">
           <div class="blocktype small-4 medium-2">
-              <p><?php echo $block['product_name']; ?></p>
+              <p>
+                  <?php echo $block['product_name']; ?>
+                  <span class="tip arrow-wrapper">
+                      <img class="arrow" src="<?php echo base_url('img/arrow_icon.svg'); ?>" alt="arrow">
+                      <span class="tooltip">Click to expand design details</span>
+                  </span>
+              </p>
               <p class="smaller">(<?php echo $block['product_number']; ?> LB/SF)</p>
               <span class="modalButton"
               data-reveal-id="<?php echo $block['product_number']; ?>-blockInformation">Block Details</span>
@@ -26,7 +32,6 @@
                       <p class="safety">Bed: <span class="num bed"></span></p>
                       <p class="safety">Side: <span class="num side"></span></p>
                   </div>
-                  <img class="arrow" src="img/arrow_icon.svg" alt="arrow">
               </div>
           </div>
       </a>

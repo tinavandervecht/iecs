@@ -125,4 +125,30 @@ class Profile extends CI_Controller {
             }
         }
     }
+
+    public function avatar($id)
+    {
+        $config['upload_path']          = './img/uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['overwrite'] = false;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('avatar')){
+            redirect("/profile");
+        } else {
+            $config['source_image'] = $this->upload->upload_path.$this->upload->file_name;
+
+            $this->load->library('image_lib', $config);
+
+            $this->profile_model->update_avatar($id);
+            redirect("/profile");
+        }
+    }
+
+    public function clear_avatar($id)
+    {
+        $this->profile_model->clear_avatar($id);
+        redirect("/profile");
+    }
 }

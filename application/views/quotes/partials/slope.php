@@ -5,7 +5,18 @@
 
     <div class="columns small-12 medium-6 medium-push-6 large-6 large-pull-0">
         <div class="calcDiagram" id="svg1">
-            <?php echo file_get_contents(base_url('img/iso_slope.svg')); ?>
+            <?php
+                $arrContextOptions=array(
+                    "ssl"=>array(
+                        "verify_peer"=>false,
+                        "verify_peer_name"=>false,
+                    ),
+                );
+
+                $response = file_get_contents(base_url('img/iso_slope.svg'), false, stream_context_create($arrContextOptions));
+
+                echo $response;
+            ?>
         </div>
     </div>
 

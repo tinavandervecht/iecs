@@ -4,6 +4,38 @@
     </div>
 
     <div class="columns small-12 medium-6" id="environment_inputs">
+        <div id="sourceFlowType"  class="input clearfix">
+            <h4 class="title">Outlet Source Type</h4>
+            <label for="sourceFlowType">
+                <a href="#"
+                    disabled="disabled"
+                    class="modalButton"
+                    data-reveal-id="sourceFlowTypeModal"
+                >
+                    What does this mean?
+                </a>
+            </label>
+            <select id="sourceFlowType" name="sourceFlowType">
+                <option value="0"
+                    <?php if ((isset($_POST['sourceFlowType']) && $_POST['sourceFlowType'] == 0)
+                        || (isset($estimate) && $estimate['estimate_outLetSourceFlowtype'] == 0)) :
+                        echo 'selected="true"';
+                    endif; ?>
+                >
+                    Inlet
+                </option>
+                <option value="1"
+                    <?php if ((isset($_POST['sourceFlowType']) && $_POST['sourceFlowType'] == 1)
+                        || (isset($estimate) && $estimate['estimate_outLetSourceFlowtype'] == 1)) :
+                        echo 'selected="true"';
+                    endif; ?>
+                >
+                    Outlet
+                </option>
+            </select>
+            <?php echo form_error('sourceFlowType', '<p class="error">', '</p>');?>
+        </div>
+
         <div id="source"  class="input clearfix">
             <h4 class="title">Outlet Source</h4>
             <label for="sourceType">
@@ -79,3 +111,19 @@
         </div>
     </div>
 </div>
+
+<div id="sourceFlowTypeModal" class="custom-modal">
+    <ul>
+        <li>
+            <p>
+                <strong>Inlet</strong> - where water is flowing into.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Outlet</strong> - To Channel.
+            </p>
+        </li>
+    </ul>
+</div>
+<div id="overlay"></div>

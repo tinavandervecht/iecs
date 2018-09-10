@@ -81,4 +81,26 @@ class Profile_model extends CI_Model {
 
         return $this->db->insert('tbl_activity', $data);
     }
+
+    public function update_avatar($id)
+    {
+        $data = array(
+            'company_avatar' => '/img/uploads/'.$this->upload->file_name
+        );
+
+        $this->db->set($data);
+        $this->db->where('company_id', $id);
+        $this->db->update('tbl_company');
+    }
+
+    public function clear_avatar($id)
+    {
+        $data = array(
+            'company_avatar' => NULL
+        );
+
+        $this->db->set($data);
+        $this->db->where('company_id', $id);
+        $this->db->update('tbl_company');
+    }
 }

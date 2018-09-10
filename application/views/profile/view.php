@@ -1,15 +1,31 @@
 <main class="clearfix">
     <h2 class="hidden">Main Content</h2>
     <section class="row expanded" id="mainProfile">
-        <?php echo form_open('/profile');?>
             <div class="columns small-12">
                 <h2>Profile</h2>
             </div>
 
-            <div class="columns small-12 large-3">
-                <img class="profilePicLarge" src="<?php echo base_url('img/default_dude_img.png')?>" alt="Profile Picture">
-            </div>
+            <?php echo form_open_multipart('/profile/avatar/' . $userInfo['company_id']);?>
+                <div class="columns small-12 large-3">
+                    <?php if($userInfo['company_avatar']): ?>
+                        <a href="/profile/clear_avatar/<?php echo $userInfo['company_id']; ?>" class="profilePicLarge _bg" style="background:url(<?php echo base_url($userInfo['company_avatar'])?>)">
+                            <span class="clearProfilePic"><img src="<?php echo base_url('img/trash_icon.svg'); ?>" /></span>
+                        </a>
+                        <div class="field">
+                            <input class="" name="avatar" type="file">
+                        </div>
+                        <button class="greyButton avatar" type="submit">Change Avatar</button>
+                    <?php else: ?>
+                        <img class="profilePicLarge" src="<?php echo base_url('img/default_dude_img.png')?>" alt="Profile Picture">
+                        <div class="field">
+                            <input class="" name="avatar" type="file">
+                        </div>
+                        <button class="greyButton avatar" type="submit">Upload Avatar</button>
+                    <?php endif; ?>
+                </div>
+            </form>
 
+            <?php echo form_open('/profile');?>
             <div class="columns small-12 large-4">
                 <div class="field">
                     <h3 class="title">Contact Name</h3>

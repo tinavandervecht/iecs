@@ -4,7 +4,11 @@
         <div class="row">
           <div class="columns small-12 medium-6 card left">
             <h3>Welcome <span class="name"><?php echo $userInfo['company_contactName'];?></span></h3>
-            <img class="right-person" src="<?php echo base_url('img/default_dude_img.png');?>"/>
+            <?php if($userInfo['company_avatar']): ?>
+                <div class="right-person _bg" style="background:url(<?php echo base_url($userInfo['company_avatar'])?>)"></div>
+            <?php else: ?>
+                <img class="right-person" src="<?php echo base_url('img/default_dude_img.png');?>"/>
+            <?php endif; ?>
             <p class="welcomeText">This web application is a tool that allows contractors and engineers to calculate which Cable Concrete&reg; product will best suit their projects. You can preform these calculations yourself, as well as keep track and edit any calculations you make on this application.</p>
           </div>
           <div class="columns small-12 medium-6 card right">
@@ -22,7 +26,7 @@
         </div>
         <div class="row border-top">
           <div class="columns small-12 medium-12 large-6 card left">
-            <h3>Most Recent Quote</h3><img class="icon" src="<?php echo base_url('img/paper_icon_black.svg');?>">
+            <h3>Most Recent Design</h3><img class="icon" src="<?php echo base_url('img/paper_icon_black.svg');?>">
             <?php if($estimatesInfo != false):?>
             <div class="quote">
               <h4 class="title"><?php echo $estimatesInfo[0]['estimate_name'];?></h4>
@@ -61,7 +65,7 @@
             </div>
             <?php else: ?>
                 <div class="quote">
-                  <h4 class="title">No quotes to show.</h4>
+                  <h4 class="title">No designs to show.</h4>
                 </div>
             <?php endif ?>
           </div>
@@ -117,7 +121,7 @@
             <?php endforeach; ?>
             <?php else: ?>
                 <div class="quote closed">
-                  <h4 class="title">No quotes to show.</h4>
+                  <h4 class="title">No designs to show.</h4>
                 </div>
           <?php endif ?>
           </div>          <!-- end scrollWrapper -->
