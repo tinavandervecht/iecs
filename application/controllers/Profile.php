@@ -129,8 +129,8 @@ class Profile extends CI_Controller {
     public function avatar($id)
     {
         $config['upload_path']          = './img/uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['overwrite'] = false;
+        $config['allowed_types']        = 'gif|jpg|jpeg|png';
+        $config['overwrite']            = false;
 
         $this->load->library('upload', $config);
 
