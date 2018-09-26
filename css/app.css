@@ -1225,7 +1225,7 @@ scrollWrapper.quotesPage .quote .dateModified span{
     display:block;
     max-width:24em;
 }
-#mainDashboard, #cmsActivity, #cmsDashboard, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+#mainDashboard, #cmsActivity, #cmsDashboard, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #acbDesignFiles{
     margin-bottom: 6rem;
 }
 
@@ -2239,13 +2239,13 @@ background: #313131;
   .hide-for-small{
     display: inline;
   }
-  #mainDashboard, #cmsActivity, #cmsEstimates, #cmsEstimateSummary, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation{
+  #mainDashboard, #cmsActivity, #cmsEstimates, #cmsEstimateSummary, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #acbDesignFiles{
       /*margin-bottom: 0rem;*/
   }
   #cmsDashboard, #cmsStats, #cmsEstimates, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile{
     margin-top: 12em;
   }
-  #mainDashboard, #mainQuotes, #mainHistory, #mainProfile, #mainTips, #mainFAQs{
+  #mainDashboard, #mainQuotes, #mainHistory, #mainProfile, #mainTips, #mainFAQs, #acbDesignFiles{
     margin-top: 10em;
   }
   .calcDiagram{
@@ -2405,7 +2405,7 @@ background: #313131;
     #sideBar {
         display: block;
     }
-    #mainDashboard, #cmsActivity, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation{
+    #mainDashboard, #cmsActivity, #cmsDashboard, #cmsEstimates, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainTips, #mainHistory, #quoteCalculation, #acbDesignFiles{
         padding-left: 23%;
     }
     .tiptop{
@@ -2545,4 +2545,38 @@ background: #313131;
         width:60%;
         border-left:1px solid rgb(235, 238, 241);
     }
+}
+
+#acbDesignFiles ul li {
+    height:150px;
+    list-style-type:none;
+    border:1px solid black;
+    padding:35px;
+    text-align:center;
+    margin:10px;
+}
+
+@media(min-width:1023px) {
+    #acbDesignFiles ul li {
+        width:31%;
+        float:left;
+    }
+}
+
+#acbDesignFiles ul li img {
+    width:50px;
+    display:block;
+    margin:0 auto 10px auto;
+}
+
+.modalHeader {
+    background:#4b8709;
+    padding:10px;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.modalHeader img {
+    width:150px;
+    margin:0 auto;
 }

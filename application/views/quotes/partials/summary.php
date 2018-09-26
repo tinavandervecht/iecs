@@ -1,8 +1,8 @@
 <div class="columns small-12 large-12 card">
     <p>
-        Mimimum safety factor: <strong>1.5</strong>.
+        Minimum FOS <strong>>1.0</strong>
         <br />
-        Optimum safety factor: <strong>2</strong>
+        Optimum FOS <strong>>1.5</strong>
     </p>
 <?php foreach($blocks as $key => $block):?>
   <div class="block" id=<?php echo $key . '-' . $block['product_name']; ?>>

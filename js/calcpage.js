@@ -9,8 +9,8 @@
 
 //CONSTANTS
 var PRECISION = 2; //number of displayed decimals on block output.
-var MINIMUM = 1.5; //absolute minimum safe safety factor for a block
-var UPSELL = 2; //minimum safety factor to upsell to, anything below this but above MINIMUM is still acceptable, want to upsell to this
+var MINIMUM = 1; //absolute minimum safe safety factor for a block
+var UPSELL = 1.5; //minimum safety factor to upsell to, anything below this but above MINIMUM is still acceptable, want to upsell to this
 
 var submittoIECS = document.querySelector("#saveit");
 var yeahSave = document.querySelector(".box #yes");

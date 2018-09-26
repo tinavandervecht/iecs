@@ -287,6 +287,9 @@
 </div>
 
 <div id="flowTypesModal" class="custom-modal">
+    <div class="modalHeader">
+        <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
+    </div>
     <h2 id="modalTitle" class="text-center">What do all the flow types mean?</h2>
     <ul>
         <li>
@@ -323,6 +326,9 @@
 </div>
 
 <div id="channelSectionModal" class="custom-modal">
+    <div class="modalHeader">
+        <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
+    </div>
     <h2 id="modalTitle" class="text-center">What do all the channel sections mean?</h2>
     <ul>
         <li>
@@ -349,6 +355,9 @@
 </div>
 
 <div id="useBlockOnModal" class="custom-modal">
+    <div class="modalHeader">
+        <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
+    </div>
     <ul>
         <li>
             <p>

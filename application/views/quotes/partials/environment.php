@@ -113,6 +113,9 @@
 </div>
 
 <div id="sourceFlowTypeModal" class="custom-modal">
+    <div class="modalHeader">
+        <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
+    </div>
     <ul>
         <li>
             <p>

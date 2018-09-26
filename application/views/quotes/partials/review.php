@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="summaryEntry" id="sum_type">
+        <div class="summaryEntry">
             <h4 class="entryTitle">Additional Information</h4>
             <div class="details">
                 <p class="text">This is static information we use to help calculate the best product for you.</p>
@@ -70,6 +70,16 @@
             <h4 class="entryTitle">Environment<a href="#" class="edit" data-pag="3"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
             <div class="details">
                 <p class="text"> Nothing here.</p>
+            </div>
+        </div>
+
+        <div class="summaryEntry">
+            <h4 class="entryTitle">Anchors</h4>
+            <div class="details">
+                <p class="text">Anchors are typically recommended at 1.2m c/c intervals and the number of anchors per mat all depends on the current and target FOS.</p>
+                <p>
+                    For a more detailed anchor design, please contact us at 1-800-821-7462.
+                </p>
             </div>
         </div>
 

@@ -101,6 +101,7 @@ function pagnation(event){
 
         var newPage = setNextStep(pageNumber);
         moveToNextStep(currentPage, newPage);
+        scrollBackToTop();
     }else if(pageNo.nextElementSibling!=null && parseInt(pageNumber)!=3){
         var currentStep = document.getElementsByClassName('pagnation-page current');
         var inputs = currentStep[0].getElementsByClassName('required');
@@ -127,12 +128,14 @@ function pagnation(event){
             pageNumber = pageNo.innerHTML;
             var newPage = setNextStep(pageNumber);
             moveToNextStep(currentPage, newPage);
+            scrollBackToTop();
         }
     }else{
         pageNumber = pageNo.innerHTML;
 
         var newPage = setNextStep(pageNumber);
         moveToNextStep(currentPage, newPage);
+        scrollBackToTop();
     }
 
     if(parseInt(pageNumber) == 4){
@@ -158,6 +161,10 @@ function setNextStep(pageNumber) {
 
 function moveToNextStep(currentPage, newPage) {
     TweenLite.to(currentPage, 0.2, {opacity:0.0, onComplete:swapPage, onCompleteParams:[newPage]});
+}
+
+function scrollBackToTop() {
+    $(document).scrollTop(0);
 }
 
 

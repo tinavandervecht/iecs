@@ -16,7 +16,7 @@
         22295 Hoskins Lin, Rodney, ON, CA - N0L 2C0 &nbsp;&nbsp;|&nbsp;&nbsp;
         <span>Phone:</span> 1-800-821-7462&nbsp;&nbsp;|&nbsp;&nbsp;
         <span>Fax:</span> 1-866-496-1990&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="<?php echo site_url('/disclaimer');?>">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;
         <a href="http://iecs.com" target="_blank">IECS Homepage</a>
       </div>
       <div class="right">&copy; <?php echo date("Y")?> International Erosion Control Systems</div>

@@ -3,16 +3,11 @@
       <section class="row expanded" id="mainDashboard">
         <div class="row">
           <div class="columns small-12 medium-6 card left">
-            <h3>Welcome <span class="name"><?php echo $userInfo['company_contactName'];?></span></h3>
-            <?php if($userInfo['company_avatar']): ?>
-                <div class="right-person _bg" style="background:url(<?php echo base_url($userInfo['company_avatar'])?>)"></div>
-            <?php else: ?>
-                <img class="right-person" src="<?php echo base_url('img/default_dude_img.png');?>"/>
-            <?php endif; ?>
-            <p class="welcomeText">This web application is a tool that allows contractors and engineers to calculate which Cable Concrete&reg; product will best suit their projects. You can preform these calculations yourself, as well as keep track and edit any calculations you make on this application.</p>
+            <h3>Welcome to the Cable Concrete Calculator</h3>
+            <p>This web application is a tool that allows contractors and engineers to calculate which Cable Concrete&reg; product will best suit their projects. You can preform these calculations yourself, as well as keep track and edit any calculations you make on this application.</p>
           </div>
           <div class="columns small-12 medium-6 card right">
-            <h3>About IECS</h3>
+            <h3>About Cable Concrete</h3>
             <p>Cable Concrete&reg; is an Articulating­ Concrete­ Block (ACB) system connected by cables allowing each individual block to be flexible and form to the terrain of the ground. This interconnected block system is available in four different thicknesses to provide the required stability for each project economically. </p>
 
             <br /><br />

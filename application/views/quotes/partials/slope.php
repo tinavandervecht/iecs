@@ -88,6 +88,9 @@
 </div>
 
 <div id="frictionAngleModal" class="custom-modal text-center">
+    <div class="modalHeader">
+        <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
+    </div>
     <h2 id="modalTitle">What Does Friction Angle Mean?</h2>
     <img src="<?php echo base_url('img/friction-angle.png'); ?>" />
     <p>When a block placed on the surface is just on the point of sliding then in that condition the angle between applied force and normal force is called the angle of friction. If phi is angle of friction, tan (phi)= mu, the coefficient of friction. Angle of friction is defined in the context of motion on inclined plane.</p>
