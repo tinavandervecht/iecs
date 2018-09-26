@@ -97,7 +97,7 @@ class Profile extends CI_Controller {
                 . '<a href="' . site_url('/profile/approve/'. $id) . '">Click here approve request.</a>';
             $sub = "New Account Request";
             $this->email->from($this->input->post('company_email'), $this->input->post('company_name'));
-            $this->email->to('tvandervecht@gmail.com');
+            $this->email->to('mmcarthur@iecs.com');
 
             $this->email->set_mailtype("html");
             $this->email->subject($sub);
