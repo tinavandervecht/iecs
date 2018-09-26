@@ -20,7 +20,12 @@
 
               <?php foreach ($companies as $company): ?>
               <div class="companii clearfix">
-                <img src="<?php echo base_url('img/default_dude_img.png');?>" alt="Profile Picture">
+                  <?php if($company['company_avatar']): ?>
+                      <div class="profilePicLarge _bg" style="background:url(<?php echo base_url($company['company_avatar'])?>)">
+                      </div>
+                  <?php else: ?>
+                      <img src="<?php echo base_url('img/default_dude_img.png') ;?>" alt="Profile Picture">
+                  <?php endif; ?>
                 <div class="title">
                   <h3><?php echo $company['company_name'];?></h3>
                   <h4><?php echo $company['company_contactName'];?></h4>

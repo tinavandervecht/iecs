@@ -311,6 +311,9 @@ border-top: thin solid #bbb;
 #login input[type="submit"]:hover {
     background: #59a20a;
 }
+#login input[type="submit"] {
+    margin-bottom:10px;
+}
 #login #onNoAccountShouldYou {
     position: relative;
     text-transform: uppercase;
@@ -332,10 +335,10 @@ border-top: thin solid #bbb;
     color: #f5f5f5;
 }
 #login .icon {
-    width: 1.8em;
+    width: 1em;
     float: right;
     position: relative;
-    top: 1.5em;
+    top: 2em;
 }
 #formCont {
     background: #fff;
@@ -1224,6 +1227,15 @@ scrollWrapper.quotesPage .quote .dateModified span{
     margin:0 auto 1em auto;
     display:block;
     max-width:24em;
+}
+#cmsCompanyProfile .profilePicLarge._bg, #cmsCompanies .profilePicLarge._bg {
+    height: 6em;
+    width: 6em;
+    margin: 10px auto;
+    background-size:cover !important;
+    background-position:center !important;
+    background-repeat:no-repeat!important;
+    border-radius: 50%;
 }
 #mainDashboard, #cmsActivity, #cmsDashboard, #cmsStats, #cmsEstimateSummary, #cmsCompanies, #cmsCompanyProfile, #mainQuotes, #newQuote, #mainProfile, #mainHistory, #quoteCalculation, #acbDesignFiles{
     margin-bottom: 6rem;

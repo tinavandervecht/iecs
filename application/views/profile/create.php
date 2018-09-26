@@ -23,7 +23,7 @@
             value="<?php echo isset($_POST['company_email']) ? $_POST['company_email'] : ''; ?>"
         />
         <?php echo form_error('company_email', '<p class="error">', '</p>');?>
-        
+
         <label for="company_pw">Password:</label>
         <small>Password must contain no spaces and be between 6 &amp; 30 characters.</small>
         <img src="<?php echo base_url('img/lock_edit.svg" class="icon');?>">
@@ -52,7 +52,8 @@
         />
         <?php echo form_error('company_contactName', '<p class="error">', '</p>');?>
 
-        <input type="submit" name="submit" value="Sign Up" id="register">
+        <input type="submit" name="submit" value="Request Account" id="register">
+        <small>Submitting this form will send your request to a Cable Concrete representative. If your request is approved, you'll receive an email with instructions on how to login.</small>
     </form>
   </div>
     <div id="onNoAccountShouldYou" class="small-12">

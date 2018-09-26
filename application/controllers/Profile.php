@@ -88,8 +88,29 @@ class Profile extends CI_Controller {
             $this->load->view('profile/create');
             $this->load->view('templates/footer', $data);
         } else { //IF THE FORM VALIDATES (MEANING THEY FILLED IT OUT AND PRESSED THE LINK)
-            $_SESSION['company_id'] = $this->profile_model->set_profile(); //SET THE PROFILE INTO THE DATABASE
-            redirect('/dashboard');
+            $id = $this->profile_model->set_profile(); //SET THE PROFILE INTO THE DATABASE
+
+            $body = '<h3>' . $this->input->post('company_name') . " has requested an account!</h3>"
+                . '<p><strong>Company Name:</strong> ' . $this->input->post('company_name') . '</p>'
+                . '<p><strong>Contact Name:</strong> ' . $this->input->post('company_contactName') . '</p>'
+                . '<p><strong>Company Email:</strong> ' . $this->input->post('company_email') . '</p>'
+                . '<a href="' . site_url('/profile/approve/'. $id) . '">Click here approve request.</a>';
+            $sub = "New Account Request";
+            $this->email->from($this->input->post('company_email'), $this->input->post('company_name'));
+            $this->email->to('tvandervecht@gmail.com');
+
+            $this->email->set_mailtype("html");
+            $this->email->subject($sub);
+            $this->email->message($body);
+
+            $this->email->send();
+
+            $data['title'] = 'Register';
+            $data['jsLink'] = 'js/login.js';
+            $data['accountRequested'] = true;
+            $this->load->view('templates/header', $data);
+            $this->load->view('profile/create');
+            $this->load->view('templates/footer', $data);
         }
     }
 
@@ -150,5 +171,55 @@ class Profile extends CI_Controller {
     {
         $this->profile_model->clear_avatar($id);
         redirect("/profile");
+    }
+
+    public function approve($id)
+    {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        $data = array(
+            'company_approved' => 1
+        );
+
+        $this->db->set($data);
+        $this->db->where('company_id', $id);
+        $this->db->update('tbl_company');
+
+        $company = $this->profile_model->get_company($id);
+
+        $body = '<h3>Your request for an account has been approved!</h3>'
+            . '<p>Good news! A Cable Concrete representative reviewed your request for an account and approved it!</p>'
+            . '<p>To login and get started on running project designs, <a href="' . base_url('/profile/login') . '">Click here.</a></p>'
+            . '<p>If you have any questions, comments, or concerns, please contact IECS at 1-800-821-7462.</p>';
+        $sub = "Cable Concrete Calculator Account Request";
+        $this->email->from('noreply@cableconcrete.com', 'Cable Concrete Calculator');
+        $this->email->to($company['company_email']);
+
+        $this->email->set_mailtype("html");
+        $this->email->subject($sub);
+        $this->email->message($body);
+
+        $this->email->send();
+
+        redirect("/admin/company/" . $id);
+    }
+
+    public function deny($id)
+    {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        $data = array(
+            'company_approved' => 0
+        );
+
+        $this->db->set($data);
+        $this->db->where('company_id', $id);
+        $this->db->update('tbl_company');
+
+        redirect("/admin/company/" . $id);
     }
 }

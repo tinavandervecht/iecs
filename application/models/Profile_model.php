@@ -27,7 +27,7 @@ class Profile_model extends CI_Model {
         $query = $this->db->get();
 
         foreach($query->result() as $possibleCompany) {
-            if (password_verify($password, $possibleCompany->company_pw)) {
+            if (password_verify($password, $possibleCompany->company_pw) && $possibleCompany->company_approved == 1) {
                 return $query->row_array();
                 break;
             }
