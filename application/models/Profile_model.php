@@ -43,11 +43,13 @@ class Profile_model extends CI_Model {
         date_default_timezone_set('America/Toronto');
 
         $data = array(
+            'company_name' => $this->input->post('company_name'),
             'company_email' => $this->input->post('company_email'),
+            'company_phone' => $this->input->post('company_phone'),
             'company_pw' => password_hash($this->input->post('company_pw'), PASSWORD_DEFAULT),
             'company_date' => date('Y-m-d H:i:s'),
-            'company_name' => $this->input->post('company_name'),
             'company_contactName' => $this->input->post('company_contactName'),
+            'company_city' => $this->input->post('company_city'),
             'company_status' => 1
         );
 
@@ -61,12 +63,17 @@ class Profile_model extends CI_Model {
         date_default_timezone_set('America/Toronto');
         $data = array(
             'company_name' => $this->input->post('name'),
-            'company_contactName' => $this->input->post('contactName'),
             'company_phone' => $this->input->post('phone'),
+            'company_contactName' => $this->input->post('contactName'),
+            'company_city' => $this->input->post('city'),
         );
 
         if ($this->input->post('new_password')) {
             $data['company_pw'] = password_hash($this->input->post('new_password'), PASSWORD_DEFAULT);
+        }
+
+        if ($this->input->post('email')) {
+            $data['email'] = $this->input->post('email');
         }
 
         $this->db->set($data);

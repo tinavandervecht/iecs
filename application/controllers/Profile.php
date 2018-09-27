@@ -21,9 +21,10 @@ class Profile extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('name', 'Phone Number', 'required|max_length[140]');
+        $this->form_validation->set_rules('name', 'Name', 'required|max_length[140]');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|max_length[12]');
-        $this->form_validation->set_rules('contactName', 'Phone Number', 'required|max_length[30]');
+        $this->form_validation->set_rules('contactName', 'Contact Name', 'required|max_length[30]');
+        $this->form_validation->set_rules('email', 'Email', 'valid_email|is_unique[tbl_company.company_email]');
 
         if (isset($_POST) && isset($_POST['new_password']) && $_POST['new_password'] != '')
         {
@@ -80,6 +81,8 @@ class Profile extends CI_Controller {
         $this->form_validation->set_rules('company_pw', 'Password', 'required|min_length[6]|max_length[30]|alpha_numeric');
         $this->form_validation->set_rules('passwordconf', 'Password Confirmation', 'required|matches[company_pw]');
         $this->form_validation->set_rules('company_pw', 'Password', 'required|matches[company_pw]');
+        $this->form_validation->set_rules('company_city', 'City', 'required');
+        $this->form_validation->set_rules('company_phone', 'Phone Number', 'required|max_length[12]');
 
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = 'Register';
@@ -94,6 +97,8 @@ class Profile extends CI_Controller {
                 . '<p><strong>Company Name:</strong> ' . $this->input->post('company_name') . '</p>'
                 . '<p><strong>Contact Name:</strong> ' . $this->input->post('company_contactName') . '</p>'
                 . '<p><strong>Company Email:</strong> ' . $this->input->post('company_email') . '</p>'
+                . '<p><strong>Company Phone:</strong> ' . $this->input->post('company_phone') . '</p>'
+                . '<p><strong>Company City:</strong> ' . $this->input->post('company_city') . '</p>'
                 . '<a href="' . site_url('/profile/approve/'. $id) . '">Click here approve request.</a>';
             $sub = "New Account Request";
             $this->email->from($this->input->post('company_email'), $this->input->post('company_name'));

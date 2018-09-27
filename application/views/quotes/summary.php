@@ -32,8 +32,34 @@
                         <h4>Your results have been saved!</h4>
                         <p style="padding-bottom: 0rem; margin-bottom: 0rem;">OPTIONAL:</p>
                         <p>Would you like to send your results to IECS for review?</p>
-                        <a href="<?php echo site_url('/quotes/sendQuote/'.$id);?>" id="yes" class="greyButton">YES</a>
-                        <a href="#" id="no" class="greyButton">NO</a>
+                        <div id="initialSelection">
+                            <button class="greyButton" id="yes">Yes</button>
+                            <a href="#" id="no" class="greyButton">NO</a>
+                        </div>
+                        <div id="regionSelection" class="hidden">
+                            <form method="POST" action="<?php echo '/quotes/sendQuote/'.$id; ?>">
+                                <div id="region"  class="input clearfix">
+                                    <label for="region">Region</label>
+                                    <select id="region" name="region">
+                                        <option value="garvai@iecs.com">
+                                            GTA/Eastern Ontario
+                                        </option>
+                                        <option value="dtalan@iecs.com">
+                                            South Western Ontario
+                                        </option>
+                                        <option value="mmcarthur@iecs.com">
+                                            Western Canada
+                                        </option>
+                                        <option value="larvai@iecs.com">
+                                            International
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="greenButton">Send Results</button>
+                                <button type="button" id="cancel" class="text-center">Nevermind</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

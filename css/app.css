@@ -11,6 +11,9 @@ body {
     font-size: 80%;
     overflow-y: scroll;
 }
+.hidden {
+    display:none;
+}
 .darkback{
   background: #464646;
 }
@@ -23,6 +26,20 @@ main:not(.no-top-margin){
 #statsFakeImg{
   width:100%;
   max-width: 20em;
+}
+#regionSelection {
+    text-align:left;
+    padding:0 30px;
+}
+#regionSelection button[type="submit"] {
+    margin: 10px 0 0 0;
+    max-width: none;
+}
+#regionSelection .text-center {
+    text-align:center;
+    margin:10px 0;
+    display:inline-block;
+    width:100%;
 }
 #background {
     background-image: url("../img/background.png");
@@ -233,7 +250,14 @@ border-top: thin solid #bbb;
     padding-top: 2em;
     z-index: 2;
     width: 100%;
-    height: 100%;
+    height: auto !important;
+}
+.alert.alert-success {
+    background: #4a8609;
+    color: white;
+    position: relative;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 #login {
     font-family: inherit;
@@ -2559,6 +2583,10 @@ background: #313131;
     }
 }
 
+#acbDesignFiles ul {
+    margin-left:-50px;
+    margin-right:20px;
+}
 #acbDesignFiles ul li {
     height:150px;
     list-style-type:none;

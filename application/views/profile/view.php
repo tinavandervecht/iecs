@@ -40,6 +40,18 @@
                 </div>
 
                 <div class="field">
+                    <h3 class="title">Email</h3>
+                    <a href="#" class="value">
+                        <span class="text">
+                            <?php echo $userInfo['company_email'];?>
+                        </span>
+                        <img src="<?php echo base_url('img/pencil_icon.svg');?>" alt="Edit Icon"/>
+                    </a>
+                    <input class="value hidden" name="email" value="<?php echo $userInfo['company_email'];?>">
+                    <?php echo form_error('email', '<span class="error">', '</span>');?>
+                </div>
+
+                <div class="field">
                     <h3 class="title">Company</h3>
                     <a href="#" class="value">
                         <span class="text">
@@ -65,6 +77,18 @@
             </div>
 
             <div class="columns small-12 large-4 end">
+                <div class="field">
+                    <h3 class="title">City</h3>
+                    <a href="#" class="value">
+                        <span class="text">
+                            <?php echo $userInfo['company_city'];?>
+                        </span>
+                        <img src="<?php echo base_url('img/pencil_icon.svg');?>" alt="Edit Icon"/>
+                    </a>
+                    <input class="value hidden" name="city" value="<?php echo $userInfo['company_city'];?>">
+                    <?php echo form_error('city', '<span class="error">', '</span>');?>
+                </div>
+
                 <div class="field">
                     <h3 class="title">Current Password</h3>
                     <a href="#" class="value">

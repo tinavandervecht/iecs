@@ -213,7 +213,7 @@ class Quotes extends CI_Controller {
             . '<a href="' . site_url('/quotes/summary/'.$id) . '">Click here log in and view the design.</a>';
         $sub = "New Design Sent from ".$data['summaryInfo']['company_name'];
         $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']); //NOT SURE IF THIS FROM FUNCTIONALITY WORKS, NEEDS TESTING
-        $this->email->to('garvai@iecs.com');
+        $this->email->to($this->input->post('region'));
 
         $this->email->set_mailtype("html");
         $this->email->subject($sub);

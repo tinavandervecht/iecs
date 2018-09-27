@@ -35,6 +35,24 @@ function openClose(event,block){
 }
 }
 
+yeahSave.addEventListener('click',showRegionSelection,false);
+document.querySelector('#cancel').addEventListener('click', resetSaveModal, false);
+
+function showRegionSelection() {
+    document.querySelector('#regionSelection').classList.remove('hidden');
+    document.querySelector('#initialSelection').classList.add('hidden');
+}
+
+function resetSaveModal() {
+    var subpopup = document.querySelector('#subforreview');
+    
+    TweenLite.to(subpopup,0.2,{opacity:0,onComplete:function(){subpopup.classList.remove('shown');}});
+
+    document.querySelector('#regionSelection').classList.add('hidden');
+    document.querySelector('#initialSelection').classList.remove('hidden');
+}
+
+
 function toggleBlockOpen(block){
   var it = block;
   if(selected!=null && it!=selected){
