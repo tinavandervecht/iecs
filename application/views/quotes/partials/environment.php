@@ -99,7 +99,7 @@
 
     <div class="columns small-12 medium-6" id="comment_inputs">
         <div id="comments"  class="input clearfix">
-            <h4 class="title">Comments</h4>
+            <h4 class="title">Comments/Special Considerations</h4>
             <label for="commentsBox"></label>
             <textarea id="commentsBox" name="commentsBox">
                 <?php if (isset($_POST['commentsBox'])) :

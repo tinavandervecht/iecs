@@ -18,7 +18,7 @@ class AcbDesignFiles extends CI_Controller {
         }
 
         $data['userInfo'] = $this->dashboard_model->get_company($_SESSION['company_id']);
-        $data['title'] = "Disclaimer | IECS";
+        $data['title'] = "ACB Design Files | IECS";
         $data['jsLink'] = 'js/dash.js';
         $data['current'] = "acbDesignFiles";
 

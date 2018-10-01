@@ -84,7 +84,7 @@
         </div>
 
         <div class="summaryEntry" id="sum_comments">
-            <h4 class="entryTitle">Comments<a href="#" class="edit" data-pag="3"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
+            <h4 class="entryTitle">Comments/Special Considerations<a href="#" class="edit" data-pag="3"><span class="hide-for-mobile">Edit</span><img src="<?php echo base_url('img/pencil_icon.svg');?>"/></a></h4>
             <div class="details">
                 <p class="text"> Nothing here.</p>
             </div>

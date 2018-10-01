@@ -3,11 +3,10 @@
 
         <section class="row expanded" id="cmsEstimateSummary">
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
-                  <a href="<?php echo site_url('admin/estimates');?>" class="tabTitle">&#10092; PARAMETER INPUTS</a>
                   <a href="#" class="tabTitle active">OUTPUT RESULTS</a>
 
                   <form id="pdf-data" class="tablTitleForm" method="POST" action="<?php echo '/quotes/pdf/'.$id; ?>" target="_blank">
-                      <button type="submit" class="tabTitle">DOWNLOADABLE FILES</button>
+                      <button type="submit" class="tabTitle">DOWNLOAD FILE</button>
                   </form>
 
                   <div id="cardsbox" class="clearfix row">

@@ -29,9 +29,11 @@
                       <li><a href="<?php echo site_url('/dashboard');?>" class="<?php if($current == "dashboard"){echo "current";}?>"><img src="<?php echo base_url('img/home_icon.svg');?>" class="navIcon"/><span class="navText">Home</span></a></li>
                       <li><a href="<?php echo site_url('/quotes');?>" class="<?php if($current == "quotes"){echo "current";}?>"><img src="<?php echo base_url('img/paper_icon.svg');?>" class="navIcon"/><span class="navText">Project Designs</span></a></li>
                       <li><a href="<?php echo site_url('/acbDesignFiles');?>" class="<?php if($current == "acbDesignFiles"){echo "current";}?>"><img src="<?php echo base_url('img/settings_icon.svg');?>" class="navIcon"/><span class="navText">ACB Design Files</span></a></li>
+                      <li><a href="<?php echo site_url('/ccDetails');?>" class="<?php if($current == "ccDetails"){echo "current";}?>"><img src="<?php echo base_url('img/settings_icon.svg');?>" class="navIcon"/><span class="navText">AutoCAD / PDF CC Details</span></a></li>
                       <li><a href="<?php echo site_url('/profile');?>" class="<?php if($current == "profile"){echo "current";}?>"><img src="<?php echo base_url('img/profile_icon.svg');?>" class="navIcon"/><span class="navText">Profile</span></a></li>
                       <li><a href="http://iecs.com/cable-concrete/" target="_blank"><img src="<?php echo base_url('img/tip_icons.svg');?>" class="navIcon"/><span class="navText">Cable Concrete® an Articulated Concrete Block System</span></a></li>
                       <li><a href="<?php echo site_url('/help');?>" class="<?php if($current == "help"){echo "current";}?>"><img src="<?php echo base_url('img/help_icon.svg');?>" class="navIcon"/><span class="navText">FAQs</span></a></li>
+                      <li><a href="<?php echo site_url('/contact');?>" class="<?php if($current == "contact"){echo "current";}?>"><img src="<?php echo base_url('img/pencil_icon_white.svg');?>" class="navIcon"/><span class="navText">Contact Us</span></a></li>
                     </ul>
                 </nav>
               </section>

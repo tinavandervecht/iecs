@@ -37,8 +37,16 @@ function toggleState(event){
  if (window.location.search.indexOf('delete_error') > -1) {
      toastr.error('There was a problem deleting the product.');
  }
- 
+
  if (window.location.search.indexOf('created') > -1) {
      toastr.success('Successfully created new product.');
  }
+
+    $('.cad-link').on('click', function(e) {
+        if (window.navigator && window.navigator.msSaveBlob) { // IE
+            e.preventDefault();
+            let blob = new Blob([$(e.target).attr('href')]);
+            window.navigator.msSaveBlob(blob, 'Cable_Concrete_CAD_File');
+        }
+    })
 })();
