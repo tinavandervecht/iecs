@@ -1,5 +1,5 @@
 <?php
-class CCDetails extends CI_Controller {
+class CcDetails extends CI_Controller {
 
   //THIS IS THE DASHBOARD CONTROLLER, WHICH DICTATES ALL THE CONTENT WITHIN THE DASHBOARD URL GATEWAY
 

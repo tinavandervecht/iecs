@@ -188,6 +188,8 @@ class Quotes extends CI_Controller {
         $data['title'] = "Estimate Summary";
         $data['jsLink'] = 'js/calcpage.js';
         $data['id'] = $id;
+        $this->mpdf_library->showImageErrors = true;
+        $this->mpdf_library->debug = true;
 
         $html = $this->load->view('quotes/pdf', $data, true);
 
