@@ -74,13 +74,13 @@
               </div>
               <div class="other clearfix" id="blockNormalForceBed">
                   <div>
-                      <p class="factor">Normal Bed Force</p>
+                      <p class="factor">Block Normal Bed Force</p>
                       <div class="num">--</div>
                   </div>
               </div>
               <div class="other clearfix" id="blockNormalForceSide">
                   <div>
-                      <p class="factor">Normal Side Force</p>
+                      <p class="factor">Block Normal Side Force</p>
                       <div class="num">--</div>
                   </div>
               </div>
@@ -166,15 +166,15 @@
                   </div>
               </div>
               <!--===========================-->
-              <div class="other clearfix" id="netSideNormalForces">
+              <div class="other clearfix" id="netBedNormalForces">
                   <div>
-                      <p class="factor">Normal Bed Force</p>
+                      <p class="factor">Net Normal Bed Force</p>
                       <div class="num">--</div>
                   </div>
               </div>
-              <div class="other clearfix" id="netBedNormalForces">
+              <div class="other clearfix" id="netSideNormalForces">
                   <div>
-                      <p class="factor">Normal Side Force</p>
+                      <p class="factor">Net Normal Side Force</p>
                       <div class="num">--</div>
                   </div>
               </div>

@@ -345,10 +345,7 @@ function performCalcs() {
                 }
             }
 
-            // blockOverview = {};
-            // blockOverview[i + '-' + blockData[i]['product_name']] = calc.blockSon();
-            // $(pdfContentTextInput).html(pdfContentTextInput.innerHTML + JSON.stringify(blockOverview));
-
+            /*-- Storing Global Responses for each block in PDF form --*/
             var input = document.createElement("input");
                 input.type = "hidden";
                 input.name = i + '-' + blockData[i]['product_name'] + "[o][b]";
@@ -373,30 +370,204 @@ function performCalcs() {
                 input.value = calc.blockSon().s.side;
                 pdfContentForm.appendChild(input);
 
+            /*-- Storing Necessary Block Data in PDF Form --*/
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[product_b]";
+                input.value = blockData[i]['product_b'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[product_bT]";
+                input.value = blockData[i]['product_bT'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[product_hB]";
+                input.value = blockData[i]['product_hB'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[product_W]";
+                input.value = blockData[i]['product_W'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[product_Ws]";
+                input.value = blockData[i]['product_Ws'];
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#netBedDrag .num').innerHTML = netBedDrag;
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[netBedDrag]";
+                input.value = netBedDrag;
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#netSideDrag .num').innerHTML = netSideDrag;
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[netSideDrag]";
+                input.value = netSideDrag;
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#netBedLift .num').innerHTML = netBedLift;
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[netBedLift]";
+                input.value = netBedLift;
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#netSideLift .num').innerHTML = netSideLift;
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[netSideLift]";
+                input.value = netSideLift;
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#blockNormalForceBed .num').innerHTML = Number(blockNormalForceBed).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[blockNormalForceBed]";
+                input.value = Number(blockNormalForceBed).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#blockNormalForceSide .num').innerHTML = Number(blockNormalForceSide).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[blockNormalForceSide]";
+                input.value = Number(blockNormalForceSide).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#bedSlope .num').innerHTML = angleBedSlope;
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[angleBedSlope]";
+                input.value = angleBedSlope;
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#sideSlope .num').innerHTML = angleSideSlope;
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[angleSideSlope]";
+                input.value = angleSideSlope;
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(3);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[manningsN]";
+                input.value = Number(mannings).toFixed(3);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#manningsCos .num').innerHTML = Number(manningsCos).toFixed(3);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[manningsCos]";
+                input.value = Number(manningsCos).toFixed(3);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#shearStressBed .num').innerHTML = Number(shearStressBed).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[shearStressBed]";
+                input.value = Number(shearStressBed).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#shearStressBedC .num').innerHTML = Number(shearStressBedC).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[shearStressBedC]";
+                input.value = Number(shearStressBedC).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#shearStressSide .num').innerHTML = Number(shearStressSide).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[shearStressSide]";
+                input.value = Number(shearStressSide).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#shearDragBedForce .num').innerHTML = shearDragBedForce;
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[shearDragBedForce]";
+                input.value = shearDragBedForce;
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#shearDragSideForce .num').innerHTML = shearDragSideForce;
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[shearDragSideForce]";
+                input.value = shearDragSideForce;
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#bedWidth .num').innerHTML = Number(jsonData.estimate_bedWidth).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[bedWidth]";
+                input.value = Number(jsonData.estimate_bedWidth).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#liftForceBed .num').innerHTML = Number(liftForceBed).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[liftForceBed]";
+                input.value = Number(liftForceBed).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#liftForceSide .num').innerHTML = Number(liftForceSide).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[liftForceSide]";
+                input.value = Number(liftForceSide).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#offsetN .num').innerHTML = Number(offsetN).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[offsetN]";
+                input.value = Number(offsetN).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#offsetWhere .num').innerHTML = Number(offsetWhere).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[offsetWhere]";
+                input.value = Number(offsetWhere).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#offsetWhere2 .num').innerHTML = Number(offsetWhere2).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[offsetWhere2]";
+                input.value = Number(offsetWhere2).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#offsetNormalVelocity .num').innerHTML = Number(offsetNormalVelocity).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[offsetNormalVelocity]";
+                input.value = Number(offsetNormalVelocity).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#netBedNormalForces .num').innerHTML = Number(netBedNormalForces).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[netBedNormalForces]";
+                input.value = Number(netBedNormalForces).toFixed(2);
+                pdfContentForm.appendChild(input);
+            /*--*/
             blockElement.querySelector('#netSideNormalForces .num').innerHTML = Number(netSideNormalForces).toFixed(2);
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = i + '-' + blockData[i]['product_name'] + "[netSideNormalForces]";
+                input.value = Number(netSideNormalForces).toFixed(2);
+                pdfContentForm.appendChild(input);
         }
 
     } else {
