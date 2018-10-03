@@ -3,7 +3,7 @@
         <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
     </header>
 
-      <section id="sideBar">
+      <section id="sideBar" class="admin-sideBar">
         <h2 class="hidden">Sidebar</h2>
         <img class="logo" src="<?php echo base_url('img/iecslogo.png');?>">
         <section id="profile" class="clearfix">
@@ -22,6 +22,7 @@
               <li><a href="<?php echo site_url('/admin/companies');?>" <?php if($current == "companies"){echo "class='current'";}?>><img src="<?php echo base_url('img/company_icon.svg');?>" class="navIcon"/><span class="navText">Companies</span></a></li>
               <li><a href="<?php echo site_url('/admin/products');?>" <?php if($current == "products"){echo "class='current'";}?>><img src="<?php echo base_url('img/paper_icon.svg');?>" class="navIcon"/><span class="navText">Products</span></a></li>
               <li><a href="<?php echo site_url('/admin/profile');?>" <?php if($current == "profile"){echo "class='current'";}?>><img src="<?php echo base_url('img/profile_icon.svg');?>" class="navIcon"/><span class="navText">Profile</span></a></li>
+              <li><a href="<?php echo site_url('/admin/admins');?>" <?php if($current == "admins"){echo "class='current'";}?>><img src="<?php echo base_url('img/settings_icon.svg');?>" class="navIcon"/><span class="navText">Admins</span></a></li>
 
             </ul>
         </nav>

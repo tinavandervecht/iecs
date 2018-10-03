@@ -9,17 +9,18 @@ class Admin_model extends CI_Model {
     {
         $admin = $this->input->post('admin_user');
         $password = $this->input->post('admin_pw');
-        $this -> db -> select('*');
-        $this -> db -> from('tbl_admin');
-        $this -> db -> where('admin_username', $admin);
-        $query = $this -> db -> get();
+        $this->db->select('*');
+        $this->db->from('tbl_admin');
+        $this->db->where('admin_username', $admin);
+        $query = $this->db->get();
 
         foreach ($query->result() as $possibleAdmin) {
-            if (password_verify($password, $possibleAdmin->admin_pw)) {
-                $data = array(
-                    'admin_lastLogin' => time()
-                );
-                $this->db->update('tbl_admin', $data, "admin_id = 1"); //update the last login time.
+            if (password_verify($password, $possibleAdmin->admin_pw))
+            {
+                $data = array('admin_lastLogin' => time());
+                $this->db->set($data);
+                $this->db->where('admin_id', $possibleAdmin->admin_id);
+                $this->db->update('tbl_admin');
                 return $query->row_array(); //Return the user info in a row_array (single dimensional associative array).
                 break;
             }
@@ -345,5 +346,27 @@ class Admin_model extends CI_Model {
         }
 
         return $activity;
+    }
+
+    public function get_allAdmins()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_admin');
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function create_admin()
+    {
+        $data = array(
+            'admin_username' => $this->input->post('username'),
+            'admin_pw' => password_hash($this->input->post('new_password'), PASSWORD_DEFAULT),
+            'admin_name' => $this->input->post('name')
+        );
+
+        $this->db->insert('tbl_admin', $data);
+
+        return $this->db->insert_id();
     }
 }

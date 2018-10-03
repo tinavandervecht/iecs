@@ -224,10 +224,6 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
             $this->load->view('templates/adminFooterNav', $data);
             $this->load->view('templates/companyfooter', $data);
         }
-
-        //$data['tbl_company'] = $this->profile_model->get_company();
-        //$data['title'] = 'Companies';
-        //$data['userInfo'] = $this->admin_model->get_adminInfo($_SESSION['admin_id']);
     }
 
     public function company($id)
@@ -242,9 +238,6 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
             redirect('/admin/companies');
         }
 
-        //$data['tbl_company'] = $this->profile_model->get_company();
-        //$data['title'] = 'Companies';
-        //$data['userInfo'] = $this->admin_model->get_adminInfo($_SESSION['admin_id']);
         $data['company'] = $this->admin_model->get_companyEstimates($id, 6);
         $data['companyInfo'] = $this->admin_model->get_companyInfo($id);
 
@@ -263,10 +256,6 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
             redirect('/admin/login');
         }
-
-        //$data['tbl_company'] = $this->profile_model->get_company();
-        //$data['title'] = 'Companies';
-        //$data['userInfo'] = $this->admin_model->get_adminInfo($_SESSION['admin_id']);
 
         $data['title'] = 'Statistics Page';
         $data['jsLink'] = 'js/dash.js';
@@ -437,4 +426,72 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         }
     }
 
+    public function admins()
+    {
+
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        $this->load->helper('form');
+
+        $data['admins'] = $this->admin_model->get_allAdmins();
+
+        $data['title'] = "Administrators | IECS";
+        $data['jsLink'] = 'js/dash.js';
+        $data['current'] = "admins";
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/adminNav', $data);
+        $this->load->view('admin/admins', $data);
+        $this->load->view('templates/adminFooterNav', $data);
+        $this->load->view('templates/footer', $data);
+    }
+
+    public function deleteAdmin($id)
+    {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        $allAdmins = $this->admin_model->get_allAdmins();
+        if (count($allAdmins) == 1 || $id == $_SESSION['userdata']['admin_id']) {
+            redirect('/admin/admins');
+        }
+
+        $this->db->delete('tbl_admin', array('admin_id' => $id));
+
+        redirect('/admin/admins');
+    }
+
+    public function createAdmin()
+    {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('username', 'Username', 'required|max_length[12]');
+        $this->form_validation->set_rules('name', 'Name', 'required|max_length[140]');
+        $this->form_validation->set_rules('new_password', 'New Password', 'required|min_length[6]|max_length[30]|alpha_numeric');
+        $this->form_validation->set_rules('confirm_new_password', 'Confirm New Password', 'required|matches[new_password]');
+
+        if ($this->form_validation->run() === FALSE) {
+            $data['title'] = "Create Administrator | IECS";
+            $data['jsLink'] = 'js/dash.js';
+            $data['current'] = "admins";
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/adminNav', $data);
+            $this->load->view('admin/createAdmin', $data);
+            $this->load->view('templates/adminFooterNav', $data);
+            $this->load->view('templates/footer', $data);
+        } else {
+            $this->admin_model->create_admin();
+
+            redirect('/admin/admins');
+        }
+    }
 }
