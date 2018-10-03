@@ -125,6 +125,9 @@ class Quotes extends CI_Controller {
                 $data['title'] = "Edit Quote | IECS";
                 $data['jsLink'] = 'js/form.js';
                 $data['current'] = "quotes";
+                if ($this->input->get('activeStep')) {
+                    $data['activeStep'] = $this->input->get('activeStep');
+                }
 
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/quoteNav', $data);
@@ -155,13 +158,15 @@ class Quotes extends CI_Controller {
         $data['title'] = "Estimate Summary";
         $data['jsLink'] = 'js/calcpage.js';
         $data['current'] = "quotes";
+        $data['activeStep'] = 5;
+        $data['stepsRedirect'] = true;
         $data['id'] = $id;
         if (isset($_GET['sentEmail'])) {
             $data['sentEmail'] = true;
         }
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/quoteNav', $data);
         $this->load->view('quotes/summary', $data);
         $this->load->view('templates/footerNav', $data);
         $this->load->view('templates/footer', $data);

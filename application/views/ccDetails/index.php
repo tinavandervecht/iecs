@@ -1,6 +1,124 @@
 <main>
     <section class="row expanded" id="acbDesignFiles">
         <div class="columns small-12 medium-12">
+            <h3>CAD Files</h3>
+            <ul>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Anchor Placement Detail.dwg');?>" download>Anchor Placement Detail</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Boat Ramp Detail.dwg');?>" download>Boat Ramp Detail</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Bridge Pier Protection.dwg');?>" download>Bridge Pier Protection</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Cable Clamp Detail.dwg');?>" download>Cable Clamp Detail</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url("pdfs/CADCCDesignFiles/Cable Concrete CCG2 20' w Geo.dwg");?>" download>Cable Concrete CCG2 20' w Geo</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/CABLE CONCRETE HEADWALL OUTFALL.dwg');?>" download>CABLE CONCRETE HEADWALL OUTFALL</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Cable Concrete Radius Detail.dwg');?>" download>Cable Concrete Radius Detail</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Cable Concrete Trapezoidal Channel - ENV.dwg');?>" download>Cable Concrete Trapezoidal Channel - ENV</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Dam Embankment Protection.dwg');?>" download>Dam Embankment Protection</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Drain Pipe Passing Through Cable Concrete Mats.dwg');?>" download>Drain Pipe Passing Through Cable Concrete Mats</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Generic Base Prep.dwg');?>" download>Generic Base Prep</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Installing On An Upstream Downstream.dwg');?>" download>Installing On An Upstream Downstream</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Interface Connections.dwg');?>" download>Interface Connections</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Invert Toe In.dwg');?>" download>Invert Toe In</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Key In With And Without Earth Anchor.dwg');?>" download>Key In With And Without Earth Anchor</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Low Water Crossing.dwg');?>" download>Low Water Crossing</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Man Hole Protection.dwg');?>" download>Man Hole Protection</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Pipe Protection.dwg');?>" download>Pipe Protection</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Slope Bottom Key In.dwg');?>" download>Slope Bottom Key In</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Slpoe Protection With One Block Toe In (1).dwg');?>" download>Slope Protection With One Block Toe In (1)</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Slpoe Protection With Two Block Toe In.dwg');?>" download>Slope Protection With Two Block Toe In</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Standard CC45 Detail.dwg');?>" download>Standard CC45 Detail</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Toe In With And Without Earth Anchor.dwg');?>" download>Toe In With And Without Earth Anchor</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/TRAPEZOIDAL CHANNEL WITH CABLE CONCRETE LINING.dwg');?>" download>TRAPEZOIDAL CHANNEL WITH CABLE CONCRETE LINING</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/TRAPEZOIDAL CHANNEL WITH CABLE CONRETE LINING.dwg');?>" download>TRAPEZOIDAL CHANNEL WITH CABLE CONRETE LINING</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Typical Cross-sectional View Of A Drainage Channel.dwg');?>" download>Typical Cross-sectional View Of A Drainage Channel</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Typical Road Application.dwg');?>" download>Typical Road Application</a>
+                </li>
+                <li>
+                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
+                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Wall Connection.dwg');?>" download>Wall Connection</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="columns small-12 medium-12">
             <h2>AutoCAD / PDF CC Details</h2>
             <h3>PDF Files</h3>
             <ul>
@@ -123,123 +241,6 @@
                 <li>
                     <img src="<?php echo base_url('pdfs/ccDesignFiles/typical-road-application-thumbnail.png'); ?>" />
                     <a href="<?php echo base_url('pdfs/ccDesignFiles/Typical Road Application.pdf');?>" target="_blank">Typical Road Application</a>
-                </li>
-            </ul>
-        </div>
-        <div class="columns small-12 medium-12">
-            <h3>CAD Files</h3>
-            <ul>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Anchor Placement Detail.dwg');?>" download>Anchor Placement Detail</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Boat Ramp Detail.dwg');?>" download>Boat Ramp Detail</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Bridge Pier Protection.dwg');?>" download>Bridge Pier Protection</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Cable Clamp Detail.dwg');?>" download>Cable Clamp Detail</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url("pdfs/CADCCDesignFiles/Cable Concrete CCG2 20' w Geo.dwg");?>" download>Cable Concrete CCG2 20' w Geo</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/CABLE CONCRETE HEADWALL OUTFALL.dwg');?>" download>CABLE CONCRETE HEADWALL OUTFALL</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Cable Concrete Radius Detail.dwg');?>" download>Cable Concrete Radius Detail</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Cable Concrete Trapezoidal Channel - ENV.dwg');?>" download>Cable Concrete Trapezoidal Channel - ENV</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Dam Embankment Protection.dwg');?>" download>Dam Embankment Protection</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Drain Pipe Passing Through Cable Concrete Mats.dwg');?>" download>Drain Pipe Passing Through Cable Concrete Mats</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Generic Base Prep.dwg');?>" download>Generic Base Prep</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Installing On An Upstream Downstream.dwg');?>" download>Installing On An Upstream Downstream</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Interface Connections.dwg');?>" download>Interface Connections</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Invert Toe In.dwg');?>" download>Invert Toe In</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Key In With And Without Earth Anchor.dwg');?>" download>Key In With And Without Earth Anchor</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Low Water Crossing.dwg');?>" download>Low Water Crossing</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Man Hole Protection.dwg');?>" download>Man Hole Protection</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Pipe Protection.dwg');?>" download>Pipe Protection</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Slope Bottom Key In.dwg');?>" download>Slope Bottom Key In</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Slpoe Protection With One Block Toe In (1).dwg');?>" download>Slope Protection With One Block Toe In (1)</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Slpoe Protection With Two Block Toe In.dwg');?>" download>Slope Protection With Two Block Toe In</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Standard CC45 Detail.dwg');?>" download>Standard CC45 Detail</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Toe In With And Without Earth Anchor.dwg');?>" download>Toe In With And Without Earth Anchor</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/TRAPEZOIDAL CHANNEL WITH CABLE CONCRETE LINING.dwg');?>" download>TRAPEZOIDAL CHANNEL WITH CABLE CONCRETE LINING</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/TRAPEZOIDAL CHANNEL WITH CABLE CONRETE LINING.dwg');?>" download>TRAPEZOIDAL CHANNEL WITH CABLE CONRETE LINING</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Typical Cross-sectional View Of A Drainage Channel.dwg');?>" download>Typical Cross-sectional View Of A Drainage Channel</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Typical Road Application.dwg');?>" download>Typical Road Application</a>
-                </li>
-                <li>
-                    <img src="<?php echo base_url('img/paper_icon_black.svg'); ?>" />
-                    <a class="cad-link" href="<?php echo base_url('pdfs/CADCCDesignFiles/Wall Connection.dwg');?>" download>Wall Connection</a>
                 </li>
             </ul>
         </div>

@@ -14,13 +14,13 @@
                         <br />
                         Fax : 1-866-496-1990
                         <br />
-                        Louis Arvai – Eastern Canada & International Inquiries – larvai@iecs.com
+                        Louis Arvai – Eastern Canada & International Inquiries – <a href="mailto:larvai@iecs.com">larvai@iecs.com</a>
                         <br />
-                        Greg Arvai – Ontario Sales Manager / GTA Inquiries – garvai@iecs.com
+                        Greg Arvai – Ontario Sales Manager / GTA Inquiries – <a href="mailto:garvai@iecs.com">garvai@iecs.com</a>
                         <br />
-                        David Talan – Southwestern Ontario Inquiries – dtalan@iecs.com
+                        David Talan – Southwestern Ontario Inquiries – <a href="mailto:dtalan@iecs.com">dtalan@iecs.com</a>
                         <br />
-                        Nnamdi Eguh – Africa Inquiries – nnamdieguh@iecsinternational.com
+                        Nnamdi Eguh – Africa Inquiries – <a href="mailto:nnamdieguh@iecsinternational.com">nnamdieguh@iecsinternational.com</a>
                     </p>
                 </div>
                 <div class="columns small-12 medium-6">
@@ -38,9 +38,9 @@
                         <br />
                         Phone: 1-800-821-7462
                         <br />
-                        Matt McArthur – Western Canada Inquiries – mmcarthur@iecs.com
+                        Matt McArthur – Western Canada Inquiries – <a href="mailto:mmcarthur@iecs.com">mmcarthur@iecs.com</a>
                         <br />
-                        Craig Hare – British Columbia Inquiries – chare@iecs.com
+                        Craig Hare – British Columbia Inquiries – <a href="mailto:chare@iecs.com">chare@iecs.com</a>
                     </p>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <p>
                         Lagos, Nigeria
                         <br />
-                        Nnamdi Eguh – nnamdieguh@iecsinternational.com
+                        Nnamdi Eguh – <a href="mailto:nnamdieguh@iecsinternational.com">nnamdieguh@iecsinternational.com</a>
                         <br />
                         Tel: 011-234-1-342-2436
                     </p>
@@ -72,7 +72,7 @@
                     <p>
                         Kampala, Uganda
                         <br />
-                        Godfrey B. Zaribwende – gzaribwende@babcon.co.ug
+                        Godfrey B. Zaribwende – <a href="mailto:gzaribwende@babcon.co.ug">gzaribwende@babcon.co.ug</a>
                         <br />
                         Tel: 256-414-220327
                     </p>
@@ -82,22 +82,9 @@
                     <p>
                         Lusaka, Zambia
                         <br />
-                        Henry Ngulube – henryngulube@gmail.com
+                        Henry Ngulube – <a href="mailto:henryngulube@gmail.com">henryngulube@gmail.com</a>
                         <br />
                         Tel: 260-977-806-110
-                    </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="columns small-12 medium-6">
-                    <h3 class="green-text">United States</h3>
-                    <p>
-                        All USA Inquiries
-                        <br />
-                        Phone: 1-855-768-1420
-                        <br />
-                        Charlie Chase – US Inquiries – charliechase@iecsusa.com
                     </p>
                 </div>
             </div>

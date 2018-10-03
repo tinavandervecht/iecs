@@ -81,72 +81,75 @@ function goingBack(event){
 function pagnation(event){
     event.preventDefault();
     var it = event.currentTarget;
-    updateReviewData();
-    var pageNumber;
-    if(it.classList.contains('pageNo')){
-        if(calc){
-            contButton.classList.remove('hidden');
-            document.querySelector('#calc').classList.add('hidden');
-            calc = false;
-        }
-        it.classList.add('current');
-        pageNo.classList.remove('current');
-        pageNo = it;
-        pageNumber = pageNo.innerHTML;
-        if(parseInt(pageNumber)==4){
-            contButton.classList.add('hidden');
-            document.querySelector('#calc').classList.remove('hidden');
-            calc = true;
-        }
-
-        var newPage = setNextStep(pageNumber);
-        moveToNextStep(currentPage, newPage);
-        scrollBackToTop();
-    }else if(pageNo.nextElementSibling!=null && parseInt(pageNumber)!=3){
-        var currentStep = document.getElementsByClassName('pagnation-page current');
-        var inputs = currentStep[0].getElementsByClassName('required');
-        var inputList = Array.prototype.slice.call(inputs);
-
-        var errors = currentStep[0].getElementsByClassName('error');
-        var errorList = Array.prototype.slice.call(errors);
-        errorList.forEach(function(error) {
-            error.parentNode.removeChild(error);
-        })
-
-        var hasError = false;
-        inputList.forEach(function(input) {
-            if (input.value == '') {
-                $(input).after('<div><p class="error">This field is required.</p></div>');
-                hasError = true;
-                return;
+    var disabled = it.hasAttribute('disabled');
+    if (!disabled) {
+        updateReviewData();
+        var pageNumber;
+        if(it.classList.contains('pageNo')){
+            if(calc){
+                contButton.classList.remove('hidden');
+                document.querySelector('#calc').classList.add('hidden');
+                calc = false;
             }
-        })
-        if (! hasError) {
+            it.classList.add('current');
             pageNo.classList.remove('current');
-            pageNo.nextElementSibling.classList.add('current');
-            pageNo = pageNo.nextElementSibling;
+            pageNo = it;
             pageNumber = pageNo.innerHTML;
+            if(parseInt(pageNumber)==4){
+                contButton.classList.add('hidden');
+                document.querySelector('#calc').classList.remove('hidden');
+                calc = true;
+            }
+
+            var newPage = setNextStep(pageNumber);
+            moveToNextStep(currentPage, newPage);
+            scrollBackToTop();
+        }else if(pageNo.nextElementSibling!=null && parseInt(pageNumber)!=3){
+            var currentStep = document.getElementsByClassName('pagnation-page current');
+            var inputs = currentStep[0].getElementsByClassName('required');
+            var inputList = Array.prototype.slice.call(inputs);
+
+            var errors = currentStep[0].getElementsByClassName('error');
+            var errorList = Array.prototype.slice.call(errors);
+            errorList.forEach(function(error) {
+                error.parentNode.removeChild(error);
+            })
+
+            var hasError = false;
+            inputList.forEach(function(input) {
+                if (input.value == '') {
+                    $(input).after('<div><p class="error">This field is required.</p></div>');
+                    hasError = true;
+                    return;
+                }
+            })
+            if (! hasError) {
+                pageNo.classList.remove('current');
+                pageNo.nextElementSibling.classList.add('current');
+                pageNo = pageNo.nextElementSibling;
+                pageNumber = pageNo.innerHTML;
+                var newPage = setNextStep(pageNumber);
+                moveToNextStep(currentPage, newPage);
+                scrollBackToTop();
+            }
+        }else{
+            pageNumber = pageNo.innerHTML;
+
             var newPage = setNextStep(pageNumber);
             moveToNextStep(currentPage, newPage);
             scrollBackToTop();
         }
-    }else{
-        pageNumber = pageNo.innerHTML;
 
-        var newPage = setNextStep(pageNumber);
-        moveToNextStep(currentPage, newPage);
-        scrollBackToTop();
-    }
-
-    if(parseInt(pageNumber) == 4){
-        contButton.classList.add('hidden');
-        document.querySelector('#calc').classList.remove('hidden');
-        calc = true;
-    }else{
-        if(contButton.classList.contains('hidden')){
-            contButton.classList.remove('hidden');
-            document.querySelector('#calc').classList.add('hidden');
-            calc = false;
+        if(parseInt(pageNumber) == 4){
+            contButton.classList.add('hidden');
+            document.querySelector('#calc').classList.remove('hidden');
+            calc = true;
+        }else{
+            if(contButton.classList.contains('hidden')){
+                contButton.classList.remove('hidden');
+                document.querySelector('#calc').classList.add('hidden');
+                calc = false;
+            }
         }
     }
 }

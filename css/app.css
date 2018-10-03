@@ -803,6 +803,9 @@ a.sectionTitle{
     color: #ffffff;
     z-index: 89;
 }
+#sideBar.admin-sideBar {
+    height:100%;
+}
 #sideBar .logo {
     width: 100%;
     max-width: 14em;
