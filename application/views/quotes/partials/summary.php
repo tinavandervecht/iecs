@@ -1,9 +1,23 @@
+<div class="columns small-12 large-12">
+    <div class="columns large-6">
+        <p>
+            Minimum FOS <strong>>1.0</strong>
+            <br />
+            Optimum FOS <strong>>1.5</strong>
+        </p>
+    </div>
+    <?php if (!empty(str_replace(" ", "", $summaryInfo['estimate_comments']))): ?>
+        <div class="columns large-6 card">
+                <p>
+                    <strong>Comments/Special Considerations:</strong>
+                </p>
+                <p>
+                    <?php echo $summaryInfo['estimate_comments']; ?>
+                </p>
+        </div>
+    <?php endif; ?>
+</div>
 <div class="columns small-12 large-12 card">
-    <p>
-        Minimum FOS <strong>>1.0</strong>
-        <br />
-        Optimum FOS <strong>>1.5</strong>
-    </p>
 <?php foreach($blocks as $key => $block):?>
   <div class="block" id=<?php echo $key . '-' . $block['product_name']; ?>>
     <!--start block-->

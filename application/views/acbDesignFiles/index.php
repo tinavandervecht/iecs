@@ -1,7 +1,7 @@
 <main>
     <section class="row expanded" id="acbDesignFiles">
         <div class="columns small-12 medium-12">
-            <h2>ACB Design Files</h2>
+            <h2>ACB Design Standard</h2>
             <ul>
                 <li>
                     <img src="<?php echo base_url('pdfs/ASTM_D7276-16-thumbnail.png'); ?>" />

@@ -45,7 +45,7 @@ function showRegionSelection() {
 
 function resetSaveModal() {
     var subpopup = document.querySelector('#subforreview');
-    
+
     TweenLite.to(subpopup,0.2,{opacity:0,onComplete:function(){subpopup.classList.remove('shown');}});
 
     document.querySelector('#regionSelection').classList.add('hidden');
@@ -344,6 +344,43 @@ function performCalcs() {
                     blockElement.querySelector('.sliding .side').parentNode.classList.add('nono');
                 }
             }
+
+            /*-- Storing User information in PDF form --*/
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name =  "project_information[name]";
+                input.value = jsonData['estimate_name'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name =  "project_information[location]";
+                input.value = jsonData['estimate_location'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name =  "project_information[engineer]";
+                input.value = jsonData['estimate_engineer'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name =  "project_information[date]";
+                input.value = jsonData['estimate_projectedDate'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name =  "project_information[address]";
+                input.value = jsonData['estimate_address'];
+                pdfContentForm.appendChild(input);
+
+            var input = document.createElement("input");
+                input.type = "hidden";
+                input.name =  "project_information[comments]";
+                input.value = jsonData['estimate_comments'];
+                pdfContentForm.appendChild(input);
 
             /*-- Storing Global Responses for each block in PDF form --*/
             var input = document.createElement("input");

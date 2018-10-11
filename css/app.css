@@ -2596,8 +2596,7 @@ background: #313131;
 #acbDesignFiles ul li {
     height:150px;
     list-style-type:none;
-    border:1px solid black;
-    padding:35px;
+    padding:15px;
     text-align:center;
     margin:10px;
 }
@@ -2613,6 +2612,10 @@ background: #313131;
     width:50px;
     display:block;
     margin:0 auto 10px auto;
+}
+
+#acbDesignFiles ul li a {
+    font-size:17px;
 }
 
 .modalHeader {

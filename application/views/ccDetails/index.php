@@ -1,6 +1,7 @@
 <main>
     <section class="row expanded" id="acbDesignFiles">
         <div class="columns small-12 medium-12">
+            <h2>AutoCAD / PDF CC Details</h2>
             <h3>CAD Files</h3>
             <ul>
                 <li>
@@ -119,7 +120,6 @@
         </div>
 
         <div class="columns small-12 medium-12">
-            <h2>AutoCAD / PDF CC Details</h2>
             <h3>PDF Files</h3>
             <ul>
                 <li>

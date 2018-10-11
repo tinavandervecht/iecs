@@ -26,16 +26,6 @@
                     ?>
 
                     <?php include 'application/views/quotes/partials/summary.php'; ?>
-                    <div class="card">
-                        <?php if (!empty(str_replace(" ", "", $summaryInfo['estimate_comments']))): ?>
-                            <p>
-                                <strong>Comments/Special Considerations:</strong>
-                            </p>
-                            <p>
-                                <?php echo $summaryInfo['estimate_comments']; ?>
-                            </p>
-                        <?php endif; ?>
-                    </div>
                 <a href="#" class="greenButton save" id="saveit">SAVE</a>
                 <div class="popup clearfix" id="subforreview">
                     <div class="box clearfix">
