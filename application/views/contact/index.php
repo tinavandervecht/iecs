@@ -38,13 +38,6 @@
                 <br />
                 Craig Hare – British Columbia Inquiries – <a href="mailto:chare@iecs.com">chare@iecs.com</a>
             </p>
-
-            <h2 class="green-text">IECS Ready Mix Inc.</h2>
-            <p>
-                22253 Hoskins Line, Rodney ON, N0L2C0
-                <br />
-                Phone: 519-785-IECS(4327)
-            </p>
             <h2 class="green-text">Nigeria Office</h2>
             <p>
                 Lagos, Nigeria
@@ -69,6 +62,23 @@
                 Henry Ngulube – <a href="mailto:henryngulube@gmail.com">henryngulube@gmail.com</a>
                 <br />
                 Tel: 260-977-806-110
+            </p>
+            <hr />
+            <h2 class="green-text">IECS Ready Mix Inc.</h2>
+            <p>
+                22253 Hoskins Line, Rodney ON, N0L2C0
+                <br />
+                Phone: 519-785-IECS(4327)
+            </p>
+            <h2 class="green-text">IECS Trucking</h2>
+            <p>
+                22295 Hoskins Line
+                <br />
+                Rodney, Ontario, Canada N0L 2C0
+                <br />
+                Phone : 1-800-821-7462
+                <br />
+                Fax : 1-866-496-1990
             </p>
         </div>
     </section>

@@ -253,7 +253,13 @@
 
 <?php foreach($blocks as $key => $block):?>
     <div id="<?php echo $block['product_number']; ?>-blockInformation" class="custom-modal text-enter">
-        <img src="<?php echo base_url('img/' . $block['product_name'] . '-block.svg') ?>" alt="<?php echo $block['product_name']; ?>" />
+        <div class="modalHeader">
+            <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
+        </div>
+
+        <img class="block-img" src="<?php echo $block['product_name'] == 'G2'
+            ? base_url('img/' . $block['product_name'] . '-block.png')
+            : base_url('img/' . $block['product_name'] . '-block.svg') ?>" alt="<?php echo $block['product_name']; ?>" />
     </div>
 <?php endforeach;?>
 <div id="overlay"></div>

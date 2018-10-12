@@ -2629,3 +2629,7 @@ background: #313131;
     width:150px;
     margin:0 auto;
 }
+
+.custom-modal .block-img {
+    margin:30px 0 30px 30px;
+}
