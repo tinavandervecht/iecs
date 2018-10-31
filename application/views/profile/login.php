@@ -14,6 +14,12 @@
           </div>
         </div>
 
+        <?php if(isset($passwordReset) && $passwordReset): ?>
+            <div class="alert alert-success">
+                You have successfully reset your password. Please log in below with the password you just set.
+            </div>
+        <?php endif; ?>
+
         <div id="formCont">
           <?php $attributes = array('class' => 'clearfix', 'id' => 'loginForm');
           echo form_open('profile/login', $attributes);?>
@@ -25,6 +31,7 @@
             <img src="<?php echo base_url('img/lock_edit.svg');?>" class="icon">
             <input name="company_pw" type="password" placeholder="Enter your Password">
             <input type="submit" name="submit" value="Log-In">
+            <a href="/companypassword/forgot">Forgot your password?</a>
         </form>
 
       </div>

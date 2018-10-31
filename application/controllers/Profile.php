@@ -131,6 +131,10 @@ class Profile extends CI_Controller {
 
         $data['title'] = 'Log-In | IECS';
         $data['jsLink'] = 'js/login.js';
+        if (isset($_SESSION['PasswordSuccessfullyReset']) && $_SESSION['PasswordSuccessfullyReset']) {
+            $data['passwordReset'] = true;
+            $_SESSION['PasswordSuccessfullyReset'] = false;
+        }
 
         $this->form_validation->set_rules('company_email', 'Email', 'required');
         $this->form_validation->set_rules('company_pw', 'Password', 'required');

@@ -34,6 +34,18 @@
                     <input class="value hidden" name="name" value="<?php echo $userInfo['admin_name'];?>">
                     <?php echo form_error('name', '<span class="error">', '</span>');?>
                 </div>
+
+                <div class="field">
+                    <h3 class="title">Email</h3>
+                    <a href="#" class="value">
+                        <span class="text">
+                            <?php echo $userInfo['admin_email'];?>
+                        </span>
+                    <img src="<?php echo base_url('img/pencil_icon.svg');?>" alt="Edit Icon"/>
+                    </a>
+                    <input class="value hidden" name="email" value="<?php echo $userInfo['admin_email'];?>">
+                    <?php echo form_error('email', '<span class="error">', '</span>');?>
+                </div>
             </div>
 
             <div class="columns small-12 large-4 end">

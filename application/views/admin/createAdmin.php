@@ -22,6 +22,12 @@
                     <input class="value" name="name">
                     <?php echo form_error('name', '<span class="error">', '</span>');?>
                 </div>
+
+                <div class="field">
+                    <h3 class="title">Email</h3>
+                    <input class="value" name="email">
+                    <?php echo form_error('email', '<span class="error">', '</span>');?>
+                </div>
             </div>
 
             <div class="columns small-12 large-4 end">

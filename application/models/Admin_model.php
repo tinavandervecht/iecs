@@ -292,6 +292,7 @@ class Admin_model extends CI_Model {
         $data = array(
             'admin_username' => $this->input->post('username'),
             'admin_name' => $this->input->post('name'),
+            'admin_email' => $this->input->post('email'),
         );
 
         if ($this->input->post('new_password')) {
@@ -362,7 +363,9 @@ class Admin_model extends CI_Model {
         $data = array(
             'admin_username' => $this->input->post('username'),
             'admin_pw' => password_hash($this->input->post('new_password'), PASSWORD_DEFAULT),
-            'admin_name' => $this->input->post('name')
+            'admin_name' => $this->input->post('name'),
+            'admin_email' => $this->input->post('email'),
+            'admin_lastLogin' => time()
         );
 
         $this->db->insert('tbl_admin', $data);

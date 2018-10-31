@@ -55,6 +55,11 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $data['title'] = 'Log-In | IECS';
         $data['jsLink'] = 'js/login.js';
 
+        if (isset($_SESSION['PasswordSuccessfullyReset']) && $_SESSION['PasswordSuccessfullyReset']) {
+            $data['passwordReset'] = true;
+            $_SESSION['PasswordSuccessfullyReset'] = false;
+        }
+
         //LOG-IN FORM VALIDATION
         $this->form_validation->set_rules('admin_user', 'required');
         $this->form_validation->set_rules('admin_pw', 'Password', 'required');
@@ -359,6 +364,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
 
         $this->form_validation->set_rules('username', 'Username', 'required|max_length[12]');
         $this->form_validation->set_rules('name', 'Name', 'required|max_length[140]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[tbl_admin.admin_email]');
 
         if (isset($_POST) && isset($_POST['new_password']) && $_POST['new_password'] != '')
         {
@@ -477,6 +483,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $this->form_validation->set_rules('name', 'Name', 'required|max_length[140]');
         $this->form_validation->set_rules('new_password', 'New Password', 'required|min_length[6]|max_length[30]|alpha_numeric');
         $this->form_validation->set_rules('confirm_new_password', 'Confirm New Password', 'required|matches[new_password]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[tbl_admin.admin_email]');
 
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = "Create Administrator | IECS";
