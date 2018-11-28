@@ -174,7 +174,7 @@ class Quotes extends CI_Controller {
 
     public function pdf($id)
     {
-        if (isset($_SESSION['company_id']) == FALSE) {
+        if (isset($_SESSION['company_id']) == FALSE && isset($_SESSION['userdata']['admin_id']) == FALSE) {
             redirect('/profile/login');
         }
 
@@ -217,7 +217,7 @@ class Quotes extends CI_Controller {
 
         //EMAIL INFORMATION
         $body = '<h3>' . $data['summaryInfo']['company_name'] . " has submitted a new design!</h3>"
-            . '<a href="' . site_url('/quotes/summary/'.$id) . '">Click here log in and view the design.</a>';
+            . '<a href="' . site_url('/admin/summary/'.$id) . '">Click here log in and view the design.</a>';
         $sub = "New Design Sent from ".$data['summaryInfo']['company_name'];
         $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']); //NOT SURE IF THIS FROM FUNCTIONALITY WORKS, NEEDS TESTING
         $this->email->to($this->input->post('region'));

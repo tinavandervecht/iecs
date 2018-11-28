@@ -6,7 +6,7 @@
             Optimum FOS <strong>>1.5</strong>
         </p>
     </div>
-    <?php if (!empty(str_replace(" ", "", $summaryInfo['estimate_comments']))): ?>
+    <?php if (isset($summaryInfo) && !empty(str_replace(" ", "", $summaryInfo['estimate_comments']))): ?>
         <div class="columns large-6 card">
                 <p>
                     <strong>Comments/Special Considerations:</strong>
@@ -262,4 +262,3 @@
             : base_url('img/' . $block['product_name'] . '-block.svg') ?>" alt="<?php echo $block['product_name']; ?>" />
     </div>
 <?php endforeach;?>
-<div id="overlay"></div>

@@ -43,8 +43,8 @@
         <div id="sideSlope" class="clearfix input">
             <h4 class="title">Channel Side Slope</h4>
             <label for="sideSlopePercent">
-                <a href="#" class="tip"><span class="tooltip">Enter channel side slope in "1:Z" format - entering "Z" below</span>?</a>
-                <h5 class="unit">Ratio 1:Z</h5>
+                <a href="#" class="tip"><span class="tooltip">Enter channel side slope in "Z:1" format - entering "Z" below</span>?</a>
+                <h5 class="unit">Ratio Z:1</h5>
             </label>
             <input type="number" id="sideSlopeDecimal"  class="convert D required" name="sideSlopeDecimal"
                 min="0"
@@ -95,4 +95,3 @@
     <img src="<?php echo base_url('img/friction-angle.png'); ?>" />
     <p>When a block placed on the surface is just on the point of sliding then in that condition the angle between applied force and normal force is called the angle of friction. If phi is angle of friction, tan (phi)= mu, the coefficient of friction. Angle of friction is defined in the context of motion on inclined plane.</p>
 </div>
-<div id="overlay"></div>

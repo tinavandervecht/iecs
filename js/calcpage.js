@@ -35,8 +35,12 @@ function openClose(event,block){
 }
 }
 
-yeahSave.addEventListener('click',showRegionSelection,false);
-document.querySelector('#cancel').addEventListener('click', resetSaveModal, false);
+if (yeahSave) {
+    yeahSave.addEventListener('click',showRegionSelection,false);
+}
+if (document.querySelector('#cancel')) {
+    document.querySelector('#cancel').addEventListener('click', resetSaveModal, false);
+}
 
 function showRegionSelection() {
     document.querySelector('#regionSelection').classList.remove('hidden');

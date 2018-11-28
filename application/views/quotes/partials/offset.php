@@ -1,6 +1,7 @@
 <div class="row" id="flow_velocity_inputs">
     <div class="columns small-12">
         <h3 class="sectionTitle">Maximum Vertical Offset</h3>
+        <label><h5 class="unit">12.7mm standard typical vertical offset</h5></label>
     </div>
 
     <div id="offset"  class="multi_input clearfix columns small-12 medium-6">

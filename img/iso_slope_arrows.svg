@@ -1336,13 +1336,13 @@
    </g>
    <g id="sideSlope">
     <g id="svg_77">
-     <text id="svg_78" class="st16 st17 st18 st19" transform="matrix(1,0,0,1,178.2538,182.8759) ">SIDE SLOPE: 00.00</text>
+     <text id="svg_78" class="st16 st17 st18 st19" transform="matrix(1,0,0,1,178.2538,182.8759) ">SIDE SLOPE: 00.0000</text>
      <line id="svg_79" y2="747.4" x2="574.9" y1="219.6" x1="410.9" class="st20"/>
      <polyline id="svg_80" points="148.7,182 148.7,219.6 707.4,219.6 707.4,182    " class="st20"/>
     </g>
    </g>
    <g id="bedSlope">
-    <text id="svg_81" class="st16 st17 st18 st19" transform="matrix(1,0,0,1,150.6751,1387.6981) ">BED SLOPE: 00.00</text>
+    <text id="svg_81" class="st16 st17 st18 st19" transform="matrix(1,0,0,1,150.6751,1387.6981) ">BED SLOPE: 00.0000</text>
     <line id="svg_82" y2="1021" x2="701.1" y1="1318.6" x1="379.9" class="st20"/>
     <polyline id="svg_83" points="682.1,1356.2 682.1,1318.6 123.4,1318.6 123.4,1356.2   " class="st20"/>
    </g>

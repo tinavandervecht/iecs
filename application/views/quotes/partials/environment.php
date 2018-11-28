@@ -37,7 +37,7 @@
         </div>
 
         <div id="source"  class="input clearfix">
-            <h4 class="title">Outlet Source</h4>
+            <h4 class="title">Flow Source Type</h4>
             <label for="sourceType">
                 <h5 class="unit">(river, manhole, etc.)</h5>
             </label>
@@ -129,4 +129,3 @@
         </li>
     </ul>
 </div>
-<div id="overlay"></div>

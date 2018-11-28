@@ -4,14 +4,6 @@
         <div id="type"  class="input clearfix">
             <h4 class="title">
                 Choose Type of Flow:
-                <br />
-                <a href="#"
-                    disabled="disabled"
-                    class="modalButton"
-                    data-reveal-id="flowTypesModal"
-                >
-                    What does this mean?
-                </a>
             </h4>
             <label for="flowType">
                 <h5 class="unit">(normal, overtopping, etc.)</h5>
@@ -85,31 +77,6 @@
             <?php echo form_error('flowType', '<p class="error">', '</p>');?>
         </div>
 
-        <div id="designComponent"  class="input clearfix">
-            <h4 class="title">Type of Block</h4>
-            <label for="blockType">
-                <!-- <a href="#" class="tip"><span class="tooltip">ADD TOOL TIP</span>?</a> -->
-            </label>
-            <select name="blockType">
-                <option value="0"
-                    <?php if ((isset($_POST['blockType']) && $_POST['blockType'] == 0)
-                        || (isset($estimate) && $estimate['estimate_blockType'] == 0)) :
-                        echo 'selected="true"';
-                    endif; ?>
-                >
-                    Same Block for Both
-                </option>
-                <option value="1"
-                    <?php if ((isset($_POST['blockType']) && $_POST['blockType'] == 1)
-                        || (isset($estimate) && $estimate['estimate_blockType'] == 1)) :
-                        echo 'selected="true"';
-                    endif; ?>
-                >
-                    Different Block for each
-                </option>
-            </select>
-        </div>
-
         <div id="designComponentTwo"  class="input clearfix">
             <h4 class="title">Use block on...</h4>
             <label for="blockUse">
@@ -152,14 +119,6 @@
         <div id="type"  class="input clearfix">
             <h4 class="title">
                 Channel Section
-                <br />
-                <a href="#"
-                    disabled="disabled"
-                    class="modalButton"
-                    data-reveal-id="channelSectionModal"
-                >
-                    What does this mean?
-                </a>
             </h4>
             <select id="channelSection" name="channelSection">
                 <option value="0"
@@ -286,74 +245,6 @@
     </div>
 </div>
 
-<div id="flowTypesModal" class="custom-modal">
-    <div class="modalHeader">
-        <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
-    </div>
-    <h2 id="modalTitle" class="text-center">What do all the flow types mean?</h2>
-    <ul>
-        <li>
-            <p>
-                <strong>Normal</strong> - Normal depth is the depth of flow in a channel or culvert when the slope of the water surface and channel bottom is the same and the water depth remains constant. Normal depth occurs when gravitational force of the water is equal to the friction drag along the culvert and there is no acceleration of flow.
-            </p>
-        </li>
-        <li>
-            <p>
-                <strong>Overtopping</strong> - Overtopping flow occurs when a water confinement structure's capability is surpassed and flow passes over the structure.
-            </p>
-        </li>
-        <li>
-            <p>
-                <strong>Super Critical</strong> - A supercritical flow is a flow whose velocity is larger than the wave velocity. The analogous condition in gas dynamics is supersonic.
-            </p>
-        </li>
-        <li>
-            <p>
-                <strong>Sub Critical</strong> - sub critical flow is flow that is slower than the wave propagation speed.
-            </p>
-        </li>
-        <li>
-            <p>
-                <strong>Hydraulic Jump</strong> - A hydraulic jump is a phenomenon in the science of hydraulics which is frequently observed in open channel flow such as rivers and spillways. When liquid at high velocity discharges into a zone of lower velocity, a rather abrupt rise occurs in the liquid surface. The rapidly flowing liquid is abruptly slowed and increases in height, converting some of the flow's initial kinetic energy into an increase in potential energy, with some energy irreversibly lost through turbulence to heat. In an open channel flow, this manifests as the fast flow rapidly slowing and piling up on top of itself similar to how a shockwave forms.
-            </p>
-        </li>
-        <li>
-            <p>
-                <strong>Impinging</strong> - which occurs when approach channels direct flow into a bank line at large acute angles, results in flow concentration along bank lines, which creates large forces on bank material or bank protection.
-            </p>
-        </li>
-    </ul>
-</div>
-
-<div id="channelSectionModal" class="custom-modal">
-    <div class="modalHeader">
-        <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
-    </div>
-    <h2 id="modalTitle" class="text-center">What do all the channel sections mean?</h2>
-    <ul>
-        <li>
-            <p>
-                <strong>Trapezoidal</strong> - Trapezoidal Channel is an open channel with a trapezoidal cross section where both sides have the same slope.
-            </p>
-        </li>
-        <li>
-            <p>
-                <strong>Parabolic</strong> -  is a plane curve which is mirror-symmetrical and is approximately U-shaped. It fits any of several superficially different mathematical descriptions, which can all be proved to define exactly the same curves.
-            </p>
-        </li>
-        <li>
-            <p>
-                <strong>Rectangular</strong> - is an open channel with a rectangular cross section with varying width, and where both sides have the same height.
-            </p>
-        </li>
-        <li>
-            <p>
-                <strong>Irregular</strong> - is an open channel with an irregular cross section with varying width and irregular height on the sides. Can also have sloped and or vertical side walls containing the channel.
-            </p>
-        </li>
-    </ul>
-</div>
-
 <div id="useBlockOnModal" class="custom-modal">
     <div class="modalHeader">
         <img class="logo" src="<?php echo base_url('img/CC-whiteLogo.svg');?>">
@@ -376,4 +267,3 @@
         </li>
     </ul>
 </div>
-<div id="overlay"></div>

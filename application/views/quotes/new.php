@@ -1,5 +1,6 @@
 <main id="newQuotePage">
     <h2 class="hidden">Main Content</h2>
+    <div id="overlay"></div>
     <section class="row expanded" id="newQuote">
         <?php $attributes = array('class' => 'row expanded small-collapse', 'id' => 'calculator', 'novalidate' => 'novalidate');
         echo form_open('quotes/newQuote', $attributes);?>

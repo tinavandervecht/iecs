@@ -1,6 +1,7 @@
 <main class="clearfix">
         <h2 class="hidden">Main Content</h2>
 
+        <div id="overlay"></div>
         <section class="row expanded" id="cmsEstimateSummary">
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
                   <a href="<?php echo site_url('/quotes/editQuote/' . $id);?>" class="tabTitle">PARAMETER INPUTS</a>

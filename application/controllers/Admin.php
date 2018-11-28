@@ -364,7 +364,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
 
         $this->form_validation->set_rules('username', 'Username', 'required|max_length[12]');
         $this->form_validation->set_rules('name', 'Name', 'required|max_length[140]');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[tbl_admin.admin_email]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 
         if (isset($_POST) && isset($_POST['new_password']) && $_POST['new_password'] != '')
         {
