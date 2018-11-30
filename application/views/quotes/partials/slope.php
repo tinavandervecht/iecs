@@ -53,7 +53,7 @@
                 elseif (isset($estimate)) :
                     echo $estimate['estimate_sideSlope'];
                 else:
-                    echo '0.000';
+                    echo '0';
                 endif; ?>"
             />
             <?php echo form_error('sideSlopeDecimal', '<p class="error">', '</p>');?>
