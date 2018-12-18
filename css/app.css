@@ -2024,7 +2024,7 @@ border-bottom: thick solid #4b8709;
 }
 .graph-list #user-graph-svg .chart-title,
 .graph-list .year-user-graph-wrapper p,
-.graph-list .design-breakdown p {
+.graph-list .data-breakdown p {
     font-weight:bold;
     fill:#949FA0;
     color:#949FA0;
@@ -2032,24 +2032,24 @@ border-bottom: thick solid #4b8709;
     letter-spacing:.03em;
 }
 
-.graph-list .design-breakdown.by_area p {
+.graph-list .data-breakdown.by_area p {
     font-size:12px;
 }
 
-.graph-list .design-breakdown .item {
+.graph-list .data-breakdown .item {
     width:20%;
     height:100px;
     float:left;
 }
 
-.graph-list .design-breakdown .num {
+.graph-list .data-breakdown .num {
     color: #4b8709;
     font-size: 60px;
     font-weight: 800;
     font-family: "Arial", sans-serif;
 }
 
-.graph-list .design-breakdown .num.smaller {
+.graph-list .data-breakdown .num.smaller {
     font-size: 30px;
 }
 
@@ -2602,7 +2602,7 @@ background: #313131;
       margin:2em auto;
     }
 
-    .graph-list .design-breakdown:not(.by_area) {
+    .graph-list .data-breakdown:not(.by_area) {
         border-top:1px solid rgb(235, 238, 241);
     }
 

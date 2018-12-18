@@ -119,6 +119,7 @@ class Quotes extends CI_Controller {
             $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
             $data['estimate'] = $this->quotes_model->get_estimate($estimateID, $_SESSION['company_id']);
             $_SESSION['last_date'] = $data['estimate']['estimate_date'];
+            $_SESSION['created_date'] = $data['estimate']['estimate_createdDate'];
             if ($data['estimate']==FALSE){
                 redirect('/dashboard');
             } else {

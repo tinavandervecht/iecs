@@ -26,8 +26,34 @@
         </div>
     </div>
 
+    <?php if(isset($total_user_activity)): ?>
+        <div class="clearfix data-breakdown">
+            <p>
+                User Breakdown
+            </p>
+            <div class="item">
+                <p class="text-center">
+                    <span class="num"><?php echo $total_user_activity['total_users']; ?></span>
+                    <br />
+                    Total Users
+                </p>
+            </div>
+        </div>
+        <div class="clearfix data-breakdown by_area">
+            <?php foreach($total_user_activity['area_users'] as $users): ?>
+                <div class="item">
+                    <p class="text-center">
+                        <span class="num smaller"><?php echo sizeof($users); ?></span>
+                        <br />
+                        # of <?php echo empty($users[0]['company_city']) ? 'N/A' : $users[0]['company_city']; ?> Users
+                    </p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+
     <?php if(isset($design_activity)): ?>
-        <div class="clearfix design-breakdown">
+        <div class="clearfix data-breakdown">
             <p>
                 Design Breakdown
             </p>
@@ -39,7 +65,7 @@
                 </p>
             </div>
         </div>
-        <div class="clearfix design-breakdown by_area">
+        <div class="clearfix data-breakdown by_area">
             <?php foreach($design_activity['area_designs'] as $designs): ?>
                 <div class="item">
                     <p class="text-center">

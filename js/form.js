@@ -682,8 +682,8 @@ if(svg){
     //SIDE SLOPE
     var sideD = document.querySelector("#sideSlopeDecimal");
     sideD.addEventListener('input',function(){
-      val = sideD.value;
-      val = parseFloat(val).toFixed(0);
+      val = sideD.value ? sideD.value : 0;
+      val = parseFloat(val);
       updateSvg(svg1,val,'#sideSlope text');
     },false);
 
@@ -731,8 +731,8 @@ function loadSvg(){
   //SIDE SLOPE
   var sideD = document.querySelector("#sideSlopeDecimal");
 
-    val = sideD.value;
-    val = parseFloat(val).toFixed(0);
+    val = sideD.value ? sideD.value : 0;
+    val = parseFloat(val);
     updateSvg(svg1,val,'#sideSlope text');
 
   var flow = document.querySelector("#flowType");

@@ -51,7 +51,7 @@
                 value="<?php if (isset($_POST['sideSlopeDecimal'])) :
                     echo $_POST['sideSlopeDecimal'];
                 elseif (isset($estimate)) :
-                    echo $estimate['estimate_sideSlope'];
+                    echo number_format($estimate['estimate_sideSlope'], 2);
                 else:
                     echo '0';
                 endif; ?>"

@@ -269,6 +269,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $data['user_activity'] = $this->admin_model->get_users_created_activity();
         $data['year_user_activity'] = $this->admin_model->get_current_year_user_activity();
         $data['design_activity'] = $this->admin_model->get_design_activity();
+        $data['total_user_activity'] = $this->admin_model->get_user_activity();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/adminNav', $data);

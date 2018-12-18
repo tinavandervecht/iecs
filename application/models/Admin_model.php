@@ -369,6 +369,26 @@ class Admin_model extends CI_Model {
         return $designInfo;
     }
 
+    public function get_user_activity()
+    {
+        $userInfo = [];
+
+        $this->db->select('*');
+        $this->db->from('tbl_company');
+        $query = $this->db->get();
+
+        $userInfo['total_users'] = sizeof($query->result_array());
+        $userInfo['area_users'] = [];
+
+        foreach($query->result_array() as $user)
+        {
+            $key = str_replace(' ', '', strtolower($user['company_city']));
+            $userInfo['area_users'][$key][] = $user;
+        }
+
+        return $userInfo;
+    }
+
     public function get_allAdmins()
     {
         $this->db->select('*');

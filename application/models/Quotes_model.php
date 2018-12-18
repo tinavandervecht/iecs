@@ -69,7 +69,7 @@ class Quotes_model extends CI_Model {
                 'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),3),
                 'estimate_offset' => number_format($this->input->post('offsetMeters'),2),
                 'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),3),
-                'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),0),
+                'estimate_sideSlope' => $this->input->post('sideSlopeDecimal'),
                 'estimate_friction' => number_format($this->input->post('friction'),2),
                 'estimate_flowType' => number_format($this->input->post('flowType')),
                 'estimate_channelSection' => number_format($this->input->post('channelSection')),
@@ -101,7 +101,7 @@ class Quotes_model extends CI_Model {
                 'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),3),
                 'estimate_offset' => number_format($this->input->post('offsetMeters'),2),
                 'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),3),
-                'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),0),
+                'estimate_sideSlope' => $this->input->post('sideSlopeDecimal'),
                 'estimate_friction' => number_format($this->input->post('friction'),2),
                 'estimate_flowType' => number_format($this->input->post('flowType')),
                 'estimate_channelSection' => number_format($this->input->post('channelSection')),
@@ -149,7 +149,7 @@ class Quotes_model extends CI_Model {
                 'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),3),
                 'estimate_offset' => number_format($this->input->post('offsetMeters'),2),
                 'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),3),
-                'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),0),
+                'estimate_sideSlope' => $this->input->post('sideSlopeDecimal'),
                 'estimate_friction' => number_format($this->input->post('friction'),2),
                 'estimate_flowType' => number_format($this->input->post('flowType')),
                 'estimate_channelSection' => number_format($this->input->post('channelSection')),
@@ -162,6 +162,7 @@ class Quotes_model extends CI_Model {
                 'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
                 'estimate_outLetSource' => number_format($this->input->post('sourceType')),
                 'estimate_outLetSourceFlowtype' => number_format($this->input->post('sourceFlowType')),
+                'estimate_createdDate' => $_SESSION['created_date'],
                 'estimate_modifiedDate' => date('Y-m-d H:i:s'),
                 'estimate_comments' => $this->input->post('commentsBox')
             );
@@ -181,7 +182,7 @@ class Quotes_model extends CI_Model {
                 'estimate_expectedVelocity' => number_format($this->input->post('velocityMeters'),3),
                 'estimate_offset' => number_format($this->input->post('offsetMeters'),2),
                 'estimate_bedSlope' => number_format($this->input->post('bedSlopeDecimal'),3),
-                'estimate_sideSlope' => number_format($this->input->post('sideSlopeDecimal'),0),
+                'estimate_sideSlope' => $this->input->post('sideSlopeDecimal'),
                 'estimate_friction' => number_format($this->input->post('friction'),2),
                 'estimate_flowType' => number_format($this->input->post('flowType')),
                 'estimate_channelSection' => number_format($this->input->post('channelSection')),
@@ -190,6 +191,7 @@ class Quotes_model extends CI_Model {
                 'estimate_alignment' => number_format($this->input->post('alignType')),
                 'estimate_outLetSource' => number_format($this->input->post('sourceType')),
                 'estimate_outLetSourceFlowtype' => number_format($this->input->post('sourceFlowType')),
+                'estimate_createdDate' => $_SESSION['created_date'],
                 'estimate_modifiedDate' => date('Y-m-d H:i:s'),
                 'estimate_comments' => $this->input->post('commentsBox')
             );
