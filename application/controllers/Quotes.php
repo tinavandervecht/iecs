@@ -216,10 +216,12 @@ class Quotes extends CI_Controller {
         $data['id'] = $id;
 
         //EMAIL INFORMATION
+        $estimateAddress = empty($data['summaryInfo']['estimate_location']) ? 'N/A' : $data['summaryInfo']['estimate_location'];
         $body = '<h3>' . $data['summaryInfo']['company_name'] . " has submitted a new design!</h3>"
+            . "<p>Design Location: " . $estimateAddress . "</p>"
             . '<a href="' . site_url('/admin/summary/'.$id) . '">Click here log in and view the design.</a>';
         $sub = "New Design Sent from ".$data['summaryInfo']['company_name'];
-        $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']); //NOT SURE IF THIS FROM FUNCTIONALITY WORKS, NEEDS TESTING
+        $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']);
         $this->email->to($this->input->post('region'));
 
         $this->email->set_mailtype("html");

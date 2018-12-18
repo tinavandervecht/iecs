@@ -29,7 +29,8 @@
                       <h3><?php echo $estimates[$i]['company_name'];?></h3>
                       <h4><?php echo $estimates[$i]['estimate_name'];?></h4>
                     </div>
-                    <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
+                    <p><span class="edit">Date Created: <?php echo substr($estimates[$i]['estimate_createdDate'], 0, 10);?></span></p>
+                    <p><span class="edit">Last Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
                     <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">Review</a></p>
                   </div>
 
@@ -42,7 +43,8 @@
                         <h3><?php echo $estimates[$i]['company_name'];?></h3>
                         <h4><?php echo $estimates[$i]['estimate_name'];?></h4>
                       </div>
-                      <p><span class="edit">Date Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
+                      <p><span class="edit">Date Created: <?php echo substr($estimates[$i]['estimate_createdDate'], 0, 10);?></span></p>
+                      <p><span class="edit">Last Edited: <?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></span></p>
                       <p><a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton greyButton">Review</a></p>
                     </div>
 
@@ -64,7 +66,8 @@
                 <th class="text-center">NEW</th>
                 <th>COMPANY</th>
                 <th>PROJECT</th>
-                <th>DATE EDITED</th>
+                <th>DATE CREATED</th>
+                <th>LAST EDITED</th>
                 <th>REVIEW</th>
               </tr>
             </thead>
@@ -75,6 +78,7 @@
                 <td><?php echo !isset($_SESSION['estimate_' . $estimates[$i]['estimate_id'] . '_seen']) ? "<span class='dot'></span>" : ''; ?></td>
                 <td><?php echo $estimates[$i]['company_name'];?></td>
                 <td><?php echo $estimates[$i]['estimate_name'];?></td>
+                <td><?php echo substr($estimates[$i]['estimate_createdDate'], 0, 10);?></td>
                 <td><?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></td>
                 <td>
                   <a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">REVIEW</a>
@@ -87,6 +91,7 @@
                 <td><?php echo !isset($_SESSION['estimate_' . $estimates[$i]['estimate_id'] . '_seen']) ? "<span class='dot'></span>" : ''; ?></td>
                 <td><?php echo $estimates[$i]['company_name'];?></td>
                 <td><?php echo $estimates[$i]['estimate_name'];?></td>
+                <td><?php echo substr($estimates[$i]['estimate_createdDate'], 0, 10);?></td>
                 <td><?php echo substr($estimates[$i]['estimate_modifiedDate'], 0, 10);?></td>
                 <td>
                   <a href="<?php echo site_url('admin/summary/'.$estimates[$i]['estimate_id']);?>" class="greyButton">REVIEW</a>

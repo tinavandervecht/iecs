@@ -70,7 +70,7 @@ main:not(.no-top-margin){
   margin: 0;
 }
 #mobileMenu li a{
-  width:20%;
+  width:100px;
   display: block;
   float: left;
   text-align: center;
@@ -79,8 +79,11 @@ main:not(.no-top-margin){
   padding:1em 0;
   box-sizing: border-box;
 }
-#mobileMenu #secondaryNav.four li a{
-  width:25%;
+#mobileMenu {
+    overflow:scroll;
+}
+#mobileMenu nav {
+    width:800px;
 }
 #loginButtons
 {
@@ -2019,12 +2022,35 @@ border-bottom: thick solid #4b8709;
     font-family:"Arial", sans-serif;
     font-size:29px;
 }
-.graph-list #user-graph-svg .chart-title, .graph-list .year-user-graph-wrapper p {
+.graph-list #user-graph-svg .chart-title,
+.graph-list .year-user-graph-wrapper p,
+.graph-list .design-breakdown p {
     font-weight:bold;
     fill:#949FA0;
     color:#949FA0;
     font-size:15px;
     letter-spacing:.03em;
+}
+
+.graph-list .design-breakdown.by_area p {
+    font-size:12px;
+}
+
+.graph-list .design-breakdown .item {
+    width:20%;
+    height:100px;
+    float:left;
+}
+
+.graph-list .design-breakdown .num {
+    color: #4b8709;
+    font-size: 60px;
+    font-weight: 800;
+    font-family: "Arial", sans-serif;
+}
+
+.graph-list .design-breakdown .num.smaller {
+    font-size: 30px;
 }
 
 .graph-list .year-user-graph-wrapper p {
@@ -2576,7 +2602,11 @@ background: #313131;
       margin:2em auto;
     }
 
-    .graph-list .user-graph-wrapper {
+    .graph-list .design-breakdown:not(.by_area) {
+        border-top:1px solid rgb(235, 238, 241);
+    }
+
+     .graph-list .user-graph-wrapper {
         float:left;
         border-bottom:1px solid rgb(235, 238, 241);
         width:40%;

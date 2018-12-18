@@ -22,6 +22,12 @@
         </div>
     <?php endif; ?>
 
+    <?php if(isset($no_account)): ?>
+        <div class="alert alert-success">
+            <?php echo $no_account; ?>
+        </div>
+    <?php endif; ?>
+
     <div id="formCont">
       <?php $attributes = array('class' => 'clearfix', 'id' => 'loginForm');
       echo form_open('admin/login', $attributes);?>

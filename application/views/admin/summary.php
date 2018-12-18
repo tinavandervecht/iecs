@@ -27,9 +27,9 @@
                 <div class="modal-content clearfix">
                   <span class="close">&times;</span>
                   <?php $attributes = array('novalidate' => 'novalidate');
-                      echo form_open('/admin/summary/' . $summary['estimate_id'], $attributes);
+                      echo form_open('/admin/summary/' . $summaryInfo['estimate_id'], $attributes);
                   ?>
-                      <h2>EMAIL CLIENT: <?php echo $summary['company_name'] ;?></h2>
+                      <h2>EMAIL CLIENT: <?php echo $summaryInfo['company_name'] ;?></h2>
                       <label>Subject:</label><br>
                       <input id="subject" name="email_sub" value="<?php echo isset($_POST['email_sub']) && $_POST['email_sub'] ? $_POST['email_sub'] : ''; ?>">
                       <?php echo form_error('email_sub', '<p class="error">', '</p>');?>

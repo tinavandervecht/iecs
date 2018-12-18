@@ -29,6 +29,7 @@
                 <div class="title">
                   <h3><?php echo $company['company_name'];?></h3>
                   <h4><?php echo $company['company_contactName'];?></h4>
+                  <h5>City: <?php echo is_null($company['company_city']) ? 'N/A' : $company['company_city'];?></h5>
                 </div>
                 <div class="viewCallout clearfix">
                   <a href="<?php echo site_url('admin/company/'.$company['company_id']);?>" class="greenButton">View</a>

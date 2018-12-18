@@ -349,6 +349,26 @@ class Admin_model extends CI_Model {
         return $activity;
     }
 
+    public function get_design_activity()
+    {
+        $designInfo = [];
+
+        $this->db->select('*');
+        $this->db->from('tbl_estimates');
+        $query = $this->db->get();
+
+        $designInfo['total_designs'] = sizeof($query->result_array());
+        $designInfo['area_designs'] = [];
+
+        foreach($query->result_array() as $estimate)
+        {
+            $key = str_replace(' ', '', strtolower($estimate['estimate_location']));
+            $designInfo['area_designs'][$key][] = $estimate;
+        }
+
+        return $designInfo;
+    }
+
     public function get_allAdmins()
     {
         $this->db->select('*');

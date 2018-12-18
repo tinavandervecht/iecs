@@ -146,6 +146,7 @@ class Profile extends CI_Controller {
         } else {
             $session = $this->profile_model->check_login(); //CHECK THE LOGIN INFO TO SEE IF THE PROFILE EXISTS AND RETURN IT IF IT DOES.
             if($session === FALSE) {
+                $data['no_account'] = "The username/password entered was incorrect, please try again.";
                 $this->load->view('templates/header', $data);
                 $this->load->view('profile/login');
                 $this->load->view('templates/footer', $data);

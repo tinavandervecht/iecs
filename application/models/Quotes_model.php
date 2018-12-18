@@ -82,6 +82,7 @@ class Quotes_model extends CI_Model {
                 'estimate_topWidth' => number_format($this->input->post('topMeters'),2),
                 'estimate_outLetSource' => number_format($this->input->post('sourceType')),
                 'estimate_outLetSourceFlowtype' => number_format($this->input->post('sourceFlowType')),
+                'estimate_createdDate' => date('Y-m-d H:i:s'),
                 'estimate_modifiedDate' => date('Y-m-d H:i:s'),
                 'estimate_comments' => $this->input->post('commentsBox')
             );
@@ -109,6 +110,7 @@ class Quotes_model extends CI_Model {
                 'estimate_alignment' => number_format($this->input->post('alignType')),
                 'estimate_outLetSource' => number_format($this->input->post('sourceType')),
                 'estimate_outLetSourceFlowtype' => number_format($this->input->post('sourceFlowType')),
+                'estimate_createdDate' => date('Y-m-d H:i:s'),
                 'estimate_modifiedDate' => date('Y-m-d H:i:s'),
                 'estimate_comments' => $this->input->post('commentsBox')
             );

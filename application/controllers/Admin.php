@@ -75,6 +75,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
             $session = $this->admin_model->check_adminlogin(); //THIS FUNCTION ATTEMPTS TO LOG IN THE USER, RETURNS FALSE IF THE INFO IS WRONG
             if($session === FALSE) {
                 //THE PAGE IS RELOADED
+                $data['no_account'] = "The username/password entered was incorrect, please try again.";
                 $this->load->view('templates/header', $data);
                 $this->load->view('admin/login');
                 $this->load->view('templates/footer', $data);
@@ -156,7 +157,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
             redirect('/admin/estimates');
         }
 
-        $data['summary'] = $this->admin_model->get_summary($id);
+        $data['summaryInfo'] = $this->admin_model->get_summary($id);
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -267,6 +268,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $data['current'] = "statistics";
         $data['user_activity'] = $this->admin_model->get_users_created_activity();
         $data['year_user_activity'] = $this->admin_model->get_current_year_user_activity();
+        $data['design_activity'] = $this->admin_model->get_design_activity();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/adminNav', $data);

@@ -20,6 +20,7 @@
                     <div class="bottom">
                       <p class="username">Contact Name: <span class="value"><?php echo $companyInfo['company_contactName'];?></span></p>
                       <p class="username">Company: <span class="value"><?php echo $companyInfo['company_name'];?></span></p>
+                      <p class="username">City: <span class="value"><?php echo is_null($companyInfo['company_city']) ? 'N/A' : $companyInfo['company_city'];?></span></p>
                       <p class="phone">Phone Number: <span class="value"><?php echo $companyInfo['company_phone'];?></span></p>
                       <p class="email">Email: <span class="value"><?php echo $companyInfo['company_email'];?></span></p>
                       <p class="approved">
@@ -41,9 +42,8 @@
                       <h3><?php echo $estimate['company_name'];?></h3>
                       <h4><?php echo $estimate['estimate_name'];?></h4>
                     </div>
-                    <p><span class="edit">Date Edited: <?php echo substr($estimate['estimate_modifiedDate'],0,10);?></span></p>
-                    <p><span class="block">Recommended Block: CC35</span></p>
-                    <p><span class="factor">Safety Factor: 2.3</span></p>
+                    <p><span class="edit">Date Created: <?php echo substr($estimate['estimate_createdDate'],0,10);?></span></p>
+                    <p><span class="edit">Last Edited: <?php echo substr($estimate['estimate_modifiedDate'],0,10);?></span></p>
                     <p><a href="<?php echo site_url('admin/summary/'.$estimate['estimate_id']);?>" class="reviewButton greyButton">Review</a></p>
                   </div>
                 <?php endforeach;?>
