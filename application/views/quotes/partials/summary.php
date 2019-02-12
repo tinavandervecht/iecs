@@ -17,6 +17,40 @@
         </div>
     <?php endif; ?>
 </div>
+
+<div class="columns large-12 card">
+        <p>
+            <strong>Design Information:</strong>
+        </p>
+        <div class="columns large-6">
+            <p>
+                <strong>Company:</strong><br />
+                <?php echo $summaryInfo['company_name']; ?>
+            </p>
+            <p>
+                <strong>Project Name:</strong><br />
+                <?php echo $summaryInfo['estimate_name']; ?>
+            </p>
+            <p>
+                <strong>Projected Start Date For Project:</strong><br />
+                <?php echo substr($summaryInfo['estimate_date'],0,10); ?>
+            </p>
+            <p>
+                <strong>Engineer Name:</strong><br />
+                <?php echo $summaryInfo['estimate_engineer']; ?>
+            </p>
+        </div>
+        <div class="columns large-6">
+            <p>
+                <strong>City & State/Province:</strong><br />
+                <?php echo empty($summaryInfo['estimate_location']) ? 'N/A' : $summaryInfo['estimate_location']; ?>
+            </p>
+            <p>
+                <strong>Address:</strong><br />
+                <?php echo empty($summaryInfo['estimate_address']) ? 'N/A' : $summaryInfo['estimate_address']; ?>
+            </p>
+        </div>
+</div>
 <div class="columns small-12 large-12 card">
 <?php foreach($blocks as $key => $block):?>
   <div class="block" id=<?php echo $key . '-' . $block['product_name']; ?>>
