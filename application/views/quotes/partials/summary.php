@@ -20,37 +20,46 @@
 
 <div class="columns large-12 card">
         <p>
-            <strong>Design Information:</strong>
+            <strong>Input Parameters:</strong>
         </p>
         <div class="columns large-6">
             <p>
-                <strong>Company:</strong><br />
-                <?php echo $summaryInfo['company_name']; ?>
+                <strong>Max Expected Flow:</strong><br />
+                <?php echo $summaryInfo['estimate_expectedFlow']; ?>
             </p>
             <p>
-                <strong>Project Name:</strong><br />
-                <?php echo $summaryInfo['estimate_name']; ?>
+                <strong>Max Expected Velocity:</strong><br />
+                <?php echo $summaryInfo['estimate_expectedVelocity']; ?>
             </p>
             <p>
-                <strong>Projected Start Date For Project:</strong><br />
-                <?php echo substr($summaryInfo['estimate_date'],0,10); ?>
+                <strong>Bed Slope:</strong><br />
+                <?php echo $summaryInfo['estimate_bedSlope']; ?>
             </p>
             <p>
-                <strong>Engineer Name:</strong><br />
-                <?php echo $summaryInfo['estimate_engineer']; ?>
+                <strong>Side Slope:</strong><br />
+                <?php echo $summaryInfo['estimate_sideSlope']; ?>
             </p>
         </div>
         <div class="columns large-6">
             <p>
-                <strong>City & State/Province:</strong><br />
-                <?php echo empty($summaryInfo['estimate_location']) ? 'N/A' : $summaryInfo['estimate_location']; ?>
+                <strong>Bed Width:</strong><br />
+                <?php echo $summaryInfo['estimate_bedWidth']; ?>
             </p>
             <p>
-                <strong>Address:</strong><br />
-                <?php echo empty($summaryInfo['estimate_address']) ? 'N/A' : $summaryInfo['estimate_address']; ?>
+                <strong>Type of Flow:</strong><br />
+                <?php echo $summaryInfo['estimate_flowType_string']; ?>
+            </p>
+            <p>
+                <strong>Alignment:</strong><br />
+                <?php echo $summaryInfo['estimate_alignment_string']; ?>
+            </p>
+            <p>
+                <strong>Channel Length:</strong><br />
+                <?php echo $summaryInfo['estimate_channelLength']; ?>
             </p>
         </div>
 </div>
+
 <div class="columns small-12 large-12 card">
 <?php foreach($blocks as $key => $block):?>
   <div class="block" id=<?php echo $key . '-' . $block['product_name']; ?>>
