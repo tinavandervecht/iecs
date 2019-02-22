@@ -24,7 +24,8 @@
                             bT: <?php echo $block['product_bT']; ?> |
                             hB: <?php echo $block['product_hB']; ?> |
                             W: <?php echo $block['product_W']; ?> |
-                            Ws: <?php echo $block['product_Ws']; ?>
+                            Ws: <?php echo $block['product_Ws']; ?> |
+                            Manning's N: <?php echo $block['product_manningsN']; ?>
                         </p>
                     </a>
                 <?php endforeach; ?>
