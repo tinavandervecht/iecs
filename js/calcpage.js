@@ -241,7 +241,7 @@ function Calculations(data, blockData){
   setBlockVariables(blockData.product_b, blockData.product_hB, blockData.product_Ws);
   setSectionVariable(data.estimate_expectedFlow, data.estimate_expectedVelocity);
   setBedWidthVariables(data.estimate_bedWidth);
-  setManningsVariables(data.estimate_expectedFlow, data.estimate_bedSlope);
+  setManningsVariables(blockData.product_manningsN);
 
   flowSectionArea = Number(data.estimate_expectedFlow / data.estimate_expectedVelocity).toFixed(3);
   bedWidthY = (Math.pow((Math.pow(data.estimate_bedWidth, 2)+4*(1/data.estimate_sideSlope)*flowSectionArea), 0.5)-data.estimate_bedWidth)/(2/data.estimate_sideSlope);
@@ -498,7 +498,7 @@ function performCalcs() {
                 input.value = angleSideSlope;
                 pdfContentForm.appendChild(input);
             /*--*/
-            blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(3);
+            blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(4);
             var input = document.createElement("input");
                 input.type = "hidden";
                 input.name = i + '-' + blockData[i]['product_name'] + "[manningsN]";
@@ -661,8 +661,8 @@ function setBedWidthVariables(estimateBedWidth) {
     doubleCheck = doubleCheckAn / (2 * Number(bedWidthDN) * Math.pow((1 + Math.pow(Number(channelSideSlope), 2)), 0.5) + Number(estimateBedWidth));
 }
 
-function setManningsVariables(estimateFlow, estimateBedSlope) {
-    mannings = (doubleCheckAn * Math.pow((doubleCheck), (2/3)) * Math.pow(estimateBedSlope, (1/2))) / estimateFlow;
+function setManningsVariables(manningsN) {
+    mannings = manningsN;
     manningsCos = bedWidthDN / angleBedSlopeCos;
 }
 
