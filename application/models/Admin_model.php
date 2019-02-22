@@ -262,7 +262,55 @@ class Admin_model extends CI_Model {
         $this->db->where('tbl_estimates.estimate_id', $id);
 
         $query = $this->db->get();
-        return $query->row_array();
+        $quote = $query->row_array();
+        $quote['estimate_flowType_string'] = $this->getFlowTypeString($quote['estimate_flowType']);
+        $quote['estimate_alignment_string'] = $this->getAlignmentString($quote['estimate_alignment']);
+
+        return $quote;
+    }
+
+    public function getFlowTypeString($id)
+    {
+        $string = "Normal";
+
+        switch ($id) {
+            case (1):
+                $string = 'Overtopping';
+                break;
+            case (2):
+                $string = 'Sub Critical';
+                break;
+            case (3):
+                $string = 'Hydraulic Jump';
+                break;
+            case (4):
+                $string = 'Super Critical';
+                break;
+            case (5):
+                $string = 'Impinging';
+                break;
+            case (6):
+                $string = 'Bridge/Culvert';
+                break;
+            case (7):
+                $string = 'Undulating Trans Critical';
+                break;
+        }
+
+        return $string;
+    }
+
+    public function getAlignmentString($id)
+    {
+        $string = "Straight";
+
+        switch ($id) {
+            case (1):
+                $string = 'Not Straight';
+                break;
+        }
+
+        return $string;
     }
 
     public function get_summary_data($id)
