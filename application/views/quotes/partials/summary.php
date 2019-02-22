@@ -174,6 +174,12 @@
                       <div class="num">--</div>
                   </div>
               </div>
+              <div class="other clearfix" id="bedWidthDN">
+                  <div>
+                      <p class="factor">Bed Width (dn)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
               <!--===========================-->
               <div class="other clearfix" id="bedSlope">
                   <div>
@@ -284,6 +290,13 @@
               <div class="other clearfix" id="manningsCos">
                   <div>
                       <p class="factor">Manning's Cos</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+
+              <div class="other clearfix" id="manningsC">
+                  <div>
+                      <p class="factor">Manning's C'</p>
                       <div class="num">--</div>
                   </div>
               </div>

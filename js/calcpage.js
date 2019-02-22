@@ -223,6 +223,7 @@ var netBedNormalForces;
 var netSideNormalForces;
 
 var shearStressBedC = 1.00;
+var manningsC = 1.000;
 /*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
 CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
 
@@ -240,8 +241,9 @@ function Calculations(data, blockData){
   setFrictionAngleVariables(data.estimate_friction);
   setBlockVariables(blockData.product_b, blockData.product_hB, blockData.product_Ws);
   setSectionVariable(data.estimate_expectedFlow, data.estimate_expectedVelocity);
-  setBedWidthVariables(data.estimate_bedWidth);
-  setManningsVariables(blockData.product_manningsN);
+  mannings = blockData.product_manningsN;
+  setBedWidthVariables(data.estimate_bedWidth, data.estimate_bedSlope, data.estimate_expectedFlow);
+  setManningsVariables();
 
   flowSectionArea = Number(data.estimate_expectedFlow / data.estimate_expectedVelocity).toFixed(3);
   bedWidthY = (Math.pow((Math.pow(data.estimate_bedWidth, 2)+4*(1/data.estimate_sideSlope)*flowSectionArea), 0.5)-data.estimate_bedWidth)/(2/data.estimate_sideSlope);
@@ -512,6 +514,8 @@ function performCalcs() {
                 input.value = Number(manningsCos).toFixed(3);
                 pdfContentForm.appendChild(input);
             /*--*/
+            blockElement.querySelector('#manningsC .num').innerHTML = Number(manningsC).toFixed(3);
+            /*--*/
             blockElement.querySelector('#shearStressBed .num').innerHTML = Number(shearStressBed).toFixed(2);
             var input = document.createElement("input");
                 input.type = "hidden";
@@ -553,6 +557,8 @@ function performCalcs() {
                 input.name = i + '-' + blockData[i]['product_name'] + "[bedWidth]";
                 input.value = Number(jsonData.estimate_bedWidth).toFixed(2);
                 pdfContentForm.appendChild(input);
+            /*--*/
+            blockElement.querySelector('#bedWidthDN .num').innerHTML = Number(bedWidthDN);
             /*--*/
             blockElement.querySelector('#liftForceBed .num').innerHTML = Number(liftForceBed).toFixed(2);
             var input = document.createElement("input");
@@ -655,14 +661,64 @@ function setSectionVariable(estimateFlow, estimateVelocity) {
     section = estimateFlow / estimateVelocity;
 }
 
-function setBedWidthVariables(estimateBedWidth) {
-    bedWidthDN = (Math.pow((Math.pow(estimateBedWidth, 2) + 4 * channelSideSlope * section), 0.5) - estimateBedWidth) / (2 * channelSideSlope);
+function setBedWidthVariables(estimateBedWidth, estimateBedSlope, estimateFlow) {
+    // ones I don't know:
+    // H61 - need to ask eric about Manning c' - do the users put it in or is it always 1.000?
+
+    var M50 = estimateFlow * mannings / (manningsC * Math.pow(estimateBedSlope, 0.5));
+    var N50 = M50 / estimateBedWidth;
+    var O50 = Math.pow(N50 / estimateBedWidth, (3/8));
+    var P50 = estimateBedWidth / O50;
+    var Q50 = Math.pow(P50 + channelSideSlope, (5/3)) / Math.pow(P50 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
+    var R50 = Math.pow(M50 / Q50, (3/8));
+
+    var M51 = M50 * Math.pow(Math.max(1 ,0.2 / R50), (1/6));
+    var N51 = N50 * Math.pow(Math.max(1 , 0.15 / R50), (1/6));
+    var P51 = estimateBedWidth / R50;
+    var Q51 = Math.pow(P51 + channelSideSlope, (5/3)) / Math.pow(P51 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
+    var R51 = Math.pow(M50 / Q51, (3/8));
+
+    var M52 = M50 * Math.pow(Math.max(1 ,0.2 / R51), (1/6));
+    var N52 = N51 * Math.pow(Math.max(1 , 0.15 / R51), (1/6));
+    var P52 = estimateBedWidth / R51;
+    var Q52 = Math.pow(P52 + channelSideSlope, (5/3)) / Math.pow(P52 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
+    var R52 = Math.pow(M51 / Q52, (3/8));
+
+    var M53 = M50 * Math.pow(Math.max(1 ,0.2 / R52), (1/6));
+    var N53 = N52 * Math.pow(Math.max(1 , 0.15 / R52), (1/6));
+    var P53 = estimateBedWidth / R52;
+    var Q53 = Math.pow(P53 + channelSideSlope, (5/3)) / Math.pow(P53 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
+    var R53 = Math.pow(M52 / Q53, (3/8));
+
+    var M54 = M50 * Math.pow(Math.max(1 ,0.2 / R53), (1/6));
+    var N54 = N53 * Math.pow(Math.max(1 , 0.15 / R53), (1/6));
+    var P54 = estimateBedWidth / R53;
+    var Q54 = Math.pow(P54 + channelSideSlope, (5/3)) / Math.pow(P54 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
+    var R54 = Math.pow(M53 / Q54, (3/8));
+
+    var M55 = M50 * Math.pow(Math.max(1 ,0.2 / R54), (1/6));
+    var N55 = N54 * Math.pow(Math.max(1 , 0.15 / R54), (1/6));
+    var P55 = estimateBedWidth / R54;
+    var Q55 = Math.pow(P55 + channelSideSlope, (5/3)) / Math.pow(P55 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
+    var R55 = Math.pow(M54 / Q55, (3/8));
+
+    var M56 = M50 * Math.pow(Math.max(1 ,0.2 / R55), (1/6));
+    var N56 = N55 * Math.pow(Math.max(1 , 0.15 / R55), (1/6));
+    var P56 = estimateBedWidth / R55;
+    var Q56 = Math.pow(P56 + channelSideSlope, (5/3)) / Math.pow(P56 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
+    var R56 = Math.pow(M55 / Q56, (3/8));
+
+    var M57 = M50 * Math.pow(Math.max(1 ,0.2 / R56), (1/6));
+    var N57 = N56 * Math.pow(Math.max(1 , 0.15 / R56), (1/6));
+    var P57 = estimateBedWidth / R56;
+    var Q57 = Math.pow(P57 + channelSideSlope, (5/3)) / Math.pow(P57 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
+
+    bedWidthDN = Math.pow(M56 / Q57, (3/8)).toFixed(3);
     doubleCheckAn = Number(bedWidthDN) * (Number(bedWidthDN) * Number(channelSideSlope) + Number(estimateBedWidth));
     doubleCheck = doubleCheckAn / (2 * Number(bedWidthDN) * Math.pow((1 + Math.pow(Number(channelSideSlope), 2)), 0.5) + Number(estimateBedWidth));
 }
 
-function setManningsVariables(manningsN) {
-    mannings = manningsN;
+function setManningsVariables() {
     manningsCos = bedWidthDN / angleBedSlopeCos;
 }
 
