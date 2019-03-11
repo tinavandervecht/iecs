@@ -31,8 +31,13 @@
                 <div class="popup clearfix" id="subforreview">
                     <div class="box clearfix">
                         <h4>Your results have been saved!</h4>
-                        <p style="padding-bottom: 0rem; margin-bottom: 0rem;">OPTIONAL:</p>
-                        <p>Would you like to send your results to IECS for review?</p>
+                        <div id="sendSuggestionModal" class="hidden">
+                            <p>Cable Concrete suggests sending your results to IECS for further review and consideration.</p>
+                        </div>
+                        <div id="optionalSendSuggestionModal">
+                            <p style="padding-bottom: 0rem; margin-bottom: 0rem;">OPTIONAL:</p>
+                            <p>Would you like to send your results to IECS for review?</p>
+                        </div>
                         <div id="initialSelection">
                             <button class="greyButton" id="yes">Yes</button>
                             <button href="#" id="no" class="greyButton">No</button>

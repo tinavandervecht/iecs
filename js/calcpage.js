@@ -224,6 +224,8 @@ var netSideNormalForces;
 
 var shearStressBedC = 1.00;
 var manningsC = 1.000;
+
+var showSendSuggestion = true;
 /*THE BELOW IS AN OBJECT CALLED Calculations WHICH CONTAINS METHODS
 CONCERNING EACH CALCULATION THAT NEEDS TO BE PERFORMED.
 
@@ -257,21 +259,27 @@ function Calculations(data, blockData){
   setLiftForceVariables();
 
   setOffsetVariables(data.estimate_expectedVelocity, data.estimate_offset, blockData.product_bT);
-  setNetVariables();
+  setNetVariables(blockData.product_bT, data.estimate_offset);
 
   //GENERIC OVERTURNING AND SLIDING CALCULATIONS
   this.overturningBed= function(){
-      return blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netBedDrag) + (blockDesignParamL4 * netBedLift));
+      return ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netBedDrag) + (blockDesignParamL4 * netBedLift)) == 0
+        ? 0
+        : blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netBedDrag) + (blockDesignParamL4 * netBedLift));
   }
   this.overturningSide = function(){
-      var side1Check = Number((blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift))).toFixed(2);
+      var side1Check = ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift)) == 0
+        ? 0
+        : Number((blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / ((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeSin) + (blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift))).toFixed(2);
       var side2Check = Number((blockDesignParamL2 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / (blockDesignParamL2 * netSideLift + blockDesignParamL1 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeSin)).toFixed(2);
       var side3Check = Number((blockDesignParamLT * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeCos) / Math.pow((Math.pow(((blockDesignParamL3 * netSideDrag)+(blockDesignParamL4 * netSideLift)), 2) + Math.pow((blockDesignParamL1 * blockData.product_Ws * angleBedSlopeCos * angleSideSlopeSin), 2)), 0.5)).toFixed(2);
 
       return Math.min(side1Check, side2Check, side3Check);
   }
   this.slidingBed = function(){
-      return (netBedNormalForces * angleFrictionTan) / (Number(netBedDrag) + blockData.product_Ws * angleBedSlopeSin);
+      return (Number(netBedDrag) + blockData.product_Ws * angleBedSlopeSin) == 0
+        ? 0
+        : (netBedNormalForces * angleFrictionTan) / (Number(netBedDrag) + blockData.product_Ws * angleBedSlopeSin);
   }
   this.slidingSide = function(){
       var side1Check = Number(netSideNormalForces * angleFrictionTan / (Number(netSideDrag) + blockData.product_Ws * angleBedSlopeSin)).toFixed(2);
@@ -322,6 +330,8 @@ function performCalcs() {
                 } else {
                     blockElement.querySelector('.overturning .bed').parentNode.classList.add('nono');
                 }
+            } else {
+                showSendSuggestion = false;
             }
 
             blockElement.querySelector('.sliding .bed').innerHTML = calc.blockSon().s.bed;
@@ -331,6 +341,8 @@ function performCalcs() {
                 }else{
                     blockElement.querySelector('.sliding .bed').parentNode.classList.add('nono');
                 }
+            } else {
+                showSendSuggestion = false;
             }
 
             blockElement.querySelector('.overturning .side').innerHTML = calc.blockSon().o.side;
@@ -340,6 +352,8 @@ function performCalcs() {
                 }else{
                     blockElement.querySelector('.overturning .side').parentNode.classList.add('nono');
                 }
+            } else {
+                showSendSuggestion = false;
             }
 
             blockElement.querySelector('.sliding .side').innerHTML = calc.blockSon().s.side;
@@ -349,6 +363,8 @@ function performCalcs() {
                 }else{
                     blockElement.querySelector('.sliding .side').parentNode.classList.add('nono');
                 }
+            } else {
+                showSendSuggestion = false;
             }
 
             /*-- Storing User information in PDF form --*/
@@ -472,20 +488,6 @@ function performCalcs() {
                 input.value = netSideLift;
                 pdfContentForm.appendChild(input);
             /*--*/
-            blockElement.querySelector('#blockNormalForceBed .num').innerHTML = Number(blockNormalForceBed).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[blockNormalForceBed]";
-                input.value = Number(blockNormalForceBed).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#blockNormalForceSide .num').innerHTML = Number(blockNormalForceSide).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[blockNormalForceSide]";
-                input.value = Number(blockNormalForceSide).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
             blockElement.querySelector('#bedSlope .num').innerHTML = angleBedSlope;
             var input = document.createElement("input");
                 input.type = "hidden";
@@ -507,50 +509,6 @@ function performCalcs() {
                 input.value = Number(mannings).toFixed(3);
                 pdfContentForm.appendChild(input);
             /*--*/
-            blockElement.querySelector('#manningsCos .num').innerHTML = Number(manningsCos).toFixed(3);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[manningsCos]";
-                input.value = Number(manningsCos).toFixed(3);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#manningsC .num').innerHTML = Number(manningsC).toFixed(3);
-            /*--*/
-            blockElement.querySelector('#shearStressBed .num').innerHTML = Number(shearStressBed).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[shearStressBed]";
-                input.value = Number(shearStressBed).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#shearStressBedC .num').innerHTML = Number(shearStressBedC).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[shearStressBedC]";
-                input.value = Number(shearStressBedC).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#shearStressSide .num').innerHTML = Number(shearStressSide).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[shearStressSide]";
-                input.value = Number(shearStressSide).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#shearDragBedForce .num').innerHTML = shearDragBedForce;
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[shearDragBedForce]";
-                input.value = shearDragBedForce;
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#shearDragSideForce .num').innerHTML = shearDragSideForce;
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[shearDragSideForce]";
-                input.value = shearDragSideForce;
-                pdfContentForm.appendChild(input);
-            /*--*/
             blockElement.querySelector('#bedWidth .num').innerHTML = Number(jsonData.estimate_bedWidth).toFixed(2);
             var input = document.createElement("input");
                 input.type = "hidden";
@@ -560,63 +518,26 @@ function performCalcs() {
             /*--*/
             blockElement.querySelector('#bedWidthDN .num').innerHTML = Number(bedWidthDN);
             /*--*/
-            blockElement.querySelector('#liftForceBed .num').innerHTML = Number(liftForceBed).toFixed(2);
+            blockElement.querySelector('#verticalOffset .num').innerHTML = Number(jsonData.estimate_offset).toFixed(2);
             var input = document.createElement("input");
                 input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[liftForceBed]";
-                input.value = Number(liftForceBed).toFixed(2);
+                input.name = i + '-' + blockData[i]['product_name'] + "[verticalOffset]";
+                input.value = Number(jsonData.estimate_offset).toFixed(2);
                 pdfContentForm.appendChild(input);
             /*--*/
-            blockElement.querySelector('#liftForceSide .num').innerHTML = Number(liftForceSide).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[liftForceSide]";
-                input.value = Number(liftForceSide).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#offsetN .num').innerHTML = Number(offsetN).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[offsetN]";
-                input.value = Number(offsetN).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#offsetWhere .num').innerHTML = Number(offsetWhere).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[offsetWhere]";
-                input.value = Number(offsetWhere).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#offsetWhere2 .num').innerHTML = Number(offsetWhere2).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[offsetWhere2]";
-                input.value = Number(offsetWhere2).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#offsetNormalVelocity .num').innerHTML = Number(offsetNormalVelocity).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[offsetNormalVelocity]";
-                input.value = Number(offsetNormalVelocity).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#netBedNormalForces .num').innerHTML = Number(netBedNormalForces).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[netBedNormalForces]";
-                input.value = Number(netBedNormalForces).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#netSideNormalForces .num').innerHTML = Number(netSideNormalForces).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[netSideNormalForces]";
-                input.value = Number(netSideNormalForces).toFixed(2);
-                pdfContentForm.appendChild(input);
         }
 
+        if (showSendSuggestion) {
+            if (document.getElementById('sendSuggestion')) {
+                document.getElementById('sendSuggestion').classList.remove('hidden');
+            }
+            if (document.getElementById('sendSuggestionModal')) {
+                document.getElementById('sendSuggestionModal').classList.remove('hidden');
+            }
+            if (document.getElementById('optionalSendSuggestionModal')) {
+                document.getElementById('optionalSendSuggestionModal').classList.add('hidden');
+            }
+        }
     } else {
         toastr.error('An error has occurred! Please try again later.');
     }
@@ -662,55 +583,52 @@ function setSectionVariable(estimateFlow, estimateVelocity) {
 }
 
 function setBedWidthVariables(estimateBedWidth, estimateBedSlope, estimateFlow) {
-    // ones I don't know:
-    // H61 - need to ask eric about Manning c' - do the users put it in or is it always 1.000?
-
-    var M50 = estimateFlow * mannings / (manningsC * Math.pow(estimateBedSlope, 0.5));
+    var M50 = (manningsC * Math.pow(estimateBedSlope, 0.5)) == 0 ? 0 : estimateFlow * mannings / (manningsC * Math.pow(estimateBedSlope, 0.5));
     var N50 = M50 / estimateBedWidth;
     var O50 = Math.pow(N50 / estimateBedWidth, (3/8));
-    var P50 = estimateBedWidth / O50;
+    var P50 = O50 == 0 ? 0 : estimateBedWidth / O50;
     var Q50 = Math.pow(P50 + channelSideSlope, (5/3)) / Math.pow(P50 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
     var R50 = Math.pow(M50 / Q50, (3/8));
 
-    var M51 = M50 * Math.pow(Math.max(1 ,0.2 / R50), (1/6));
-    var N51 = N50 * Math.pow(Math.max(1 , 0.15 / R50), (1/6));
-    var P51 = estimateBedWidth / R50;
+    var M51 = M50 * Math.pow(Math.max(1 ,R50 == 0 ? 0 : 0.2 / R50), (1/6));
+    var N51 = N50 * Math.pow(Math.max(1 , R50 == 0 ? 0 : 0.15 / R50), (1/6));
+    var P51 = R50 == 0 ? 0 : estimateBedWidth / R50;
     var Q51 = Math.pow(P51 + channelSideSlope, (5/3)) / Math.pow(P51 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
     var R51 = Math.pow(M50 / Q51, (3/8));
 
-    var M52 = M50 * Math.pow(Math.max(1 ,0.2 / R51), (1/6));
-    var N52 = N51 * Math.pow(Math.max(1 , 0.15 / R51), (1/6));
-    var P52 = estimateBedWidth / R51;
+    var M52 = M50 * Math.pow(Math.max(1 ,R51 == 0 ? 0 : 0.2 / R51), (1/6));
+    var N52 = N51 * Math.pow(Math.max(1 , R51 == 0 ? 0 : 0.15 / R51), (1/6));
+    var P52 = R51 == 0 ? 0 : estimateBedWidth / R51;
     var Q52 = Math.pow(P52 + channelSideSlope, (5/3)) / Math.pow(P52 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
     var R52 = Math.pow(M51 / Q52, (3/8));
 
-    var M53 = M50 * Math.pow(Math.max(1 ,0.2 / R52), (1/6));
-    var N53 = N52 * Math.pow(Math.max(1 , 0.15 / R52), (1/6));
-    var P53 = estimateBedWidth / R52;
+    var M53 = M50 * Math.pow(Math.max(1 , R52 == 0 ? 0 : 0.2 / R52), (1/6));
+    var N53 = N52 * Math.pow(Math.max(1 , R52 == 0 ? 0 : 0.15 / R52), (1/6));
+    var P53 = R52 == 0 ? 0 : estimateBedWidth / R52;
     var Q53 = Math.pow(P53 + channelSideSlope, (5/3)) / Math.pow(P53 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
     var R53 = Math.pow(M52 / Q53, (3/8));
 
-    var M54 = M50 * Math.pow(Math.max(1 ,0.2 / R53), (1/6));
-    var N54 = N53 * Math.pow(Math.max(1 , 0.15 / R53), (1/6));
-    var P54 = estimateBedWidth / R53;
+    var M54 = M50 * Math.pow(Math.max(1 , R53 == 0 ? 0 : 0.2 / R53), (1/6));
+    var N54 = N53 * Math.pow(Math.max(1 , R53 == 0 ? 0 : 0.15 / R53), (1/6));
+    var P54 = R53 == 0 ? 0 : estimateBedWidth / R53;
     var Q54 = Math.pow(P54 + channelSideSlope, (5/3)) / Math.pow(P54 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
     var R54 = Math.pow(M53 / Q54, (3/8));
 
-    var M55 = M50 * Math.pow(Math.max(1 ,0.2 / R54), (1/6));
-    var N55 = N54 * Math.pow(Math.max(1 , 0.15 / R54), (1/6));
-    var P55 = estimateBedWidth / R54;
+    var M55 = M50 * Math.pow(Math.max(1 , R54 == 0 ? 0 : 0.2 / R54), (1/6));
+    var N55 = N54 * Math.pow(Math.max(1 , R54 == 0 ? 0 : 0.15 / R54), (1/6));
+    var P55 = R54 == 0 ? 0 : estimateBedWidth / R54;
     var Q55 = Math.pow(P55 + channelSideSlope, (5/3)) / Math.pow(P55 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
     var R55 = Math.pow(M54 / Q55, (3/8));
 
-    var M56 = M50 * Math.pow(Math.max(1 ,0.2 / R55), (1/6));
-    var N56 = N55 * Math.pow(Math.max(1 , 0.15 / R55), (1/6));
-    var P56 = estimateBedWidth / R55;
+    var M56 = M50 * Math.pow(Math.max(1 , R55 == 0 ? 0 : 0.2 / R55), (1/6));
+    var N56 = N55 * Math.pow(Math.max(1 , R55 == 0 ? 0 : 0.15 / R55), (1/6));
+    var P56 = R55 == 0 ? 0 : estimateBedWidth / R55;
     var Q56 = Math.pow(P56 + channelSideSlope, (5/3)) / Math.pow(P56 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
     var R56 = Math.pow(M55 / Q56, (3/8));
 
-    var M57 = M50 * Math.pow(Math.max(1 ,0.2 / R56), (1/6));
-    var N57 = N56 * Math.pow(Math.max(1 , 0.15 / R56), (1/6));
-    var P57 = estimateBedWidth / R56;
+    var M57 = M50 * Math.pow(Math.max(1 , R56 == 0 ? 0 : 0.2 / R56), (1/6));
+    var N57 = N56 * Math.pow(Math.max(1 , R56 == 0 ? 0 : 0.15 / R56), (1/6));
+    var P57 = R56 == 0 ? 0 : estimateBedWidth / R56;
     var Q57 = Math.pow(P57 + channelSideSlope, (5/3)) / Math.pow(P57 + 2 * Math.sqrt(Math.pow(1 + channelSideSlope, 2)), (2/3));
 
     bedWidthDN = Math.pow(M56 / Q57, (3/8)).toFixed(3);
@@ -758,11 +676,14 @@ function setOffsetVariables(estimateVelocity, estimateOffset, blockSizeBT) {
     offsetN = Number(0.5 * waterDensity * Math.pow(offsetWhere, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000)).toFixed(2);
 }
 
-function setNetVariables() {
-    netBedDrag =  Number(Number(shearDragBedForce) + Number(offsetN)).toFixed(2);
-    netSideDrag = Number(Number(shearDragSideForce) + Number(offsetN)).toFixed(2);
-    netBedLift = Number(Number(liftForceBed) + Number(offsetN)).toFixed(2);
-    netSideLift = Number(Number(liftForceSide) + Number(offsetN)).toFixed(2);
+function setNetVariables(blockSizeBT, estimateOffset) {
+    var H83 = ((0.97 * 1) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * Math.pow(16 * 25.4 / 1000, 2);
+    var H99 = (7 / 6 * (doubleCheckAn == 0 ? 0 : 1.000 / doubleCheckAn)) * Math.pow(bedWidthDN == 0 ? 0 : estimateOffset/1000/bedWidthDN, (1 / 7));
+    var H97 = 0.5 * waterDensity * Math.pow(H99, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000);
+    netBedDrag =  Number(Number(H83) + Number(H97)).toFixed(2);
+    netSideDrag = Number(((0.76 * 1)*(waterDensity * 9.81)* bedWidthDN * angleBedSlopeSin) * (Math.pow(16 * 25.4 / 1000, 2)) + (0.5 * waterDensity * Math.pow(H99, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000))).toFixed(2);
+    netBedLift = Number(0.37 * ((0.97 * 1) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * (Math.pow(15.5*25.4/1000, 2)) + H97).toFixed(2);
+    netSideLift = Number((0.37 * ((0.76 * 1.00) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * Math.pow(15.5*25.4/1000, 2)) + H97).toFixed(2);
     netBedNormalForces = Number(Number(blockNormalForceBed) - Number(netBedLift)).toFixed(2);
     netSideNormalForces = Number(Number(blockNormalForceSide) - Number(netSideLift)).toFixed(2);
 }

@@ -127,7 +127,7 @@
                             <div class="design-item">Block b: <?php echo $blocks_math[$key . '-' . $block['product_name']]['product_b']; ?></div>
                         </td>
                         <td>
-                            <div class="design-item">Sheer Bed Stress: <?php echo $blocks_math[$key . '-' . $block['product_name']]['shearStressBed']; ?></div>
+                            <div class="design-item">Manning's N: <?php echo $blocks_math[$key . '-' . $block['product_name']]['manningsN']; ?></div>
                         </td>
                     </tr>
                     <tr>
@@ -135,7 +135,7 @@
                             <div class="design-item">Block bT: <?php echo $blocks_math[$key . '-' . $block['product_name']]['product_bT']; ?></div>
                         </td>
                         <td>
-                            <div class="design-item">Sheer Bed Stress Where Cb: <?php echo $blocks_math[$key . '-' . $block['product_name']]['shearStressBedC']; ?></div>
+                            <div class="design-item">Vertical Offset dz (mm): <?php echo $blocks_math[$key . '-' . $block['product_name']]['verticalOffset']; ?></div>
                         </td>
                     </tr>
                     <tr>
@@ -143,7 +143,7 @@
                             <div class="design-item">Block hB: <?php echo $blocks_math[$key . '-' . $block['product_name']]['product_hB']; ?></div>
                         </td>
                         <td>
-                            <div class="design-item">Sheer Side Stress: <?php echo $blocks_math[$key . '-' . $block['product_name']]['shearStressSide']; ?></div>
+                            <strong>Step 6 - Net Drag & Lift</strong>
                         </td>
                     </tr>
                     <tr>
@@ -151,7 +151,7 @@
                             <div class="design-item">Block Weight (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['product_W']; ?></div>
                         </td>
                         <td>
-                            <div class="design-item">Sheer Drag Bed Force: <?php echo $blocks_math[$key . '-' . $block['product_name']]['shearDragBedForce']; ?></div>
+                            <div class="design-item">Drag on Block [Bed] (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['netBedDrag']; ?></div>
                         </td>
                     </tr>
                     <tr>
@@ -159,55 +159,7 @@
                             <div class="design-item">Submerged Block Weight (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['product_Ws']; ?></div>
                         </td>
                         <td>
-                            <div class="design-item">Sheer Drag Side Force: <?php echo $blocks_math[$key . '-' . $block['product_name']]['shearDragSideForce']; ?></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="design-item">Block Normal Bed Force: <?php echo $blocks_math[$key . '-' . $block['product_name']]['blockNormalForceBed']; ?></div>
-                        </td>
-                        <td>
-                            <div class="design-item">Net Normal Bed Force: <?php echo $blocks_math[$key . '-' . $block['product_name']]['netBedNormalForces']; ?></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="design-item">Block Normal Side Force: <?php echo $blocks_math[$key . '-' . $block['product_name']]['blockNormalForceSide']; ?></div>
-                        </td>
-                        <td>
-                            <div class="design-item">Net Normal Side Force: <?php echo $blocks_math[$key . '-' . $block['product_name']]['netSideNormalForces']; ?></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="design-item">Drag on Block [Bed] (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['netBedDrag']; ?></div>
-                        </td>
-                        <td>
-                            <div class="design-item">Lift Bed Force: <?php echo $blocks_math[$key . '-' . $block['product_name']]['liftForceBed']; ?></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <div class="design-item">Drag on Block [Side] (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['netSideDrag']; ?></div>
-                        </td>
-                        <td>
-                            <div class="design-item">Lift Side Force: <?php echo $blocks_math[$key . '-' . $block['product_name']]['liftForceSide']; ?></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="design-item">Lift on Block [Bed] (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['netBedLift']; ?></div>
-                        </td>
-                        <td>
-                            <div class="design-item">Offset (n): <?php echo $blocks_math[$key . '-' . $block['product_name']]['offsetN']; ?></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="design-item">Lift on Block [Side] (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['netSideLift']; ?></div>
-                        </td>
-                        <td>
-                            <div class="design-item">Offset (where): <?php echo $blocks_math[$key . '-' . $block['product_name']]['offsetWhere']; ?></div>
                         </td>
                     </tr>
                     <tr>
@@ -215,7 +167,7 @@
                             <div class="design-item">Bed Width (m): <?php echo $blocks_math[$key . '-' . $block['product_name']]['bedWidth']; ?></div>
                         </td>
                         <td>
-                            <div class="design-item">Offset (where, #2): <?php echo $blocks_math[$key . '-' . $block['product_name']]['offsetWhere2']; ?></div>
+                            <div class="design-item">Lift on Block [Bed] (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['netBedLift']; ?></div>
                         </td>
                     </tr>
                     <tr>
@@ -223,22 +175,14 @@
                             <div class="design-item">Bed Slope (Degree): <?php echo $blocks_math[$key . '-' . $block['product_name']]['angleBedSlope']; ?></div>
                         </td>
                         <td>
-                            <div class="design-item">Offset Normal Velocity: <?php echo $blocks_math[$key . '-' . $block['product_name']]['offsetNormalVelocity']; ?></div>
+                            <div class="design-item">Lift on Block [Side] (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['netSideLift']; ?></div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div class="design-item">Side Slope (Degree): <?php echo $blocks_math[$key . '-' . $block['product_name']]['angleSideSlope']; ?></div>
                         </td>
-                        <td>
-                            <div class="design-item">Manning's N: <?php echo $blocks_math[$key . '-' . $block['product_name']]['manningsN']; ?></div>
-                        </td>
-                    </tr>
-                    <tr>
                         <td></td>
-                        <td>
-                            <div class="design-item">Manning's Cos: <?php echo $blocks_math[$key . '-' . $block['product_name']]['manningsCos']; ?></div>
-                        </td>
                     </tr>
                 </tbody>
             </table>

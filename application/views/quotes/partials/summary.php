@@ -60,6 +60,13 @@
         </div>
 </div>
 
+<div id="sendSuggestion" class="hidden columns large-12 card">
+    <div class="alert alert-success">
+        Cable Concrete suggests sending your results to IECS for further review and consideration.
+        (To send your results to IECS, please select "Save" at the bottom of this page.)
+    </div>
+</div>
+
 <div class="columns small-12 large-12 card">
 <?php foreach($blocks as $key => $block):?>
   <div class="block" id=<?php echo $key . '-' . $block['product_name']; ?>>
@@ -129,44 +136,6 @@
                       <div class="num"><?php echo $block['product_Ws']; ?></div>
                   </div>
               </div>
-              <div class="other clearfix" id="blockNormalForceBed">
-                  <div>
-                      <p class="factor">Block Normal Bed Force</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="blockNormalForceSide">
-                  <div>
-                      <p class="factor">Block Normal Side Force</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix" id="netBedDrag">
-                  <div>
-                      <p class="factor">Drag on Block [Bed] (N)</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="netSideDrag">
-                  <div>
-                      <p class="factor">Drag on Block [Side] (N)</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix" id="netBedLift">
-                  <div>
-                      <p class="factor">Lift on Block [Bed] (N)</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="netSideLift">
-                  <div>
-                      <p class="factor">Lift on Block [Side] (N)</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
               <!--===========================-->
               <div class="other clearfix" id="bedWidth">
                   <div>
@@ -197,106 +166,44 @@
           </section>
           <section class="columns small-12 large-6">
               <!--===========================-->
-              <div class="other clearfix" id="shearStressBed">
-                  <div>
-                      <p class="factor">Shear Bed Stress</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="shearStressBedC">
-                  <div>
-                      <p class="factor">Shear Bed Stress Where Cb</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="shearStressSide">
-                  <div>
-                      <p class="factor">Shear Side Stress</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix" id="shearDragBedForce">
-                  <div>
-                      <p class="factor">Shear Drag Bed Force</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="shearDragSideForce">
-                  <div>
-                      <p class="factor">Shear Drag Side Force</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix" id="netBedNormalForces">
-                  <div>
-                      <p class="factor">Net Normal Bed Force</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="netSideNormalForces">
-                  <div>
-                      <p class="factor">Net Normal Side Force</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix" id="liftForceBed">
-                  <div>
-                      <p class="factor">Lift Bed Force</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="liftForceSide">
-                  <div>
-                      <p class="factor">Lift Side Force</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <!--===========================-->
-              <div class="other clearfix" id="offsetN">
-                  <div>
-                      <p class="factor">Offset (n)</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="offsetWhere">
-                  <div>
-                      <p class="factor">Offset (where,)</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="offsetWhere2">
-                  <div>
-                      <p class="factor">Offset (where, #2)</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <div class="other clearfix" id="offsetNormalVelocity">
-                  <div>
-                      <p class="factor">Offset Normal Velocity</p>
-                      <div class="num">--</div>
-                  </div>
-              </div>
-              <!--===========================-->
               <div class="other clearfix" id="manningsN">
                   <div>
                       <p class="factor">Manning's N</p>
                       <div class="num">--</div>
                   </div>
               </div>
-
-              <div class="other clearfix" id="manningsCos">
+              <div class="other clearfix" id="verticalOffset">
                   <div>
-                      <p class="factor">Manning's Cos</p>
+                      <p class="factor">Vertical Offset dz (mm)</p>
                       <div class="num">--</div>
                   </div>
               </div>
-
-              <div class="other clearfix" id="manningsC">
+              <!--===========================-->
+              <div class="other clearfix">
+                  <p class="factor"><strong>Step 6 - Net Drag & Lift</strong></p>
+              </div>
+              <div class="other clearfix" id="netBedDrag">
                   <div>
-                      <p class="factor">Manning's C'</p>
+                      <p class="factor">Drag on Block [Bed] (N)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="netSideDrag">
+                  <div>
+                      <p class="factor">Drag on Block [Side] (N)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <!--===========================-->
+              <div class="other clearfix" id="netBedLift">
+                  <div>
+                      <p class="factor">Lift on Block [Bed] (N)</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="netSideLift">
+                  <div>
+                      <p class="factor">Lift on Block [Side] (N)</p>
                       <div class="num">--</div>
                   </div>
               </div>
