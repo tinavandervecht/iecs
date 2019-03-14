@@ -145,7 +145,7 @@
               </div>
               <div class="other clearfix" id="bedWidthDN">
                   <div>
-                      <p class="factor">Bed Width (dn)</p>
+                      <p class="factor">Flow Depth</p>
                       <div class="num">--</div>
                   </div>
               </div>
