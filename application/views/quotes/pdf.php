@@ -172,11 +172,17 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="design-item">Bed Slope (Degree): <?php echo $blocks_math[$key . '-' . $block['product_name']]['angleBedSlope']; ?></div>
+                            <div class="design-item">Flow Depth: <?php echo $blocks_math[$key . '-' . $block['product_name']]['bedWidthDN']; ?></div>
                         </td>
                         <td>
                             <div class="design-item">Lift on Block [Side] (N): <?php echo $blocks_math[$key . '-' . $block['product_name']]['netSideLift']; ?></div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="design-item">Bed Slope (Degree): <?php echo $blocks_math[$key . '-' . $block['product_name']]['angleBedSlope']; ?></div>
+                        </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>

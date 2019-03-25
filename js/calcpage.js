@@ -317,8 +317,6 @@ s.side = the side sliding safety factor;
 
 function performCalcs() {
     if (jsonData && blockData) {
-        var pdfContentForm = document.getElementById('pdf-data');
-
         for (var i = 0; i < blockData.length; i++) {
             var blockElement = document.getElementById(i + '-' + blockData[i]['product_name']);
             var calc = new Calculations(jsonData, blockData[i]);
@@ -367,164 +365,8 @@ function performCalcs() {
                 showSendSuggestion = false;
             }
 
-            /*-- Storing User information in PDF form --*/
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name =  "project_information[name]";
-                input.value = jsonData['estimate_name'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name =  "project_information[location]";
-                input.value = jsonData['estimate_location'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name =  "project_information[engineer]";
-                input.value = jsonData['estimate_engineer'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name =  "project_information[date]";
-                input.value = jsonData['estimate_projectedDate'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name =  "project_information[address]";
-                input.value = jsonData['estimate_address'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name =  "project_information[comments]";
-                input.value = jsonData['estimate_comments'];
-                pdfContentForm.appendChild(input);
-
-            /*-- Storing Global Responses for each block in PDF form --*/
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[o][b]";
-                input.value = calc.blockSon().o.bed;
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[s][b]";
-                input.value = calc.blockSon().s.bed;
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[o][s]";
-                input.value = calc.blockSon().o.side;
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[s][s]";
-                input.value = calc.blockSon().s.side;
-                pdfContentForm.appendChild(input);
-
-            /*-- Storing Necessary Block Data in PDF Form --*/
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[product_b]";
-                input.value = blockData[i]['product_b'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[product_bT]";
-                input.value = blockData[i]['product_bT'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[product_hB]";
-                input.value = blockData[i]['product_hB'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[product_W]";
-                input.value = blockData[i]['product_W'];
-                pdfContentForm.appendChild(input);
-
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[product_Ws]";
-                input.value = blockData[i]['product_Ws'];
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#netBedDrag .num').innerHTML = netBedDrag;
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[netBedDrag]";
-                input.value = netBedDrag;
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#netSideDrag .num').innerHTML = netSideDrag;
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[netSideDrag]";
-                input.value = netSideDrag;
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#netBedLift .num').innerHTML = netBedLift;
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[netBedLift]";
-                input.value = netBedLift;
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#netSideLift .num').innerHTML = netSideLift;
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[netSideLift]";
-                input.value = netSideLift;
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#bedSlope .num').innerHTML = angleBedSlope;
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[angleBedSlope]";
-                input.value = angleBedSlope;
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#sideSlope .num').innerHTML = angleSideSlope;
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[angleSideSlope]";
-                input.value = angleSideSlope;
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(4);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[manningsN]";
-                input.value = Number(mannings).toFixed(3);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#bedWidth .num').innerHTML = Number(jsonData.estimate_bedWidth).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[bedWidth]";
-                input.value = Number(jsonData.estimate_bedWidth).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
-            blockElement.querySelector('#bedWidthDN .num').innerHTML = Number(bedWidthDN);
-            /*--*/
-            blockElement.querySelector('#verticalOffset .num').innerHTML = Number(jsonData.estimate_offset).toFixed(2);
-            var input = document.createElement("input");
-                input.type = "hidden";
-                input.name = i + '-' + blockData[i]['product_name'] + "[verticalOffset]";
-                input.value = Number(jsonData.estimate_offset).toFixed(2);
-                pdfContentForm.appendChild(input);
-            /*--*/
+            passDataToPDFView(jsonData, blockData, i, calc);
+            setValuesInBlockDetails(blockElement);
         }
 
         if (showSendSuggestion) {
@@ -677,8 +519,8 @@ function setOffsetVariables(estimateVelocity, estimateOffset, blockSizeBT) {
 }
 
 function setNetVariables(blockSizeBT, estimateOffset) {
-    var H83 = ((0.97 * 1) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * Math.pow(16 * 25.4 / 1000, 2);
-    var H99 = (7 / 6 * (doubleCheckAn == 0 ? 0 : 1.000 / doubleCheckAn)) * Math.pow(bedWidthDN == 0 ? 0 : estimateOffset/1000/bedWidthDN, (1 / 7));
+    var H83 = Number(((0.97 * 1) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * Math.pow(16 * 25.4 / 1000, 2)).toFixed(2);
+    var H99 = (7 / 6 * (6.000 / (doubleCheckAn == 0 ? 0 : doubleCheckAn))) * Math.pow(bedWidthDN == 0 ? 0 : estimateOffset / 1000 / bedWidthDN, 1/7);
     var H97 = 0.5 * waterDensity * Math.pow(H99, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000);
     netBedDrag =  Number(Number(H83) + Number(H97)).toFixed(2);
     netSideDrag = Number(((0.76 * 1)*(waterDensity * 9.81)* bedWidthDN * angleBedSlopeSin) * (Math.pow(16 * 25.4 / 1000, 2)) + (0.5 * waterDensity * Math.pow(H99, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000))).toFixed(2);
@@ -709,6 +551,175 @@ function getBlockData() {
     }
 		httpReq.open("get", url);
 		httpReq.send();
+}
+
+function setValuesInBlockDetails(blockElement) {
+    blockElement.querySelector('#netBedDrag .num').innerHTML = netBedDrag;
+    blockElement.querySelector('#netSideDrag .num').innerHTML = netSideDrag;
+    blockElement.querySelector('#netBedLift .num').innerHTML = netBedLift;
+    blockElement.querySelector('#netSideLift .num').innerHTML = netSideLift;
+    blockElement.querySelector('#bedSlope .num').innerHTML = angleBedSlope;
+    blockElement.querySelector('#sideSlope .num').innerHTML = angleSideSlope;
+    blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(4);
+    blockElement.querySelector('#bedWidth .num').innerHTML = Number(jsonData.estimate_bedWidth).toFixed(2);
+    blockElement.querySelector('#bedWidthDN .num').innerHTML = Number(bedWidthDN);
+    blockElement.querySelector('#verticalOffset .num').innerHTML = Number(jsonData.estimate_offset).toFixed(2);
+}
+
+function passDataToPDFView(jsonData, blockData, i, calc) {
+    var pdfContentForm = document.getElementById('pdf-data');
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name =  "project_information[name]";
+        input.value = jsonData['estimate_name'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name =  "project_information[location]";
+        input.value = jsonData['estimate_location'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name =  "project_information[engineer]";
+        input.value = jsonData['estimate_engineer'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name =  "project_information[date]";
+        input.value = jsonData['estimate_projectedDate'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name =  "project_information[address]";
+        input.value = jsonData['estimate_address'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name =  "project_information[comments]";
+        input.value = jsonData['estimate_comments'];
+        pdfContentForm.appendChild(input);
+
+    /*-- Storing Global Responses for each block in PDF form --*/
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[o][b]";
+        input.value = calc.blockSon().o.bed;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[s][b]";
+        input.value = calc.blockSon().s.bed;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[o][s]";
+        input.value = calc.blockSon().o.side;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[s][s]";
+        input.value = calc.blockSon().s.side;
+        pdfContentForm.appendChild(input);
+
+    /*-- Storing Necessary Block Data in PDF Form --*/
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[product_b]";
+        input.value = blockData[i]['product_b'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[product_bT]";
+        input.value = blockData[i]['product_bT'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[product_hB]";
+        input.value = blockData[i]['product_hB'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[product_W]";
+        input.value = blockData[i]['product_W'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[product_Ws]";
+        input.value = blockData[i]['product_Ws'];
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[netBedDrag]";
+        input.value = netBedDrag;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[netSideDrag]";
+        input.value = netSideDrag;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[netBedLift]";
+        input.value = netBedLift;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[netSideLift]";
+        input.value = netSideLift;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[angleBedSlope]";
+        input.value = angleBedSlope;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[angleSideSlope]";
+        input.value = angleSideSlope;
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[manningsN]";
+        input.value = Number(mannings).toFixed(3);
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[bedWidth]";
+        input.value = Number(jsonData.estimate_bedWidth).toFixed(2);
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[bedWidthDN]";
+        input.value = Number(bedWidthDN).toFixed(3);
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = i + '-' + blockData[i]['product_name'] + "[verticalOffset]";
+        input.value = Number(jsonData.estimate_offset).toFixed(2);
+        pdfContentForm.appendChild(input);
 }
 
 function quoteJax(){

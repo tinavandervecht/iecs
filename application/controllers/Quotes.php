@@ -187,7 +187,6 @@ class Quotes extends CI_Controller {
 
         $this->load->library('mpdf_library');
 
-        $data['userInfo'] = $this->quotes_model->get_company($_SESSION['company_id']);
         $data['summaryInfo'] = $this->quotes_model->get_summary($id);
         $data['blocks'] = $this->blocks_model->get_all_blocks();
         $data['blocks_math'] = $this->input->post();
