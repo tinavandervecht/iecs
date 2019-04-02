@@ -5,11 +5,15 @@ class Blocks_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_all_blocks()
+    public function get_all_blocks($getSpecificBlockByID = null)
     {
         $this->db->select('*');
         $this->db->from('tbl_products');
         $this->db->order_by('products_id', 'asc');
+
+        if ($getSpecificBlockByID != 'all' && $getSpecificBlockByID != null) {
+            $this->db->where('products_id', $getSpecificBlockByID);
+        }
 
         $query = $this->db->get();
         return $query->result_array();

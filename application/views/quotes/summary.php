@@ -2,14 +2,29 @@
         <h2 class="hidden">Main Content</h2>
 
         <div id="overlay"></div>
+        <div id="downloadFileOverlay"></div>
+        <div id="downloadFileModal" class="modal no-margin">
+            <div class="modal-content clearfix">
+              <span class="close" id="closeDownloadFileModal">&times;</span>
+              <form id="pdf-data" class="tablTitleForm" method="POST" action="<?php echo '/quotes/pdf/'.$id; ?>" target="_blank">
+                  <h2>DOWNLOAD SPECIFIC BLOCK SIZE?</h2>
+                  <select name="specific_block">
+                      <option value="all">All blocks</option>
+                      <?php foreach($blocks as $key => $block):?>
+                          <option value="<?php echo $block['products_id']; ?>"><?php echo $block['product_name']; ?></option>
+                      <?php endforeach;?>
+                  </select>
+                  <button type="submit" class="greenButton email" id="sendit">DOWNLOAD FILE</a>
+              </form>
+            </div>
+        </div>
+
         <section class="row expanded" id="cmsEstimateSummary">
             <div class="columns small-12 medium-11 medium-centered large-11 large-centered">
                   <a href="<?php echo site_url('/quotes/editQuote/' . $id);?>" class="tabTitle">PARAMETER INPUTS</a>
                   <a href="#" class="tabTitle active">OUTPUT RESULTS</a>
 
-                  <form id="pdf-data" class="tablTitleForm" method="POST" action="<?php echo '/quotes/pdf/'.$id; ?>" target="_blank">
-                      <button type="submit" class="tabTitle">DOWNLOAD FILE</button>
-                  </form>
+                  <a href="#" id="downloadFileBtn" class="tabTitle">DOWNLOAD FILE</a>
 
                   <div id="cardsbox" class="clearfix row">
                     <p id="sumInfo">CC-TM = Cable Concrete Technical Memorandum<span style="margin-lefT: 30px;">HEC = U.S, DOT HEC-23 Circular</span></p>

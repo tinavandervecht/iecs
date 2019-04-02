@@ -154,6 +154,24 @@ try{
     toastr.error(e);
 }
 
+var downloadFileBtn = document.querySelector("#downloadFileBtn");
+var closeDownloadFileBtn = document.querySelector("#closeDownloadFileModal");
+var downloadFileModal = document.querySelector("#downloadFileModal");
+var downloadFileOverlay = document.querySelector("#downloadFileOverlay");
+
+if (downloadFileBtn) {
+    downloadFileBtn.addEventListener('click', function () {
+        downloadFileModal.classList.add('open');
+        downloadFileOverlay.classList.add('active');
+    }, false);
+}
+
+if (closeDownloadFileBtn) {
+    closeDownloadFileBtn.addEventListener('click', function () {
+        downloadFileModal.classList.remove('open');
+        downloadFileOverlay.classList.remove('active');
+    }, false);
+}
 
 // CALCULATIONS
 
@@ -613,117 +631,117 @@ function passDataToPDFView(jsonData, blockData, i, calc) {
     /*-- Storing Global Responses for each block in PDF form --*/
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[o][b]";
+        input.name = blockData[i]['product_name'] + "[o][b]";
         input.value = calc.blockSon().o.bed;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[s][b]";
+        input.name = blockData[i]['product_name'] + "[s][b]";
         input.value = calc.blockSon().s.bed;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[o][s]";
+        input.name = blockData[i]['product_name'] + "[o][s]";
         input.value = calc.blockSon().o.side;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[s][s]";
+        input.name = blockData[i]['product_name'] + "[s][s]";
         input.value = calc.blockSon().s.side;
         pdfContentForm.appendChild(input);
 
     /*-- Storing Necessary Block Data in PDF Form --*/
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[product_b]";
+        input.name = blockData[i]['product_name'] + "[product_b]";
         input.value = blockData[i]['product_b'];
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[product_bT]";
+        input.name = blockData[i]['product_name'] + "[product_bT]";
         input.value = blockData[i]['product_bT'];
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[product_hB]";
+        input.name = blockData[i]['product_name'] + "[product_hB]";
         input.value = blockData[i]['product_hB'];
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[product_W]";
+        input.name = blockData[i]['product_name'] + "[product_W]";
         input.value = blockData[i]['product_W'];
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[product_Ws]";
+        input.name = blockData[i]['product_name'] + "[product_Ws]";
         input.value = blockData[i]['product_Ws'];
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[netBedDrag]";
-        input.value = netBedDrag;
+        input.name = blockData[i]['product_name'] + "[netBedDrag]";
+        input.value = isNaN(netBedDrag) ? 0 : netBedDrag;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[netSideDrag]";
-        input.value = netSideDrag;
+        input.name = blockData[i]['product_name'] + "[netSideDrag]";
+        input.value = isNaN(netSideDrag) ? 0 : netSideDrag;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[netBedLift]";
-        input.value = netBedLift;
+        input.name = blockData[i]['product_name'] + "[netBedLift]";
+        input.value = isNaN(netBedLift) ? 0 : netBedLift;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[netSideLift]";
-        input.value = netSideLift;
+        input.name = blockData[i]['product_name'] + "[netSideLift]";
+        input.value = isNaN(netSideLift) ? 0 : netSideLift;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[angleBedSlope]";
-        input.value = angleBedSlope;
+        input.name = blockData[i]['product_name'] + "[angleBedSlope]";
+        input.value = isNaN(angleBedSlope) ? 0 : angleBedSlope;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[angleSideSlope]";
-        input.value = angleSideSlope;
+        input.name = blockData[i]['product_name'] + "[angleSideSlope]";
+        input.value = isNaN(angleSideSlope) ? 0 : angleSideSlope;
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[manningsN]";
-        input.value = Number(mannings).toFixed(3);
+        input.name = blockData[i]['product_name'] + "[manningsN]";
+        input.value = isNaN(mannings) ? 0 : Number(mannings).toFixed(3);
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[bedWidth]";
-        input.value = Number(jsonData.estimate_bedWidth).toFixed(2);
+        input.name = blockData[i]['product_name'] + "[bedWidth]";
+        input.value = isNaN(jsonData.estimate_bedWidth) ? 0 : Number(jsonData.estimate_bedWidth).toFixed(2);
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[bedWidthDN]";
-        input.value = Number(bedWidthDN).toFixed(3);
+        input.name = blockData[i]['product_name'] + "[bedWidthDN]";
+        input.value = isNaN(bedWidthDN) ? 0 : Number(bedWidthDN).toFixed(3);
         pdfContentForm.appendChild(input);
 
     var input = document.createElement("input");
         input.type = "hidden";
-        input.name = i + '-' + blockData[i]['product_name'] + "[verticalOffset]";
-        input.value = Number(jsonData.estimate_offset).toFixed(2);
+        input.name = blockData[i]['product_name'] + "[verticalOffset]";
+        input.value = isNaN(jsonData.estimate_offset) ? 0 : Number(jsonData.estimate_offset).toFixed(2);
         pdfContentForm.appendChild(input);
 }
 

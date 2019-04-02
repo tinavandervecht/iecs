@@ -188,7 +188,7 @@ class Quotes extends CI_Controller {
         $this->load->library('mpdf_library');
 
         $data['summaryInfo'] = $this->quotes_model->get_summary($id);
-        $data['blocks'] = $this->blocks_model->get_all_blocks();
+        $data['blocks'] = $this->blocks_model->get_all_blocks($this->input->post('specific_block'));
         $data['blocks_math'] = $this->input->post();
         $data['title'] = "Estimate Summary";
         $data['jsLink'] = 'js/calcpage.js';
