@@ -41,10 +41,6 @@
                     <br />
                     <strong>shearStressSideC: </strong> <script>document.write(shearStressSideC);</script>
                     <br />
-                    <strong>shearDragWhereForce: </strong> <script>document.write(shearDragWhereForce);</script>
-                    <br />
-                    <strong>liftForceWhere: </strong>: <script>document.write(liftForceWhere);</script>
-                    <br />
                     <strong>liftForceFup: </strong> <script>document.write(liftForceFup);</script>
                 </p>
             </div>

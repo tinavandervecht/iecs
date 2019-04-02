@@ -206,7 +206,9 @@ var shearStressSide;
 
 var shearDragBedForce;
 var shearDragSideForce;
+var shearDragWhereForce;
 
+var liftForceWhere;
 var liftForceBed;
 var liftForceSide;
 
@@ -254,12 +256,12 @@ function Calculations(data, blockData){
       setShearStressBedC(data.estimate_crestRadius, data.estimate_topWidth);
   }
 
-  setShearStressVariables();
-  setShearDragForceVariables();
-  setLiftForceVariables();
+  setShearStressVariables(data.estimate_bendFactor);
+  setShearDragForceVariables(blockData.product_shearForce);
+  setLiftForceVariables(blockData.product_liftForce);
 
   setOffsetVariables(data.estimate_expectedVelocity, data.estimate_offset, blockData.product_bT);
-  setNetVariables(blockData.product_bT, data.estimate_offset);
+  setNetVariables(blockData.product_bT, data.estimate_offset, data.estimate_designFlow, data.estimate_bendFactor);
 
   //GENERIC OVERTURNING AND SLIDING CALCULATIONS
   this.overturningBed= function(){
@@ -495,18 +497,20 @@ function setShearStressBedC(estimateCrestRadius, estimateTopWidth) {
     }
 }
 
-function setShearStressVariables() {
+function setShearStressVariables(estimateBendFactor) {
     shearStressBedKg = waterDensity * 9.81;
     shearStressBed = shearStressBedC * shearStressBedKg * manningsCos * angleBedSlopeSin;
-    shearStressSide = shearStressSideC * shearStressBedKg * manningsCos * angleBedSlopeSin;
+    shearStressSide = (0.76 * estimateBendFactor) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin;
 }
 
-function setShearDragForceVariables() {
+function setShearDragForceVariables(blockShearForce) {
+    shearDragWhereForce = Number(Math.pow(blockShearForce / 1000, 2)).toFixed(3);
     shearDragBedForce = Number(shearStressBed * shearDragWhereForce).toFixed(2);
     shearDragSideForce = Number(shearStressSide * shearDragWhereForce).toFixed(2);
 }
 
-function setLiftForceVariables() {
+function setLiftForceVariables(blockLiftForce) {
+    liftForceWhere = Number(Math.pow(blockLiftForce / 1000, 2)).toFixed(3);
     liftForceBed = Number(liftForceFup * shearStressBed * liftForceWhere).toFixed(2);
     liftForceSide = Number(liftForceFup * shearStressSide * liftForceWhere).toFixed(2);
 }
@@ -518,14 +522,15 @@ function setOffsetVariables(estimateVelocity, estimateOffset, blockSizeBT) {
     offsetN = Number(0.5 * waterDensity * Math.pow(offsetWhere, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000)).toFixed(2);
 }
 
-function setNetVariables(blockSizeBT, estimateOffset) {
-    var H83 = Number(((0.97 * 1.00) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * Math.pow(16 * 25.4 / 1000, 2)).toFixed(2);
-    var H99 = (7 / 6 * (6.000 / (doubleCheckAn == 0 ? 0 : doubleCheckAn))) * Math.pow(bedWidthDN == 0 ? 0 : estimateOffset / 1000 / bedWidthDN, 1/7);
+function setNetVariables(blockSizeBT, estimateOffset, estimateDesignFlow, estimateBendFactor) {
+    var H73 = (0.97 * estimateBendFactor) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin;
+    var H83 = Number(H73 * shearDragWhereForce).toFixed(2);
+    var H99 = (7 / 6 * (estimateDesignFlow / doubleCheckAn)) * Math.pow(estimateOffset / 1000 / bedWidthDN, 1/7);
     var H97 = 0.5 * waterDensity * Math.pow(H99, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000);
     netBedDrag =  Number(Number(H83) + Number(H97)).toFixed(2);
-    netSideDrag = Number(((0.76 * 1)*(waterDensity * 9.81)* bedWidthDN * angleBedSlopeSin) * (Math.pow(16 * 25.4 / 1000, 2)) + (0.5 * waterDensity * Math.pow(H99, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000))).toFixed(2);
-    netBedLift = Number((0.37 * ((0.97 * 1.00) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * (Math.pow(15.5*25.4/1000, 2))) + (0.5 * waterDensity * Math.pow(offsetWhere, 2) * (blockSizeBT / 1000) * (estimateOffset / 1000))).toFixed(2);
-    netSideLift = Number((0.37 * ((0.76 * 1.00) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * Math.pow(15.5*25.4/1000, 2)) + H97).toFixed(2);
+    netSideDrag = Number(Number(shearDragSideForce) + H97).toFixed(2);
+    netBedLift = Number((0.37 * H73 * liftForceWhere) + H97).toFixed(2);
+    netSideLift = Number((0.37 * ((0.76 * estimateBendFactor) * (waterDensity * 9.81) * bedWidthDN * angleBedSlopeSin) * liftForceWhere) + H97).toFixed(2);
     netBedNormalForces = Number(Number(blockNormalForceBed) - Number(netBedLift)).toFixed(2);
     netSideNormalForces = Number(Number(blockNormalForceSide) - Number(netSideLift)).toFixed(2);
 }
@@ -554,16 +559,16 @@ function getBlockData() {
 }
 
 function setValuesInBlockDetails(blockElement) {
-    blockElement.querySelector('#netBedDrag .num').innerHTML = netBedDrag;
-    blockElement.querySelector('#netSideDrag .num').innerHTML = netSideDrag;
-    blockElement.querySelector('#netBedLift .num').innerHTML = netBedLift;
-    blockElement.querySelector('#netSideLift .num').innerHTML = netSideLift;
-    blockElement.querySelector('#bedSlope .num').innerHTML = angleBedSlope;
-    blockElement.querySelector('#sideSlope .num').innerHTML = angleSideSlope;
-    blockElement.querySelector('#manningsN .num').innerHTML = Number(mannings).toFixed(4);
-    blockElement.querySelector('#bedWidth .num').innerHTML = Number(jsonData.estimate_bedWidth).toFixed(2);
-    blockElement.querySelector('#bedWidthDN .num').innerHTML = Number(bedWidthDN);
-    blockElement.querySelector('#verticalOffset .num').innerHTML = Number(jsonData.estimate_offset).toFixed(2);
+    blockElement.querySelector('#netBedDrag .num').innerHTML = isNaN(netBedDrag) ? 0 : netBedDrag;
+    blockElement.querySelector('#netSideDrag .num').innerHTML = isNaN(netSideDrag) ? 0 : netSideDrag;
+    blockElement.querySelector('#netBedLift .num').innerHTML = isNaN(netBedLift) ? 0 : netBedLift;
+    blockElement.querySelector('#netSideLift .num').innerHTML = isNaN(netSideLift) ? 0 : netSideLift;
+    blockElement.querySelector('#bedSlope .num').innerHTML = isNaN(angleBedSlope) ? 0 : angleBedSlope;
+    blockElement.querySelector('#sideSlope .num').innerHTML = isNaN(angleSideSlope) ? 0 : angleSideSlope;
+    blockElement.querySelector('#manningsN .num').innerHTML = isNaN(mannings) ? 0 : Number(mannings).toFixed(4);
+    blockElement.querySelector('#bedWidth .num').innerHTML = isNaN(jsonData.estimate_bedWidth) ? 0 : Number(jsonData.estimate_bedWidth).toFixed(2);
+    blockElement.querySelector('#bedWidthDN .num').innerHTML = isNaN(bedWidthDN) ? 0 : Number(bedWidthDN);
+    blockElement.querySelector('#verticalOffset .num').innerHTML = isNaN(jsonData.estimate_offset) ? 0 : Number(jsonData.estimate_offset).toFixed(2);
 }
 
 function passDataToPDFView(jsonData, blockData, i, calc) {

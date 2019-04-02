@@ -8,6 +8,7 @@
             <section class="pagnation-page <?php echo (!isset($activeStep) || $activeStep == 1) ? 'current' : ''; ?>" id="1">
                 <?php include 'application/views/quotes/partials/project_information.php'; ?>
                 <?php include 'application/views/quotes/partials/flow_velocity.php'; ?>
+                <?php include 'application/views/quotes/partials/water_flow.php'; ?>
                 <?php include 'application/views/quotes/partials/offset.php'; ?>
             </section>
 
