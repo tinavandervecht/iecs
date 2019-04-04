@@ -4,7 +4,7 @@
     </div>
 
     <div id="flow"  class="multi_input clearfix columns small-12 medium-6">
-        <h4 class="title">Maximum Expected Flow</h4>
+        <h4 class="title">Design Flow</h4>
         <label for="flowMeters">
             <a href="#" class="tip"><span class="tooltip">Ensure the highest design flows are entered in cubic metres per second.</span>?</a>
             <h5 class="unit">m<sup>3</sup>/s</h5>

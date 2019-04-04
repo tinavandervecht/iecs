@@ -279,7 +279,7 @@ function Calculations(data, blockData){
   setLiftForceVariables(blockData.product_liftForce);
 
   setOffsetVariables(data.estimate_expectedVelocity, data.estimate_offset, blockData.product_bT);
-  setNetVariables(blockData.product_bT, data.estimate_offset, data.estimate_designFlow, data.estimate_bendFactor);
+  setNetVariables(blockData.product_bT, data.estimate_offset, data.estimate_expectedFlow, data.estimate_bendFactor);
 
   //GENERIC OVERTURNING AND SLIDING CALCULATIONS
   this.overturningBed= function(){
