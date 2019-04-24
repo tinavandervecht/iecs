@@ -182,13 +182,23 @@
                         <td>
                             <div class="design-item">Bed Slope (Degree): <?php echo $blocks_math[$block['product_name']]['angleBedSlope']; ?></div>
                         </td>
-                        <td></td>
+                        <td>
+                            <strong>Shear Stresses</strong>
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <div class="design-item">Side Slope (Degree): <?php echo $blocks_math[$block['product_name']]['angleSideSlope']; ?></div>
                         </td>
+                        <td>
+                            <div class="design-item">Bed, straight: <?php echo $blocks_math[$block['product_name']]['bedStress']; ?></div>
+                        </td>
+                    </tr>
+                    <tr>
                         <td></td>
+                        <td>
+                            <div class="design-item">Side: <?php echo $blocks_math[$block['product_name']]['sideStress']; ?></div>
+                        </td>
                     </tr>
                 </tbody>
             </table>

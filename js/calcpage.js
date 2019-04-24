@@ -587,6 +587,8 @@ function setValuesInBlockDetails(blockElement) {
     blockElement.querySelector('#bedWidth .num').innerHTML = isNaN(jsonData.estimate_bedWidth) ? 0 : Number(jsonData.estimate_bedWidth).toFixed(2);
     blockElement.querySelector('#bedWidthDN .num').innerHTML = isNaN(bedWidthDN) ? 0 : Number(bedWidthDN);
     blockElement.querySelector('#verticalOffset .num').innerHTML = isNaN(jsonData.estimate_offset) ? 0 : Number(jsonData.estimate_offset).toFixed(2);
+    blockElement.querySelector('#bedStress .num').innerHTML = isNaN(shearStressBed) ? 0 : Number(shearStressBed).toFixed(2);
+    blockElement.querySelector('#sideStress .num').innerHTML = isNaN(shearStressSide) ? 0 : Number(shearStressSide).toFixed(2);
 }
 
 function passDataToPDFView(jsonData, blockData, i, calc) {
@@ -742,6 +744,18 @@ function passDataToPDFView(jsonData, blockData, i, calc) {
         input.type = "hidden";
         input.name = blockData[i]['product_name'] + "[verticalOffset]";
         input.value = isNaN(jsonData.estimate_offset) ? 0 : Number(jsonData.estimate_offset).toFixed(2);
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = blockData[i]['product_name'] + "[bedStress]";
+        input.value = isNaN(shearStressBed) ? 0 : Number(shearStressBed).toFixed(2);
+        pdfContentForm.appendChild(input);
+
+    var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = blockData[i]['product_name'] + "[sideStress]";
+        input.value = isNaN(shearStressSide) ? 0 : Number(shearStressSide).toFixed(2);
         pdfContentForm.appendChild(input);
 }
 

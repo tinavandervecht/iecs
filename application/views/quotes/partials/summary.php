@@ -207,6 +207,22 @@
                       <div class="num">--</div>
                   </div>
               </div>
+              <!--===========================-->
+              <div class="other clearfix">
+                  <p class="factor"><strong>Shear Stresses</strong></p>
+              </div>
+              <div class="other clearfix" id="bedStress">
+                  <div>
+                      <p class="factor">Bed, straight</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
+              <div class="other clearfix" id="sideStress">
+                  <div>
+                      <p class="factor">Side</p>
+                      <div class="num">--</div>
+                  </div>
+              </div>
           </section>
       </div>
   </div>
