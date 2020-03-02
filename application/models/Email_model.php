@@ -22,8 +22,7 @@ class Email_model extends CI_Model {
         $email = new \SendGrid\Mail\Mail();
         $email->setFrom($input->post('company_email'), $input->post('company_name'));
         $email->setSubject($sub);
-        // $email->addTo('mmcarthur@iecs.com');
-        $email->addTo('tvandervecht@gmail.com');
+        $email->addTo('mmcarthur@iecs.com');
         $email->addContent("text/html", $body);
         $sendgrid = new \SendGrid($this->apiKey);
 
