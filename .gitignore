@@ -32,6 +32,7 @@ img/uploads/*
 
 ##FOR NICK'S TESTING
 application/config/database.php
+application/config/email.php
 application/config/config.php
 
 .env.development
