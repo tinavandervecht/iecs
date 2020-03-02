@@ -168,7 +168,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
 
         if ($this->form_validation->run() === TRUE) {
             $this->load->model('email_model');
-            $this->email_model->send_email_to_company($this->input, $data['summary']['company_email']);
+            $this->email_model->send_email_to_company($this->input, $data['summaryInfo']['company_email']);
 
             $data['sentEmail'] = true;
         }
