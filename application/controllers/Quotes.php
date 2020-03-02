@@ -216,19 +216,9 @@ class Quotes extends CI_Controller {
         $data['id'] = $id;
 
         //EMAIL INFORMATION
-        $estimateAddress = empty($data['summaryInfo']['estimate_location']) ? 'N/A' : $data['summaryInfo']['estimate_location'];
-        $body = '<h3>' . $data['summaryInfo']['company_name'] . " has submitted a new design!</h3>"
-            . "<p>Design Location: " . $estimateAddress . "</p>"
-            . '<a href="' . site_url('/admin/summary/'.$id) . '">Click here log in and view the design.</a>';
-        $sub = "New Design Sent from ".$data['summaryInfo']['company_name'];
-        $this->email->from($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']);
-        $this->email->to($this->input->post('region'));
+        $this->load->model('email_model');
+        $this->email_model->send_quote_email($data, $id, $this->input);
 
-        $this->email->set_mailtype("html");
-        $this->email->subject($sub);
-        $this->email->message($body);
-
-        $this->email->send();
         $this->quotes_model->alter_sent_state($id);
         redirect('/quotes/summary/'.$id.'?sentEmail=true');
     }

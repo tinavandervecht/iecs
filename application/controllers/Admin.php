@@ -167,15 +167,8 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $this->form_validation->set_message('required', 'Please fill out the %s.');
 
         if ($this->form_validation->run() === TRUE) {
-            $body = $this->input->post('email_text');
-            $sub = $this->input->post('email_sub');
-            $this->email->from('garvai@iecs.com', 'IECS');
-            $this->email->to($data['summary']['company_email']);
-
-            $this->email->subject($sub);
-            $this->email->message($body);
-
-            $this->email->send();
+            $this->load->model('email_model');
+            $this->email_model->send_email_to_company($this->input, $data['summary']['company_email']);
 
             $data['sentEmail'] = true;
         }

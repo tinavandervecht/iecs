@@ -32,18 +32,8 @@ class Companypassword extends CI_Controller {
             $query = $this->db->get_where('tbl_company', array('company_email' => $this->input->post('company_email')));
             $company = $query->row_array();
 
-            $body = '<h3>We\'ve received a password reset request for ' . $company['company_contactName'] . ".</h3>"
-                . "If this wasn't you, please feel free to ignore this email or notify us about it at mmcarthur@iecs.com"
-                . '<br /><a href="' . site_url('/companypassword/reset/'. $company['company_token']) . '">Click here reset your password.</a>';
-            $sub = "Password Reset";
-            $this->email->from('noreply@iecs.com', 'Cable Concrete Calculator');
-            $this->email->to($company['company_email']);
-
-            $this->email->set_mailtype("html");
-            $this->email->subject($sub);
-            $this->email->message($body);
-
-            $this->email->send();
+            $this->load->model('email_model');
+            $this->email_model->send_company_reset_password_email($company);
 
             $data['passwordReset'] = true;
         }

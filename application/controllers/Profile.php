@@ -7,6 +7,7 @@ class Profile extends CI_Controller {
         parent::__construct();
         session_start();
         $this->load->model('profile_model');
+        $this->load->model('email_model');
         $this->load->helper('url_helper');
     }
 
@@ -92,23 +93,7 @@ class Profile extends CI_Controller {
             $this->load->view('templates/footer', $data);
         } else { //IF THE FORM VALIDATES (MEANING THEY FILLED IT OUT AND PRESSED THE LINK)
             $id = $this->profile_model->set_profile(); //SET THE PROFILE INTO THE DATABASE
-
-            $body = '<h3>' . $this->input->post('company_name') . " has requested an account!</h3>"
-                . '<p><strong>Company Name:</strong> ' . $this->input->post('company_name') . '</p>'
-                . '<p><strong>Contact Name:</strong> ' . $this->input->post('company_contactName') . '</p>'
-                . '<p><strong>Company Email:</strong> ' . $this->input->post('company_email') . '</p>'
-                . '<p><strong>Company Phone:</strong> ' . $this->input->post('company_phone') . '</p>'
-                . '<p><strong>Company City:</strong> ' . $this->input->post('company_city') . '</p>'
-                . '<a href="' . site_url('/profile/approve/'. $id) . '">Click here approve request.</a>';
-            $sub = "New Account Request";
-            $this->email->from($this->input->post('company_email'), $this->input->post('company_name'));
-            $this->email->to('mmcarthur@iecs.com');
-
-            $this->email->set_mailtype("html");
-            $this->email->subject($sub);
-            $this->email->message($body);
-
-            $this->email->send();
+            $this->email_model->send_account_request_email($this->input, $id);
 
             $data['title'] = 'Register';
             $data['jsLink'] = 'js/login.js';
@@ -199,19 +184,7 @@ class Profile extends CI_Controller {
 
         $company = $this->profile_model->get_company($id);
 
-        $body = '<h3>Your request for an account has been approved!</h3>'
-            . '<p>Good news! A Cable Concrete representative reviewed your request for an account and approved it!</p>'
-            . '<p>To login and get started on running project designs, <a href="' . base_url('/profile/login') . '">Click here.</a></p>'
-            . '<p>If you have any questions, comments, or concerns, please contact IECS at 1-800-821-7462.</p>';
-        $sub = "Cable Concrete Calculator Account Request";
-        $this->email->from('noreply@cableconcrete.com', 'Cable Concrete Calculator');
-        $this->email->to($company['company_email']);
-
-        $this->email->set_mailtype("html");
-        $this->email->subject($sub);
-        $this->email->message($body);
-
-        $this->email->send();
+        $this->email_model->send_account_approved_email($company['company_email']);
 
         redirect("/admin/company/" . $id);
     }

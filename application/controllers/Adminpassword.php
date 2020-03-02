@@ -32,18 +32,8 @@ class Adminpassword extends CI_Controller {
             $query = $this->db->get_where('tbl_admin', array('admin_email' => $this->input->post('admin_email')));
             $admin = $query->row_array();
 
-            $body = '<h3>We\'ve received a password reset request for ' . $admin['admin_name'] . ".</h3>"
-                . "If this wasn't you, please feel free to ignore this email or notify us about it at mmcarthur@iecs.com"
-                . '<br /><a href="' . site_url('/adminpassword/reset/'. $admin['admin_token']) . '">Click here reset your password.</a>';
-            $sub = "Password Reset";
-            $this->email->from('noreply@iecs.com', 'Cable Concrete Calculator');
-            $this->email->to($admin['admin_email']);
-
-            $this->email->set_mailtype("html");
-            $this->email->subject($sub);
-            $this->email->message($body);
-
-            $this->email->send();
+            $this->load->model('email_model');
+            $this->email_model->send_admin_reset_password_email($admin);
 
             $data['passwordReset'] = true;
         }
