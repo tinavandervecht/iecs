@@ -20,7 +20,7 @@ class Email_model extends CI_Model {
         $sub = "New Account Request";
 
         $email = new \SendGrid\Mail\Mail();
-        $email->setFrom($input->post('company_email'), $input->post('company_name'));
+        $email->setFrom('noreply@cableconcrete.com', 'Cable Concrete Calculator');
         $email->setSubject($sub);
         $email->addTo('mmcarthur@iecs.com');
         $email->addContent("text/html", $body);
@@ -98,11 +98,13 @@ class Email_model extends CI_Model {
         $estimateAddress = empty($data['summaryInfo']['estimate_location']) ? 'N/A' : $data['summaryInfo']['estimate_location'];
         $body = '<h3>' . $data['summaryInfo']['company_name'] . " has submitted a new design!</h3>"
             . "<p>Design Location: " . $estimateAddress . "</p>"
+            . "<p>Company Contact name: " . $data['summaryInfo']['company_contactName'] . "</p>"
+            . "<p>Company email: " . $data['summaryInfo']['company_email'] . "</p>"
             . '<a href="' . site_url('/admin/summary/'.$id) . '">Click here log in and view the design.</a>';
         $sub = "New Design Sent from ".$data['summaryInfo']['company_name'];
 
         $email = new \SendGrid\Mail\Mail();
-        $email->setFrom($data['summaryInfo']['company_email'], $data['summaryInfo']['company_contactName']);
+        $email->setFrom('noreply@cableconcrete.com', 'Cable Concrete Calculator');
         $email->setSubject($sub);
         $email->addTo($input->post('region'));
         $email->addContent("text/html", $body);
