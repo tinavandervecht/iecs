@@ -49,11 +49,13 @@ class Email_model extends CI_Model {
 
     public function send_email_to_company($input, $companyEmail)
     {
+        $body = $input->post('email_text') . "<p>To reply, please email garvai@iecs.com.</p>";
+
         $email = new \SendGrid\Mail\Mail();
-        $email->setFrom('garvai@iecs.com', 'IECS');
+        $email->setFrom('noreply@cableconcrete.com', 'IECS');
         $email->setSubject($input->post('email_sub'));
         $email->addTo($companyEmail);
-        $email->addContent("text/html", $input->post('email_text'));
+        $email->addContent("text/html", $body);
         $sendgrid = new \SendGrid($this->apiKey);
 
         $sendgrid->send($email);
