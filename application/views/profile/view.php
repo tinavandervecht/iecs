@@ -90,6 +90,18 @@
                 </div>
 
                 <div class="field">
+                    <h3 class="title">Province</h3>
+                    <a href="#" class="value">
+                        <span class="text">
+                            <?php echo $userInfo['company_province'];?>
+                        </span>
+                        <img src="<?php echo base_url('img/pencil_icon.svg');?>" alt="Edit Icon"/>
+                    </a>
+                    <input class="value hidden" name="province" value="<?php echo $userInfo['company_province'];?>">
+                    <?php echo form_error('province', '<span class="error">', '</span>');?>
+                </div>
+
+                <div class="field">
                     <h3 class="title">Current Password</h3>
                     <a href="#" class="value">
                         <span class="text">

@@ -15,7 +15,8 @@ class Email_model extends CI_Model {
             . '<p><strong>Contact Name:</strong> ' . $input->post('company_contactName') . '</p>'
             . '<p><strong>Company Email:</strong> ' . $input->post('company_email') . '</p>'
             . '<p><strong>Company Phone:</strong> ' . $input->post('company_phone') . '</p>'
-            . '<p><strong>Company City:</strong> ' . $input->post('company_city') . '</p>'
+            . '<p><strong>Company City:</strong> ' . $input->post('company_city') || 'N/A' . '</p>'
+            . '<p><strong>Company Province:</strong> ' . $input->post('company_province') . '</p>'
             . '<a href="' . site_url('/profile/approve/'. $companyId) . '">Click here approve request.</a>';
         $sub = "New Account Request";
 
@@ -109,6 +110,23 @@ class Email_model extends CI_Model {
         $email->setFrom('noreply@cableconcrete.com', 'Cable Concrete Calculator');
         $email->setSubject($sub);
         $email->addTo($input->post('region'));
+        $email->addContent("text/html", $body);
+        $sendgrid = new \SendGrid($this->apiKey);
+
+        $sendgrid->send($email);
+    }
+
+    public function send_contact_email($subject, $message, $company)
+    {
+        $body ="<p>Company Contact name: " . $company['company_contactName'] . "</p>"
+            . "<p>Company email: " . $company['company_email'] . "</p>"
+            . '<p>message: ' . $message . '</p>';
+
+        $email = new \SendGrid\Mail\Mail();
+        $email->setFrom('noreply@cableconcrete.com', 'Cable Concrete Calculator');
+        $email->setSubject($subject);
+        // $email->addTo('mmcarthur@iecs.com');
+        $email->addTo('tvandervecht@gmail.com');
         $email->addContent("text/html", $body);
         $sendgrid = new \SendGrid($this->apiKey);
 

@@ -25,7 +25,7 @@ class Profile extends CI_Controller {
         $this->form_validation->set_rules('name', 'Name', 'required|max_length[140]');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|max_length[12]');
         $this->form_validation->set_rules('contactName', 'Contact Name', 'required|max_length[30]');
-        $this->form_validation->set_rules('email', 'Email', 'valid_email|is_unique[tbl_company.company_email]');
+        $this->form_validation->set_rules('email', 'Email', 'valid_email|callback_unique_email');
 
         if (isset($_POST) && isset($_POST['new_password']) && $_POST['new_password'] != '')
         {
@@ -82,7 +82,7 @@ class Profile extends CI_Controller {
         $this->form_validation->set_rules('company_pw', 'Password', 'required|min_length[6]|max_length[30]|alpha_numeric');
         $this->form_validation->set_rules('passwordconf', 'Password Confirmation', 'required|matches[company_pw]');
         $this->form_validation->set_rules('company_pw', 'Password', 'required|matches[company_pw]');
-        $this->form_validation->set_rules('company_city', 'City', 'required');
+        $this->form_validation->set_rules('company_province', 'Province', 'required');
         $this->form_validation->set_rules('company_phone', 'Phone Number', 'required|max_length[12]');
 
         if ($this->form_validation->run() === FALSE) {
@@ -204,5 +204,16 @@ class Profile extends CI_Controller {
         $this->db->update('tbl_company');
 
         redirect("/admin/company/" . $id);
+    }
+
+    public function unique_email($str)
+    {
+        if (! $this->profile_model->check_unique_email($str, $_SESSION['company_id']))
+        {
+            $this->form_validation->set_message('unique_email', 'The {field} field must contain a unique value nerp.');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     }
 }

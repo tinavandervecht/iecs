@@ -45,7 +45,7 @@
                     <p class="text-center">
                         <span class="num smaller"><?php echo sizeof($users); ?></span>
                         <br />
-                        # of <?php echo empty($users[0]['company_city']) ? 'N/A' : $users[0]['company_city']; ?> Users
+                        # of <?php echo empty($users[0]['company_province']) ? 'N/A' : $users[0]['company_province']; ?> Users
                     </p>
                 </div>
             <?php endforeach; ?>

@@ -65,6 +65,13 @@
         />
         <?php echo form_error('company_city', '<p class="error">', '</p>');?>
 
+        <label for="company_province">Company Province:</label>
+        <img src="<?php echo base_url('img/user_icon_edit.svg');?>" class="icon">
+        <input name="company_province" type="input" placeholder="Enter your company province." required="true"
+            value="<?php echo isset($_POST['company_province']) && !isset($accountRequested) ? $_POST['company_province'] : ''; ?>"
+        />
+        <?php echo form_error('company_province', '<p class="error">', '</p>');?>
+
         <label for="company_phone">Phone Number:</label>
         <img src="<?php echo base_url('img/user_icon_edit.svg');?>" class="icon">
         <input name="company_phone" type="input" placeholder="Enter your phone number." required="true"

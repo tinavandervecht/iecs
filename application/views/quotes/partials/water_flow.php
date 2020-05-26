@@ -6,6 +6,12 @@
     <div id="velocity" class="clearfix columns small-12 medium-6">
         <h4 class="title">Bend Factor</h4>
         <label for="bendFactor">
+            <a href="#" class="tip">
+                <span class="tooltip img">
+                    <img src="/img/bend-factor-explanation.png" width="300" alt="Bend Factor Explanation" />
+                </span>
+                ?
+            </a>
             <h5 class="unit">Bed, straight</h5>
         </label>
         <input type="number" id="bendFactor" class="required" name="bendFactor"

@@ -95,7 +95,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
             redirect('/admin/login');
         }
 
-        $data['activity'] = $this->admin_model->get_activity(8);
+        $data['activity'] = $this->admin_model->get_activity(40);
         $data['title'] = "Activity | IECS";
         $data['jsLink'] = 'js/dash.js';
         $data['current'] = "activity";
@@ -121,7 +121,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $post = $this->input->post("submit");
 
         if (!isset($post)) {
-            $data['estimates'] = $this->admin_model->get_allEstimates(12);
+            $data['estimates'] = $this->admin_model->get_allEstimates();
 
             $data['title'] = "Analyses | IECS";
             $data['jsLink'] = 'js/dash.js';
@@ -133,7 +133,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
             $this->load->view('templates/adminFooterNav', $data);
             $this->load->view('templates/estimatefooter', $data);
         } else {
-            $data['estimates'] = $this->admin_model->search_estimates(12);
+            $data['estimates'] = $this->admin_model->search_estimates();
 
             $data['title'] = "Analyses | IECS";
             $data['jsLink'] = 'js/dash.js';
@@ -199,7 +199,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $post = $this->input->post('sort');
 
         if (!isset($post)) {
-            $data['companies'] = $this->admin_model->get_allCompanies(8);
+            $data['companies'] = $this->admin_model->get_allCompanies();
 
             $data['title'] = "Companies | IECS";
             $data['jsLink'] = 'js/dash.js';
@@ -237,7 +237,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
             redirect('/admin/companies');
         }
 
-        $data['company'] = $this->admin_model->get_companyEstimates($id, 6);
+        $data['company'] = $this->admin_model->get_companyEstimates($id);
         $data['companyInfo'] = $this->admin_model->get_companyInfo($id);
 
         $data['title'] = $data['companyInfo']['company_name'];
@@ -249,6 +249,27 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
         $this->load->view('admin/company', $data);
         $this->load->view('templates/adminFooterNav', $data);
         $this->load->view('templates/footer', $data);
+    }
+
+    public function deleteCompany($id)
+    {
+        if (isset($_SESSION['userdata']['admin_id']) == FALSE) {
+            redirect('/admin/login');
+        }
+
+        if ($id == NULL) {
+            redirect('/admin/companies');
+        }
+
+        $estimates = $this->admin_model->get_companyEstimates($id);
+
+        for($i = 0; $i < count($estimates); $i++) {
+            $this->db->delete('tbl_estimates', array('estimate_id' => $estimates[$i]['estimate_id']));
+        }
+
+        $this->db->delete('tbl_company', array('company_id' => $id));
+
+        redirect('/admin/companies');
     }
 
     public function statistics(){
@@ -407,7 +428,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
     public function ajaxCompanies()
     {
         if (isset($_GET['value'])) { //IF THE GET value PARAMETER IS PASSED
-            $data['companies'] = $this->admin_model->ajax_companies($_GET['value'], $_GET['search']);
+            $data['companies'] = $this->admin_model->ajax_companies($_GET['value'], $_GET['search'], $_GET['limit'] ?? null);
             echo json_encode($data['companies']);
         }
     }
@@ -415,7 +436,7 @@ class Admin extends CI_Controller { //ALL FUNCTIONS GO INSIDE THE ADMIN CONTROLL
     public function ajaxEstimates()
     {
         if (isset($_GET['value'])) {
-            $data['estimates'] = $this->admin_model->ajax_estimate($_GET['value'], $_GET['search']);
+            $data['estimates'] = $this->admin_model->ajax_estimate($_GET['value'], $_GET['search'], $_GET['limit'] ?? null);
             echo json_encode($data['estimates']);
         }
     }

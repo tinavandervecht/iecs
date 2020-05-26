@@ -21,6 +21,7 @@
                       <p class="username">Contact Name: <span class="value"><?php echo $companyInfo['company_contactName'];?></span></p>
                       <p class="username">Company: <span class="value"><?php echo $companyInfo['company_name'];?></span></p>
                       <p class="username">City: <span class="value"><?php echo is_null($companyInfo['company_city']) ? 'N/A' : $companyInfo['company_city'];?></span></p>
+                      <p class="username">Province: <span class="value"><?php echo is_null($companyInfo['company_province']) ? 'N/A' : $companyInfo['company_province'];?></span></p>
                       <p class="phone">Phone Number: <span class="value"><?php echo $companyInfo['company_phone'];?></span></p>
                       <p class="email">Email: <span class="value"><?php echo $companyInfo['company_email'];?></span></p>
                       <p class="approved">
@@ -32,6 +33,13 @@
                       </p>
                     </div>
                   </div>
+                  <a href="#"
+                      disabled="disabled"
+                      class="modalButton redButton deleteCompanyBtn"
+                      data-reveal-id="deleteCompanyModal"
+                  >
+                      Delete Company
+                  </a>
               </div>
               <div id="companyEstimates" class="small-12 large-8 columns">
                 <h2 class="hidden">Company Designs</h2>
@@ -59,3 +67,17 @@
 
     </section>
 </main>
+
+<div id="overlay"></div>
+<div id="deleteCompanyModal" class="custom-modal">
+    <h1>Are you sure you want to delete <?php echo $companyInfo['company_name'];?>?</h1>
+    <h2>This action <em>cannot be undone.</em></h2>
+    <?php if(count($company) > 0): ?>
+        <h3>Deleting <?php echo $companyInfo['company_name'];?> will delete the <?php echo count($company); ?> estimates created by this company.</h3>
+    <?php endif; ?>
+
+    <a class="redButton deleteCompanyBtn" href="<?php echo site_url('admin/deleteCompany/'.$companyInfo['company_id']);?>">
+        Yes, Delete Company
+    </a>
+    <a class="greenButton deleteCompanyBtn close-modal">Nevermind</a>
+</div>

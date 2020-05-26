@@ -11,8 +11,8 @@ function enableEdit(event){
         document.querySelector("#saveProfile").classList.remove('hidden');
     }
     it.classList.toggle('hidden');
-    it.parentNode.querySelector('input.value').classList.toggle('hidden');
-    it.parentNode.querySelector('input.value').focus();
+    it.parentNode.querySelector('input.value, select.value').classList.toggle('hidden');
+    it.parentNode.querySelector('input.value, select.value').focus();
 }
 
 function removeEdit(event){

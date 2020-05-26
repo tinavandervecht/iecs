@@ -5,6 +5,17 @@ class Profile_model extends CI_Model {
         $this->load->database();
     }
 
+    public function check_unique_email($email, $companyID)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_company');
+        $this->db->where('company_email', $email);
+        $this->db->where('company_id', '!=', $companyID);
+        $query = $this->db->get();
+
+        return empty($query->result());
+    }
+
     public function get_company($companyID = FALSE)
     {
         if($companyID === FALSE){
@@ -50,6 +61,7 @@ class Profile_model extends CI_Model {
             'company_date' => date('Y-m-d H:i:s'),
             'company_contactName' => $this->input->post('company_contactName'),
             'company_city' => $this->input->post('company_city'),
+            'company_province' => $this->input->post('company_province'),
             'company_status' => 1
         );
 
@@ -66,6 +78,7 @@ class Profile_model extends CI_Model {
             'company_phone' => $this->input->post('phone'),
             'company_contactName' => $this->input->post('contactName'),
             'company_city' => $this->input->post('city'),
+            'company_province' => $this->input->post('province'),
         );
 
         if ($this->input->post('new_password')) {
@@ -73,7 +86,7 @@ class Profile_model extends CI_Model {
         }
 
         if ($this->input->post('email')) {
-            $data['email'] = $this->input->post('email');
+            $data['company_email'] = $this->input->post('email');
         }
 
         $this->db->set($data);

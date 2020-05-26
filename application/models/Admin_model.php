@@ -29,7 +29,7 @@ class Admin_model extends CI_Model {
         return false; //IF FALSE IS PASSED, THE CONTROLLER WILL REALIZE THE INFO IS WRONG AND WILL RELOAD THE ADMIN LOGIN SCREEN.
     }
 
-    public function get_allEstimates($limit)
+    public function get_allEstimates($limit = null)
     {
         //Function for getting all the estimates for the estimates cms page.
 
@@ -47,7 +47,7 @@ class Admin_model extends CI_Model {
         return $query->result_array(); //RESULT_ARRAY() RETURNS A TWO DIMENSION ASSOCIATIVE ARRAY (you would have the syntax be like array[i]['name'])
     }
 
-    public function search_estimates($limit)
+    public function search_estimates($limit = null)
     {
         //A FUNCTION FOR SEARCHING FOR SPECIFIC ENTRIES IN THE ESTIMATES
         $search = $this->input->post('search');
@@ -87,7 +87,7 @@ class Admin_model extends CI_Model {
             : $query->result_array();
     }
 
-    public function ajax_estimate($sort, $search)
+    public function ajax_estimate($sort, $search, $limit = null)
     {
          //FUNCTION FOR THE AJAX SEARCH FUNCTIONALITY. DOES THE SAME AS THE ABOVE FUNCTION.
         $this->db->select('*');
@@ -110,7 +110,9 @@ class Admin_model extends CI_Model {
             $this->db->order_by('tbl_estimates.estimate_modifiedDate', 'ASC');
         }
 
-        $this->db->limit(12);
+        if (isset($limit) && $limit !== 'all'){
+            $this->db->limit($limit);
+        }
 
         $query = $this->db->get();
 
@@ -120,7 +122,7 @@ class Admin_model extends CI_Model {
     }
 
 
-    public function search_companies($limit)
+    public function search_companies($limit = null)
     {
         //SIMILAR AS ABOVE, SEARCH FUNCTION FOR THE COMPANIES
         $search = $this->input->post('search');
@@ -160,7 +162,7 @@ class Admin_model extends CI_Model {
             : $query->result_array();
     }
 
-    public function ajax_companies($sort, $search)
+    public function ajax_companies($sort, $search, $limit = null)
     {
         //AJAX FUNCTION USED FOR SEARCHING FOR COMPANIES
         $this->db->select('*');
@@ -182,7 +184,9 @@ class Admin_model extends CI_Model {
             $this->db->order_by('company_date', 'ASC');
         }
 
-        $this->db->limit(8);
+        if (isset($limit) && $limit !== 'all'){
+            $this->db->limit($limit);
+        }
 
         $query = $this->db->get();
 
@@ -191,7 +195,7 @@ class Admin_model extends CI_Model {
             : $query->result_array();
     }
 
-    public function get_activity($limit)
+    public function get_activity($limit = null)
     {
         //GETS ALL ACTIVITY FOR THE ACTIVITY PAGE AND ATTACHED COMPANY INFO TO EACH ENTRY
         $this->db->select('*');
@@ -208,7 +212,7 @@ class Admin_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_allCompanies($limit)
+    public function get_allCompanies($limit = null)
     {
         //FUNCTION FOR GETTING ALL THE COMPANIES FOR THE CMS COMPANIES PAGE
         $this->db->select('*');
@@ -224,7 +228,7 @@ class Admin_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_companyEstimates($id, $limit)
+    public function get_companyEstimates($id, $limit = null)
     {
         //FOR POPULATING THE INDIVIDUAL COMPANY PAGES, GETS ALL ESTIMATES ASSOCIATED WITH A COMPANY.
         $this->db->select('*');
@@ -430,7 +434,7 @@ class Admin_model extends CI_Model {
 
         foreach($query->result_array() as $user)
         {
-            $key = str_replace(' ', '', strtolower($user['company_city']));
+            $key = str_replace(' ', '', strtolower($user['company_province']));
             $userInfo['area_users'][$key][] = $user;
         }
 

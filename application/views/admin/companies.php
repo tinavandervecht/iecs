@@ -13,6 +13,12 @@
                   <option value="3">Alphabetical (A-Z)</option>
                   <option value="4">Alphabetical (Z-A)</option>
             </select>
+            <select id="limit" name="limit">
+                <option value="10">Limit: 10</option>
+                <option value="25">Limit: 25</option>
+                <option value="50">Limit: 50</option>
+                <option value="all" selected>Limit: all</option>
+            </select>
             <input type="search" placeholder="Search" name="search" id="search">
           </form>
             <!-- ================================ -->
@@ -30,6 +36,7 @@
                   <h3><?php echo $company['company_name'];?></h3>
                   <h4><?php echo $company['company_contactName'];?></h4>
                   <h5>City: <?php echo is_null($company['company_city']) ? 'N/A' : $company['company_city'];?></h5>
+                  <h5>Province: <?php echo is_null($company['company_province']) ? 'N/A' : $company['company_province'];?></h5>
                 </div>
                 <div class="viewCallout clearfix">
                   <a href="<?php echo site_url('admin/company/'.$company['company_id']);?>" class="greenButton">View</a>
