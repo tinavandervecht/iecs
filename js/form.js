@@ -122,6 +122,18 @@ function pagnation(event){
                     hasError = true;
                     return;
                 }
+
+                if(input.name == 'bedSlopeDecimal' && input.value < 0.001) {
+                    $(input).after('<div><p class="error">Value must be greater than or equal to 0.001.</p></div>');
+                    hasError = true;
+                    return;
+                }
+
+                if(input.name == 'sideSlopeDecimal' && input.value < 1) {
+                    $(input).after('<div><p class="error">Value must be greater than or equal to 1.</p></div>');
+                    hasError = true;
+                    return;
+                }
             })
             if (! hasError) {
                 pageNo.classList.remove('current');

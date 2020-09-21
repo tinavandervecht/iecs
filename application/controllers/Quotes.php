@@ -52,8 +52,8 @@ class Quotes extends CI_Controller {
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('flowMeters', 'Expected Flow', 'required|numeric|max_length[6]');
         $this->form_validation->set_rules('velocityMeters', 'Expected Velocity', 'required|numeric|max_length[6]');
-        $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]');
-        $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]');
+        $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]|greater_than[0]');
+        $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]|greater_than[.9]');
         $this->form_validation->set_rules('bedMeters', 'Bed Width', 'required|numeric|max_length[6]');
         if ($this->input->post('alignType')!=0) { //IF ITS A STRAIGHT ALIGNMENT VALIDATE THESE AS WELL
             $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');
@@ -104,8 +104,8 @@ class Quotes extends CI_Controller {
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('flowMeters', 'Expected Flow', 'required|numeric|max_length[6]');
         $this->form_validation->set_rules('velocityMeters', 'Expected Velocity', 'required|numeric|max_length[6]');
-        $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]');
-        $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]');
+        $this->form_validation->set_rules('bedSlopeDecimal', 'Bed Slope', 'required|numeric|max_length[6]|greater_than[0]');
+        $this->form_validation->set_rules('sideSlopeDecimal', 'Side Slope', 'required|numeric|max_length[6]|greater_than[.9]');
         $this->form_validation->set_rules('bedMeters', 'Bed Width', 'required|numeric|max_length[6]');
         if ($this->input->post('alignType')!=0) { //IF ALIGNMENT IS STRAIGHT VALIDATE THESE TOO
             $this->form_validation->set_rules('crestMeters', 'Crest Radius', 'required|numeric|max_length[6]');

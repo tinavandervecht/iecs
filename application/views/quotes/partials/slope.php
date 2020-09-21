@@ -28,13 +28,13 @@
                 <h5 class="unit">Decimal</h5>
             </label>
             <input type="number" id="bedSlopeDecimal"  class="convert D required" name="bedSlopeDecimal"
-                min="0"
+                min="0.001"
                 value="<?php if (isset($_POST['bedSlopeDecimal'])) :
                     echo $_POST['bedSlopeDecimal'];
                 elseif (isset($estimate)) :
                     echo $estimate['estimate_bedSlope'];
                 else:
-                    echo '0.000';
+                    echo '0.001';
                 endif; ?>"
             />
             <?php echo form_error('bedSlopeDecimal', '<p class="error">', '</p>');?>
@@ -47,13 +47,13 @@
                 <h5 class="unit">Ratio Z:1</h5>
             </label>
             <input type="number" id="sideSlopeDecimal"  class="convert D required" name="sideSlopeDecimal"
-                min="0"
+                min="1.0"
                 value="<?php if (isset($_POST['sideSlopeDecimal'])) :
                     echo $_POST['sideSlopeDecimal'];
                 elseif (isset($estimate)) :
                     echo number_format($estimate['estimate_sideSlope'], 2);
                 else:
-                    echo '0';
+                    echo '1.0';
                 endif; ?>"
             />
             <?php echo form_error('sideSlopeDecimal', '<p class="error">', '</p>');?>
